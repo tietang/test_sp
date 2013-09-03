@@ -1,0 +1,24 @@
+`import java.util.*; ` 
+`args String item` 
+`Map<String , String> ms=new HashMap<String , String>();` 
+`ms.put(item," class=\"active\" ");`
+
+ 
+<ul class="nav  nav-pills nav-stacked">
+	<li><h4>&{profile.menu.profile}</h4></li>
+	<li${ms.get("Profile")}><a href="/settings/profile">&{profile.menu.profile}</a></li>
+	<li${ms.get("Camera")}><a href="/settings/camera">&{profile.menu.camera}</a></li>
+	<li${ms.get("Password")}><a href="/settings/password">&{profile.menu.password}</a></li>
+	<li${ms.get("Notifications")}><a href="/settings/notification">&{profile.menu.notifications}</a></li>
+	<li${ms.get("SocialMedia")}><a href="/settings/notification">&{profile.menu.social.media}</a></li>
+	<!--
+    <li${ms.get("Account")}><a href="/settings/account">&{profile.menu.account}</a></li>
+	<li><h4>&{profile.menu.album}</h4></li>
+	<li${ms.get("Settings")}><a href="#">&{profile.menu.settings}</a></li>
+	<li${ms.get("Themes")}><a href="#">&{profile.menu.themes}</a></li>
+	<li><h4>&{profile.menu.friends}</h4></li>
+	<li${ms.get("Following")}><a href="#">&{profile.menu.following}</a></li>
+	<li${ms.get("Followed")}><a href="#">&{profile.menu.followed}</a></li>
+    -->
+</ul>
+ 

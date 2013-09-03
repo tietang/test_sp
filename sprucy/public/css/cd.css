@@ -1,0 +1,41 @@
+.photos_placeholder .sidebar .inline input.tags {
+	background: #fcfcfc url("/unity/img/icons/sidebar/tag.png") no-repeat
+		7px 9px
+}
+
+.photos_placeholder .sidebar .inline input.date {
+	background: #fcfcfc url("/unity/img/icons/sidebar/icon-taken-at.png")
+		no-repeat 5px 6px
+}
+
+.photos_placeholder .sidebar .inline input.lens {
+	background: #fcfcfc url("/unity/img/icons/sidebar/icon-lens.png")
+		no-repeat 5px 6px
+}
+
+.photos_placeholder .sidebar .inline input.camera {
+	background: #fcfcfc url("/unity/img/icons/sidebar/icon-camera.png")
+		no-repeat 5px 7px
+}
+
+.photos_placeholder .sidebar .inline input.focal-length {
+	background: #fcfcfc
+		url("/unity/img/icons/sidebar/icon-focal-length.png") no-repeat 5px
+		6px
+}
+
+.photos_placeholder .sidebar .inline input.aperture {
+	background: #fcfcfc url("/unity/img/icons/sidebar/icon-aperture.png")
+		no-repeat 5px 6px
+}
+
+.photos_placeholder .sidebar .inline input.shutter-speed {
+	background: #fcfcfc
+		url("/unity/img/icons/sidebar/icon-shutter-speed.png") no-repeat 5px
+		6px
+}
+
+.photos_placeholder .sidebar .inline input.iso {
+	background: #fcfcfc url("/unity/img/icons/sidebar/icon-iso.png")
+		no-repeat 5px 6px
+}

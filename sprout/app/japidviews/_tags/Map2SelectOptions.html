@@ -1,0 +1,21 @@
+`import java.util.*; import java.util.Map.Entry;`
+`args Map kv, Byte defaultKey`
+`if(kv==null) kv=new HashMap();`
+`Set  sets = kv.entrySet();`
+`for (Object obj : sets) {`
+`Entry entry=(Entry)obj;`
+`Byte key=(Byte)entry.getKey();`
+`Object value=entry.getValue();`
+`if(key<0){`
+<!--<optgroup label="     "></optgroup>-->
+<option data-divider="true"></option>
+`}else{`
+`if(key.equals(defaultKey)){`
+<option selected="selected" value="${key}">${value}</option>
+`}else{`
+<option value="${key}">${value}</option>
+`}`
+`}`
+
+`}`
+

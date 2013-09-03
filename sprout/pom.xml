@@ -1,0 +1,199 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fengfei.spruce</groupId>
+	<artifactId>sprout</artifactId>
+	<packaging>jar</packaging>
+
+
+	<version>0.1-SNAPSHOT</version>
+	<name>sprout</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>fengfei.forest</groupId>
+			<artifactId>forest-core</artifactId>
+			<version>0.1-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<groupId>org.apache.maven.plugins</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>fengfei.forest</groupId>
+			<artifactId>forest-dbutils</artifactId>
+			<version>0.1-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<groupId>org.apache.maven.plugins</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>fengfei.spruce</groupId>
+			<artifactId>fir</artifactId>
+			<version>0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+
+
+
+
+
+			<!-- Keeping this order is very important for packaging phase (copy-dependency 
+				must run before antrun) -->
+
+			<!--<plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId> 
+				<version>2.5</version> <executions> <execution> <id>copy</id> <phase>package</phase> 
+				<goals> <goal>copy</goal> </goals> <configuration> <artifactItems> </artifactItems> 
+				<outputDirectory>${project.directory}/lib</outputDirectory> <overWriteReleases>false</overWriteReleases> 
+				<overWriteSnapshots>true</overWriteSnapshots> </configuration> </execution> 
+				<execution> <id>copy-dependencies</id> <phase>package</phase> <goals> <goal>copy-dependencies</goal> 
+				</goals> <configuration> <outputDirectory>lib</outputDirectory> <overWriteReleases>false</overWriteReleases> 
+				<overWriteSnapshots>true</overWriteSnapshots> <overWriteIfNewer>true</overWriteIfNewer> 
+				</configuration> </execution> </executions> </plugin> -->
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>app</source>
+								<source>conf</source>
+							</sources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>add-test-source</id>
+						<phase>generate-test-sources</phase>
+						<goals>
+							<goal>add-test-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>test</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.github.goldin</groupId>
+				<artifactId>copy-maven-plugin</artifactId>
+				<version>0.2.5</version>
+				<executions>
+					<execution>
+						<id>create-archive</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<targetPath>lib</targetPath>
+									<dependency>
+										<excludeTransitive>true</excludeTransitive>
+										<includeScope>compile</includeScope>
+										<!-- <includeGroupIds></includeGroupIds> <includeArtifactIds></includeArtifactIds> -->
+										<excludeGroupIds>com.sun.jdmk,javax.jms,com.sun.jmx</excludeGroupIds>
+										<excludeArtifactIds>jmx*,spring*,struts*,velocity*,myfaces*,mybatis*</excludeArtifactIds>
+									</dependency>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- <plugin> <groupId>com.google.code.maven-play-plugin</groupId> <artifactId>play-maven-plugin</artifactId> 
+				<extensions>true</extensions> </plugin> -->
+		</plugins>
+
+	</build>
+	<repositories>
+		<repository>
+			<id>maven</id>
+			<name>Maven </name>
+			<url>http://repo1.maven.org/maven2/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>com.google.code.maven-play-plugin</id>
+			<name>Maven Play Plugin - releases</name>
+			<url>http://maven-play-plugin.googlecode.com/svn/mavenrepo/releases</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>com.google.code.maven-play-plugin-snapshots</id>
+			<name>Maven Play Plugin 
+		- snapshots</name>
+			<url>http://maven-play-plugin.googlecode.com/svn/mavenrepo/snapshots</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>jboss</id>
+			<name>jboss </name>
+			<url>http://repository.jboss.com/maven2/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>sonatype</id>
+			<name>sonatype</name>
+			<url>http://repository.sonatype.org/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>ibiblio</id>
+			<name>ibiblio</name>
+			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2/org/acegisecurity/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+</project>

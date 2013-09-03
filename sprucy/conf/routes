@@ -1,0 +1,23 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+POST	/upload/done				Lorry.done
+GET		/upload						Lorry.upload
+POST	/upload/save				Lorry.savePhoto
+GET		/							Lorry.upload
+GET		/u							Lorry.upload1
+GET		/t							Lorry.t
+GET		/s							Lorry.swfupload
+GET		/s2							Lorry.s
+POST	/upload/doit				Lorry.swfDone
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}

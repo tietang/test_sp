@@ -1,0 +1,63 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET		/								Usher.index
+GET		/home/?							Usher.index
+#
+GET		/logout/?						UserCenter.logout
+*		/login/?					 	UserCenter.login
+POST	/logon		 					UserCenter.logon
+*	  	/logoff		 					UserCenter.logoff
+#
+GET		/signup							UserCenter.signup
+POST	/signup/done/?					UserCenter.register
+#upload
+*		/upload							LorryAction.upload
+POST	/upload/done					LorryAction.uploadDone
+
+#
+#GET		/show/{id}						ShowAction.show
+GET		/u/?							ShowAction.showUser
+GET		/last/?							ShowAction.last
+GET		/catalog/?						ShowAction.catalog
+GET		/random/?						ShowAction.random
+GET		/top/?							ShowAction.top
+GET		/popular/?						ShowAction.popular
+GET		/shop/best/?    				Store.best
+GET		/shop/bestSellers/?			 	Store.bestSellers
+GET		/shop/random/?		   		 	Store.random
+GET		/shop/catalog/? 			   	Store.catalog
+GET		/shop/new/?  			   		Store.showNew
+#
+*		/follow/{toid}					FollowAction.follow
+*		/unfollow/{toid}				FollowAction.unfollow
+GET		/follows						FollowAction.countFollows
+* 		/comment/done					CommentAction.commentDone
+#*		/comments						CommentAction.showComments
+*		/vote/{id}						RankAction.vote
+*		/favorite/{id}					RankAction.favorite
+*		/unfavorite/{id}				RankAction.unFavorite
+#
+* 		/settings/?		 				ProfileAction.profile
+* 		/settings/profile 				ProfileAction.profile
+* 		/settings/profile/done 			ProfileAction.profileDone
+*		/profile/upload					ProfileAction.headUpload
+* 		/settings/password 				ProfileAction.password			
+* 		/settings/password/done 		ProfileAction.passwordDone			
+* 		/settings/notification 			ProfileAction.notification			
+* 		/settings/notification/done 	ProfileAction.notificationDone			
+* 		/settings/camera/done 			ProfileAction.cameraDone			
+* 		/settings/camera				ProfileAction.camera			
+* 		/settings/account 				ProfileAction.account			
+* 		/settings/account/done 			ProfileAction.accountDone			
+# Ignore favicon requests
+GET     /favicon.ico                            staticFile:/favicon.ico  
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+GET     /images/                                staticDir:images
+GET		/photo/									staticDir:photo
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}

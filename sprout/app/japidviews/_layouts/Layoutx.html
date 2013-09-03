@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+`suppressNull on`
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>`get title`</title>
+		<link rel="stylesheet" href="@{'/public/basic/css/reset.css'}" type="text/css"  />
+		<link rel="stylesheet" href="@{'/public/basic/css/css3.css'}"  type="text/css" media="screen" />
+		<link rel="stylesheet" href="@{'/public/basic/css/general.css'}"  type="text/css" media="screen" />
+		<link rel="stylesheet" href="@{'/public/basic/css/grid1200.css'}" type="text/css" />
+		<link rel="stylesheet" href="@{'/public/basic/css/onepcssgrid.css'}" type="text/css" />
+		<link rel="stylesheet" href="@{'/public/basic/css/fluid12.css'}" type="text/css" />
+		<link rel="stylesheet" href="@{'/public/basic/css/app.css'}" type="text/css" />
+		<link rel="stylesheet" href="@{'/public/basic/css/wb3.css'}" type="text/css" />
+		<link rel="stylesheet" href="@{'/public/basic/css/wb3_nav.css'}" type="text/css" />
+		<link rel="stylesheet" href="@{'/public/basic/css/button.css'}" type="text/css" />
+		<link rel="stylesheet" href="@{'/public/basic/css/form.css'}" type="text/css" />
+		<link rel="stylesheet" href="@{'/public/basic/css/paging.css'}" type="text/css" />
+		<!--[if (gte IE 6)&(lte IE 8)]>
+		<script src="@{'/public/basic/js/selectivizr.js'}"></script>
+		<![endif]-->
+		<script src="@{'/public/js/jquery-1.10.1.js'}"></script>
+		<script src="@{'/public/js/jquery-migrate-1.2.1.js'}"></script>
+		<script src="@{'/public/basic/js/modernizr-1.7.min.js'}"></script><!-- this is the javascript allowing html5 to run in older browsers -->
+		`get css`
+		
+		
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header_inner">
+				<div class="row">
+					<div class="col col_16"  >
+
+						<div class="logo left" >
+							Spruce
+						</div>
+						<div class="nav_bar left"  >
+							<div class="nav" >
+								<ul  >
+									<li>
+										<a href="/pop">Photos</a>
+									</li>
+									<li>
+										<a href="/shop">Shop</a>
+									</li>
+									<li>
+										<a href="/blog">Blog</a>
+									</li>
+									<li>
+										<a href="/">曾经</a>
+									</li>
+								</ul>
+
+							</div>
+						</div>
+						<div class="right">
+							`if (session.get(Admin.SESSION_LOGIN_KEY) == null) {`
+
+							<div class="nav right">
+								<a class="btn btn-small btn-primary" href="/login">Login</a>
+							</div>	
+							<div class="nav right">
+								<a class="btn btn-small btn-success" href="/signup">Sign Up</a>
+							</div>
+							`}else{`
+							<div class="nav right" >
+								<a class="btn btn-primary btn-small" href="/yours"> ${session.get(Admin.SESSION_USER_NAME_KEY)}</a>
+
+							</div>
+							<div class="nav right">
+								<a class="btn btn-success btn-small" href="#">Add</a>
+							</div>
+
+							`}`
+							<div class="nav right">
+								<form class="navbar_search" action="">
+									<input type="text" class="search-query " placeholder="Search">
+								</form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+		<!--
+		<div class="page-header">
+		<h3>`get header`</h3>
+		</div> -->
+
+		`doLayout`
+		<footer>
+			<div class="row">
+				<div class="col col_16">
+					fjdslfjsdl积分电流声开放的；是
+				</div>
+			</div><div class="clear"></div>
+
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,14 @@
+# Application dependencies
+
+
+require:   
+    #- play -> japid 0.9.5
+  
+    - fir -> fir
+    
+repositories:
+    - My modules:
+        type:       local
+        artifact:   ${application.path}/../fir
+        contains:
+            - fir

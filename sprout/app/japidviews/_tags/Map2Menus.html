@@ -1,0 +1,25 @@
+`import java.util.*; import java.util.Map.Entry;`
+`args Map map, Byte defaultKey`
+`Map kv=new LinkedHashMap(map);`
+`//kv.remove((byte)0);`
+`if(kv==null) kv=new LinkedHashMap();`
+`Set  sets = kv.entrySet();`
+
+`for (Object obj : sets) {`
+`Entry entry=(Entry)obj;`
+`Byte key=(Byte)entry.getKey();`
+`Object value=entry.getValue();`
+`if(key==null){`
+<li><a tabindex="-1" href="${request.path}">${value}</a></li>
+`}else if(key<0){`
+<li class="divider">${value}</li>
+`}else{`
+`if(key.equals(defaultKey)){`
+<li><a tabindex="-1" href="${request.path}?c=${key}">${value}</a></li>
+`}else{`
+<li><a tabindex="-1" href="${request.path}?c=${key}">${value}</a></li>
+`}`
+`}`
+
+`}`
+

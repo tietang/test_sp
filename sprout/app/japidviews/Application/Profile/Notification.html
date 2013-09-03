@@ -1,0 +1,119 @@
+`extends japidviews._layouts.Layout`
+`set title:i18n("notify.title")`
+`set header: "Email Notifications" `
+
+<div class="grid_row">
+
+	<div class="col col_3 ">
+		<div class="sidebar-nav ">
+			`tag SettingsMenu "Notifications"`
+		</div>
+	</div>
+	<div class="col col_13 ">
+		<div class="row-fluid well profile_right">
+			<div class="span8  ">
+
+				<form class="form-horizontal" action="/settings/notification/done" method="post" >
+
+					<div class="checkbox control-group">
+						<label for="commented_on_your_wall">
+							<input
+							checked="checked" id="commented_on_your_wall"
+							name="commented_on_your_wall" type="checkbox" value="on" />
+							&{notify.comment.wall} </label>
+					</div>
+					<div class="checkbox control-group">
+						<label for="commented_on_your_photo">
+							<input
+							checked="checked" id="commented_on_your_photo"
+							name="commented_on_your_photo" type="checkbox" value="on" />
+							&{notify.comment.photo} </label>
+					</div>
+
+					<div class="checkbox control-group">
+						<label for="commented_on_your_story">
+							<input
+							checked="checked" id="commented_on_your_story"
+							name="commented_on_your_story" type="checkbox" value="on" />
+							&{notify.comment.story} </label>
+					</div>
+
+					<div class="checkbox control-group">
+						<label for="added_to_favorites">
+							<input checked="checked"
+							id="added_to_favorites" name="added_to_favorites"
+							type="checkbox" value="on" />
+							&{notify.favorite.photo} </label>
+					</div>
+
+					<div class="checkbox control-group">
+						<label for="selected_by_editor">
+							<input checked="checked"
+							id="selected_by_editor" name="selected_by_editor"
+							type="checkbox" value="on" />
+							&{notify.choice.photo}</label>
+					</div>
+
+					<div class="checkbox control-group">
+						<label for="reached_up_or_pop">
+							<input checked="checked"
+							id="reached_up_or_pop" name="reached_up_or_pop" type="checkbox"
+							value="on" />
+							&{notify.score.up}</label>
+					</div>
+
+					<div class="checkbox control-group">
+						<label for="you_are_followed">
+							<input checked="checked"
+							id="you_are_followed" name="you_are_followed" type="checkbox"
+							value="on" />
+							&{notify.follow.me} </label>
+					</div>
+
+					<div class="checkbox control-group">
+						<label for="got_comments_reply">
+							<input
+							id="got_comments_reply" name="got_comments_reply"
+							type="checkbox" value="on" />
+							&{notify.subscribed}</label>
+					</div>
+
+					<div class="checkbox control-group">
+						<label for="buys_my_photo">
+							<input checked="checked"
+							id="buys_my_photo" name="buys_my_photo" type="checkbox"
+							value="on" />
+							&{notify.buy.photo} </label>
+					</div>
+
+					<div class="checkbox control-group">
+						<label for="newsletters">
+							<input checked="checked"
+							id="newsletters" name="newsletters" type="checkbox" value="on" />
+							&{notify.news}</label>
+					</div>
+
+					<div class="checkbox control-group">
+						<label for="account_updates">
+							<input checked="checked"
+							id="account_updates" name="account_updates" type="checkbox"
+							value="on" />
+							&{notify.account.change}</label>
+					</div>
+
+					<div class="control-group">
+						<div class="controls">
+							<button type="submit" class="btn">
+								&{save.change}
+							</button>
+						</div>
+					</div>
+
+				</form>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+

@@ -1,0 +1,78 @@
+web.app.name=Spruce摄影
+web.keywords=图片,照片,摄影,摄影师,图片库,摄影交流,作品,器材,照片,专业,上传,分享,拍照,照相,相册,博客,在线照片库,共享图片,专业摄影,社会照相,上传照片,分享照片,出色的照片组合,图片社区,最新照片,热门照片,热门图片,模型与摄影,商业摄影,建筑摄影
+web.desc=Spruce是专业的摄影作品分享交流社区，你可以分享自己的摄影作品，也可以找摄影师，可以和全国优秀的摄影师共同探讨摄影技巧。
+
+#page
+home=主页
+photos= 照片
+pop=最受欢迎
+last=最新更新
+choice=我们推荐
+upcoming=正在上升
+category=分类浏览
+flow=关注的
+fav=收藏的
+favorite=收藏的
+#
+follow=Follow
+view=View
+vote=Vote
+highest.pulse=Highest Pulse
+thank.vote=Thank for your vote.
+favorite.wanna=Favorite?
+favorite.cancel=Cancel favorite?
+
+
+#exif key
+make=Make
+model=Model
+aperture=Aperture
+shutter=Shutter
+iso=ISO
+lens=Lens
+focus=Focus
+ev=EV
+dateTimeOriginal=Take At
+WhiteBalance=WhiteBalance
+Software=Software
+Flash=Flash
+ColorSpace=ColorSpace
+MeteringMode=MeteringMode
+ExposureProgram=ExposureProgram
+ExposureMode=ExposureMode
+GPSLatitude=GPSLatitude
+GPSLongitude=GPSLongitude
+GPSAltitude=GPSAltitude
+#
+# For use in JavaExtensions.since tag
+since.seconds = %s second%s ago
+since.minutes = %s minute%s ago
+since.hours   = %s hour%s ago
+since.days    = %s day%s ago
+since.months  = %s month%s ago
+since.years   = %s year%s ago
+since.format  = MMM d, yyyy
+
+# Validation messages
+validation.required=Required
+validation.minSize=Minimum size is %2$d
+validation.maxSize=Maximum size is %2$d
+validation.email=Invalid email address
+validation.range=Not in the range %2$d through %3$d
+validation.min=Cannot be lower than %2$d
+validation.max=Cannot be greater than %2$d
+validation.match=Must match %2$s
+validation.isTrue=Must be checked
+validation.equals=Must be equal to &{%2$s}
+validation.invalid=Incorrect value
+validation.future=Must be in the future
+validation.after=Must be after %2$s
+validation.past=Must be in the past
+validation.before=Must be before %2$s
+validation.object=Validation failed
+validation.notFound=Object not found for id %2$s
+validation.url=Not a valid URL
+validation.phone=Not a valid phone
+validation.ipv4=Not a valid IP address
+validation.ipv6=Not a valid IP v6 address
+validation.unique=Must be unique

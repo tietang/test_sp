@@ -1,0 +1,29 @@
+<pre style="display: none">
+`import java.util.*; `
+`import fengfei.ucm.entity.photo.*;`
+`args List<PhotoSet> sets`
+</pre>
+
+
+<ul class="nav nav-list">
+	<li>
+		<h4>Photos</h4>
+	</li>
+	<li >
+		<a href="/photo/manage/all">所有</a>
+	</li>
+	<li>
+		<a href="/photo/manage/public">发布的</a>
+	</li>
+	<li>
+		<h4>Sets</h4>
+	</li>
+	`if(sets!=null){`
+	`for(PhotoSet set:sets){`
+	<li }>
+		<a href="${set.idSet}">${set.name}</a>
+	</li>
+	`}`
+	`}`
+
+</ul>

@@ -1,0 +1,71 @@
+@CHARSET "UTF-8";
+
+#upload_table .sidebar .inline {
+	padding: 2px 0px 2px 0px;
+	margin: 0px;
+	width: 100%;
+}
+
+#upload_table  .sidebar .block {
+	padding: 2px 0px 2px 0px;
+	margin: 0px;
+	width: 100%;
+}
+
+#upload_table .sidebar  input {
+	margin: 0px;
+	padding: 2px 2px 2px 25px;
+	width: auto;
+}
+
+#upload_table .sidebar  textarea {
+	margin: 0px;
+	width: auto;
+}
+
+#upload_table .sidebar  select {
+	margin: 0px;
+	width: auto;
+}
+
+#upload_table .sidebar input.tags {
+	background: #fcfcfc url("/unity/img/icons/sidebar/tag.png") no-repeat
+		7px 9px
+}
+
+#upload_table .sidebar input.date {
+	background: #fcfcfc url("/unity/img/icons/sidebar/icon-taken-at.png")
+		no-repeat 5px 6px
+}
+
+#upload_table .sidebar input.lens {
+	background: #fcfcfc url("/unity/img/icons/sidebar/icon-lens.png")
+		no-repeat 5px 6px
+}
+
+#upload_table .sidebar input.camera {
+	background: #fcfcfc url("/unity/img/icons/sidebar/icon-camera.png")
+		no-repeat 5px 7px
+}
+
+#upload_table .sidebar input.focal-length {
+	background: #fcfcfc
+		url("/unity/img/icons/sidebar/icon-focal-length.png") no-repeat 5px
+		6px
+}
+
+#upload_table .sidebar input.aperture {
+	background: #fcfcfc url("/unity/img/icons/sidebar/icon-aperture.png")
+		no-repeat 5px 6px
+}
+
+#upload_table .sidebar input.shutter-speed {
+	background: #fcfcfc
+		url("/unity/img/icons/sidebar/icon-shutter-speed.png") no-repeat 5px
+		6px
+}
+
+#upload_table .sidebar input.iso {
+	background: #fcfcfc url("/unity/img/icons/sidebar/icon-iso.png")
+		no-repeat 5px 6px
+}

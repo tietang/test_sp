@@ -1,0 +1,70 @@
+`import java.util.*; `
+`args String item,Map<String, String> pathTitle`
+`Map  ms=new HashMap();`
+`ms.put(item," class=\"active\" ");`
+`System.out.println(ms);`
+`String qs= request.querystring;`
+`String qString="";`
+`if(qs!=null && !"".equals(qs)){`
+`qString="?"+qs;`
+`}`
+<div class="grid_row  photo_nav" >
+	<div class="col col_13">
+
+		<ul class="nav nav-pills">
+			<li ${ms.get("/pop")}>
+				<a href="/popular${qString}">&{"pop"}</a>
+			</li>
+			<li  ${ms.get("/last")}>
+				<a href="/last${qString}">&{"last"}</a>
+			</li>
+			<li  ${ms.get("/choice")}>
+				<a href="/choice${qString}">&{"choice"}</a>
+			</li>
+			<li  ${ms.get("/upcoming")}>
+				<a href="/upcoming${qString}">&{"upcoming"}</a>
+			</li>
+
+			<li  ${ms.get("/category")}>
+				<a href="/category${qString}">&{"category"}</a>
+			</li>
+		</ul>
+
+	</div>
+	<div class="col col_3 col_right">
+		<div class="row-fluid">
+			`Map kv1=fengfei.spruce.cache.CategoryCache.getAll();`
+			`Map kv= new LinkedHashMap();kv.put((Byte)null,i18n("all"));`
+			`kv.putAll(kv1);`
+			`String skey=params.get("c");`
+			`Byte key=null;`
+			`if(skey!=null) {key=Byte.parseByte(skey);}`
+			`Object value=kv.get(key);`
+			`if(fengfei.spruce.utils.Browser.isIE67(request)){
+			<div class=" span12" >
+				<select name="category" id="onlyCategoryIe" class="span12">
+					<option value="${key}">${value}</option>
+					`tag Map2SelectOptions fengfei.spruce.cache.CategoryCache.getAll(),key`
+				</select>
+			</div>
+			`}else{`
+
+			<div class="btn-group bootstrap-select span12" >
+				<button type="button" class="btn dropdown-toggle btn-inverse span12" data-toggle="dropdown" data-id="onlyCategory1">
+					<div class="filter-option pull-left">
+						${value}
+					</div>
+					&nbsp;<div class="caret"></div>
+				</button>
+				<div class="dropdown-menu open" style="max-height: 537px; overflow: hidden; min-height: 92px;">
+					<ul class="dropdown-menu inner" role="menu" style="max-height: 525px; overflow-y: auto;">
+						`tag Map2Menus kv,key`
+					</ul>
+				</div>
+			</div>
+
+			`}`
+		</div>
+	</div>
+	<div class="col col_16  hr"></div>
+</div>

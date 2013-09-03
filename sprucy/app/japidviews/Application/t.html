@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>本地图片预览代码（支持 IE6、IE7）</title>
+<style type="text/css">
+#newPreview {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale);
+}
+</style>
+<script type="text/javascript" language="javascript">
+<!--
+function PreviewImg(imgFile)
+{
+ 
+//新的预览代码，支持 IE6、IE7。
+var newPreview = document.getElementById("newPreview");
+newPreview.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgFile.value;
+newPreview.style.width = "400px";
+newPreview.style.height = "300px";
+}
+-->
+</script>
+</head>
+<body>
+	<p>说明：以下针对的是互联网情况，如果您在本地作测试，比如输入的地址是：http://127.0.0.1/...，则可以看到全部预览。</p>
+	<hr />
+	<p>如果您使用的是 IE6，则可以看到以下预览；如果您使用的是 IE7，则看不到以下预览。</p>
+	<div id="oldPreview"></div>
+	<hr />
+	<p>不论您使用的是 IE6 还是 IE7，均可以看到以下预览。</p>
+	<div id="newPreview"></div>
+	<hr />
+	<p>
+		请选择一个图片进行预览：<input type="file" size="20" onchange="javascript:PreviewImg(this);" />
+	</p>
+</body>
+</html>
+

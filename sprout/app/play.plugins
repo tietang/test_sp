@@ -1,0 +1,4 @@
+1002:fengfei.web.app.init.RedisPlugin
+1001:fengfei.web.app.init.SliceDBPlugin
+1101:fengfei.web.app.init.AppInitPlugin
+1102:fengfei.web.app.init.DbInstallPlugin

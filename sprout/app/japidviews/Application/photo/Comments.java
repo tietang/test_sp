@@ -1,0 +1,176 @@
+package japidviews.Application.photo;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.ucm.entity.photo.*;import fengfei.fir.utils.Path;import java.util.*;import java.util.Map.Entry;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
+//
+// NOTE: This file was generated from: japidviews/Application/photo/Comments.html
+// Change to this file will be lost next time the template file is compiled.
+//
+@cn.bran.play.NoEnhance
+public class Comments extends cn.bran.play.JapidTemplateBase
+{
+	public static final String sourceTemplate = "japidviews/Application/photo/Comments.html";
+	{
+		putHeader("Content-Type", "text/html; charset=utf-8");
+		setContentType("text/html; charset=utf-8");
+	}
+
+// - add implicit fields with Play
+
+	final play.mvc.Http.Request request = play.mvc.Http.Request.current(); 
+	final play.mvc.Http.Response response = play.mvc.Http.Response.current(); 
+	final play.mvc.Scope.Session session = play.mvc.Scope.Session.current();
+	final play.mvc.Scope.RenderArgs renderArgs = play.mvc.Scope.RenderArgs.current();
+	final play.mvc.Scope.Params params = play.mvc.Scope.Params.current();
+	final play.data.validation.Validation validation = play.data.validation.Validation.current();
+	final cn.bran.play.FieldErrors errors = new cn.bran.play.FieldErrors(validation);
+	final play.Play _play = new play.Play(); 
+
+// - end of implicit fields with Play 
+
+
+	public Comments() {
+		super(null);
+	}
+	public Comments(StringBuilder out) {
+		super(out);
+	}
+/* based on https://github.com/branaway/Japid/issues/12
+ */
+	public static final String[] argNames = new String[] {/* args of the template*/"comments", "pages", "cp", "ct",  };
+	public static final String[] argTypes = new String[] {/* arg types of the template*/"List<Comment>", "List<String>", "int", "int",  };
+	public static final Object[] argDefaults= new Object[] {null,null,null,null, };
+	public static java.lang.reflect.Method renderMethod = getRenderMethod(japidviews.Application.photo.Comments.class);
+
+	{
+		setRenderMethod(renderMethod);
+		setArgNames(argNames);
+		setArgTypes(argTypes);
+		setArgDefaults(argDefaults);
+		setSourceTemplate(sourceTemplate);
+	}
+////// end of named args stuff
+
+	private List<Comment> comments; // line 4, japidviews/Application/photo/Comments.html
+	private List<String> pages; // line 4, japidviews/Application/photo/Comments.html
+	private int cp; // line 4, japidviews/Application/photo/Comments.html
+	private int ct; // line 4, japidviews/Application/photo/Comments.html
+	public cn.bran.japid.template.RenderResult render(List<Comment> comments,List<String> pages,int cp,int ct) {
+		this.comments = comments;
+		this.pages = pages;
+		this.cp = cp;
+		this.ct = ct;
+		long __t = -1;
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 4, japidviews/Application/photo/Comments.html
+		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+	}
+
+	public static cn.bran.japid.template.RenderResult apply(List<Comment> comments,List<String> pages,int cp,int ct) {
+		return new Comments().render(comments, pages, cp, ct);
+	}
+
+	@Override protected void doLayout() {
+		beginDoLayout(sourceTemplate);
+//------
+p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Comments.html
+ 
+p(" \n" + 
+"</pre>\n" + 
+"\n" + 
+"\n" + 
+"<div>\n" + 
+"	<ul class=\"media-list\" id=\"comments\">\n" + 
+"		");// line 4, japidviews\Application\photo\Comments.html
+		for(Comment c:comments){// line 10, japidviews\Application\photo\Comments.html
+		p("		<li class=\"media\">\n" + 
+"			<a class=\"pull-left\" href=\"/to/");// line 10, japidviews\Application\photo\Comments.html
+		try { p(c.idUser); } catch (NullPointerException npe) {}// line 12, japidviews\Application\photo\Comments.html
+		p("\">\n" + 
+"			<div class=\"media-object\"><img\n" + 
+"				class=\" img-rounded head_photo_64\"\n" + 
+"				src=\"");// line 12, japidviews\Application\photo\Comments.html
+		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(c.idUser)); } catch (NullPointerException npe) {}// line 15, japidviews\Application\photo\Comments.html
+		p("\">\n" + 
+"			</div> </a>\n" + 
+"			<div class=\"media-body\">\n" + 
+"				<div class=\"media-heading border-bottom\">\n" + 
+"					<strong>");// line 15, japidviews\Application\photo\Comments.html
+		try { p(c.niceName); } catch (NullPointerException npe) {}// line 19, japidviews\Application\photo\Comments.html
+		p("</strong><small> about ");// line 19, japidviews\Application\photo\Comments.html
+		try { p(c.lostTime); } catch (NullPointerException npe) {}// line 19, japidviews\Application\photo\Comments.html
+		p("						ago</small>\n" + 
+"				</div>\n" + 
+"				<small>");// line 19, japidviews\Application\photo\Comments.html
+		try { p(c.content); } catch (NullPointerException npe) {}// line 22, japidviews\Application\photo\Comments.html
+		p("</small>\n" + 
+"			</div>\n" + 
+"		</li> ");// line 22, japidviews\Application\photo\Comments.html
+		}// line 24, japidviews\Application\photo\Comments.html
+		p("\n" + 
+"	</ul>\n" + 
+"\n" + 
+"</div>\n" + 
+"<div class=\"line6\"></div>\n");// line 24, japidviews\Application\photo\Comments.html
+		if(pages.size()>1){// line 30, japidviews\Application\photo\Comments.html
+		p("<div class=\"pagination pagination-centered\" id=\"pagination\">\n" + 
+"	<input type=\"hidden\" name=\"cp\" id=\"cp\" value=\"");// line 30, japidviews\Application\photo\Comments.html
+		try { p(cp); } catch (NullPointerException npe) {}// line 32, japidviews\Application\photo\Comments.html
+		p("\" />\n" + 
+"	<input type=\"hidden\" name=\"ct\" id=\"ct\" value=\"");// line 32, japidviews\Application\photo\Comments.html
+		try { p(ct); } catch (NullPointerException npe) {}// line 33, japidviews\Application\photo\Comments.html
+		p("\" />\n" + 
+"	<ul>\n" + 
+"		<li  ");// line 33, japidviews\Application\photo\Comments.html
+		try { p(cp==1?"class=\"disabled\"":""); } catch (NullPointerException npe) {}// line 35, japidviews\Application\photo\Comments.html
+		p(">\n" + 
+"			<a href=\"javascript:void()\"  page=\"-1\" ");// line 35, japidviews\Application\photo\Comments.html
+		try { p(cp==1?"disabled":""); } catch (NullPointerException npe) {}// line 36, japidviews\Application\photo\Comments.html
+		p(">Prev</a>\n" + 
+"		</li>\n" + 
+"		");// line 36, japidviews\Application\photo\Comments.html
+		for(String page: pages){int p=Integer.parseInt(page);// line 38, japidviews\Application\photo\Comments.html
+		p("		<li   ");// line 38, japidviews\Application\photo\Comments.html
+		try { p(cp==p?"class=\"active\"":""); } catch (NullPointerException npe) {}// line 39, japidviews\Application\photo\Comments.html
+		p(">\n" + 
+"			<a  href=\"javascript:void()\" page=\"");// line 39, japidviews\Application\photo\Comments.html
+		try { p(p-cp); } catch (NullPointerException npe) {}// line 40, japidviews\Application\photo\Comments.html
+		p("\" ");// line 40, japidviews\Application\photo\Comments.html
+		try { p(cp==p?"disabled":""); } catch (NullPointerException npe) {}// line 40, japidviews\Application\photo\Comments.html
+		p(">");// line 40, japidviews\Application\photo\Comments.html
+		try { p(p); } catch (NullPointerException npe) {}// line 40, japidviews\Application\photo\Comments.html
+		p("</a>\n" + 
+"		</li>\n" + 
+"		");// line 40, japidviews\Application\photo\Comments.html
+		}// line 42, japidviews\Application\photo\Comments.html
+		p("		<li  ");// line 42, japidviews\Application\photo\Comments.html
+		try { p(cp==ct?"class=\"disabled\"":""); } catch (NullPointerException npe) {}// line 43, japidviews\Application\photo\Comments.html
+		p(">\n" + 
+"			<a  href=\"javascript:void()\" page=\"1\" ");// line 43, japidviews\Application\photo\Comments.html
+		try { p(cp==ct?"disabled":""); } catch (NullPointerException npe) {}// line 44, japidviews\Application\photo\Comments.html
+		p(">Next</a>\n" + 
+"		</li>\n" + 
+"	</ul>\n" + 
+"</div>\n");// line 44, japidviews\Application\photo\Comments.html
+		}// line 48, japidviews\Application\photo\Comments.html
+		p("</div>\n");// line 48, japidviews\Application\photo\Comments.html
+		
+		endDoLayout(sourceTemplate);
+	}
+
+}
