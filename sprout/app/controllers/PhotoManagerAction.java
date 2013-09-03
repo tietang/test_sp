@@ -1,9 +1,9 @@
 package controllers;
 
-import japidviews.Application.Profile.Dir;
-import japidviews.Application.Profile.DirNav;
-import japidviews.Application.Profile.DirReOrg;
-import japidviews.Application.Profile.PhotoList;
+import japidviews.Application.profile.Dir;
+import japidviews.Application.profile.DirNav;
+import japidviews.Application.profile.DirReOrg;
+import japidviews.Application.profile.PhotoList;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,32 +1,9 @@
 package controllers;
 
-import japidviews.Application.Profile.Account;
-import japidviews.Application.Profile.Equipment;
-import japidviews.Application.Profile.Notification;
-import japidviews.Application.Profile.Password;
-import japidviews.Application.Profile.PhotoManage;
-import japidviews.Application.Profile.Profile;
-
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import javax.imageio.ImageIO;
-
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.io.FileUtils;
-import org.imgscalr.Scalr;
-
-import play.Logger;
-import play.modules.router.Any;
-import play.modules.router.Post;
-import play.mvc.With;
 import cn.bran.play.JapidResult;
 import fengfei.fir.model.Done;
 import fengfei.fir.model.Done.Status;
+import fengfei.fir.model.Notify;
 import fengfei.fir.service.JpegExifWriter;
 import fengfei.fir.service.JpegProcess;
 import fengfei.fir.service.impl.DefaultJpegProcess;
@@ -38,18 +15,34 @@ import fengfei.ucm.entity.photo.PhotoSet;
 import fengfei.ucm.entity.profile.Camera;
 import fengfei.ucm.entity.profile.User;
 import fengfei.ucm.entity.profile.UserPwd;
-import fengfei.ucm.repository.CameraRepository;
 import fengfei.ucm.repository.PhotoManageRepository;
+import fengfei.ucm.repository.ProfileRepository;
 import fengfei.ucm.repository.UserRepository;
-import fengfei.ucm.repository.impl.SqlCameraRepository;
 import fengfei.ucm.repository.impl.SqlPhotoManageRepository;
+import fengfei.ucm.repository.impl.SqlProfileRepository;
 import fengfei.ucm.repository.impl.SqlUserRepository;
+import japidviews.Application.profile.*;
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.io.FileUtils;
+import org.imgscalr.Scalr;
+import play.Logger;
+import play.modules.router.Any;
+import play.modules.router.Post;
+import play.mvc.With;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @With(Secure.class)
 public class ProfileAction extends Admin {
 
     static UserRepository userService = new SqlUserRepository();
-    static CameraRepository cameraService = new SqlCameraRepository();
+    static ProfileRepository profileRepository = new SqlProfileRepository();
     static JpegExifWriter jpegExifWrite = new SqlJpegExifWriter();
     static JpegProcess jpegProcess = new DefaultJpegProcess();
 
@@ -99,17 +92,17 @@ public class ProfileAction extends Admin {
         Map<String, String> contents = params.allSimple();
         String userPhoto = MapUtils.getString(contents, "user_photo");
         User user = new User(
-            idUser,
-            userName,
-            email,
-            realName,
-            birthday,
-            gender,
-            phone,
-            about,
-            city,
-            state,
-            country);
+                idUser,
+                userName,
+                email,
+                realName,
+                birthday,
+                gender,
+                phone,
+                about,
+                city,
+                state,
+                country);
         user.isHeadPhoto = userPhoto != null && !"".equals(userPhoto);
         user.setNiceName(niceName);
         if (idUser == null) {
@@ -178,7 +171,7 @@ public class ProfileAction extends Admin {
 
     /**
      * {"success": false, "error": "error message to display", "preventRetry": true}
-     * 
+     *
      * @param qqfile
      */
     public static void headUpload(File qqfile) {
@@ -254,11 +247,11 @@ public class ProfileAction extends Admin {
             }
             try {
                 int updated = userService.updatePassword(
-                    idUser,
-                    BASE64.encrypt(oldPwd),
-                    BASE64.encrypt(newPwd));
+                        idUser,
+                        BASE64.encrypt(oldPwd),
+                        BASE64.encrypt(newPwd));
                 if (updated == -1) {
-                    flash.error( i18n("password.error.old.mismatched"));
+                    flash.error(i18n("password.error.old.mismatched"));
                 } else if (updated == 0) {
                     flash.error(i18n("password.error.new.no.updated"));
                 } else {
@@ -273,12 +266,33 @@ public class ProfileAction extends Admin {
         throw new JapidResult(new Password().render());
     }
 
-    public static void notification() {
-        throw new JapidResult(new Notification().render());
+    public static void notification() throws Exception {
+        Integer idUser = currentUserId();
+        long value = profileRepository.getNotifyValue(idUser);
+
+        boolean[] checks = new boolean[64];
+        String bStr = Long.toBinaryString(value);
+        System.out.println(bStr);
+        for (int i = 1; i <= bStr.length(); i++) {
+            int index = bStr.length() - i;
+            checks[i-1] = '1' == bStr.charAt(index);
+        }
+
+        throw new JapidResult(new Notification().render(checks));
     }
 
-    public static void notificationDone() {
-        throw new JapidResult(new Notification().render());
+    public static void notificationDone() throws Exception {
+        Map<String, String> contents = params.allSimple();
+        List<Notify> notifies = new ArrayList<>();
+        for (byte i = 1; i <= 11; i++) {
+            String key = "notify" + i;
+            byte value = MapUtils.getByteValue(contents, key, (byte) 0);
+            notifies.add(new Notify(i, value == 1));
+        }
+        Integer idUser = currentUserId();
+
+        boolean updated = profileRepository.saveNotifies(idUser, notifies);
+        notification();
     }
 
     public static void camera() {
@@ -288,7 +302,7 @@ public class ProfileAction extends Admin {
             idUser = 1;
         }
         try {
-            List<Camera> cameras = cameraService.selectForSorted(idUser);
+            List<Camera> cameras = profileRepository.selectCamerasForSorted(idUser);
 
             throw new JapidResult(new Equipment().render(cameras));
         } catch (DataAccessException e) {
@@ -311,7 +325,7 @@ public class ProfileAction extends Admin {
             addCamera(models, idUser, lenses, Camera.TypeLens);
             addCamera(models, idUser, tripods, Camera.TypeFilter);
             addCamera(models, idUser, filters, Camera.TypeTripod);
-            cameraService.add(models, idUser);
+            profileRepository.addCamera(models, idUser);
             camera();
         } catch (DataAccessException e) {
             Logger.error(e, "camera error.");

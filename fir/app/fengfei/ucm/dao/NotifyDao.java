@@ -1,49 +1,52 @@
 package fengfei.ucm.dao;
 
-import java.sql.SQLException;
-
+import fengfei.fir.model.Notify;
 import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.forest.database.dbutils.LongTransducer;
-import fengfei.ucm.entity.profile.NotifyType;
+
+import java.sql.SQLException;
+import java.util.List;
 
 public class NotifyDao {
 
-    final static String InsertNotify = "insert into notice%s(id_user,value) values(?,?)";
-    final static String UpdateNotify = "update set value=? where id_user=? ";
-    final static String ExsitsNotify = "select value from notice%s where id_user=?";
+    final static String InsertNotify = "insert into notice%s(id_user,`values`) values(?,?)";
+    final static String UpdateNotify = "update notice%s set `values`=? where id_user=? ";
+    final static String ExsitsNotify = "select `values` from notice%s where id_user=? for update";
 
     public static int writeNotify(
-        ForestGrower grower,
-        String suffix,
-        int idUser,
-        boolean isNotify,
-        NotifyType type) throws SQLException {
+            ForestGrower grower,
+            String suffix,
+            int idUser,
+            List<Notify> notifies) throws SQLException {
         Long value = grower.selectOne(
-            String.format(ExsitsNotify, suffix),
-            new LongTransducer(),
-            idUser);
-        long v = value == null ? 0 : value.longValue();
-        if (isNotify) {
-            v |= 1 << type.ordinal();
-        } else {
-            v &= ~(1 << type.ordinal());
+                String.format(ExsitsNotify, suffix),
+                new LongTransducer(),
+                idUser);
+        long v = 0;// value == null ? 0 : value.longValue();
+        for (Notify notify : notifies) {
+            if (notify.isNotify) {
+                v |= 1 << (notify.position - 1);
+            } else {
+                v &= ~(1 << (notify.position - 1));
+            }
         }
+
         int updated = 0;
         if (value == null) {
-            updated = grower.update(String.format(InsertNotify, suffix), v);
+            updated = grower.update(String.format(InsertNotify, suffix), idUser, v);
         } else {
-            updated = grower.update(String.format(UpdateNotify, suffix), v);
+            updated = grower.update(String.format(UpdateNotify, suffix), v, idUser);
         }
 
         return updated;
     }
 
     public static long getNotify(ForestGrower grower, String suffix, int idUser)
-        throws SQLException {
+            throws SQLException {
         Long value = grower.selectOne(
-            String.format(ExsitsNotify, suffix),
-            new LongTransducer(),
-            idUser);
+                String.format(ExsitsNotify, suffix),
+                new LongTransducer(),
+                idUser);
         return value == null ? 0 : value.longValue();
 
     }

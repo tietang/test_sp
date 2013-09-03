@@ -1,24 +1,11 @@
-package japidviews.Application.Profile;
-import java.util.*;
-import java.io.*;
-import cn.bran.japid.tags.Each;
+package japidviews.Application.profile;
 import fengfei.ucm.entity.profile.Camera;
 import java.util.List;
-import static play.templates.JavaExtensions.*;
+
 import static cn.bran.play.JapidPlayAdapter.*;
-import static play.data.validation.Validation.*;
-import japidviews._layouts.*;
-import play.i18n.Messages;
-import play.data.validation.Validation;
-import static japidviews._javatags.Pic.*;
-import play.mvc.Scope.*;
-import models.*;
-import play.data.validation.Error;
-import play.i18n.Lang;
+
 import japidviews._tags.*;
-import play.mvc.Http.*;
-import controllers.*;
-import japidviews._javatags.*;
+
 //
 // NOTE: This file was generated from: japidviews/Application/Profile/Equipment.html
 // Change to this file will be lost next time the template file is compiled.
@@ -26,7 +13,7 @@ import japidviews._javatags.*;
 @cn.bran.play.NoEnhance
 public class Equipment extends japidviews._layouts.Layout
 {
-	public static final String sourceTemplate = "japidviews/Application/Profile/Equipment.html";
+	public static final String sourceTemplate = "japidviews/Application/profile/Equipment.html";
 	{
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
@@ -57,7 +44,7 @@ public class Equipment extends japidviews._layouts.Layout
 	public static final String[] argNames = new String[] {/* args of the template*/"cameras",  };
 	public static final String[] argTypes = new String[] {/* arg types of the template*/"List<Camera>",  };
 	public static final Object[] argDefaults= new Object[] {null, };
-	public static java.lang.reflect.Method renderMethod = getRenderMethod(japidviews.Application.Profile.Equipment.class);
+	public static java.lang.reflect.Method renderMethod = getRenderMethod(japidviews.Application.profile.Equipment.class);
 
 	{
 		setRenderMethod(renderMethod);

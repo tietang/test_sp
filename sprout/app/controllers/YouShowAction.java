@@ -1,7 +1,8 @@
 package controllers;
 
+import fengfei.ucm.repository.*;
+import fengfei.ucm.repository.impl.*;
 import japidviews.Application.photo.Edit;
-import japidviews.Application.photo.PhotoView;
 import japidviews.Application.photo.UserViews;
 import japidviews.Application.photo.Yours;
 
@@ -29,16 +30,8 @@ import fengfei.ucm.entity.photo.PhotoAccess;
 import fengfei.ucm.entity.photo.Rank;
 import fengfei.ucm.entity.profile.Camera;
 import fengfei.ucm.entity.profile.User;
-import fengfei.ucm.repository.CameraRepository;
-import fengfei.ucm.repository.CommentRepository;
-import fengfei.ucm.repository.PhotoRepository;
-import fengfei.ucm.repository.ShowRepository;
-import fengfei.ucm.repository.UserRepository;
-import fengfei.ucm.repository.impl.SqlCameraRepository;
-import fengfei.ucm.repository.impl.SqlCommentRespository;
-import fengfei.ucm.repository.impl.SqlPhotoRepository;
-import fengfei.ucm.repository.impl.SqlShowRepository;
-import fengfei.ucm.repository.impl.SqlUserRepository;
+import fengfei.ucm.repository.ProfileRepository;
+import fengfei.ucm.repository.impl.SqlProfileRepository;
 import fengfei.ucm.service.ReadFollowService;
 import fengfei.ucm.service.WriteFollowService;
 
@@ -46,7 +39,7 @@ public class YouShowAction extends Admin {
 
     public static ShowRepository show = new SqlShowRepository();
     static UserRepository userRepository = new SqlUserRepository();
-    static CameraRepository cameraRepository = new SqlCameraRepository();
+    static ProfileRepository profileRepository = new SqlProfileRepository();
     public static CommentRepository comment = new SqlCommentRespository();
     static PhotoRepository photoRepository = new SqlPhotoRepository();
     public static WriteFollowService writeFollowService = FollowServiceUtils.writeFollowService;
@@ -145,7 +138,7 @@ public class YouShowAction extends Admin {
             int offset = (pageNum - 1) * TotalRowLimit;
 
             //
-            ListMultimap<String, Camera> cameras = cameraRepository.selectGroup(idUser);
+            ListMultimap<String, Camera> cameras = profileRepository.selectCamerasGroup(idUser);
             List<PhotoShow> photos = (List<PhotoShow>) action(
                 action,
                 idUser,

@@ -1,7 +1,6 @@
 package controllers;
 
-import japidviews.Application.Profile.PhotoEdit;
-import japidviews.Application.Profile.PhotoEditDone;
+import japidviews.Application.profile.PhotoEdit;
 import japidviews.Application.photo.Upload;
 import japidviews.Application.photo.UploadForm;
 import japidviews.Application.photo.UploadSwf;
@@ -12,9 +11,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.JavaType;
 
 import play.Logger;
 import play.modules.router.Get;
