@@ -270,16 +270,20 @@ public class ProfileAction extends Admin {
         Integer idUser = currentUserId();
         long value = profileRepository.getNotifyValue(idUser);
 
-        boolean[] checks = new boolean[64];
+//        boolean[] checks = new boolean[64];
         String bStr = Long.toBinaryString(value);
-        System.out.println(bStr);
-        for (int i = 1; i <= bStr.length(); i++) {
-            int index = bStr.length() - i;
-            checks[i-1] = '1' == bStr.charAt(index);
-        }
+        String padding = "0000000000000000000000000000000000000000000000000000000000000000";
+        String result = padding + Long.toBinaryString(value);
+        bStr = result.substring(result.length() - 64, result.length());
+//        System.out.println(bStr);
+//        for (int i = 1; i <= bStr.length(); i++) {
+//            int index = bStr.length() - i;
+//            checks[i-1] = '1' == bStr.charAt(index);
+//        }
 
-        throw new JapidResult(new Notification().render(checks));
+        throw new JapidResult(new Notification().render(bStr));
     }
+
 
     public static void notificationDone() throws Exception {
         Map<String, String> contents = params.allSimple();
@@ -287,12 +291,22 @@ public class ProfileAction extends Admin {
         for (byte i = 1; i <= 11; i++) {
             String key = "notify" + i;
             byte value = MapUtils.getByteValue(contents, key, (byte) 0);
-            notifies.add(new Notify(i, value == 1));
+            notifies.add(new Notify(i, value > 0));
         }
         Integer idUser = currentUserId();
 
         boolean updated = profileRepository.saveNotifies(idUser, notifies);
         notification();
+    }
+
+    @Any("/settings/socialmedia")
+    public static void socialMedia() {
+        throw new JapidResult(new SocialMedia().render(""));
+    }
+
+    @Post("/settings/socialmedia/done")
+    public static void socialMediaDone() {
+        socialMedia();
     }
 
     public static void camera() {

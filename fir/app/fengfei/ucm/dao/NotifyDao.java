@@ -9,9 +9,9 @@ import java.util.List;
 
 public class NotifyDao {
 
-    final static String InsertNotify = "insert into notice%s(id_user,`values`) values(?,?)";
-    final static String UpdateNotify = "update notice%s set `values`=? where id_user=? ";
-    final static String ExsitsNotify = "select `values` from notice%s where id_user=? for update";
+    final static String InsertNotify = "insert into user_notice%s(id_user,`values`) values(?,?)";
+    final static String UpdateNotify = "update user_notice%s set `values`=? where id_user=? ";
+    final static String ExsitsNotify = "select `values` from user_notice%s where id_user=? for update";
 
     public static int writeNotify(
             ForestGrower grower,
@@ -31,6 +31,8 @@ public class NotifyDao {
             }
         }
 
+        System.out.println("notify: "+v);
+        System.out.println("notify: "+notifies);
         int updated = 0;
         if (value == null) {
             updated = grower.update(String.format(InsertNotify, suffix), idUser, v);

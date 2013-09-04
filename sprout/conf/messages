@@ -228,6 +228,18 @@ notify.subscribed=Somebody comments on a photo or story I am subscribed to
 notify.buy.photo=Somebody buys one of my photos
 notify.news=News and updates
 notify.account.change=Account changes and updates
+#Social Media
+social.website=Website
+social.qq=QQ
+social.qq.weibo=Tencent Weibo
+social.weibo=Sina Weibo
+social.twitter=Twitter
+social.facebook=Facebook
+social.flickr=Flickr
+social.fengniao=Fengniao
+social.renren=Renren
+social.douban=Douban
+
 
 # For use in JavaExtensions.since tag
 since.seconds = %s second%s ago

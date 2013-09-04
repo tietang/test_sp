@@ -83,12 +83,10 @@ public class SettingsMenu extends cn.bran.play.JapidTemplateBase
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\_tags\SettingsMenu.html
- 
-Map<String , String> ms=new HashMap<String , String>();// line 3, japidviews\_tags\SettingsMenu.html
- 
+Map<String,String> ms=new HashMap<String , String>();// line 3, japidviews\_tags\SettingsMenu.html
 ms.put(item," class=\"active\" ");// line 4, japidviews\_tags\SettingsMenu.html
 		p("\n" + 
-" \n" + 
+"\n" + 
 "<ul class=\"nav  nav-pills nav-stacked\">\n" + 
 "	<li><h4>");// line 4, japidviews\_tags\SettingsMenu.html
 		;p(getMessage("profile.menu.profile"));// line 8, japidviews\_tags\SettingsMenu.html
@@ -115,7 +113,7 @@ ms.put(item," class=\"active\" ");// line 4, japidviews\_tags\SettingsMenu.html
 		p("</a></li>\n" + 
 "	<li");// line 12, japidviews\_tags\SettingsMenu.html
 		p(ms.get("SocialMedia"));// line 13, japidviews\_tags\SettingsMenu.html
-		p("><a href=\"/settings/notification\">");// line 13, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"/settings/socialmedia\">");// line 13, japidviews\_tags\SettingsMenu.html
 		;p(getMessage("profile.menu.social.media"));// line 13, japidviews\_tags\SettingsMenu.html
 		p("</a></li>\n" + 
 "	<!--\n" + 
@@ -137,22 +135,23 @@ ms.put(item," class=\"active\" ");// line 4, japidviews\_tags\SettingsMenu.html
 		p("><a href=\"#\">");// line 18, japidviews\_tags\SettingsMenu.html
 		;p(getMessage("profile.menu.themes"));// line 18, japidviews\_tags\SettingsMenu.html
 		p("</a></li>\n" + 
+"	  -->\n" + 
 "	<li><h4>");// line 18, japidviews\_tags\SettingsMenu.html
-		;p(getMessage("profile.menu.friends"));// line 19, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.friends"));// line 20, japidviews\_tags\SettingsMenu.html
 		p("</h4></li>\n" + 
-"	<li");// line 19, japidviews\_tags\SettingsMenu.html
-		p(ms.get("Following"));// line 20, japidviews\_tags\SettingsMenu.html
-		p("><a href=\"#\">");// line 20, japidviews\_tags\SettingsMenu.html
-		;p(getMessage("profile.menu.following"));// line 20, japidviews\_tags\SettingsMenu.html
-		p("</a></li>\n" + 
 "	<li");// line 20, japidviews\_tags\SettingsMenu.html
-		p(ms.get("Followed"));// line 21, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Following"));// line 21, japidviews\_tags\SettingsMenu.html
 		p("><a href=\"#\">");// line 21, japidviews\_tags\SettingsMenu.html
-		;p(getMessage("profile.menu.followed"));// line 21, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.following"));// line 21, japidviews\_tags\SettingsMenu.html
 		p("</a></li>\n" + 
-"    -->\n" + 
+"	<li");// line 21, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Followed"));// line 22, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"#\">");// line 22, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.followed"));// line 22, japidviews\_tags\SettingsMenu.html
+		p("</a></li>\n" + 
+"\n" + 
 "</ul>\n" + 
-" ");// line 21, japidviews\_tags\SettingsMenu.html
+" ");// line 22, japidviews\_tags\SettingsMenu.html
 		
 		endDoLayout(sourceTemplate);
 	}

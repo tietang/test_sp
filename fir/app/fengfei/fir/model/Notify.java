@@ -11,4 +11,12 @@ public class Notify {
         this.position = position;
         isNotify = notify;
     }
+
+    @Override
+    public String toString() {
+        return "Notify{" +
+                "position=" + position +
+                ", isNotify=" + isNotify +
+                '}';
+    }
 }
