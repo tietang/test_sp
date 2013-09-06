@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50525
 File Encoding         : 65001
 
-Date: 2013-08-16 16:51:06
+Date: 2013-09-06 15:43:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -117,16 +117,6 @@ CREATE TABLE `metadata_2_following` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='negative direction';
 
 -- ----------------------------
--- Table structure for notice
--- ----------------------------
-DROP TABLE IF EXISTS `notice`;
-CREATE TABLE `notice` (
-  `id_user` int(11) unsigned NOT NULL DEFAULT '0',
-  `values` binary(16) DEFAULT NULL,
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- ----------------------------
 -- Table structure for notify
 -- ----------------------------
 DROP TABLE IF EXISTS `notify`;
@@ -160,9 +150,11 @@ CREATE TABLE `photo` (
   `create_at` int(11) unsigned DEFAULT '0',
   `create_at_gmt` datetime DEFAULT NULL,
   `update_at` bigint(11) unsigned DEFAULT NULL,
+  `status` tinyint(4) DEFAULT '0',
   `comment_count` int(11) unsigned DEFAULT NULL,
   `adult` tinyint(4) unsigned DEFAULT '1',
   `copyright` tinyint(4) unsigned DEFAULT NULL,
+  `license` varchar(10) DEFAULT NULL,
   `ip` int(11) DEFAULT NULL,
   `tags` varchar(256) DEFAULT NULL,
   `make` varchar(64) DEFAULT NULL,
@@ -207,7 +199,7 @@ CREATE TABLE `photo_access` (
   PRIMARY KEY (`id`),
   KEY `idx_user_photo` (`id_photo`,`id_user`) USING BTREE,
   KEY `idx_ip_photo` (`id_photo`,`ip`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for photo_blink
@@ -281,7 +273,7 @@ CREATE TABLE `photo_comments` (
   `id_user_reply` int(11) unsigned DEFAULT NULL,
   `id_parent` bigint(20) unsigned DEFAULT NULL,
   PRIMARY KEY (`id_comment`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for photo_favorite
@@ -302,7 +294,38 @@ CREATE TABLE `photo_favorite` (
   UNIQUE KEY `idx_user_photo` (`id_photo`,`access_id_user`,`ip`) USING BTREE,
   KEY `idx_favorite` (`id_photo`,`id_user`) USING BTREE,
   KEY `idx_id_ip` (`id_photo`,`ip`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for photo_info
+-- ----------------------------
+DROP TABLE IF EXISTS `photo_info`;
+CREATE TABLE `photo_info` (
+  `id_photo` bigint(20) unsigned NOT NULL,
+  `id_user` int(11) unsigned NOT NULL,
+  `tags` varchar(256) DEFAULT NULL,
+  `make` varchar(64) DEFAULT NULL,
+  `model` varchar(64) DEFAULT NULL,
+  `lens` varchar(64) DEFAULT NULL,
+  `aperture` varchar(6) DEFAULT NULL,
+  `shutter` varchar(10) DEFAULT NULL,
+  `iso` varchar(10) DEFAULT NULL,
+  `focus` varchar(6) DEFAULT NULL,
+  `ev` varchar(6) DEFAULT NULL,
+  `original_at` varchar(20) DEFAULT NULL,
+  `white_balance` tinyint(4) DEFAULT NULL,
+  `software` varchar(64) DEFAULT NULL,
+  `flash` smallint(6) DEFAULT NULL,
+  `color_space` tinyint(4) DEFAULT NULL,
+  `metering_mode` tinyint(4) DEFAULT NULL,
+  `exposure_mode` tinyint(4) DEFAULT NULL,
+  `exposure_program` tinyint(4) DEFAULT NULL,
+  `gps_latitude` double NOT NULL,
+  `gps_longitude` double NOT NULL,
+  `gps_altitude` double NOT NULL,
+  `gps_origin` tinyint(4) DEFAULT '-1' COMMENT '0=photo or 1=google map or 2=baidu map',
+  PRIMARY KEY (`id_photo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for photo_rank
@@ -549,7 +572,7 @@ CREATE TABLE `user_camera` (
   `type` varchar(16) NOT NULL COMMENT 'camera,lens,tripod,filter',
   `id_camera` int(11) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_camera`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for user_config
@@ -557,7 +580,17 @@ CREATE TABLE `user_camera` (
 DROP TABLE IF EXISTS `user_config`;
 CREATE TABLE `user_config` (
   `id_user` int(10) unsigned NOT NULL,
-  `dir_size` int(10) unsigned DEFAULT '20'
+  `dir_size` int(10) unsigned DEFAULT '20',
+  `license` varchar(8) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Table structure for user_license
+-- ----------------------------
+DROP TABLE IF EXISTS `user_license`;
+CREATE TABLE `user_license` (
+  `id_user` int(255) DEFAULT NULL,
+  `license` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
@@ -573,6 +606,16 @@ CREATE TABLE `user_link` (
   `google` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for user_notice
+-- ----------------------------
+DROP TABLE IF EXISTS `user_notice`;
+CREATE TABLE `user_notice` (
+  `id_user` int(11) unsigned NOT NULL DEFAULT '0',
+  `values` binary(16) DEFAULT NULL,
+  PRIMARY KEY (`id_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Table structure for user_photograph
@@ -608,18 +651,20 @@ CREATE TABLE `user_pwd` (
 DROP TABLE IF EXISTS `user_social`;
 CREATE TABLE `user_social` (
   `id_user` int(10) unsigned NOT NULL,
-  `web_site` varchar(128) DEFAULT NULL,
-  `weibo` varchar(128) DEFAULT NULL,
-  `qq` varchar(128) DEFAULT NULL,
-  `qq_weibo` varchar(128) DEFAULT NULL,
-  `twitter` varchar(128) DEFAULT NULL,
-  `facebook` varchar(128) DEFAULT NULL,
-  `flickr` varchar(128) DEFAULT NULL,
-  `blog` varchar(128) DEFAULT NULL,
-  `skype` varchar(128) DEFAULT NULL,
-  `fengniao` varchar(128) DEFAULT NULL,
+  `web_site` varchar(64) DEFAULT NULL,
+  `weibo` varchar(64) DEFAULT NULL,
+  `qq` varchar(64) DEFAULT NULL,
+  `qq_weibo` varchar(64) DEFAULT NULL,
+  `douban` varchar(64) DEFAULT NULL,
+  `twitter` varchar(64) DEFAULT NULL,
+  `facebook` varchar(64) DEFAULT NULL,
+  `flickr` varchar(64) DEFAULT NULL,
+  `blog` varchar(64) DEFAULT NULL,
+  `skype` varchar(64) DEFAULT NULL,
+  `fengniao` varchar(64) DEFAULT NULL,
+  `renren` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for user_stats

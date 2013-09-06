@@ -85,6 +85,7 @@ public class SettingsMenu extends cn.bran.play.JapidTemplateBase
 	@Override
 	protected void doLayout() {
 		beginDoLayout(sourceTemplate);
+<<<<<<< HEAD
 		//------
 		Map<String, String> ms = new HashMap<String, String>();// line 3
 		ms.put(item, " class=\"active\" ");// line 4
@@ -169,6 +170,85 @@ public class SettingsMenu extends cn.bran.play.JapidTemplateBase
 				"</ul>\n" +
 				" \n");// line 22
 
+=======
+//------
+;// line 1, japidviews\_tags\SettingsMenu.html
+Map<String,String> ms=new HashMap<String , String>();// line 3, japidviews\_tags\SettingsMenu.html
+ms.put(item," class=\"active\" ");// line 4, japidviews\_tags\SettingsMenu.html
+		p("\n" + 
+"\n" + 
+"<ul class=\"nav  nav-pills nav-stacked\">\n" + 
+"	<li><h4>");// line 4, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.profile"));// line 8, japidviews\_tags\SettingsMenu.html
+		p("</h4></li>\n" + 
+"	<li");// line 8, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Profile"));// line 9, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"/settings/profile\">");// line 9, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.profile"));// line 9, japidviews\_tags\SettingsMenu.html
+		p("</a></li>\n" + 
+"	<li");// line 9, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Camera"));// line 10, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"/settings/camera\">");// line 10, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.camera"));// line 10, japidviews\_tags\SettingsMenu.html
+		p("</a></li>\n" + 
+"	<li");// line 10, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Password"));// line 11, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"/settings/password\">");// line 11, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.password"));// line 11, japidviews\_tags\SettingsMenu.html
+		p("</a></li>\n" + 
+"	<li");// line 11, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Notifications"));// line 12, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"/settings/notification\">");// line 12, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.notifications"));// line 12, japidviews\_tags\SettingsMenu.html
+		p("</a></li>\n" + 
+"	<li");// line 12, japidviews\_tags\SettingsMenu.html
+		p(ms.get("SocialMedia"));// line 13, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"/settings/socialmedia\">");// line 13, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.social.media"));// line 13, japidviews\_tags\SettingsMenu.html
+		p("</a></li>\n" + 
+"	<li");// line 13, japidviews\_tags\SettingsMenu.html
+		p(ms.get("SocialMedia"));// line 14, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"/settings/license\">");// line 14, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.license"));// line 14, japidviews\_tags\SettingsMenu.html
+		p("</a></li>\n" + 
+"	<!--\n" + 
+"    <li");// line 14, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Account"));// line 16, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"/settings/account\">");// line 16, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.account"));// line 16, japidviews\_tags\SettingsMenu.html
+		p("</a></li>\n" + 
+"	<li><h4>");// line 16, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.album"));// line 17, japidviews\_tags\SettingsMenu.html
+		p("</h4></li>\n" + 
+"	<li");// line 17, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Settings"));// line 18, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"#\">");// line 18, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.settings"));// line 18, japidviews\_tags\SettingsMenu.html
+		p("</a></li>\n" + 
+"	<li");// line 18, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Themes"));// line 19, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"#\">");// line 19, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.themes"));// line 19, japidviews\_tags\SettingsMenu.html
+		p("</a></li>\n" + 
+"	  -->\n" + 
+"	<li><h4>");// line 19, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.friends"));// line 21, japidviews\_tags\SettingsMenu.html
+		p("</h4></li>\n" + 
+"	<li");// line 21, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Following"));// line 22, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"#\">");// line 22, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.following"));// line 22, japidviews\_tags\SettingsMenu.html
+		p("</a></li>\n" + 
+"	<li");// line 22, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Followed"));// line 23, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"#\">");// line 23, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.followed"));// line 23, japidviews\_tags\SettingsMenu.html
+		p("</a></li>\n" + 
+"\n" + 
+"</ul>\n" + 
+" ");// line 23, japidviews\_tags\SettingsMenu.html
+		
+>>>>>>> c4b85573d6a4acd632da842373367b248a70c20e
 		endDoLayout(sourceTemplate);
 	}
 

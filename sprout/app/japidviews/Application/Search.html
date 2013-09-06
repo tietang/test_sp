@@ -31,7 +31,7 @@
 			`if(skey!=null) {key=Byte.parseByte(skey);}`
 
 			<select class="selectpicker  span2" id="category" name="c" onchange="form.submit();">
-				`tag Map2SelectOptions fengfei.spruce.cache.CategoryCache.getAll(),key`
+				`tag CategorySelectOptions fengfei.spruce.cache.SimpleCache.categories,key`
 			</select>
 
 			<select  class="selectpicker  span2"  id="photos_sort" name="o" onchange="form.submit();">

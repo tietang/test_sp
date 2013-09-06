@@ -33,7 +33,7 @@
 	</div>
 	<div class="col col_3 col_right">
 		<div class="row-fluid">
-			`Map kv1=fengfei.spruce.cache.CategoryCache.getAll();`
+			`Map kv1=fengfei.spruce.cache.SimpleCache.categories;`
 			`Map kv= new LinkedHashMap();kv.put((Byte)null,i18n("all"));`
 			`kv.putAll(kv1);`
 			`String skey=params.get("c");`
@@ -44,7 +44,7 @@
 			<div class=" span12" >
 				<select name="category" id="onlyCategoryIe" class="span12">
 					<option value="${key}">${value}</option>
-					`tag Map2SelectOptions fengfei.spruce.cache.CategoryCache.getAll(),key`
+					`tag CategorySelectOptions fengfei.spruce.cache.SimpleCache.categories,key`
 				</select>
 			</div>
 			`}else{`
@@ -58,7 +58,7 @@
 				</button>
 				<div class="dropdown-menu open" style="max-height: 537px; overflow: hidden; min-height: 92px;">
 					<ul class="dropdown-menu inner" role="menu" style="max-height: 525px; overflow-y: auto;">
-						`tag Map2Menus kv,key`
+						`tag CategoryMenus kv,key`
 					</ul>
 				</div>
 			</div>

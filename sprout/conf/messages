@@ -20,10 +20,8 @@ favorite=Favorite
 photo.nav.suffix= Photos
 search=Search
 upload=Upload
-new.story=New Story
-blink.photo=Blink Photo
-manager=Manager
-organize=Organize
+
+#profile
 profile=Profile
 account=Account
 settings=Settings
@@ -58,6 +56,8 @@ close=Close
 cancel=Cancel
 save.change=Save Change
 no.login=Please login!
+yes=Yes
+no=No
 #show
 highest.pulse=Highest Pulse
 thank.vote=Thank for your vote.
@@ -65,6 +65,16 @@ favorite.wanna=Favorite\u003f
 favorite.cancel=Cancel favorite\u003f
 follow.cancel=Cancel follow\u003f
 i.wanna.buy.photo=I want to buy this photo.
+#Licenses
+#http://creativecommons.org/choose/
+#http://creativecommons.org/choose/?lang=zh&jurisdiction=cn
+#http://creativecommons.net.cn/licenses/meet-the-licenses/
+license.feature=License Features
+license.content=Your choices on this panel will update the other panels on this page.
+license.by=Allow modifications of your work?
+license.by.share=Yes, as long as others share alike
+license.commercial=Allow commercial uses of your work?
+
 
 #exif key
 make=Make
@@ -114,10 +124,14 @@ signup.user.exist=Username already existed.
 signup.name.and.email.exist=Username and Email already existed.
 signup.email.exist=Email already existed.
 # upload
-add.upload=Upload
+add.photo=New Photo
 add.story=New Story
 add.blink=Blink Photo
 add.manage=Manage
+add.ps=PS Together
+manage=Manage
+organize=Organize
+#
 upload.error=Upload error.
 upload.drag=Drag photo from your computer in here.
 upload.add.before= You can also
@@ -169,6 +183,7 @@ profile.menu.camera=Camera
 profile.menu.password=Password
 profile.menu.notifications=Notifications
 profile.menu.social.media=Social Media
+profile.menu.license=License
 profile.menu.account=Account
 profile.menu.album=Album
 profile.menu.settings=Settings

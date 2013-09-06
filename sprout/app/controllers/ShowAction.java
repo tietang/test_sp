@@ -8,7 +8,7 @@ import fengfei.fir.rank.TopRank;
 import fengfei.fir.utils.DateTimeUtils;
 import fengfei.fir.utils.Path;
 import fengfei.forest.database.DataAccessException;
-import fengfei.spruce.cache.CategoryCache;
+import fengfei.spruce.cache.SimpleCache;
 import fengfei.spruce.utils.FollowServiceUtils;
 import fengfei.ucm.entity.photo.*;
 import fengfei.ucm.entity.profile.User;
@@ -107,7 +107,7 @@ public class ShowAction extends Admin {
         put(exif, "iso", photo.iso);
         put(exif, "lens", photo.lens);
         put(exif, "ev", photo.ev);
-        put(exif, "category", CategoryCache.get(photo.category));
+        put(exif, "category", SimpleCache.categories.get(photo.category));
         put(exif, "taken", photo.dateTimeOriginal);
 
         return exif;
