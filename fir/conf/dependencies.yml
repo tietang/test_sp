@@ -4,8 +4,6 @@ transitiveDependencies: false
   
 require:
     - play
-    #- play -> japid 0.9.5
-    - play -> spring 1.0.3
     - redis.clients -> jedis 2.1.0
     - com.google.guava -> guava 14.0.1 
     - org.apache.zookeeper -> zookeeper 3.4.5
