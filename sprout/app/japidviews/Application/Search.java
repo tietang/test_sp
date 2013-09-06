@@ -90,6 +90,7 @@ public class Search extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\Search.html
+
 p("	\n" + 
 "</pre>\n" + 
 "\n" + 
@@ -114,13 +115,17 @@ p("	\n" +
 "\n" + 
 "			");// line 7, japidviews\Application\Search.html
 		String skey=params.get("c");// line 29, japidviews\Application\Search.html
+
 			Byte key=(byte)0;// line 30, japidviews\Application\Search.html
+
 			if(skey!=null) {key=Byte.parseByte(skey);}// line 31, japidviews\Application\Search.html
 		p("\n" + 
+"\n" + 
 "			<select class=\"selectpicker  span2\" id=\"category\" name=\"c\" onchange=\"form.submit();\">\n" + 
 "				");// line 31, japidviews\Application\Search.html
-		final Map2SelectOptions _Map2SelectOptions2 = new Map2SelectOptions(getOut()); _Map2SelectOptions2.setActionRunners(getActionRunners()).setOut(getOut()); _Map2SelectOptions2.render(fengfei.spruce.cache.CategoryCache.getAll(),key); // line 34, japidviews\Application\Search.html// line 34, japidviews\Application\Search.html
-		p("			</select>\n" + 
+		final CategorySelectOptions _CategorySelectOptions2 = new CategorySelectOptions(getOut()); _CategorySelectOptions2.setActionRunners(getActionRunners()).setOut(getOut()); _CategorySelectOptions2.render(fengfei.spruce.cache.SimpleCache.categories,key); // line 34, japidviews\Application\Search.html// line 34, japidviews\Application\Search.html
+		p("\n" + 
+"			</select>\n" + 
 "\n" + 
 "			<select  class=\"selectpicker  span2\"  id=\"photos_sort\" name=\"o\" onchange=\"form.submit();\">\n" + 
 "				<option value=\"votes\" selected=\"selected\">Sort by Votes</option>\n" + 
@@ -166,14 +171,20 @@ p("	\n" +
 "</div>\n" + 
 "\n");// line 64, japidviews\Application\Search.html
 		if(type==0){// line 76, japidviews\Application\Search.html
-	List<PhotoShow>	photos=(List<PhotoShow>)rs;// line 77, japidviews\Application\Search.html
-		final japidviews.Application.photo.PhotoView _japidviews_Application_photo_PhotoView3 = new japidviews.Application.photo.PhotoView(getOut()); _japidviews_Application_photo_PhotoView3.setActionRunners(getActionRunners()).setOut(getOut()); _japidviews_Application_photo_PhotoView3.render(pagePath,photos,pageNum); // line 78, japidviews\Application\Search.html// line 78, japidviews\Application\Search.html
-}else{// line 79, japidviews\Application\Search.html
-	List<User>	users=(List<User>)rs;// line 80, japidviews\Application\Search.html
-	final UsersCard _UsersCard4 = new UsersCard(getOut()); _UsersCard4.setActionRunners(getActionRunners()).setOut(getOut()); _UsersCard4.render(pagePath,users,pageNum); // line 81, japidviews\Application\Search.html// line 81, japidviews\Application\Search.html
 
-}// line 83, japidviews\Application\Search.html
-		;// line 83, japidviews\Application\Search.html
+	List<PhotoShow>	photos=(List<PhotoShow>)rs;// line 77, japidviews\Application\Search.html
+
+		final japidviews.Application.photo.PhotoView _japidviews_Application_photo_PhotoView3 = new japidviews.Application.photo.PhotoView(getOut()); _japidviews_Application_photo_PhotoView3.setActionRunners(getActionRunners()).setOut(getOut()); _japidviews_Application_photo_PhotoView3.render(pagePath,photos,pageNum); // line 78, japidviews\Application\Search.html// line 78, japidviews\Application\Search.html
+
+}else{// line 79, japidviews\Application\Search.html
+
+	List<User>	users=(List<User>)rs;// line 80, japidviews\Application\Search.html
+
+	final UsersCard _UsersCard4 = new UsersCard(getOut()); _UsersCard4.setActionRunners(getActionRunners()).setOut(getOut()); _UsersCard4.render(pagePath,users,pageNum); // line 81, japidviews\Application\Search.html// line 81, japidviews\Application\Search.html
+		p("\n" + 
+"\n");// line 81, japidviews\Application\Search.html
+		}// line 83, japidviews\Application\Search.html
+		p("\n");// line 83, japidviews\Application\Search.html
 		
 		endDoLayout(sourceTemplate);
 	}

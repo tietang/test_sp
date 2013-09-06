@@ -1,0 +1,88 @@
+`extends japidviews._layouts.Layout`
+`set title:i18n("password.title")`
+`set header:"Change Password" `
+
+<div class="grid_row">
+
+    <div class="col col_3 ">
+        <div class="sidebar-nav ">
+            `tag SettingsMenu "Password"`
+        </div>
+    </div>
+    <div class="col col_13 ">
+        <div class="row-fluid well profile_right">
+            <div class="span10 ">
+
+                <form class="form-horizontal" action="/settings/password/done"
+                      method="post">
+                    `tag AllMessage`
+                    <h2>许可协议要点</h2>
+
+                    <div class="subtitle">本网页其他显示框的内容将根据你在下面的选择自动更新。</div>
+
+                    <div class="help_highlight">
+                        <div class="help_button" onclick="CHOOSER.CALL.popup('modifications');"></div>
+                        <h4>允许对您的作品进行修改吗？</h4>
+                        <ul>
+                            <li>
+                                <input type="radio"
+                                       checked="checked"
+                                       name="field_derivatives" value="y"
+                                       id="question_3-5"/>
+                                <label for="question_3-5">是</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="field_derivatives" value="n"
+
+                                       id="question_3-7"/>
+                                <label for="question_3-7">不</label>
+                            </li>
+                        </ul>
+                        <ul class="no_columns">
+                            <li>
+                                <input type="radio" name="field_derivatives" value="sa"
+
+                                       id="question_3-6"/>
+                                <label for="question_3-6">
+                                    是的，只要他人以相同方式共享
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="help_highlight">
+                        <div class="help_button" onclick="CHOOSER.CALL.popup('commercial');"></div>
+                        <h4>允许对您的作品进行商业性使用吗？</h4>
+                        <ul>
+                            <li>
+                                <input type="radio" checked="checked" name="field_commercial" value="y"
+                                       id="question_2-3"/>
+                                <label for="question_2-3">是</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="field_commercial" value="n" id="question_2-4"/>
+                                <label for="question_2-4">不</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn">
+                                &{save.change}
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+

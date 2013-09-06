@@ -95,40 +95,49 @@ qString="?"+qs;// line 9, japidviews\_tags\AddNav.html
 "	<div class=\"col col_13\">\n" + 
 "\n" + 
 "		<ul class=\"nav nav-pills\">\n" + 
-"			<li  ");// line 10, japidviews\_tags\AddNav.html
+"            <li  ");// line 10, japidviews\_tags\AddNav.html
 		p(ms.get("upload"));// line 15, japidviews\_tags\AddNav.html
 		p(">\n" + 
-"				<a href=\"/upload");// line 15, japidviews\_tags\AddNav.html
+"            <a href=\"/upload");// line 15, japidviews\_tags\AddNav.html
 		p(qString);// line 16, japidviews\_tags\AddNav.html
 		p("\">");// line 16, japidviews\_tags\AddNav.html
-		;p(getMessage("add.upload"));// line 16, japidviews\_tags\AddNav.html
+		;p(getMessage("add.photo"));// line 16, japidviews\_tags\AddNav.html
 		p("</a>\n" + 
-"			</li>\n" + 
-"			<li  ");// line 16, japidviews\_tags\AddNav.html
-		p(ms.get("story"));// line 18, japidviews\_tags\AddNav.html
+"            </li>\n" + 
+"            <li  ");// line 16, japidviews\_tags\AddNav.html
+		p(ms.get("upload"));// line 18, japidviews\_tags\AddNav.html
 		p(">\n" + 
-"				<a href=\"/story");// line 18, japidviews\_tags\AddNav.html
+"            <a href=\"/upload");// line 18, japidviews\_tags\AddNav.html
 		p(qString);// line 19, japidviews\_tags\AddNav.html
 		p("\">");// line 19, japidviews\_tags\AddNav.html
-		;p(getMessage("add.story"));// line 19, japidviews\_tags\AddNav.html
+		;p(getMessage("add.ps"));// line 19, japidviews\_tags\AddNav.html
 		p("</a>\n" + 
-"			</li>\n" + 
+"            </li>\n" + 
 "			<li  ");// line 19, japidviews\_tags\AddNav.html
-		p(ms.get("blink"));// line 21, japidviews\_tags\AddNav.html
+		p(ms.get("story"));// line 21, japidviews\_tags\AddNav.html
 		p(">\n" + 
-"				<a href=\"/blink");// line 21, japidviews\_tags\AddNav.html
+"				<a href=\"/story");// line 21, japidviews\_tags\AddNav.html
 		p(qString);// line 22, japidviews\_tags\AddNav.html
 		p("\">");// line 22, japidviews\_tags\AddNav.html
-		;p(getMessage("add.blink"));// line 22, japidviews\_tags\AddNav.html
+		;p(getMessage("add.story"));// line 22, japidviews\_tags\AddNav.html
 		p("</a>\n" + 
 "			</li>\n" + 
 "			<li  ");// line 22, japidviews\_tags\AddNav.html
-		p(ms.get("manage"));// line 24, japidviews\_tags\AddNav.html
+		p(ms.get("blink"));// line 24, japidviews\_tags\AddNav.html
 		p(">\n" + 
-"				<a href=\"/photo/manage");// line 24, japidviews\_tags\AddNav.html
+"				<a href=\"/blink");// line 24, japidviews\_tags\AddNav.html
 		p(qString);// line 25, japidviews\_tags\AddNav.html
 		p("\">");// line 25, japidviews\_tags\AddNav.html
-		;p(getMessage("add.manage"));// line 25, japidviews\_tags\AddNav.html
+		;p(getMessage("add.blink"));// line 25, japidviews\_tags\AddNav.html
+		p("</a>\n" + 
+"			</li>\n" + 
+"			<li  ");// line 25, japidviews\_tags\AddNav.html
+		p(ms.get("manage"));// line 27, japidviews\_tags\AddNav.html
+		p(">\n" + 
+"				<a href=\"/photo/manage");// line 27, japidviews\_tags\AddNav.html
+		p(qString);// line 28, japidviews\_tags\AddNav.html
+		p("\">");// line 28, japidviews\_tags\AddNav.html
+		;p(getMessage("add.manage"));// line 28, japidviews\_tags\AddNav.html
 		p("</a>\n" + 
 "			</li>\n" + 
 "\n" + 
@@ -138,7 +147,7 @@ qString="?"+qs;// line 9, japidviews\_tags\AddNav.html
 "	</div>\n" + 
 " \n" + 
 "	<div class=\"col col_16  hr\"></div>\n" + 
-"</div>");// line 25, japidviews\_tags\AddNav.html
+"</div>");// line 28, japidviews\_tags\AddNav.html
 		
 		endDoLayout(sourceTemplate);
 	}

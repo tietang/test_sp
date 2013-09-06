@@ -141,6 +141,7 @@
                     </div>
 
                     `}else{`
+
                     <div class="nav pull-right">
                         <div class="btn-group">
                             <a class="btn btn-primary btn-small" href="/yours"><i
@@ -150,52 +151,54 @@
 
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/settings/profile"><i class="icon-pencil"></i>Setting</a>
+                                    <a href="/settings/profile"><i class="icon-pencil"></i> &{settings}</a>
                                 </li>
                                 <li>
-                                    <a href="/account"><i class="icon-trash"></i> Account</a>
+                                    <a href="/account"><i class="icon-trash"></i> &{account}</a>
                                 </li>
                                 <li>
-                                    <a href="/profile"><i class="icon-ban-circle"></i>Profile</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="/store"><i class="i"></i> Store</a>
+                                    <a href="/profile"><i class="icon-ban-circle"></i> &{profile}</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="/logout"><i class="i"></i> Logout</a>
+                                    <a href="/store"><i class="i"></i> &{store}</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="/logout"><i class="i"></i> &{logout}</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
+
                     <div class="nav pull-right">
 
                         <div class="btn-group">
                             <a class="btn btn-success btn-small" href="/add"><i
-                                    class=" icon-share icon-white"></i> Add</a><a
+                                    class=" icon-share icon-white"></i> &{add}</a><a
                                 class="btn btn-success btn-small dropdown-toggle"
                                 data-toggle="dropdown" href="#"><span class="caret"></span></a>
 
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/upload"><i class="icon-upload"></i> Upload</a>
+                                    <a href="/upload"><i class="icon-upload"></i> &{add.photo}</a>
                                 </li>
                                 <li>
-                                    <a href="/story"><i class=" icon-file"></i> New Story</a>
+                                    <a href="/ps"><i class="icon-upload"></i> &{add.ps} </a>
                                 </li>
                                 <li>
-                                    <a href="/blink"><i class="icon-upload"></i> Blink a photo</a>
+                                    <a href="/story"><i class=" icon-file"></i> &{add.story}</a>
                                 </li>
                                 <li>
-                                    <a href="/upload"><i class="icon-upload"></i> Sets</a>
+                                    <a href="/blink"><i class="icon-upload"></i> &{add.blink}</a>
                                 </li>
+
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="/photo/manage"> <i class="icon-edit"></i> Manage </a>
+                                    <a href="/photo/manage"> <i class="icon-edit"></i> &{manage} </a>
                                 </li>
                                 <li>
-                                    <a href="/photo/org"> <i class="icon-edit"></i> Organize </a>
+                                    <a href="/photo/org"> <i class="icon-edit"></i> &{organize} </a>
                                 </li>
                             </ul>
                         </div>

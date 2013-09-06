@@ -62,14 +62,19 @@
 			</select>
 		</div>
 
+        <div class="block">
+            <select name="category" id="category1"  data-style=" "
+                    class="selectpicker category span4">
+                `tag CategorySelectOptions fengfei.spruce.cache.SimpleCache.categories,(byte)0`
+            </select>
+        </div>
+        <div class="block">
+        <select name="license" id="license1"  data-style=" "
+                class="selectpicker license span4">
+            `tag LicenseSelectOptions fengfei.spruce.cache.SimpleCache.licenses,(byte)0`
+        </select>
+    </div>
 		<div class="block">
-			<select name="category" id="category1"  data-style=" "
-			class="selectpicker category span4">
-				`tag Map2SelectOptions fengfei.spruce.cache.CategoryCache.getAll(),(byte)0`
-			</select>
-		</div>
-		<div class="block">
-			<label for="tags1">Tags</label>
 			<input type="text"  placeholder="&{photo.tags} " rows="6" data-provide="tag" data-caseInsensitive="true"
 										class="span4  " name="tags" id="tags1"/>
 		</div>

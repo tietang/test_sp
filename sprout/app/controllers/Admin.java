@@ -1,6 +1,5 @@
 package controllers;
 
-import cn.bran.play.JapidController;
 import cn.bran.play.JapidResult;
 import fengfei.fir.model.Done;
 import fengfei.fir.model.Done.Status;

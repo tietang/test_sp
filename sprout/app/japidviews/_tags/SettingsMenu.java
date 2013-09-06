@@ -116,42 +116,47 @@ ms.put(item," class=\"active\" ");// line 4, japidviews\_tags\SettingsMenu.html
 		p("><a href=\"/settings/socialmedia\">");// line 13, japidviews\_tags\SettingsMenu.html
 		;p(getMessage("profile.menu.social.media"));// line 13, japidviews\_tags\SettingsMenu.html
 		p("</a></li>\n" + 
+"	<li");// line 13, japidviews\_tags\SettingsMenu.html
+		p(ms.get("SocialMedia"));// line 14, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"/settings/license\">");// line 14, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.license"));// line 14, japidviews\_tags\SettingsMenu.html
+		p("</a></li>\n" + 
 "	<!--\n" + 
-"    <li");// line 13, japidviews\_tags\SettingsMenu.html
-		p(ms.get("Account"));// line 15, japidviews\_tags\SettingsMenu.html
-		p("><a href=\"/settings/account\">");// line 15, japidviews\_tags\SettingsMenu.html
-		;p(getMessage("profile.menu.account"));// line 15, japidviews\_tags\SettingsMenu.html
+"    <li");// line 14, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Account"));// line 16, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"/settings/account\">");// line 16, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.account"));// line 16, japidviews\_tags\SettingsMenu.html
 		p("</a></li>\n" + 
-"	<li><h4>");// line 15, japidviews\_tags\SettingsMenu.html
-		;p(getMessage("profile.menu.album"));// line 16, japidviews\_tags\SettingsMenu.html
+"	<li><h4>");// line 16, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.album"));// line 17, japidviews\_tags\SettingsMenu.html
 		p("</h4></li>\n" + 
-"	<li");// line 16, japidviews\_tags\SettingsMenu.html
-		p(ms.get("Settings"));// line 17, japidviews\_tags\SettingsMenu.html
-		p("><a href=\"#\">");// line 17, japidviews\_tags\SettingsMenu.html
-		;p(getMessage("profile.menu.settings"));// line 17, japidviews\_tags\SettingsMenu.html
-		p("</a></li>\n" + 
 "	<li");// line 17, japidviews\_tags\SettingsMenu.html
-		p(ms.get("Themes"));// line 18, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Settings"));// line 18, japidviews\_tags\SettingsMenu.html
 		p("><a href=\"#\">");// line 18, japidviews\_tags\SettingsMenu.html
-		;p(getMessage("profile.menu.themes"));// line 18, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.settings"));// line 18, japidviews\_tags\SettingsMenu.html
+		p("</a></li>\n" + 
+"	<li");// line 18, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Themes"));// line 19, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"#\">");// line 19, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.themes"));// line 19, japidviews\_tags\SettingsMenu.html
 		p("</a></li>\n" + 
 "	  -->\n" + 
-"	<li><h4>");// line 18, japidviews\_tags\SettingsMenu.html
-		;p(getMessage("profile.menu.friends"));// line 20, japidviews\_tags\SettingsMenu.html
+"	<li><h4>");// line 19, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.friends"));// line 21, japidviews\_tags\SettingsMenu.html
 		p("</h4></li>\n" + 
-"	<li");// line 20, japidviews\_tags\SettingsMenu.html
-		p(ms.get("Following"));// line 21, japidviews\_tags\SettingsMenu.html
-		p("><a href=\"#\">");// line 21, japidviews\_tags\SettingsMenu.html
-		;p(getMessage("profile.menu.following"));// line 21, japidviews\_tags\SettingsMenu.html
-		p("</a></li>\n" + 
 "	<li");// line 21, japidviews\_tags\SettingsMenu.html
-		p(ms.get("Followed"));// line 22, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Following"));// line 22, japidviews\_tags\SettingsMenu.html
 		p("><a href=\"#\">");// line 22, japidviews\_tags\SettingsMenu.html
-		;p(getMessage("profile.menu.followed"));// line 22, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.following"));// line 22, japidviews\_tags\SettingsMenu.html
+		p("</a></li>\n" + 
+"	<li");// line 22, japidviews\_tags\SettingsMenu.html
+		p(ms.get("Followed"));// line 23, japidviews\_tags\SettingsMenu.html
+		p("><a href=\"#\">");// line 23, japidviews\_tags\SettingsMenu.html
+		;p(getMessage("profile.menu.followed"));// line 23, japidviews\_tags\SettingsMenu.html
 		p("</a></li>\n" + 
 "\n" + 
 "</ul>\n" + 
-" ");// line 22, japidviews\_tags\SettingsMenu.html
+" ");// line 23, japidviews\_tags\SettingsMenu.html
 		
 		endDoLayout(sourceTemplate);
 	}
