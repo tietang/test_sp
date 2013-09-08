@@ -17,7 +17,7 @@ category=Category
 flow=Flow
 fav=Favorite
 favorite=Favorite
-photo.nav.suffix= Photos
+photo.nav.suffix=Photos
 search=Search
 upload=Upload
 
@@ -61,16 +61,15 @@ no=No
 #show
 highest.pulse=Highest Pulse
 thank.vote=Thank for your vote.
-favorite.wanna=Favorite\u003f
-favorite.cancel=Cancel favorite\u003f
-follow.cancel=Cancel follow\u003f
+favorite.wanna=Favorite?
+favorite.cancel=Cancel favorite?
+follow.cancel=Cancel follow?
 i.wanna.buy.photo=I want to buy this photo.
 #Licenses
 #http://creativecommons.org/choose/
 #http://creativecommons.org/choose/?lang=zh&jurisdiction=cn
 #http://creativecommons.net.cn/licenses/meet-the-licenses/
-license.feature=License Features
-license.content=Your choices on this panel will update the other panels on this page.
+license.content=Default license of your choice:
 license.by=Allow modifications of your work?
 license.by.share=Yes, as long as others share alike
 license.commercial=Allow commercial uses of your work?
@@ -102,11 +101,11 @@ GPSAltitude=GPSAltitude
 
 
 
-signup.xxx.fff=09
+
 #  login
 login.title=Log in with your account
-login.no.account=No account yet\u003f
-login.forget.password=Can't access your account\u003f
+login.no.account=No account yet?
+login.forget.password=Can't access your account?
 login.username.alt= Email or Username
 login.username.label=Login with your username or email:
 login.password.alt= Password
@@ -203,7 +202,7 @@ user.email=Email
 user.location=Location
 user.city=City
 user.state=State
-user.country=country
+user.country=Country
 user.nice.name=Nice name
 user.birthday=Birthday
 user.phone=Phone

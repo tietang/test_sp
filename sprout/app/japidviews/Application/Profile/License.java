@@ -80,107 +80,175 @@ public class License extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\profile\License.html
-
-p("\n" + 
-"\n" + 
-"<div class=\"grid_row\">\n" + 
+// line 4, japidviews\Application\profile\License.html
+		p("<div class=\"grid_row license\">\n" + 
 "\n" + 
 "    <div class=\"col col_3 \">\n" + 
 "        <div class=\"sidebar-nav \">\n" + 
-"            ");// line 3, japidviews\Application\profile\License.html
-		final SettingsMenu _SettingsMenu2 = new SettingsMenu(getOut()); _SettingsMenu2.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu2.render("Password"); // line 9, japidviews\Application\profile\License.html// line 9, japidviews\Application\profile\License.html
-		p("\n" + 
-"        </div>\n" + 
+"            ");// line 7, japidviews\Application\profile\License.html
+		final SettingsMenu _SettingsMenu3 = new SettingsMenu(getOut()); _SettingsMenu3.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu3.render("License"); // line 13, japidviews\Application\profile\License.html// line 13, japidviews\Application\profile\License.html
+		p("        </div>\n" + 
 "    </div>\n" + 
 "    <div class=\"col col_13 \">\n" + 
-"        <div class=\"row-fluid well profile_right\">\n" + 
-"            <div class=\"span10 \">\n" + 
+"        <div class=\"row-fluid \">\n" + 
+"            <div class=\"span12 well\">\n" + 
 "\n" + 
-"                <form class=\"form-horizontal\" action=\"/settings/password/done\"\n" + 
+"                <form class=\"form-horizontal\" action=\"/settings/license/done\"\n" + 
 "                      method=\"post\">\n" + 
-"                    ");// line 9, japidviews\Application\profile\License.html
-		final AllMessage _AllMessage3 = new AllMessage(getOut()); _AllMessage3.setActionRunners(getActionRunners()).setOut(getOut()); _AllMessage3.render(); // line 18, japidviews\Application\profile\License.html// line 18, japidviews\Application\profile\License.html
+"                    ");// line 13, japidviews\Application\profile\License.html
+		final AllMessage _AllMessage4 = new AllMessage(getOut()); _AllMessage4.setActionRunners(getActionRunners()).setOut(getOut()); _AllMessage4.render(); // line 22, japidviews\Application\profile\License.html// line 22, japidviews\Application\profile\License.html
 		p("\n" + 
-"                    <h2>许可协议要点</h2>\n" + 
 "\n" + 
-"                    <div class=\"subtitle\">本网页其他显示框的内容将根据你在下面的选择自动更新。</div>\n" + 
+"                    <div class=\"subtitle\">");// line 22, japidviews\Application\profile\License.html
+		;p(getMessage("license.content"));// line 25, japidviews\Application\profile\License.html
+		p("</div>\n" + 
+"                    <div class=\"control-group  \">\n" + 
+"                        <h4>");// line 25, japidviews\Application\profile\License.html
+		;p(getMessage("license.by"));// line 27, japidviews\Application\profile\License.html
+		p("</h4>\n" + 
+"                        <label class=\"radio\">\n" + 
+"                            <input type=\"radio\" name=\"by\" value=\"0\" checked>\n" + 
+"                            ");// line 27, japidviews\Application\profile\License.html
+		;p(getMessage("yes"));// line 30, japidviews\Application\profile\License.html
+		p("                        </label>\n" + 
+"                        <label class=\"radio\">\n" + 
+"                            <input type=\"radio\" name=\"by\" value=\"nd\">\n" + 
+"                            ");// line 30, japidviews\Application\profile\License.html
+		;p(getMessage("no"));// line 34, japidviews\Application\profile\License.html
+		p("                        </label>\n" + 
+"                        <label class=\"radio\">\n" + 
+"                            <input type=\"radio\" name=\"by\" value=\"sa\">\n" + 
+"                            ");// line 34, japidviews\Application\profile\License.html
+		;p(getMessage("license.by.share"));// line 38, japidviews\Application\profile\License.html
+		p("                        </label>\n" + 
 "\n" + 
-"                    <div class=\"help_highlight\">\n" + 
-"                        <div class=\"help_button\" onclick=\"CHOOSER.CALL.popup('modifications');\"></div>\n" + 
-"                        <h4>允许对您的作品进行修改吗？</h4>\n" + 
-"                        <ul>\n" + 
-"                            <li>\n" + 
-"                                <input type=\"radio\"\n" + 
-"                                       checked=\"checked\"\n" + 
-"                                       name=\"field_derivatives\" value=\"y\"\n" + 
-"                                       id=\"question_3-5\"/>\n" + 
-"                                <label for=\"question_3-5\">是</label>\n" + 
-"                            </li>\n" + 
-"                            <li>\n" + 
-"                                <input type=\"radio\" name=\"field_derivatives\" value=\"n\"\n" + 
+"                    </div>\n" + 
+"                    <div class=\"control-group  \">\n" + 
+"                        <h4>");// line 38, japidviews\Application\profile\License.html
+		;p(getMessage("license.commercial"));// line 43, japidviews\Application\profile\License.html
+		p("</h4>\n" + 
 "\n" + 
-"                                       id=\"question_3-7\"/>\n" + 
-"                                <label for=\"question_3-7\">不</label>\n" + 
-"                            </li>\n" + 
-"                        </ul>\n" + 
-"                        <ul class=\"no_columns\">\n" + 
-"                            <li>\n" + 
-"                                <input type=\"radio\" name=\"field_derivatives\" value=\"sa\"\n" + 
 "\n" + 
-"                                       id=\"question_3-6\"/>\n" + 
-"                                <label for=\"question_3-6\">\n" + 
-"                                    是的，只要他人以相同方式共享\n" + 
-"                                </label>\n" + 
-"                            </li>\n" + 
-"                        </ul>\n" + 
+"                        <label class=\"radio\">\n" + 
+"                            <input type=\"radio\" name=\"c\" value=\"1\" checked>\n" + 
+"                            ");// line 43, japidviews\Application\profile\License.html
+		;p(getMessage("yes"));// line 48, japidviews\Application\profile\License.html
+		p("                        </label>\n" + 
+"                        <label class=\"radio\">\n" + 
+"                            <input type=\"radio\" name=\"c\" value=\"nc\">\n" + 
+"                            ");// line 48, japidviews\Application\profile\License.html
+		;p(getMessage("no"));// line 52, japidviews\Application\profile\License.html
+		p("                        </label>\n" + 
+"\n" + 
+"\n" + 
 "                    </div>\n" + 
 "\n" + 
-"\n" + 
-"                    <div class=\"help_highlight\">\n" + 
-"                        <div class=\"help_button\" onclick=\"CHOOSER.CALL.popup('commercial');\"></div>\n" + 
-"                        <h4>允许对您的作品进行商业性使用吗？</h4>\n" + 
-"                        <ul>\n" + 
-"                            <li>\n" + 
-"                                <input type=\"radio\" checked=\"checked\" name=\"field_commercial\" value=\"y\"\n" + 
-"                                       id=\"question_2-3\"/>\n" + 
-"                                <label for=\"question_2-3\">是</label>\n" + 
-"                            </li>\n" + 
-"                            <li>\n" + 
-"                                <input type=\"radio\" name=\"field_commercial\" value=\"n\" id=\"question_2-4\"/>\n" + 
-"                                <label for=\"question_2-4\">不</label>\n" + 
-"                            </li>\n" + 
-"                        </ul>\n" + 
-"                    </div>\n" + 
 "\n" + 
 "                    <div class=\"control-group\">\n" + 
-"                        <div class=\"controls\">\n" + 
-"                            <button type=\"submit\" class=\"btn\">\n" + 
-"                                ");// line 18, japidviews\Application\profile\License.html
-		;p(getMessage("save.change"));// line 73, japidviews\Application\profile\License.html
-		p("\n" + 
-"                            </button>\n" + 
-"                        </div>\n" + 
+"\n" + 
+"                        <button type=\"submit\" class=\"btn\">\n" + 
+"                            ");// line 52, japidviews\Application\profile\License.html
+		;p(getMessage("save.change"));// line 62, japidviews\Application\profile\License.html
+		p("                        </button>\n" + 
+"\n" + 
 "                    </div>\n" + 
+"                    <h3>你选择的许可协议</h3>\n" + 
+"\n" + 
+"                    <h4 id=\"cctxt\">\n" + 
+"                        <a href=\"http://creativecommons.org/licenses/by/3.0/cn/\" target=\"_target\">署名3.0</a>\n" + 
+"                    </h4>\n" + 
+"\n" + 
+"                    <div class=\"cc\" id=\"cc\">\n" + 
+"                        <img src=\"/public/images/cc/cc.png\">\n" + 
+"                        <img src=\"/public/images/cc/by.png\">\n" + 
+"                    </div>\n" + 
+"\n" + 
 "\n" + 
 "                </form>\n" + 
 "\n" + 
 "            </div>\n" + 
+"\n" + 
+"        </div>\n" + 
+"\n" + 
+"    </div>\n" + 
+"    <div class=\"col col_3\">\n" + 
+"        <div class=\" \">\n" + 
+"\n" + 
+"\n" + 
+"        </div>\n" + 
+"\n" + 
+"\n" + 
+"    </div>\n" + 
+"    <div class=\"col col_13\">\n" + 
+"        <div class=\"row-fluid  \">\n" + 
+"\n" + 
+"            <div class=\"span12 well\">\n" + 
+"                <h3>知识共享协议 3.0 (Creative Commons 3.0)</h3>\n" + 
+"\n" + 
+"                <P>\n" + 
+"                    <img src=\"/public/images/cc/cc.png\" class=\"img\">\n" + 
+"                    本网站发布的所有内容均采用CC协议3.0,详细内容：\n" + 
+"                <ul>\n" + 
+"                    <li>查看 <a href=\"http://creativecommons.net.cn/licenses/meet-the-licenses/\">知识共享许可协议文本</a></li>\n" + 
+"                    <li>查看 <a href=\"http://creativecommons.net.cn/licenses/licenses_exp/\">许可协议说明</a></li>\n" + 
+"                </ul>\n" + 
+"                </P>\n" + 
+"\n" + 
+"\n" + 
+"                <br/>\n" + 
+"\n" + 
+"                <P>\n" + 
+"                <h4>简要协议说明：</h4>\n" + 
+"\n" + 
+"                <div class=\"note\">\n" + 
+"\n" + 
+"                    <img src=\"/public/images/cc/by.png\" class=\"img\">\n" + 
+"                    <strong> 署名：</strong> 您允许他人对自己享有著作权的作品及演绎作品进行复制、发行、展览、表演、放映、广播或通过信息网络向公众传播，但在这些过程中对方必须保留您对原作品的署名。\n" + 
+"                </div>\n" + 
+"                <div class=\"note\">\n" + 
+"                    <img src=\"/public/images/cc/nc.png\" class=\"img\">\n" + 
+"                    <strong> 非商业性使用：</strong>您允许他人对您享有著作权的作品及演绎作品进行复制、发行、展览、表演、放映、广播或通过信息网络向公众传播，但仅限于非商业性目的。\n" + 
+"\n" + 
+"                </div>\n" + 
+"                <div class=\"note\">\n" + 
+"\n" + 
+"                    <img src=\"/public/images/cc/nd.png\" class=\"img\">\n" + 
+"                    <strong> 禁止演绎：</strong>您允许他人对您的作品原封不动地进行复制、发行、展览、表演、放映、广播或通过信息网络向公众传播，但不得进行演绎创作。\n" + 
+"                </div>\n" + 
+"                <div class=\"note\">\n" + 
+"                    <img src=\"/public/images/cc/sa.png\" class=\"img\">\n" + 
+"                    <strong> 相同方式共享：</strong>只有在他人对演绎作品使用与您的原作品相同的许可协议的情况下，您才允许他人发行其演绎作品。\n" + 
+"\n" + 
+"\n" + 
+"                </div>\n" + 
+"                <div class=\"note\"> 注：许可协议协议不能同时包含“相同方式共享”和“禁止演绎”许可要素，“相同方式共享”要素仅适用于演绎作品。</div>\n" + 
+"                </P>\n" + 
+"            </div>\n" + 
+"\n" + 
+"\n" + 
 "        </div>\n" + 
 "\n" + 
 "    </div>\n" + 
 "</div>\n" + 
 "\n" + 
 "\n" + 
-"\n" + 
-"\n");// line 73, japidviews\Application\profile\License.html
+"\n");// line 62, japidviews\Application\profile\License.html
 		
 		endDoLayout(sourceTemplate);
 	}
 
 	@Override protected void title() {
-		p(i18n("password.title"));;
+		p(i18n("license.title"));;
+	}
+	@Override protected void css() {
+		// line 4, japidviews\Application\profile\License.html
+		p("<script type=\"text/javascript\" src=\"");// line 4, japidviews\Application\profile\License.html
+		p(lookupStatic("/public/app/license.js"));// line 5, japidviews\Application\profile\License.html
+		p("\"></script>\n" + 
+"\n");// line 5, japidviews\Application\profile\License.html
+		;
 	}
 	@Override protected void header() {
-		p("Change Password");;
+		p("set License");;
 	}
 }

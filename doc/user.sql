@@ -18,6 +18,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
+ 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id_user` int(10) unsigned NOT NULL,
@@ -33,6 +34,11 @@ CREATE TABLE `user` (
   `create_at` int(11) unsigned DEFAULT NULL,
   `update_at` bigint(20) unsigned DEFAULT NULL,
   `head_photo` tinyint(4) unsigned DEFAULT '0',
+  `count_view` int(11) unsigned DEFAULT '0' COMMENT '查看次数',
+  `count_vote` int(11) unsigned DEFAULT '0' COMMENT '投票数',
+  `count_favorite` int(11) unsigned DEFAULT '0' COMMENT '收藏数',
+  `count_comment` int(11) unsigned DEFAULT '0' COMMENT '评论数',
+  `count_affection` int(11) unsigned DEFAULT '0' COMMENT '影响力，及为登录用户的vote数',
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 PACK_KEYS=1;
 

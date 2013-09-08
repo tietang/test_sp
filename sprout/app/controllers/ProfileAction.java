@@ -366,6 +366,16 @@ public class ProfileAction extends Admin {
         throw new JapidResult(new Account().render());
     }
 
+    @Any("/settings/license")
+    public static void license() {
+        throw new JapidResult(new License().render());
+    }
+
+    @Post("/settings/license/done")
+    public static void licenseDone() {
+        license();
+    }
+
     static PhotoManageRepository photoManage = new SqlPhotoManageRepository();
 
     @Any("/photo/manage")

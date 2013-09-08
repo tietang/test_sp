@@ -4,46 +4,258 @@ web.desc=Spruce是专业的摄影作品分享交流社区，你可以分享自�
 
 #page
 home=主页
+photo=照片
 photos= 照片
 pop=最受欢迎
 last=最新更新
 choice=我们推荐
 upcoming=正在上升
 category=分类浏览
-flow=关注的
+flow=发生的
 fav=收藏的
 favorite=收藏的
-#
-follow=Follow
-view=View
-vote=Vote
-highest.pulse=Highest Pulse
-thank.vote=Thank for your vote.
-favorite.wanna=Favorite?
-favorite.cancel=Cancel favorite?
+
+
+server.error=服务器连接超时
+server.inner.error=服务器内部错误
+
+# nav link
+
+photo.nav.suffix=照片
+search=搜索
+upload=上传
+
+#profile
+profile=个人资料
+account=账户
+settings=设置
+store=商店
+login=登录
+logout=登出
+signup=注册
+sign.in=登录
+sign.up=注册
+pluse.alt=脉冲
+follow=关注
+followed=被关注
+unfollow=取消关注
+following=已关注
+view=访问
+vote=投票
+like=喜欢
+comment=评论
+view.num=访问数
+vote.num=投票数
+like.num=喜欢数
+comment.num=评论数
+more=更多
+all=所有的
+published=发布的
+sets=目录
+edit=编辑
+delete=删除
+remove=移除
+add=添加
+close=关闭
+cancel=取消
+save.change=保存
+no.login=请登录！
+yes=是
+no=否
+#show
+highest.pulse=历史最高分数
+thank.vote=谢谢你投票
+favorite.wanna=收藏？
+favorite.cancel=取消收藏
+follow.cancel=取消关注？
+i.wanna.buy.photo=我想要买这张照片。
+#Licenses
+#http://creativecommons.org/choose/
+#http://creativecommons.org/choose/?lang=zh&jurisdiction=cn
+#http://creativecommons.net.cn/licenses/meet-the-licenses/
+license.content=设置你的默认CC协议
+license.by=是否允许对您的作品进行修改和演绎吗？
+license.by.share=是的，只要他人以相同方式共享
+license.commercial=是否允许对您的作品进行商业性使用吗？
 
 
 #exif key
-make=Make
-model=Model
-aperture=Aperture
-shutter=Shutter
+make=制造商
+model=相机型号
+camera=照相机
+aperture=光圈
+shutter=快门
 iso=ISO
-lens=Lens
-focus=Focus
-ev=EV
-dateTimeOriginal=Take At
-WhiteBalance=WhiteBalance
-Software=Software
-Flash=Flash
-ColorSpace=ColorSpace
-MeteringMode=MeteringMode
+lens=镜头
+focus=焦距
+ev=曝光补偿
+dateTimeOriginal=拍摄时间
+taken=拍摄时间
+WhiteBalance=白平衡
+Software=软件
+Flash=闪光灯
+ColorSpace=色彩空间
+MeteringMode=测光模式
 ExposureProgram=ExposureProgram
-ExposureMode=ExposureMode
-GPSLatitude=GPSLatitude
-GPSLongitude=GPSLongitude
-GPSAltitude=GPSAltitude
+ExposureMode=曝光模式
+GPSLatitude=纬度
+GPSLongitude=经度
+GPSAltitude=海拔
+
+
+#  login
+login.title=账户登录
+login.no.account=还没有账户？
+login.forget.password=忘记了密码？
+login.username.alt= 电子邮件或用户名称
+login.username.label=用电子邮件或用户名称：
+login.password.alt=密码
+login.password.label=输入您的密码：
+login.qq=用QQ账户登录
+login.sina.weibo=用新浪微博账户登录
+login.error=用户或密码错误
+login.json.message.before=暂时不能操作，请
+login.json.message.link=login
+
+#sign up
+signup.password.mismatch=两次密码不一致。
+signup.password.max=密码长度太长。
+signup.user.exist=用户名已经存在。
+signup.name.and.email.exist=用户名和电子邮件已经存在。
+signup.email.exist=电子邮件已经存在
+# upload
+add.photo=上传照片
+add.story=写照片故事
+add.blink=Blink
+add.manage=管理
+add.ps=一起来PS
+manage=管理
+organize=组织
 #
+upload.error=上传错误
+upload.drag=拖拽你的照片到这里。
+upload.add.before= 你也可以点击
+upload.add.button= 添加照片...
+upload.add.after= 上传
+photo.file.name=文件名：
+photo.file.size=源文件大小：
+photo.note=小提示:拖拽你的照片到这里来替换当前照片。
+photo.title=标题
+photo.desc=描述
+photo.tags=标签
+photo.tags.alt=标签 (用空格来确认输入)
+photo.adult=为成人内容？
+photo.copyright=照片属于你自己？
+photo.make=制造商
+photo.model=型号
+photo.camera=相机
+photo.aperture=光圈
+photo.shutter=快门
+photo.shutter.alt=快门速度
+photo.iso=ISO
+photo.iso.alt=ISO/Film
+photo.lens=镜头
+photo.focus=焦距
+photo.focus.alt=焦距
+photo.ev=曝光补偿
+photo.ev.alt=曝光补偿
+photo.taken=拍摄时间
+photo.taken.alt=拍摄时间
+photo.category=分类
+photo.category.no=未分类
+photo.dir=目录
+photo.dir.no=无创建目录
+photo.status=发布
+#
+photo.delete.confirm=您确认要删除这张照片吗？
+#dir
+dir.save.error=目录保存出错了，请再次尝试。
+dir.name.max=目录名称字数不能大于%s
+dir.name.existed=目录已经存在了
+dir.delete.confirm=您确认要删除这个目录吗？
+#Editor's choice
+editor.choice=精选
+editor.view=查看
+
+#profile
+profile.menu.profile=个人资料
+profile.menu.camera=相机
+profile.menu.password=密码
+profile.menu.notifications=邮件设置
+profile.menu.social.media=社交设置
+profile.menu.license=作品默认协议
+profile.menu.account=账户
+profile.menu.album=专辑
+profile.menu.settings=设置
+profile.menu.themes=皮肤
+profile.menu.friends=朋友
+profile.menu.following=关注的
+profile.menu.followed=被关注的
+#user
+user.title=个人资料管理
+user.gender=性别
+user.male=男
+user.female=女
+user.not.specified=不确定
+user.crop.photo=修改头像
+user.username=用户名称
+user.email=电子邮件
+user.location=所在地区
+user.city=城市
+user.state=省份
+user.country=国家
+user.nice.name=昵称
+user.birthday=生日
+user.phone=电话
+user.real.name=真名
+user.about=关于自己
+
+#camera
+camera.title=器材:相机,镜头,脚架,滤镜
+camera.add.camera=添加相机
+camera.add.lens=添加镜头
+camera.add.tripod=添加脚架
+camera.add.filter=添加滤镜
+camera.camera=相机
+camera.lens=镜头
+camera.tripod=脚架
+camera.filter=滤镜
+#password
+password.title=修改密码
+password.old=旧密码
+#unsouport .new keyword
+password.again=新密码
+password.again.repeat=重复输入密码
+password.error.mismatched=两次密码不一样，请重新输入
+password.error.old.mismatched=旧密码不正确
+password.error.new.no.updated=新密码没有被修改。
+password.message.updated=新密码已经修改。
+#notify
+notify.title=邮件设置
+notify.comment.wall=当有人评论我的照片墙
+notify.comment.photo=当有人评论我的照片时
+notify.comment.story=当有人评论我的照片故事
+notify.favorite.photo=当有人收藏我的照片
+notify.choice.photo=当我的照片被编辑推荐
+notify.score.up=My photo becomes Upcoming or Popular
+notify.follow.me=Somebody starts following me
+notify.subscribed=Somebody comments on a photo or story I am subscribed to
+notify.buy.photo=Somebody buys one of my photos
+notify.news=News and updates
+notify.account.change=Account changes and updates
+#Social Media
+social.website=Website
+social.qq=QQ
+social.qq.weibo=Tencent Weibo
+social.weibo=Sina Weibo
+social.twitter=Twitter
+social.facebook=Facebook
+social.flickr=Flickr
+social.fengniao=Fengniao
+social.renren=Renren
+social.douban=Douban
+
+
 # For use in JavaExtensions.since tag
 since.seconds = %s second%s ago
 since.minutes = %s minute%s ago

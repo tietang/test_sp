@@ -17,9 +17,12 @@ import play.Logger;
 import play.PlayPlugin;
 import play.i18n.Lang;
 import play.i18n.Messages;
+import play.mvc.Http;
 
 import java.io.*;
+import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 
 public class AppInitPlugin extends PlayPlugin {
 
@@ -31,7 +34,7 @@ public class AppInitPlugin extends PlayPlugin {
         AppConstants.UpcomingMaxScore = AppConstants.PopularMinScore;
         //
         //TODO TEST
-        Lang.set("en");
+        // Lang.set("en");
 
         try {
             i18nJavaScriptGenerate();
@@ -40,6 +43,7 @@ public class AppInitPlugin extends PlayPlugin {
             e.printStackTrace();
         }
     }
+
 
     private void initFollowService() {
 
@@ -111,12 +115,8 @@ public class AppInitPlugin extends PlayPlugin {
     private void readLicense() {
 
         play.Logger.info("read license.");
-        String lang = Lang.get();
-        if (lang == null || "en".equals(lang)) {
-            lang = "";
-        } else {
-            lang = "." + lang;
-        }
+        String lang = getLang();
+
         try (InputStream inputStream = ResourcesUtils
                 .getResourceAsStream(String.format(LicenseFile, lang));) {
 
@@ -139,20 +139,45 @@ public class AppInitPlugin extends PlayPlugin {
 
     }
 
-
-    final static String I18nJavaScriptFilePath = "public/app/i18n.js";
-
-    private void i18nJavaScriptGenerate() throws IOException {
-        Properties properties = Messages.all(Lang.get());
-        String json = PropertiesToJson.toJson(properties, "web", "validation",
-                "since");
-
-        File f = new File(I18nJavaScriptFilePath);
-        FileOutputStream out = new FileOutputStream(f);
-        out.write("var i18n=".getBytes());
-        out.write(json.getBytes());
-        out.write(";\n".getBytes());
-        out.close();
+    private static String getLang() {
+        String lang = Lang.get();
+        if (lang == null || "en".equals(lang)) {
+            lang = "";
+        } else {
+            lang = "." + lang;
+        }
+        return lang;
     }
 
+
+    final static String I18nJavaScriptFilePath = "public/app/i18n%s.js";
+
+    private void i18nJavaScriptGenerate() throws IOException {
+        Set<Map.Entry<String, Properties>> entries = Messages.locales.entrySet();
+        for (Map.Entry<String, Properties> entry : entries) {
+            String lang = entry.getKey();
+            Properties properties = entry.getValue();
+            Properties mergedMessages = new Properties();
+            mergedMessages.putAll(Messages.defaults);
+            mergedMessages.putAll(properties);
+            //
+            String json = PropertiesToJson.toJson(mergedMessages, "web", "validation",
+                    "since");
+
+            File f = new File(String.format(I18nJavaScriptFilePath, lang));
+            FileOutputStream out = new FileOutputStream(f);
+            out.write("var i18n=".getBytes());
+            out.write(json.getBytes());
+            out.write(";\n".getBytes());
+            out.close();
+        }
+
+
+    }
+
+    @Override
+    public boolean rawInvocation(Http.Request request, Http.Response response) throws Exception {
+        Logger.debug("11111");
+        return super.rawInvocation(request, response);    //To change body of overridden methods use File | Settings | File Templates.
+    }
 }

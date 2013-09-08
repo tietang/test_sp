@@ -6,13 +6,17 @@ import fengfei.fir.model.Done.Status;
 import fengfei.fir.utils.AppUtils;
 import japidviews.Application.error.E500;
 import org.apache.commons.lang3.StringEscapeUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import play.i18n.Messages;
+import play.mvc.Before;
+import play.mvc.Http;
 
 import java.util.*;
 import java.util.Map.Entry;
 
 public class Admin extends ExceptionCatchController {
-
+    static Logger logger = LoggerFactory.getLogger(Admin.class);
 
     public static Map<String, String> pathTitle = new HashMap<>();
 
@@ -37,6 +41,14 @@ public class Admin extends ExceptionCatchController {
     //
     public final static int Row = 13;
     public final static int TotalRowShow = 20;
+
+    @Before
+    static void log() {
+        Http.Header agentHeader = request.headers.get("user-agent");
+        String agent = agentHeader.value().toLowerCase();
+        String ip = request.remoteAddress;
+        logger.info(ip+": "+agent);
+    }
 
     protected static Map<String, String[]> escapeAll() {
         Map<String, String[]> maps = params.all();
@@ -114,6 +126,7 @@ public class Admin extends ExceptionCatchController {
     protected static void redirect500() {
         redirect("/500");
     }
+
 
     protected static void render500() {
         throw new JapidResult(new E500().render());
