@@ -121,17 +121,20 @@ public class Login1 extends japidviews._layouts.Layout
 "					");// line 41, japidviews\Application\Login1.html
 		if(asBoolean(asBoolean(flash.get("error")))) {// line 45, japidviews\Application\Login1.html
 		p("\n" + 
+"\n" + 
 "					<div class=\"alert alert-error control-group\">\n" + 
 "						<button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 
 "							&times;\n" + 
 "						</button>\n" + 
 "						");// line 45, japidviews\Application\Login1.html
 		p(flash.get("error"));// line 51, japidviews\Application\Login1.html
-		p("					</div>\n" + 
+		p("\n" + 
+"					</div>\n" + 
 "\n" + 
 "					");// line 51, japidviews\Application\Login1.html
 		}// line 54, japidviews\Application\Login1.html
-		p("					<div class=\"input_control_group\">\n" + 
+		p("\n" + 
+"					<div class=\"input_control_group\">\n" + 
 "						Login with your username or email\n" + 
 "					</div>\n" + 
 "					<div class=\"input_control_group\">\n" + 

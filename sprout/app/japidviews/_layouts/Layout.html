@@ -75,6 +75,7 @@
                         <li>
                             <a href="/photos">&{photos}</a>
                         </li>
+
                         <li class="dropdown" style="display: none">
                             <a href="#" class="dropdown-toggle"
                                data-toggle="dropdown">Photos <b class="caret"></b></a>
@@ -126,6 +127,7 @@
                                    placeholder="Search">
                         </form>
                     </div>
+
                     `if (session.get(Admin.SESSION_LOGIN_KEY) == null) {`
                     <div class="nav pull-right">
                         <div class="btn-group">
@@ -143,13 +145,28 @@
                     `}else{`
 
                     <div class="nav pull-right">
+
                         <div class="btn-group">
-                            <a class="btn btn-primary btn-small" href="/yours"><i
-                                    class="icon-user icon-white"></i> ${session.get(Admin.SESSION_USER_NAME_KEY)}</a><a
+                            <a class="btn btn-primary btn-small" href="/yours">
+                                `String idUserStr=session.get(Admin.SESSION_USER_ID_KEY);`
+                                `Integer idUser=Integer.parseInt(idUserStr);`
+                                <img class="head_photo_18"
+                                     src="${fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)}">
+
+                                ${session.get(Admin.SESSION_USER_NAME_KEY)}</a><a
                                 class="btn btn-primary btn-small dropdown-toggle"
                                 data-toggle="dropdown" href="#"><span class="caret"></span></a>
 
                             <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/yours">
+                                        <img class="img_shadow head_photo_64"
+                                             src="${fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)}"/>
+                                    </a>
+
+
+                                </li>
+
                                 <li>
                                     <a href="/settings/profile"><i class="icon-pencil"></i> &{settings}</a>
                                 </li>
@@ -157,11 +174,9 @@
                                     <a href="/account"><i class="icon-trash"></i> &{account}</a>
                                 </li>
                                 <li>
-                                    <a href="/profile"><i class="icon-ban-circle"></i> &{profile}</a>
+                                    <a href="/settings/profile"><i class="icon-ban-circle"></i> &{profile}</a>
                                 </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="/store"><i class="i"></i> &{store}</a>
+                                <li><a href="/settings/password"><i class="icon-ban-circle"></i>&{profile.menu.password}</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
@@ -181,16 +196,16 @@
 
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/upload"><i class="icon-upload"></i> &{add.photo}</a>
+                                    <a href="/upload"><i class="icon-picture"></i> &{add.photo}</a>
                                 </li>
                                 <li>
-                                    <a href="/ps"><i class="icon-upload"></i> &{add.ps} </a>
+                                    <a href="/ps/upload"><i class=" icon-leaf"></i> &{add.ps} </a>
                                 </li>
                                 <li>
-                                    <a href="/story"><i class=" icon-file"></i> &{add.story}</a>
+                                    <a href="/story"><i class="icon-th-large"></i> &{add.story}</a>
                                 </li>
                                 <li>
-                                    <a href="/blink"><i class="icon-upload"></i> &{add.blink}</a>
+                                    <a href="/blink"><i class="icon-eye-open"></i> &{add.blink}</a>
                                 </li>
 
                                 <li class="divider"></li>
@@ -198,8 +213,9 @@
                                     <a href="/photo/manage"> <i class="icon-edit"></i> &{manage} </a>
                                 </li>
                                 <li>
-                                    <a href="/photo/org"> <i class="icon-edit"></i> &{organize} </a>
+                                    <a href="/photo/manage/set/all"> <i class="icon-tasks"></i> &{sets} </a>
                                 </li>
+
                             </ul>
                         </div>
                     </div>

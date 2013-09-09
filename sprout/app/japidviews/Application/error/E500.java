@@ -80,7 +80,9 @@ public class E500 extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\error\E500.html
-p("<div class=\"grid_row\">\n" + 
+
+p("\n" + 
+"<div class=\"grid_row\">\n" + 
 "	<div class=\"col col_4\">\n" + 
 "\n" + 
 "		&nbsp;\n" + 

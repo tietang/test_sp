@@ -44,7 +44,7 @@ function append(data) {
 
 function loadComments(id, id_user, cp, page, total) {
 	//console.info(id + " " + id_user + " " + cp + " " + page + " " + total);
-	$.get("/comments", {
+	$.get("/comments?"+Math.random(), {
 		id : id,
 		id_user : id_user,
 		cp : cp,

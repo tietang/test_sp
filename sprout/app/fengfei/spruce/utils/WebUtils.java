@@ -1,17 +1,15 @@
 package fengfei.spruce.utils;
 
+import org.codehaus.jackson.map.ObjectMapper;
+import play.i18n.Messages;
+
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
-
-import play.mvc.Http.Header;
 
 public class WebUtils {
+    public static String i18n(String key, Object... args) {
+        return Messages.get(key, args);
+    }
 
     public static String getLastUrlWord(String url) {
         String[] urls = url.trim().split("/");

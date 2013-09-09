@@ -163,7 +163,11 @@ public class AppInitPlugin extends PlayPlugin {
             //
             String json = PropertiesToJson.toJson(mergedMessages, "web", "validation",
                     "since");
-
+            if (lang == null || "en".equals(lang)) {
+                lang = "";
+            } else {
+                lang = "." + lang;
+            }
             File f = new File(String.format(I18nJavaScriptFilePath, lang));
             FileOutputStream out = new FileOutputStream(f);
             out.write("var i18n=".getBytes());
@@ -174,6 +178,7 @@ public class AppInitPlugin extends PlayPlugin {
 
 
     }
+
 
     @Override
     public boolean rawInvocation(Http.Request request, Http.Response response) throws Exception {

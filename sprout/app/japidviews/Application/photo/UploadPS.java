@@ -86,7 +86,7 @@ public class UploadPS extends japidviews._layouts.Layout
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\UploadPS.html
 p("</pre>\n");// line 5, japidviews\Application\photo\UploadPS.html
 		// line 7, japidviews\Application\photo\UploadPS.html
-final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActionRunners()).setOut(getOut()); _AddNav2.render("upload"); // line 45, japidviews\Application\photo\UploadPS.html// line 45, japidviews\Application\photo\UploadPS.html
+final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActionRunners()).setOut(getOut()); _AddNav2.render("ps"); // line 45, japidviews\Application\photo\UploadPS.html// line 45, japidviews\Application\photo\UploadPS.html
 		p("<form id=\"fileuploadForm\" action=\"/upload/done\" method=\"post\" enctype=\"multipart/form-data\">\n" + 
 "    <div class=\"grid_row upload \">\n" + 
 "        <div class=\"col col_16\">\n" + 

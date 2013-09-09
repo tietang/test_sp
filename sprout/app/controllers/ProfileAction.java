@@ -13,6 +13,7 @@ import fengfei.fir.utils.Path;
 import fengfei.forest.database.DataAccessException;
 import fengfei.ucm.entity.photo.PhotoSet;
 import fengfei.ucm.entity.profile.Camera;
+import fengfei.ucm.entity.profile.LicenseType;
 import fengfei.ucm.entity.profile.User;
 import fengfei.ucm.entity.profile.UserPwd;
 import fengfei.ucm.repository.PhotoManageRepository;
@@ -367,12 +368,28 @@ public class ProfileAction extends Admin {
     }
 
     @Any("/settings/license")
-    public static void license() {
-        throw new JapidResult(new License().render());
+    public static void license() throws Exception {
+        byte value = profileRepository.getDefaultLicense(currentUserId());
+        throw new JapidResult(new License().render(value));
     }
 
     @Post("/settings/license/done")
-    public static void licenseDone() {
+    public static void licenseDone() throws Exception {
+        Map<String, String> map = params.allSimple();
+        String by = MapUtils.getString(map, "by");
+        String c = MapUtils.getString(map, "c");
+        String[] bys = new String[3];
+        String licenseKey = "by";
+        if ("nc".equals(c)) {
+            licenseKey += "-nc";
+        }
+        if ("nd".equals(by) || "sa".equals(by)) {
+            licenseKey += "-" + by;
+        }
+        System.out.println("------------: " + licenseKey);
+        LicenseType licenseType = LicenseType.findByKey(licenseKey);
+        profileRepository.saveDefaultLicense(currentUserId(), licenseType.getValue());
+
         license();
     }
 

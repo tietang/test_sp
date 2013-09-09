@@ -85,6 +85,7 @@ public class NotifyChecked extends cn.bran.play.JapidTemplateBase
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\profile\NotifyChecked.html
+
 if(checks[index-1]){// line 3, japidviews\Application\profile\NotifyChecked.html
 		p("checked");// line 3, japidviews\Application\profile\NotifyChecked.html
 		}// line 3, japidviews\Application\profile\NotifyChecked.html

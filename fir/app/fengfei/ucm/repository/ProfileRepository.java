@@ -24,4 +24,8 @@ public interface ProfileRepository extends UnitNames {
                          List<Notify> notifies) throws DataAccessException;
 
     long getNotifyValue(Integer idUser) throws DataAccessException;
+
+    boolean saveDefaultLicense(Integer idUser, byte license) throws DataAccessException;
+
+    byte getDefaultLicense(Integer idUser) throws DataAccessException;
 }

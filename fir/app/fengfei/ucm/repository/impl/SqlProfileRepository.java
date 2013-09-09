@@ -9,6 +9,7 @@ import fengfei.forest.slice.database.utils.Transactions;
 import fengfei.forest.slice.database.utils.Transactions.TaCallback;
 import fengfei.ucm.dao.CameraDao;
 import fengfei.ucm.dao.NotifyDao;
+import fengfei.ucm.dao.UserConfigDao;
 import fengfei.ucm.entity.profile.Camera;
 import fengfei.ucm.repository.ProfileRepository;
 
@@ -21,7 +22,6 @@ public class SqlProfileRepository implements ProfileRepository {
 
     @Override
     public boolean addCamera(final List<Camera> models, final int idUser) throws DataAccessException {
-
         try {
 
             int updated = Transactions.execute(
@@ -199,6 +199,54 @@ public class SqlProfileRepository implements ProfileRepository {
                             suffix = "";
                             long value = NotifyDao.getNotify(grower, suffix, idUser);
                             return value;
+                        }
+
+                    });
+
+            return value;
+        } catch (Exception e) {
+            throw new DataAccessException("get notifications error.", e);
+        }
+    }
+
+    @Override
+    public boolean saveDefaultLicense(final Integer idUser, final byte license) throws DataAccessException {
+        try {
+
+            boolean value = Transactions.execute(
+                    PhotoUnitName,
+                    new Long(idUser),
+                    Function.Write,
+                    new TaCallback<Boolean>() {
+                        @Override
+                        public Boolean execute(ForestGrower grower, String suffix) throws SQLException {
+                            suffix = "";
+                            Integer value = UserConfigDao.setValue(grower, suffix, "license", idUser, license);
+                            return value > 0;
+                        }
+
+                    });
+
+            return value;
+        } catch (Exception e) {
+            throw new DataAccessException("get notifications error.", e);
+        }
+    }
+
+    @Override
+    public byte getDefaultLicense(final Integer idUser) throws DataAccessException {
+        try {
+
+            Byte value = Transactions.execute(
+                    PhotoUnitName,
+                    new Long(idUser),
+                    Function.Write,
+                    new TaCallback<Byte>() {
+                        @Override
+                        public Byte execute(ForestGrower grower, String suffix) throws SQLException {
+                            suffix = "";
+                            Integer value = UserConfigDao.getIntValue(grower, suffix, "license", idUser);
+                            return value == null ? 0 : value.byteValue();
                         }
 
                     });

@@ -80,7 +80,9 @@ public class ForgotPassword extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\ForgotPassword.html
-p("<div class=\"grid_row\">\n" + 
+
+p("\n" + 
+"<div class=\"grid_row\">\n" + 
 "	<div class=\"col col_16\">\n" + 
 "		<div class=\"alert\">\n" + 
 "			<button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 

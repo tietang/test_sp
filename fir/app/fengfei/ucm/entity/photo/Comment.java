@@ -21,7 +21,7 @@ public class Comment {
     public long idParent;
     //
     public User user;
-    public String lostTime;
+    public String sinceTime;
 
     public Comment() {
     }

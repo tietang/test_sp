@@ -1,5 +1,7 @@
 package fengfei.fir.utils;
 
+import fengfei.spruce.utils.WebUtils;
+
 public class DateTimeUtils {
 
     final static int OneMinute = 60;
@@ -10,7 +12,7 @@ public class DateTimeUtils {
 
     /**
      * m years n months/x minutes/m hours/m days
-     * 
+     *
      * @param before
      * @return
      */
@@ -23,26 +25,34 @@ public class DateTimeUtils {
         int years = seconds / OneYear;
         int ymonths = (seconds % OneYear) / OneMonth;
         String lostTime = null;
-        if (minutes >= 1) {
-            lostTime = minutes + " minutes";
+        if (seconds >= 1) {
+            lostTime = WebUtils.i18n("since.seconds", seconds, "");
         } else {
-            lostTime = "1 minutes";
+            lostTime = WebUtils.i18n("since.seconds", 1, "");
+        }
+        if (minutes >= 1) {
+            lostTime = WebUtils.i18n("since.minutes", minutes, "");
         }
         if (hours >= 1) {
-            lostTime = hours + " hours";
+            lostTime = WebUtils.i18n("since.hours", hours, "");
         }
         if (days >= 1) {
-            lostTime = days + " days";
+            lostTime = WebUtils.i18n("since.hours", days, "");
         }
         if (months >= 1) {
-            lostTime = months + " months";
+            lostTime = WebUtils.i18n("since.months", months, "");
         }
         if (years >= 1) {
             lostTime = years + " years";
             if (ymonths >= 1) {
                 lostTime += " " + ymonths + " months";
+                lostTime = WebUtils.i18n("since.years.months", years, "", months, "");
+            } else {
+                lostTime = WebUtils.i18n("since.years", years, "");
             }
         }
         return lostTime;
     }
+
+
 }

@@ -80,7 +80,9 @@ public class Index extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\Index.html
-p("<div class=\"alert\">\n" + 
+
+p("\n" + 
+"<div class=\"alert\">\n" + 
 "	<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n" + 
 "	<strong>Warning!</strong> Best check yo self, you're not looking too\n" + 
 "	good.\n" + 

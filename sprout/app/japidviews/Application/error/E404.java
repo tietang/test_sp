@@ -80,7 +80,9 @@ public class E404 extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\error\E404.html
-p("<div class=\"grid_row\">\n" + 
+
+p("\n" + 
+"<div class=\"grid_row\">\n" + 
 "	<div class=\"col col_16\">\n" + 
 "		<div class=\"alert\">\n" + 
 "			<button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 

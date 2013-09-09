@@ -107,7 +107,7 @@ qString="?"+qs;// line 9, japidviews\_tags\AddNav.html
 "            <li  ");// line 16, japidviews\_tags\AddNav.html
 		p(ms.get("ps"));// line 18, japidviews\_tags\AddNav.html
 		p(">\n" + 
-"            <a href=\"/upload");// line 18, japidviews\_tags\AddNav.html
+"            <a href=\"/ps/upload");// line 18, japidviews\_tags\AddNav.html
 		p(qString);// line 19, japidviews\_tags\AddNav.html
 		p("\">");// line 19, japidviews\_tags\AddNav.html
 		;p(getMessage("add.ps"));// line 19, japidviews\_tags\AddNav.html

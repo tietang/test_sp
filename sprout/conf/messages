@@ -73,6 +73,10 @@ license.content=Default license of your choice:
 license.by=Allow modifications of your work?
 license.by.share=Yes, as long as others share alike
 license.commercial=Allow commercial uses of your work?
+license.cc.by = Attribution
+license.cc.nc = Non-Commercial
+license.cc.nd= No Derivatives
+license.cc.sa = Share Alike
 
 
 #exif key
@@ -125,6 +129,7 @@ signup.email.exist=Email already existed.
 # upload
 add.photo=New Photo
 add.story=New Story
+add.story.alt=New Story of Photos
 add.blink=Blink Photo
 add.manage=Manage
 add.ps=PS Together
@@ -256,12 +261,13 @@ social.douban=Douban
 
 
 # For use in JavaExtensions.since tag
-since.seconds = %s second%s ago
-since.minutes = %s minute%s ago
-since.hours   = %s hour%s ago
-since.days    = %s day%s ago
-since.months  = %s month%s ago
-since.years   = %s year%s ago
+since.seconds = about %s second%s ago
+since.minutes = about %s minute%s ago
+since.hours   = about %s hour%s ago
+since.days    = about %s day%s ago
+since.months  = about %s month%s ago
+since.years   = about %s year%s ago
+since.years.months   = about %s year%s %s month%s ago
 since.format  = MMM d, yyyy
 
 # Validation messages

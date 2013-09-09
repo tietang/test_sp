@@ -84,7 +84,9 @@ public class RegisterVerify extends cn.bran.play.JapidTemplateBase
 		beginDoLayout(sourceTemplate);
 //------
 p("<!DOCTYPE html>\n");// line 1, japidviews\Application\email\RegisterVerify.html
-p("<html>\n" + 
+
+p("\n" + 
+"<html>\n" + 
 "	<head>\n" + 
 "		<meta charset=\"UTF-8\">\n" + 
 "		<title>Register Verify</title>\n" + 

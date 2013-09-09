@@ -1,4 +1,5 @@
 `extends japidviews._layouts.Layout`
+`args byte value`
 `set title:i18n("license.title")`
 `set header:"set License" `
 `set css
@@ -16,6 +17,7 @@
     <div class="col col_13 ">
         <div class="row-fluid ">
             <div class="span12 well">
+                <input type="hidden" value="${value}" id="licenseLastValue"/>
 
                 <form class="form-horizontal" action="/settings/license/done"
                       method="post">

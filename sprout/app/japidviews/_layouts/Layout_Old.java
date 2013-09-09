@@ -69,7 +69,8 @@ public abstract class Layout_Old extends cn.bran.play.JapidTemplateBase
 "<script src=\"");// line 8, japidviews\_layouts\Layout_Old.html
 		p(lookupStatic("/public/javascripts/jquery-1.7.2.js"));// line 9, japidviews\_layouts\Layout_Old.html
 		p("\" type=\"text/javascript\"></script>\n");// line 9, japidviews\_layouts\Layout_Old.html
-		css();p("<script   type=\"text/javascript\">\n" + 
+		css();p("\n" + 
+"<script   type=\"text/javascript\">\n" + 
 "function upload(){\n" + 
 " 		$('#dialog').dialog({\n" + 
 "					autoOpen: false,\n" + 

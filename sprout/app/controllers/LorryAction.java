@@ -1,22 +1,5 @@
 package controllers;
 
-import japidviews.Application.profile.PhotoEdit;
-import japidviews.Application.photo.Upload;
-import japidviews.Application.photo.UploadForm;
-import japidviews.Application.photo.UploadSwf;
-
-import java.io.File;
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import play.Logger;
-import play.modules.router.Get;
-import play.modules.router.Gets;
-import play.modules.router.Post;
-import play.mvc.With;
 import cn.bran.play.JapidResult;
 import fengfei.fir.model.Done;
 import fengfei.fir.model.Done.Status;
@@ -33,6 +16,24 @@ import fengfei.ucm.repository.PhotoManageRepository;
 import fengfei.ucm.repository.PhotoRepository;
 import fengfei.ucm.repository.impl.SqlPhotoManageRepository;
 import fengfei.ucm.repository.impl.SqlPhotoRepository;
+import japidviews.Application.photo.Upload;
+import japidviews.Application.photo.UploadForm;
+import japidviews.Application.photo.UploadPS;
+import japidviews.Application.photo.UploadSwf;
+import japidviews.Application.profile.PhotoEdit;
+import play.Logger;
+import play.modules.router.Any;
+import play.modules.router.Get;
+import play.modules.router.Gets;
+import play.modules.router.Post;
+import play.mvc.With;
+
+import java.io.File;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @With(Secure.class)
 public class LorryAction extends Admin {
@@ -40,6 +41,19 @@ public class LorryAction extends Admin {
     public static LorryStorage lorryService = Spruce.getLorryStorage();
     static PhotoManageRepository photoManage = new SqlPhotoManageRepository();
     static PhotoRepository photoRepository = new SqlPhotoRepository();
+
+    @Any("/ps/upload")
+    public static void psUpload() {
+        Integer idUser = currentUserId();
+        try {
+            List<PhotoSet> photoSets = photoManage.selectUserSets(idUser);
+            throw new JapidResult(new UploadPS().render(photoSets));
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+            throw new JapidResult(new UploadPS().render(new ArrayList<PhotoSet>()));
+
+        }
+    }
 
     public static void upload() {
         Integer idUser = currentUserId();

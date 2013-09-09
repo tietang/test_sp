@@ -145,11 +145,11 @@ public class ShowAction extends Admin {
             cp += page;
             cp = cp <= 0 ? 1 : cp;
             List<Comment> comments = repository.select(idPhoto, idUser, (cp - 1) * Row, Row);
-            Set<Integer> idUsers = new HashSet<>();
+            //Set<Integer> idUsers = new HashSet<>();
             for (Comment comment : comments) {
-                idUsers.add(comment.idUser);
+                //idUsers.add(comment.idUser);
 
-                comment.lostTime = DateTimeUtils.period(comment.createAtGmt.getTime());
+                comment.sinceTime = DateTimeUtils.period(comment.createAtGmt.getTime());
             }
 
             int maxPage = total / Row + 1;
