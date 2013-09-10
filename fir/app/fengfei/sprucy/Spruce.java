@@ -18,9 +18,11 @@ public class Spruce {
     static int cropMaxHeight = 1024;
     static int previewNumber = 2;
     static Map<Integer, int[]> previewDimensions = new HashMap<>();
+
     static {
-        previewDimensions.put(1, new int[] { 300, 300 });
-        previewDimensions.put(2, new int[] { 90, 90 });
+        previewDimensions.put(1, new int[]{300, 300});
+        previewDimensions.put(2, new int[]{160, 160});
+        previewDimensions.put(3, new int[]{90, 90});
     }
 
     public static String getUploadRoot() {

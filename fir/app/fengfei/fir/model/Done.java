@@ -64,7 +64,7 @@ public class Done extends HashMap<String, Object> {
                 key.equals(Status.Success.name()) ||
                 key.equals(Status.Success.name().toLowerCase());
         if (keyExisted) {
-            throw new RuntimeException(key +" id reserved keyword!");
+            throw new RuntimeException(key +" is reserved keyword!");
         } else {
             return super.put(key, value);
         }

@@ -1,27 +1,36 @@
 package fengfei.fir.service.impl;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
-import java.awt.image.CropImageFilter;
-import java.awt.image.FilteredImageSource;
-import java.awt.image.ImageFilter;
-import java.io.File;
-
-import javax.imageio.ImageIO;
-
+import fengfei.fir.service.JpegProcess;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import fengfei.fir.service.JpegProcess;
+import javax.imageio.IIOImage;
+import javax.imageio.ImageIO;
+import javax.imageio.ImageWriteParam;
+import javax.imageio.ImageWriter;
+import javax.imageio.event.IIOWriteProgressListener;
+import javax.imageio.stream.FileImageOutputStream;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.CropImageFilter;
+import java.awt.image.FilteredImageSource;
+import java.awt.image.ImageFilter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Iterator;
 
 public class DefaultJpegProcess implements JpegProcess {
 
     static Logger logger = LoggerFactory.getLogger(DefaultJpegProcess.class);
+    public int quality = 100;
+    public int imageType = BufferedImage.TYPE_INT_RGB;
+
+    public void setQuality(int quality) {
+        this.quality = quality;
+    }
 
     /*
      * (non-Javadoc)
@@ -30,7 +39,7 @@ public class DefaultJpegProcess implements JpegProcess {
      */
     @Override
     public void zoomOut(String srcImgFileName, String destImgFileName, int... maxWidthOrHeight)
-        throws Exception {
+            throws Exception {
 
         // 读入文件
         File _file = new File(srcImgFileName);
@@ -55,26 +64,26 @@ public class DefaultJpegProcess implements JpegProcess {
                 int newHeight = Float.valueOf(height * percentage).intValue();
 
                 logger
-                    .debug(String
-                        .format(
-                            "zoomImage %s, maxWidthOrHeight =%d src_width=%d src_height=%d new_width=%d new_height=%d rate=%f\n",
-                            srcImgFileName,
-                            mwoh,
-                            width,
-                            height,
-                            newWidth,
-                            newHeight,
-                            percentage));
+                        .debug(String
+                                .format(
+                                        "zoomImage %s, maxWidthOrHeight =%d src_width=%d src_height=%d new_width=%d new_height=%d rate=%f\n",
+                                        srcImgFileName,
+                                        mwoh,
+                                        width,
+                                        height,
+                                        newWidth,
+                                        newHeight,
+                                        percentage));
                 // 边长缩小
                 BufferedImage destImg = new BufferedImage(
-                    newWidth,
-                    newHeight,
-                    BufferedImage.TYPE_INT_RGB);
+                        newWidth,
+                        newHeight,
+                        imageType);
                 // 绘制缩小后的图
                 destImg.getGraphics().drawImage(src, 0, 0, newWidth, newHeight, null);
                 File f = new File(destImgFileName);
-                ImageIO.write(destImg, "JPEG", f);
-
+//                ImageIO.write(destImg, "JPEG", f);
+                writeJPEG(f, destImg, quality, null);
                 destImg = null;
             }
             src = null;
@@ -94,7 +103,7 @@ public class DefaultJpegProcess implements JpegProcess {
      */
     @Override
     public void cropAndResize(String srcImgFileName, String destImgFileName, int maxWidthOrHeight)
-        throws Exception {
+            throws Exception {
 
         // 读入文件
         File _file = new File(srcImgFileName);
@@ -122,43 +131,45 @@ public class DefaultJpegProcess implements JpegProcess {
         int h = w;
 
         logger
-            .debug(String
-                .format(
-                    "cropAndResize %s square_dimension=%d reference=%d src_width=%d src_height=%d new_width=%d new_height=%d  x=%d, y=%d\n",
-                    srcImgFileName,
-                    maxWidthOrHeight,
-                    reference,
-                    destWidth,
-                    destHeight,
-                    w,
-                    h,
-                    x,
-                    y));
+                .debug(String
+                        .format(
+                                "cropAndResize %s square_dimension=%d reference=%d src_width=%d src_height=%d new_width=%d new_height=%d  x=%d, y=%d\n",
+                                srcImgFileName,
+                                maxWidthOrHeight,
+                                reference,
+                                destWidth,
+                                destHeight,
+                                w,
+                                h,
+                                x,
+                                y));
 
         cropFilter = new CropImageFilter(x, y, w, h);
         img = Toolkit.getDefaultToolkit().createImage(
-            new FilteredImageSource(src.getSource(), cropFilter));
+                new FilteredImageSource(src.getSource(), cropFilter));
 
         BufferedImage destImg = new BufferedImage(
-            maxWidthOrHeight,
-            maxWidthOrHeight,
-            BufferedImage.TYPE_INT_RGB);
+                maxWidthOrHeight,
+                maxWidthOrHeight,
+                imageType);
+//            BufferedImage.TYPE_INT_RGB);
         Graphics g = destImg.getGraphics();
 
         g.drawImage(img, 0, 0, maxWidthOrHeight, maxWidthOrHeight, null);
         g.dispose();
 
         File f = new File(destImgFileName);
-        ImageIO.write(destImg, "JPEG", f);
+//        ImageIO.write(destImg, "JPEG", f);
+        writeJPEG(f, destImg, quality, null);
         src = null;
         destImg = null;
     }
 
     public void cropAndResize(
-        String srcImgFileName,
-        String destImgFileName,
-        int maxWidth,
-        int maxHeight) throws Exception {
+            String srcImgFileName,
+            String destImgFileName,
+            int maxWidth,
+            int maxHeight) throws Exception {
 
         // 读入文件
         File _file = new File(srcImgFileName);
@@ -182,42 +193,44 @@ public class DefaultJpegProcess implements JpegProcess {
         int y = (h - maxHeight) / 2;
 
         logger
-            .debug(String
-                .format(
-                    "cropAndResize %s out_width=%d out_height=%d src_width=%d src_height=%d new_width=%d new_height=%d  x=%d, y=%d\n",
-                    srcImgFileName,
-                    maxWidth,
-                    maxHeight,
-                    width,
-                    height,
-                    w,
-                    h,
-                    x,
-                    y));
+                .debug(String
+                        .format(
+                                "cropAndResize %s out_width=%d out_height=%d src_width=%d src_height=%d new_width=%d new_height=%d  x=%d, y=%d\n",
+                                srcImgFileName,
+                                maxWidth,
+                                maxHeight,
+                                width,
+                                height,
+                                w,
+                                h,
+                                x,
+                                y));
 
         Image image = src.getScaledInstance(w, h, Image.SCALE_DEFAULT);// 获取缩放后的图片大小
         ImageFilter cropFilter = new CropImageFilter(x, y, maxWidth, maxHeight);
         Image img = Toolkit.getDefaultToolkit().createImage(
-            new FilteredImageSource(image.getSource(), cropFilter));
+                new FilteredImageSource(image.getSource(), cropFilter));
 
-        BufferedImage destImg = new BufferedImage(maxWidth, maxHeight, BufferedImage.TYPE_INT_RGB);
+        BufferedImage destImg = new BufferedImage(maxWidth, maxHeight, imageType);
 
         Graphics g = destImg.getGraphics();
+
         g.drawImage(img, 0, 0, null); // 绘制截取后的图
         g.dispose();
 
         File f = new File(destImgFileName);
-        ImageIO.write(destImg, "JPEG", f);
+//        ImageIO.write(destImg, "JPEG", f);
+        writeJPEG(f, destImg, quality, null);
         g = null;
         src = null;
         destImg = null;
     }
 
     public void adaptCropAndResize(
-        String srcImgFileName,
-        String destImgFileName,
-        int maxWidth,
-        int maxHeight) throws Exception {
+            String srcImgFileName,
+            String destImgFileName,
+            int maxWidth,
+            int maxHeight) throws Exception {
 
         // 读入文件
         File _file = new File(srcImgFileName);
@@ -272,28 +285,30 @@ public class DefaultJpegProcess implements JpegProcess {
         // }
 
         logger
-            .debug(String
-                .format(
-                    "adaptCropAndResize %s out_width=%d out_height=%d src_width=%d src_height=%d new_width=%d new_height=%d  x=%d, y=%d\n",
-                    srcImgFileName,
-                    maxWidth,
-                    maxHeight,
-                    width,
-                    height,
-                    newWidth,
-                    newHeight,
-                    x,
-                    y));
+                .debug(String
+                        .format(
+                                "adaptCropAndResize %s out_width=%d out_height=%d src_width=%d src_height=%d new_width=%d new_height=%d  x=%d, y=%d\n",
+                                srcImgFileName,
+                                maxWidth,
+                                maxHeight,
+                                width,
+                                height,
+                                newWidth,
+                                newHeight,
+                                x,
+                                y));
         // CropImageFilter cropFilter = new CropImageFilter(x, y, maxWidth,
         // maxHeight);
         // Image img = Toolkit.getDefaultToolkit().createImage(
         // new FilteredImageSource(src.getSource(), cropFilter));
         // 边长缩小
-        BufferedImage destImg = new BufferedImage(maxWidth, maxHeight, BufferedImage.TYPE_INT_RGB);
+        BufferedImage destImg = new BufferedImage(maxWidth, maxHeight, imageType);
         // 绘制缩小后的图
         destImg.getGraphics().drawImage(src, x, y, newWidth, newHeight, Color.BLACK, null);
         File f = new File(destImgFileName);
-        ImageIO.write(destImg, "JPEG", f);
+
+//        ImageIO.write(destImg, "JPEG", f);
+        writeJPEG(f, destImg, quality, null);
 
         // FileOutputStream out = new FileOutputStream(newFileName);
         // JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
@@ -301,6 +316,35 @@ public class DefaultJpegProcess implements JpegProcess {
         // out.close();
         src = null;
         destImg = null;
+    }
+
+    /**
+     * 保存图像到 JPEG 文件
+     *
+     * @param file     保存的目标文件
+     * @param image    保存的源图像
+     * @param quality  保存的 JPEG 图像质量
+     * @param listener 保存进度监听器
+     */
+    protected static void writeJPEG(File file, BufferedImage image, int quality, IIOWriteProgressListener listener) throws
+            FileNotFoundException, IOException {
+        Iterator it = ImageIO.getImageWritersBySuffix("jpg");
+        if (it.hasNext()) {
+            FileImageOutputStream fileImageOutputStream = new FileImageOutputStream(file);
+            ImageWriter iw = (ImageWriter) it.next();
+            ImageWriteParam iwp = iw.getDefaultWriteParam();
+            iwp.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
+            iwp.setCompressionQuality((float) quality / 100f);
+            iw.setOutput(fileImageOutputStream);
+            if (listener != null) {
+
+                iw.addIIOWriteProgressListener(listener);
+            }
+            iw.write(null, new IIOImage(image, null, null), iwp);
+            iw.dispose();
+            fileImageOutputStream.flush();
+            fileImageOutputStream.close();
+        }
     }
 
     public static void main(String[] args) throws Exception {

@@ -271,7 +271,7 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "                                ");// line 145, japidviews\_layouts\Layout.html
 		String idUserStr=session.get(Admin.SESSION_USER_ID_KEY);// line 151, japidviews\_layouts\Layout.html
                                 Integer idUser=Integer.parseInt(idUserStr);// line 152, japidviews\_layouts\Layout.html
-		p("                                <img class=\"head_photo_18\"\n" + 
+		p("                                <img class=\"head_photo_18 round3\"\n" + 
 "                                     src=\"");// line 152, japidviews\_layouts\Layout.html
 		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)); } catch (NullPointerException npe) {}// line 154, japidviews\_layouts\Layout.html
 		p("\">\n" + 

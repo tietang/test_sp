@@ -211,18 +211,17 @@ public class ProfileAction extends Admin {
             boolean updated = userService.updateHeadPhoto(idUser, true);
             done.put("isHeadPhoto", true);
             if (updated) {
-                done.put("success", true);
+                done.setStatus(Status.Success);
                 String path0 = Path.getHeadPhotoDownloadPath(idUser, 0);
                 done.put("path0", path0);
                 String path1 = Path.getHeadPhotoDownloadPath(idUser, 1);
                 done.put("path1", path1);
             } else {
-                done.put("success", false);
+                done.setStatus(Status.Fail);
             }
 
         } catch (Exception e) {
             done.setStatus(Status.Error);
-            done.put("success", false);
             Logger.error(e, "add profile error.");
         }
 
