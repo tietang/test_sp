@@ -87,14 +87,16 @@ function initializeEditMap() {
 
 }
 var License = {
-    displayLicenseImage: function (licenseKey, containerId) {
+    imgSrc: "/public/images/cc/{0}.png",
+    displayLicenseImage: function (licenseKey, containerId, imageClass) {
 
         var container = $("#" + containerId);
         container.empty();
         var cc = ["cc"].concat(licenseKey.split("-"));
         for (var a in cc) {
             var img = $('<img >'); //Equivalent: $(document.createElement('img'))
-            img.attr('src', imgSrc.replace("{0}", cc[a]));
+            img.attr('src', this.imgSrc.replace("{0}", cc[a]));
+            img.addClass(imageClass ? imageClass : "image_64")
             //img.addClass("img");
             img.appendTo(container);
         }

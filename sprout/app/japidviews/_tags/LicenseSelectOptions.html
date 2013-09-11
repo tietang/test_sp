@@ -1,10 +1,10 @@
 `import java.util.*; import java.util.Map.Entry;`
-`args Map kv, Byte defaultKey`
+`args Map kv, String defaultKey`
 `if(kv==null) kv=new HashMap();`
 `Set  sets = kv.entrySet();`
 `for (Object obj : sets) {`
 `Entry entry=(Entry)obj;`
-`Byte key=(Byte)entry.getKey();`
+`String key=(String)entry.getKey();`
 `Object value=entry.getValue();`
 
 `if(key.equals(defaultKey)){`

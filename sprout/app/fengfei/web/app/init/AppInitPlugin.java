@@ -126,7 +126,8 @@ public class AppInitPlugin extends PlayPlugin {
             while ((line = reader.readLine()) != null) {
                 String[] ls = line.split("=");
                 if (!line.startsWith("#")) {
-                    byte key = Byte.parseByte(ls[0].trim());
+//                    byte key = Byte.parseByte(ls[0].trim());
+                    String key = ls[0].trim();
                     String value = ls[1];
                     SimpleCache.licenses.put(key, value);
                 }

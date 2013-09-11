@@ -118,7 +118,7 @@ login.qq=Log in with your QQ account
 login.sina.weibo=Log in with your Weibo account
 login.error=Email And Password mismatch.
 login.json.message.before=Can't operate,please
-login.json.message.link=login
+login.json.message.login=login
 
 #sign up
 signup.password.mismatch=Twice password mismatched.
@@ -148,8 +148,9 @@ photo.title=Title
 photo.description=Description
 photo.tags=Tags
 photo.tags.alt=Tags (split by space)
-photo.adult=For adult content\u003f
-photo.copyright=Owns the copyright\u003f
+photo.adult=For adult content?
+photo.copyright=Owns the copyright?
+photo.can.ps=This photo can be modified and republish?
 photo.make=Make
 photo.model=Model
 photo.camera=Camera

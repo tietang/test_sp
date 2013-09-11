@@ -21,9 +21,9 @@ public class SqlJpegExifWriter implements JpegExifWriter {
 
     @Override
     public Map<String, Object> writeExif(
-        String imageFile,
-        Map<String, String> values,
-        Map<String, String> contents) throws Exception {
+            String imageFile,
+            Map<String, String> values,
+            Map<String, String> contents) throws Exception {
         String title = FilenameUtils.getBaseName(imageFile);
         String userName = contents.get("username");
         Photo model = toPhotoModel(values, contents);
@@ -49,9 +49,9 @@ public class SqlJpegExifWriter implements JpegExifWriter {
 
     @Override
     public Map<String, Object> writePhoto(
-        String imageFile,
-        Map<String, String> values,
-        Map<String, String> contents) throws Exception {
+            String imageFile,
+            Map<String, String> values,
+            Map<String, String> contents) throws Exception {
         String title = FilenameUtils.getBaseName(imageFile);
         String userName = contents.get("username");
         Photo model = toPhotoModel(values, contents);
@@ -70,14 +70,14 @@ public class SqlJpegExifWriter implements JpegExifWriter {
         int idUser = MapUtils.getIntValue(contents, KeyIdUser);
         String title = MapUtils.getString(contents, "title");
         String description = MapUtils.getString(contents, "desc");
-        byte category = MapUtils.getByte(contents, "category");
+        byte category = MapUtils.getByteValue(contents, "category");
         String tags = MapUtils.getString(contents, "tags");
         tags = reOrgTags(tags);
         int adult = MapUtils.getIntValue(contents, "adult");
         int copyright = MapUtils.getIntValue(contents, "copyright");
         //
-        byte license = MapUtils.getByte(contents, "license");
-        byte canPS = MapUtils.getByte(contents, "can_ps");
+        byte license = MapUtils.getByteValue(contents, "license");
+        byte canPS = MapUtils.getByteValue(contents, "can_ps");
 
         String make = MapUtils.getString(exifs, "make");
         String model = MapUtils.getString(exifs, "camera");
@@ -96,29 +96,29 @@ public class SqlJpegExifWriter implements JpegExifWriter {
 
         long updateAt = current;
         Photo photo = new Photo(
-            idPhoto,
-            idUser,
-            title,
-            description,
-            category,
-            adult,
-            copyright,
-            tags,
-            createAt,
-            createAtGmt,
-            updateAt,
-            -1,
-            make,
-            model,
-            aperture,
-            shutter,
-            iso,
-            lens,
-            focus,
-            ev,
-            dateTimeOriginal);
-        photo.license=license;
-        photo.canPS=canPS;
+                idPhoto,
+                idUser,
+                title,
+                description,
+                category,
+                adult,
+                copyright,
+                tags,
+                createAt,
+                createAtGmt,
+                updateAt,
+                -1,
+                make,
+                model,
+                aperture,
+                shutter,
+                iso,
+                lens,
+                focus,
+                ev,
+                dateTimeOriginal);
+        photo.license = license;
+        photo.canPS = canPS;
         photo.niceName = MapUtils.getString(contents, "username");
         photo.idSet = MapUtils.getLongValue(contents, "dir");
         photo.WhiteBalance = MapUtils.getShort(exifs, "WhiteBalance", null);

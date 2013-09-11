@@ -29,7 +29,7 @@ public class SecureForJson extends Secure {
 			// System.out.println("-----------------login1-----------------");
 			// throw new JapidResult(new Login().render());
 			Done done = new Done(Admin.i18n("login.json.message.before")
-					+ "Can't operate,please <a href=\"/login\">"+Admin.i18n("login.json.message.link")+"</a>!",
+					+ "<a href=\"/login\">"+Admin.i18n("login.json.message.login")+"</a>!",
 					Status.Fail);
 			renderJSON(done);
 

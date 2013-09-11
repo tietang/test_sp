@@ -102,7 +102,7 @@ p("</pre>\n" +
 		try { p(c.idUser); } catch (NullPointerException npe) {}// line 12, japidviews\Application\photo\Comments.html
 		p("\">\n" + 
 "                <div class=\"media-object\"><img\n" + 
-"                        class=\" img-rounded head_photo_64\"\n" + 
+"                        class=\" img-rounded image_64\"\n" + 
 "                        src=\"");// line 12, japidviews\Application\photo\Comments.html
 		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(c.idUser)); } catch (NullPointerException npe) {}// line 15, japidviews\Application\photo\Comments.html
 		p("\">\n" + 

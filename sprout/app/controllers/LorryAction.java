@@ -12,6 +12,7 @@ import fengfei.forest.database.DataAccessException;
 import fengfei.sprucy.Spruce;
 import fengfei.ucm.entity.photo.Photo;
 import fengfei.ucm.entity.photo.PhotoSet;
+import fengfei.ucm.entity.profile.LicenseType;
 import fengfei.ucm.repository.PhotoManageRepository;
 import fengfei.ucm.repository.PhotoRepository;
 import fengfei.ucm.repository.impl.SqlPhotoManageRepository;
@@ -124,6 +125,9 @@ public class LorryAction extends Admin {
                         String username = session.get(SESSION_USER_NAME_KEY);
                         contents.put("username", username);
                         contents.put(JpegExifWriter.KeyIdUser, idUser.toString());
+                        String licenseKey = contents.get("license");
+                        LicenseType licenseType = LicenseType.findByKey(licenseKey);
+                        contents.put("license", String.valueOf(licenseType.getValue()));
                         done = lorryService.writeFile(contents, contents, file);
                         renderJSON(done);
                     } catch (Exception e) {

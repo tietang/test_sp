@@ -54,7 +54,7 @@ public class LicenseSelectOptions extends cn.bran.play.JapidTemplateBase
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"kv", "defaultKey",  };
-	public static final String[] argTypes = new String[] {/* arg types of the template*/"Map", "Byte",  };
+	public static final String[] argTypes = new String[] {/* arg types of the template*/"Map", "String",  };
 	public static final Object[] argDefaults= new Object[] {null,null, };
 	public static java.lang.reflect.Method renderMethod = getRenderMethod(japidviews._tags.LicenseSelectOptions.class);
 
@@ -68,8 +68,8 @@ public class LicenseSelectOptions extends cn.bran.play.JapidTemplateBase
 ////// end of named args stuff
 
 	private Map kv; // line 2, japidviews/_tags/LicenseSelectOptions.html
-	private Byte defaultKey; // line 2, japidviews/_tags/LicenseSelectOptions.html
-	public cn.bran.japid.template.RenderResult render(Map kv,Byte defaultKey) {
+	private String defaultKey; // line 2, japidviews/_tags/LicenseSelectOptions.html
+	public cn.bran.japid.template.RenderResult render(Map kv,String defaultKey) {
 		this.kv = kv;
 		this.defaultKey = defaultKey;
 		long __t = -1;
@@ -77,7 +77,7 @@ public class LicenseSelectOptions extends cn.bran.play.JapidTemplateBase
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
-	public static cn.bran.japid.template.RenderResult apply(Map kv,Byte defaultKey) {
+	public static cn.bran.japid.template.RenderResult apply(Map kv,String defaultKey) {
 		return new LicenseSelectOptions().render(kv, defaultKey);
 	}
 
@@ -89,7 +89,7 @@ if(kv==null) kv=new HashMap();// line 3, japidviews\_tags\LicenseSelectOptions.h
 Set  sets = kv.entrySet();// line 4, japidviews\_tags\LicenseSelectOptions.html
 for (Object obj : sets) {// line 5, japidviews\_tags\LicenseSelectOptions.html
 Entry entry=(Entry)obj;// line 6, japidviews\_tags\LicenseSelectOptions.html
-Byte key=(Byte)entry.getKey();// line 7, japidviews\_tags\LicenseSelectOptions.html
+String key=(String)entry.getKey();// line 7, japidviews\_tags\LicenseSelectOptions.html
 Object value=entry.getValue();// line 8, japidviews\_tags\LicenseSelectOptions.html
 
 if(key.equals(defaultKey)){// line 10, japidviews\_tags\LicenseSelectOptions.html

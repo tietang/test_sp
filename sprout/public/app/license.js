@@ -3,7 +3,7 @@
  * Date: 13-9-6
  * Time: 下午9:48
  */
-var imgSrc = "/public/images/cc/{0}.png";
+
 $(function () {
     var licenseLastValue = $("#licenseLastValue").val();
 

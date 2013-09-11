@@ -47,7 +47,8 @@
             </div>
             <div class="block">
                 <label for="desc1">&{photo.description}</label>
-                <textarea class=" span4 " id="desc1" rows="8" placeholder="&{photo.description}" name="description"></textarea>
+                <textarea class=" span4 " id="desc1" rows="8" placeholder="&{photo.description}"
+                          name="description"></textarea>
             </div>
             <div class="block">
                 <select name="dir" id="dir1" data-style=" "
@@ -71,9 +72,19 @@
             <div class="block">
                 <select name="license" id="license1" data-style=" "
                         class="selectpicker license span4">
-                    `tag LicenseSelectOptions fengfei.spruce.cache.SimpleCache.licenses,(byte)0`
+                    `tag LicenseSelectOptions fengfei.spruce.cache.SimpleCache.licenses,"by"`
                 </select>
-               <p  style="text-align: right"><a href="#">About License</a></p>
+
+                <p style="text-align: right">
+                    <a href="#"><span id="cc"></span><span id="cctxt"></span>About License</a>
+                </p>
+
+                <p style="text-align: right">
+
+                <div id="cc"></div>
+
+                <div id="cctxt"></div>
+                </p>
 
             </div>
             <div class="block">
@@ -85,6 +96,18 @@
                     <input type="checkbox" value="1"
                            id="adult1" name="adult">
                     &{photo.adult}</label>
+            </div>
+            <div class="checkbox">
+                <label for="copyright1">
+                    <input type="checkbox"
+                           value="1" id="copyright1" name="copyright" checked="checked">
+                    &{photo.copyright}</label>
+            </div>
+            <div class="checkbox">
+                <label for="can_ps1">
+                    <input type="checkbox"
+                           value="1" id="can_ps1" name="can_ps" checked="checked">
+                    &{photo.can.ps}</label>
             </div>
 
             <input type="hidden" value="" id="WhiteBalance1" name="WhiteBalance">
