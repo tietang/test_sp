@@ -1,14 +1,12 @@
 package fengfei.ucm.dao.transducer;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
-
-import com.google.common.net.InetAddresses;
-
 import fengfei.fir.utils.AppUtils;
 import fengfei.forest.database.dbutils.Transducer;
 import fengfei.ucm.entity.photo.Photo;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 
 public class PhotoTransducer implements Transducer<Photo> {
 
@@ -27,6 +25,8 @@ public class PhotoTransducer implements Transducer<Photo> {
         long updateAt = rs.getLong("update_at");
         byte status = rs.getByte("status");
         int commentCount = rs.getInt("comment_count");
+        byte license = rs.getByte("license");
+        byte canPS = rs.getByte("can_ps");
         //
         String make = rs.getString("make");
         String model = rs.getString("model");
@@ -41,27 +41,29 @@ public class PhotoTransducer implements Transducer<Photo> {
         //
 
         Photo photo = new Photo(
-            idPhoto,
-            idUser,
-            title,
-            description,
-            category,
-            adult,
-            copyright,
-            tags,
-            createAt,
-            createAtGmt,
-            updateAt,
-            commentCount,
-            make,
-            model,
-            aperture,
-            shutter,
-            iso,
-            lens,
-            focus,
-            ev,
-            dateTimeOriginal);
+                idPhoto,
+                idUser,
+                title,
+                description,
+                category,
+                adult,
+                copyright,
+                tags,
+                createAt,
+                createAtGmt,
+                updateAt,
+                commentCount,
+                make,
+                model,
+                aperture,
+                shutter,
+                iso,
+                lens,
+                focus,
+                ev,
+                dateTimeOriginal);
+        photo.license = license;
+        photo.canPS = canPS;
         photo.status = status;
         photo.WhiteBalance = rs.getShort("white_balance");
         photo.Software = rs.getString("software");

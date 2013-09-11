@@ -19,6 +19,8 @@ public class Photo extends PhotoShow implements Serializable {
     public byte category;
     public int adult;
     public int copyright;
+    public byte license;
+    public byte canPS;
     public String tags;
     public int createAt;
     public Timestamp createAtGmt;

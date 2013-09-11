@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50525
 File Encoding         : 65001
 
-Date: 2013-09-06 15:43:00
+Date: 2013-09-11 17:20:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -117,25 +117,6 @@ CREATE TABLE `metadata_2_following` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='negative direction';
 
 -- ----------------------------
--- Table structure for notify
--- ----------------------------
-DROP TABLE IF EXISTS `notify`;
-CREATE TABLE `notify` (
-  `id_user` int(11) unsigned NOT NULL DEFAULT '0',
-  `wall` tinyint(4) unsigned DEFAULT NULL,
-  `photo` tinyint(4) unsigned DEFAULT NULL,
-  `story` tinyint(4) unsigned DEFAULT NULL,
-  `favorite` tinyint(4) unsigned DEFAULT NULL,
-  `editor_choice` tinyint(4) unsigned DEFAULT NULL,
-  `up_pop` tinyint(4) unsigned DEFAULT NULL,
-  `following` tinyint(4) unsigned DEFAULT NULL,
-  `buy` tinyint(4) unsigned DEFAULT NULL,
-  `updates` tinyint(4) unsigned DEFAULT NULL,
-  `account_changed` tinyint(4) unsigned DEFAULT NULL,
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
 -- Table structure for photo
 -- ----------------------------
 DROP TABLE IF EXISTS `photo`;
@@ -154,7 +135,8 @@ CREATE TABLE `photo` (
   `comment_count` int(11) unsigned DEFAULT NULL,
   `adult` tinyint(4) unsigned DEFAULT '1',
   `copyright` tinyint(4) unsigned DEFAULT NULL,
-  `license` varchar(10) DEFAULT NULL,
+  `can_ps` tinyint(4) DEFAULT '0',
+  `license` tinyint(10) DEFAULT NULL,
   `ip` int(11) DEFAULT NULL,
   `tags` varchar(256) DEFAULT NULL,
   `make` varchar(64) DEFAULT NULL,
@@ -273,7 +255,7 @@ CREATE TABLE `photo_comments` (
   `id_user_reply` int(11) unsigned DEFAULT NULL,
   `id_parent` bigint(20) unsigned DEFAULT NULL,
   PRIMARY KEY (`id_comment`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for photo_favorite
@@ -580,8 +562,9 @@ CREATE TABLE `user_camera` (
 DROP TABLE IF EXISTS `user_config`;
 CREATE TABLE `user_config` (
   `id_user` int(10) unsigned NOT NULL,
-  `dir_size` int(10) unsigned DEFAULT '20',
-  `license` varchar(8) DEFAULT NULL
+  `dir_size` smallint(5) unsigned DEFAULT '20',
+  `license` smallint(4) unsigned DEFAULT NULL,
+  `notice` binary(16) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
@@ -606,16 +589,6 @@ CREATE TABLE `user_link` (
   `google` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for user_notice
--- ----------------------------
-DROP TABLE IF EXISTS `user_notice`;
-CREATE TABLE `user_notice` (
-  `id_user` int(11) unsigned NOT NULL DEFAULT '0',
-  `values` binary(16) DEFAULT NULL,
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Table structure for user_photograph

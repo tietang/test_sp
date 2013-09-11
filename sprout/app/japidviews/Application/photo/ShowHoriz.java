@@ -275,7 +275,7 @@ p("</pre>\n");// line 7, japidviews\Application\photo\ShowHoriz.html
 "        <div class=\"line6\"></div>\n" + 
 "        <div class=\"row-fluid border-bottom shadow rounded6\">\n" + 
 "            <div class=\"span12\">\n" + 
-"                <div id=\"desc\" class=\"photo_stats border-bottom\">\n" + 
+"                <div id=\"description\" class=\"photo_stats border-bottom\">\n" + 
 "                    ");// line 137, japidviews\Application\photo\ShowHoriz.html
 		try { p(photo.description); } catch (NullPointerException npe) {}// line 146, japidviews\Application\photo\ShowHoriz.html
 		p("                </div>\n" + 

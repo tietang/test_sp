@@ -127,7 +127,7 @@ public class UploadSwf extends japidviews._layouts.Layout
 "							<div class=\"block\">\n" + 
 "								<label for=\"desc1\">Description</label>\n" + 
 "								<textarea class=\" input-width \" id=\"desc1\"\n" + 
-"										placeholder=\"Description\" name=\"desc\"></textarea>\n" + 
+"										placeholder=\"Description\" name=\"description\"></textarea>\n" + 
 "							</div>\n" + 
 "							<div class=\"block\">\n" + 
 "								<select name=\"category\" id=\"category1\"\n" + 

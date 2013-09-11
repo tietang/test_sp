@@ -58,7 +58,7 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "    ");// line 2, japidviews\_layouts\Layout.html
 		String appName=i18n("web.app.name");// line 6, japidviews\_layouts\Layout.html
     String keywords=i18n("web.keywords");// line 7, japidviews\_layouts\Layout.html
-    String desc=i18n("web.desc");// line 8, japidviews\_layouts\Layout.html
+    String description=i18n("web.description");// line 8, japidviews\_layouts\Layout.html
 		p("    <title>");// line 8, japidviews\_layouts\Layout.html
 		try { p(appName); } catch (NullPointerException npe) {}// line 9, japidviews\_layouts\Layout.html
 		p(" / ");// line 9, japidviews\_layouts\Layout.html
@@ -68,8 +68,8 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 		p(",");// line 10, japidviews\_layouts\Layout.html
 		keywords();p("\"/>\n" + 
 "    <meta name=\"description\" content=\"");// line 10, japidviews\_layouts\Layout.html
-		desc();p(" ----  ");// line 11, japidviews\_layouts\Layout.html
-		try { p(desc); } catch (NullPointerException npe) {}// line 11, japidviews\_layouts\Layout.html
+		description();p(" ----  ");// line 11, japidviews\_layouts\Layout.html
+		try { p(description); } catch (NullPointerException npe) {}// line 11, japidviews\_layouts\Layout.html
 		p("\"/>\n" + 
 "    <meta name=\"viewport\" content=\"width=1240, maximum-scale=1.5\"/>\n" + 
 "    <link rel=\"stylesheet\" media=\"screen\" href=\"");// line 11, japidviews\_layouts\Layout.html
@@ -398,8 +398,8 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "</html>");// line 234, japidviews\_layouts\Layout.html
 				endDoLayout(sourceTemplate);	}
 	 protected void title() {};
-	 protected void desc() {};
 	 protected void keywords() {};
+	 protected void description() {};
 	 protected void header() {};
 	 protected void css() {};
 

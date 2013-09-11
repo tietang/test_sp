@@ -5,6 +5,7 @@ import fengfei.fir.model.Notify;
 import fengfei.forest.database.DataAccessException;
 import fengfei.ucm.dao.UnitNames;
 import fengfei.ucm.entity.profile.Camera;
+import fengfei.ucm.entity.profile.UserSocial;
 
 import java.util.List;
 
@@ -28,4 +29,8 @@ public interface ProfileRepository extends UnitNames {
     boolean saveDefaultLicense(Integer idUser, byte license) throws DataAccessException;
 
     byte getDefaultLicense(Integer idUser) throws DataAccessException;
+
+    int saveUserSocial(UserSocial userSocial) throws DataAccessException;
+
+    UserSocial getUserSocial(Integer idUser) throws DataAccessException;
 }

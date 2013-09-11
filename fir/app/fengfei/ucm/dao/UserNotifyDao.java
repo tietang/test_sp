@@ -7,11 +7,11 @@ import fengfei.forest.database.dbutils.LongTransducer;
 import java.sql.SQLException;
 import java.util.List;
 
-public class NotifyDao {
+public class UserNotifyDao {
 
-    final static String InsertNotify = "insert into user_notice%s(id_user,`values`) values(?,?)";
-    final static String UpdateNotify = "update user_notice%s set `values`=? where id_user=? ";
-    final static String ExsitsNotify = "select `values` from user_notice%s where id_user=? for update";
+    final static String InsertNotify = "insert into user_config%s(id_user,`notice`) values(?,?)";
+    final static String UpdateNotify = "update user_config%s set `notice`=? where id_user=? ";
+    final static String ExsitsNotify = "select `notice` from user_config%s where id_user=? for update";
 
     public static int writeNotify(
             ForestGrower grower,

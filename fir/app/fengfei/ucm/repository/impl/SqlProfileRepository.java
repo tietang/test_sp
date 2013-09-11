@@ -8,9 +8,11 @@ import fengfei.forest.slice.SliceResource.Function;
 import fengfei.forest.slice.database.utils.Transactions;
 import fengfei.forest.slice.database.utils.Transactions.TaCallback;
 import fengfei.ucm.dao.CameraDao;
-import fengfei.ucm.dao.NotifyDao;
 import fengfei.ucm.dao.UserConfigDao;
+import fengfei.ucm.dao.UserNotifyDao;
+import fengfei.ucm.dao.UserSocialDao;
 import fengfei.ucm.entity.profile.Camera;
+import fengfei.ucm.entity.profile.UserSocial;
 import fengfei.ucm.repository.ProfileRepository;
 
 import java.sql.SQLException;
@@ -173,7 +175,7 @@ public class SqlProfileRepository implements ProfileRepository {
                         @Override
                         public Integer execute(ForestGrower grower, String suffix) throws SQLException {
                             suffix = "";
-                            int updated = NotifyDao.writeNotify(grower, suffix, idUser, notifies);
+                            int updated = UserNotifyDao.writeNotify(grower, suffix, idUser, notifies);
                             return updated;
                         }
 
@@ -197,7 +199,7 @@ public class SqlProfileRepository implements ProfileRepository {
                         @Override
                         public Long execute(ForestGrower grower, String suffix) throws SQLException {
                             suffix = "";
-                            long value = NotifyDao.getNotify(grower, suffix, idUser);
+                            long value = UserNotifyDao.getNotify(grower, suffix, idUser);
                             return value;
                         }
 
@@ -254,6 +256,54 @@ public class SqlProfileRepository implements ProfileRepository {
             return value;
         } catch (Exception e) {
             throw new DataAccessException("get notifications error.", e);
+        }
+    }
+
+    @Override
+    public int saveUserSocial(final UserSocial userSocial) throws DataAccessException {
+        try {
+
+            Integer value = Transactions.execute(
+                    PhotoUnitName,
+                    new Long(userSocial.idUser),
+                    Function.Write,
+                    new TaCallback<Integer>() {
+                        @Override
+                        public Integer execute(ForestGrower grower, String suffix) throws SQLException {
+                            suffix = "";
+                            Integer value = UserSocialDao.save(grower, suffix, userSocial);
+                            return value;
+                        }
+
+                    });
+
+            return value;
+        } catch (Exception e) {
+            throw new DataAccessException("save UserSocial error.", e);
+        }
+    }
+
+    @Override
+    public UserSocial getUserSocial(final Integer idUser) throws DataAccessException {
+        try {
+
+            UserSocial value = Transactions.execute(
+                    PhotoUnitName,
+                    new Long(idUser),
+                    Function.Write,
+                    new TaCallback<UserSocial>() {
+                        @Override
+                        public UserSocial execute(ForestGrower grower, String suffix) throws SQLException {
+                            suffix = "";
+                            UserSocial value = UserSocialDao.get(grower, suffix, idUser);
+                            return value;
+                        }
+
+                    });
+
+            return value;
+        } catch (Exception e) {
+            throw new DataAccessException("get UserSocial error.", e);
         }
     }
 }

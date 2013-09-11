@@ -221,8 +221,8 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Sto
 "\n" + 
 "	</div>\n" + 
 "	<div class=\"block\">\n" + 
-"	<label for=\"desc{%=imgIndex%}\">Description</label>\n" + 
-"	<textarea class=\" span4 \" id=\"desc{%=imgIndex%}\" rows=\"6\"	placeholder=\"Description\" name=\"desc\"></textarea>\n" + 
+"	<label for=\"description{%=imgIndex%}\">Description</label>\n" + 
+"	<textarea class=\" span4 \" id=\"description{%=imgIndex%}\" rows=\"6\"	placeholder=\"Description\" name=\"description\"></textarea>\n" + 
 "	</div>\n" + 
 "	<div class=\"block\">\n" + 
 "	<select name=\"category\" id=\"category{%=imgIndex%}\"\n" + 

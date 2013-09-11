@@ -76,6 +76,8 @@ public class SqlJpegExifWriter implements JpegExifWriter {
         int adult = MapUtils.getIntValue(contents, "adult");
         int copyright = MapUtils.getIntValue(contents, "copyright");
         //
+        byte license = MapUtils.getByte(contents, "license");
+        byte canPS = MapUtils.getByte(contents, "can_ps");
 
         String make = MapUtils.getString(exifs, "make");
         String model = MapUtils.getString(exifs, "camera");
@@ -115,6 +117,8 @@ public class SqlJpegExifWriter implements JpegExifWriter {
             focus,
             ev,
             dateTimeOriginal);
+        photo.license=license;
+        photo.canPS=canPS;
         photo.niceName = MapUtils.getString(contents, "username");
         photo.idSet = MapUtils.getLongValue(contents, "dir");
         photo.WhiteBalance = MapUtils.getShort(exifs, "WhiteBalance", null);

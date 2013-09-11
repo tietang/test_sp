@@ -1,6 +1,6 @@
 web.app.name=Spruce摄影
 web.keywords=图片,照片,摄影,摄影师,图片库,摄影交流,作品,器材,照片,专业,上传,分享,拍照,照相,相册,博客,在线照片库,共享图片,专业摄影,社会照相,上传照片,分享照片,出色的照片组合,图片社区,最新照片,热门照片,热门图片,模型与摄影,商业摄影,建筑摄影
-web.desc=Spruce是专业的摄影作品分享交流社区，你可以分享自己的摄影作品，也可以找摄影师，可以和全国优秀的摄影师共同探讨摄影技巧。
+web.description=Spruce是专业的摄影作品分享交流社区，你可以分享自己的摄影作品，也可以找摄影师，可以和全国优秀的摄影师共同探讨摄影技巧。
 
 #page
 home=主页
@@ -146,7 +146,7 @@ photo.file.name=文件名：
 photo.file.size=源文件大小：
 photo.note=小提示:拖拽你的照片到这里来替换当前照片。
 photo.title=标题
-photo.desc=描述
+photo.description=描述
 photo.tags=标签
 photo.tags.alt=标签 (用空格来确认输入)
 photo.adult=为成人内容？

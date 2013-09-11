@@ -131,7 +131,7 @@ public class TestUpload extends japidviews._layouts.EmptyLayout
 "							<div class=\"block\">\n" + 
 "								<label for=\"desc1\">Description</label>\n" + 
 "								<textarea class=\" input-width \" id=\"desc1\"\n" + 
-"										placeholder=\"Description\" name=\"desc\"></textarea>\n" + 
+"										placeholder=\"Description\" name=\"description\"></textarea>\n" + 
 "							</div>\n" + 
 "							<div class=\"block\">\n" + 
 "								<select name=\"category\" id=\"category1\"\n" + 
@@ -465,7 +465,7 @@ public class TestUpload extends japidviews._layouts.EmptyLayout
 "		$(\"#aperture\" + tempIndex).val(data.FNumber2);\n" + 
 "		$(\"#ev\" + tempIndex).val(data.ev);\n" + 
 "		//\n" + 
-"		$(\"#desc\" + tempIndex).val(\"\");\n" + 
+"		$(\"#description\" + tempIndex).val(\"\");\n" + 
 "		$(\"#tags\" + tempIndex).val(\"\");\n" + 
 "		$(\"#category1\" + tempIndex).val(0);\n" + 
 "		//data.WhiteBalance2;\n" + 

@@ -302,7 +302,7 @@ public class Show extends japidviews._layouts.Layout
 "            ");// line 152, japidviews\Application\photo\Show.html
 		if(photo.description!=null && !"".equals(photo.description)){// line 158, japidviews\Application\photo\Show.html
 		p("            <div class=\"span12\">\n" + 
-"                <div id=\"desc\" class=\"photo_stats border-bottom\">\n" + 
+"                <div id=\"description\" class=\"photo_stats border-bottom\">\n" + 
 "                    ");// line 158, japidviews\Application\photo\Show.html
 		try { p(photo.description); } catch (NullPointerException npe) {}// line 161, japidviews\Application\photo\Show.html
 		p("                </div>\n" + 
@@ -392,11 +392,11 @@ public class Show extends japidviews._layouts.Layout
 	@Override protected void title() {
 		p( photo.title+" by "+photo.niceName);;
 	}
-	@Override protected void desc() {
-		p( photo.title+(photo.tags == null ? "" : (","+photo.tags)));;
-	}
 	@Override protected void keywords() {
 		p( photo.tags == null ? photo.title :  photo.tags);;
+	}
+	@Override protected void description() {
+		p( photo.title+(photo.tags == null ? "" : (","+photo.tags)));;
 	}
 	@Override protected void css() {
 		// line 10, japidviews\Application\photo\Show.html

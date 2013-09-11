@@ -3,7 +3,7 @@ server.inner.error=Internal server error.
 # You can specialize this file for each language.
 web.app.name = Spruce Photography
 web.keywords = pictures, photos, photography, photographer, photo gallery, photography, communication, work, equipment, photo, professional, upload, share, camera, camera, photo album, blog, online photo gallery, share pictures, professional photography, social photography, upload photos, share photos, excellent photo portfolio, photo community, latest photos, hot photos, hot pictures, models and photography, commercial photography, architectural photography
-web.desc = Spruce is the professional photography community share exchange, you can share your own photographs, you can also find a photographer, and the national good photographer can explore photographic skills.
+web.description = Spruce is the professional photography community share exchange, you can share your own photographs, you can also find a photographer, and the national good photographer can explore photographic skills.
 
 # nav link
 home=Home
@@ -145,7 +145,7 @@ photo.file.name=file name:
 photo.file.size=source size:
 photo.note=Note:Drag photo from your computer in here and replace current photo.
 photo.title=Title
-photo.desc=Description
+photo.description=Description
 photo.tags=Tags
 photo.tags.alt=Tags (split by space)
 photo.adult=For adult content\u003f

@@ -170,7 +170,7 @@ p("</pre>\n");// line 7, japidviews\Application\photo\Edit.html
 "        <div class=\"line6\"></div>\n" + 
 "        <div class=\"row-fluid border-bottom  \">\n" + 
 "            <div class=\"span12\">\n" + 
-"                <div id=\"desc\" class=\"photo_stats border-bottom\">\n" + 
+"                <div id=\"description\" class=\"photo_stats border-bottom\">\n" + 
 "                    ");// line 89, japidviews\Application\photo\Edit.html
 		try { p(photo.description); } catch (NullPointerException npe) {}// line 96, japidviews\Application\photo\Edit.html
 		p("                </div>\n" + 

@@ -5,7 +5,7 @@
 `set title: photo.title+" by "+photo.niceName`
 `set header: "Show" `
 `set keywords: photo.tags == null ? photo.title :  photo.tags`
-`set desc: photo.title+(photo.tags == null ? "" : (","+photo.tags))`
+`set description: photo.title+(photo.tags == null ? "" : (","+photo.tags))`
 
 `set css
 <script type="text/javascript"
@@ -157,7 +157,7 @@
         <div class="row-fluid border-bottom shadow rounded6">
             `if(photo.description!=null && !"".equals(photo.description)){`
             <div class="span12">
-                <div id="desc" class="photo_stats border-bottom">
+                <div id="description" class="photo_stats border-bottom">
                     ${photo.description}
                 </div>
             </div>

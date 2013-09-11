@@ -148,11 +148,11 @@ p("</pre>\n" +
 "            </div>\n" + 
 "            <div class=\"block\">\n" + 
 "                <label for=\"desc1\">");// line 43, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.desc"));// line 49, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.description"));// line 49, japidviews\Application\photo\UploadForm.html
 		p("</label>\n" + 
 "                <textarea class=\" span4 \" id=\"desc1\" rows=\"8\" placeholder=\"");// line 49, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.desc"));// line 50, japidviews\Application\photo\UploadForm.html
-		p("\" name=\"desc\"></textarea>\n" + 
+		;p(getMessage("photo.description"));// line 50, japidviews\Application\photo\UploadForm.html
+		p("\" name=\"description\"></textarea>\n" + 
 "            </div>\n" + 
 "            <div class=\"block\">\n" + 
 "                <select name=\"dir\" id=\"dir1\" data-style=\" \"\n" + 
