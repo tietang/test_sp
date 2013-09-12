@@ -9,13 +9,13 @@
 	<script type="text/javascript" src="@{/public/app/dirOrg.js}"></script>
 `
 </pre>
-<div class="grid_row " >
+<div class="grid_row dir_org" >
 	<div class="col col_6">
 		<ul class="sortable nav nav-list">
 			`if(photoSets!=null){`
 			`for(PhotoSet set:photoSets){`
 			<li class="setItem" title="${set.name}">
-				<a href="javascript:void(0)"  src="/photo/manage/set/${set.idSet}">${set.name}</a>
+				<a href="javascript:void(0)"  src="/photo/manage/dir/${set.idSet}">${set.name}</a>
 			</li>
 			`}`
 			`}`

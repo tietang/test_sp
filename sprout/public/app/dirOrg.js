@@ -1,6 +1,6 @@
 $(function() {
-	$(".sortable").sortable({
+	$(".dir_org .sortable").sortable({
 		connectWith : ".sortable"
 	});
-	$(".sortable").disableSelection();
+	$(".dir_org.sortable").disableSelection();
 });

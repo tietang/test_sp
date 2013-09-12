@@ -93,7 +93,7 @@ for(PhotoSet set:photoSets){// line 10, japidviews\Application\profile\DirNav.ht
 		p("<li class=\"setItem\" title=\"");// line 10, japidviews\Application\profile\DirNav.html
 		p(set.name);// line 11, japidviews\Application\profile\DirNav.html
 		p("\">\n" + 
-"	<a href=\"javascript:void(0)\"  src=\"/photo/manage/set/");// line 11, japidviews\Application\profile\DirNav.html
+"	<a href=\"javascript:void(0)\"  src=\"/photo/manage/dir/");// line 11, japidviews\Application\profile\DirNav.html
 		p(set.idSet);// line 12, japidviews\Application\profile\DirNav.html
 		p("\">");// line 12, japidviews\Application\profile\DirNav.html
 		p(set.name);// line 12, japidviews\Application\profile\DirNav.html

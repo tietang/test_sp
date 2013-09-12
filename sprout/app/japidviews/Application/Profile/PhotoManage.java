@@ -110,7 +110,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\P
 		p("</a>\n" + 
 "				</li>\n" + 
 "				<li>\n" + 
-"					<a href=\"javascript:void(0)\"  src=\"/photo/manage/set/all\"><h4>");// line 31, japidviews\Application\profile\PhotoManage.html
+"					<a href=\"javascript:void(0)\"  src=\"/photo/manage/dir/all\"><h4>");// line 31, japidviews\Application\profile\PhotoManage.html
 		;p(getMessage("sets"));// line 34, japidviews\Application\profile\PhotoManage.html
 		p("</h4></a>\n" + 
 "				</li>\n" + 

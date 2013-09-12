@@ -87,7 +87,7 @@ p("<pre style=\"display: none\">\n" +
 "	\n");// line 1, japidviews\Application\profile\DirReOrg.html
 // line 7, japidviews\Application\profile\DirReOrg.html
 		p("</pre>\n" + 
-"<div class=\"grid_row \" >\n" + 
+"<div class=\"grid_row dir_org\" >\n" + 
 "	<div class=\"col col_6\">\n" + 
 "		<ul class=\"sortable nav nav-list\">\n" + 
 "			");// line 10, japidviews\Application\profile\DirReOrg.html
@@ -96,7 +96,7 @@ p("<pre style=\"display: none\">\n" +
 		p("			<li class=\"setItem\" title=\"");// line 16, japidviews\Application\profile\DirReOrg.html
 		p(set.name);// line 17, japidviews\Application\profile\DirReOrg.html
 		p("\">\n" + 
-"				<a href=\"javascript:void(0)\"  src=\"/photo/manage/set/");// line 17, japidviews\Application\profile\DirReOrg.html
+"				<a href=\"javascript:void(0)\"  src=\"/photo/manage/dir/");// line 17, japidviews\Application\profile\DirReOrg.html
 		p(set.idSet);// line 18, japidviews\Application\profile\DirReOrg.html
 		p("\">");// line 18, japidviews\Application\profile\DirReOrg.html
 		p(set.name);// line 18, japidviews\Application\profile\DirReOrg.html

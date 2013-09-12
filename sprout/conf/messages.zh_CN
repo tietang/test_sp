@@ -176,6 +176,7 @@ photo.status=发布
 photo.delete.confirm=您确认要删除这张照片吗？
 #dir
 dir.save.error=目录保存出错了，请再次尝试。
+dir.limit=你最多可以创建%s个目录。
 dir.name.max=目录名称字数不能大于%s
 dir.name.existed=目录已经存在了
 dir.delete.confirm=您确认要删除这个目录吗？

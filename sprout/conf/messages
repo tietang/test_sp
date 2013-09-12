@@ -175,6 +175,7 @@ photo.status=Publish
 photo.delete.confirm=Are you sure you want to delete this photo\u003f
 #dir
 dir.save.error=The set save error.
+dir.limit=You can create directories less than %s.
 dir.name.max=The dir name's max size <= %s
 dir.name.existed=the dir has existed.
 dir.delete.confirm=Are you sure you want to delete this dir %s \u003f 

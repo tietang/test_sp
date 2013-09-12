@@ -164,7 +164,7 @@ p("<pre style=\"display: none\">\n" +
 "<script src=\"");// line 13, japidviews\Application\profile\PhotoEdit.html
 		p(lookupStatic("/public/app/photoEdit.js"));// line 14, japidviews\Application\profile\PhotoEdit.html
 		p("\"></script>\n" + 
-"<script type=\"text/javascript\">var photo = ");// line 14, japidviews\Application\profile\PhotoEdit.html
+"<script type=\"text/javascript\">var _edit_photo = ");// line 14, japidviews\Application\profile\PhotoEdit.html
 		p(fengfei.spruce.utils.WebUtils.toJSON(photo));// line 15, japidviews\Application\profile\PhotoEdit.html
 		p(";</script>\n");// line 15, japidviews\Application\profile\PhotoEdit.html
 		;
