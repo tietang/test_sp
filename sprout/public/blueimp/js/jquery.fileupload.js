@@ -1,5 +1,5 @@
 /*
- * jQuery File Upload Plugin 5.32.0
+ * jQuery File Upload Plugin 5.32.3
  * https://github.com/blueimp/jQuery-File-Upload
  *
  * Copyright 2010, Sebastian Tschan
@@ -32,7 +32,7 @@
     $.support.fileInput = !(new RegExp(
         // Handle devices which give false positives for the feature detection:
         '(Android (1\\.[0156]|2\\.[01]))' +
-            '|(Windows Phone (OS 7|8\\.0))|(XBLWP)|(ZuneWP)' +
+            '|(Windows Phone (OS 7|8\\.0))|(XBLWP)|(ZuneWP)|(WPDesktop)' +
             '|(w(eb)?OSBrowser)|(webOS)' +
             '|(Kindle/(1\\.0|2\\.[05]|3\\.0))'
     ).test(window.navigator.userAgent) ||
@@ -399,7 +399,7 @@
                 // Ignore non-multipart setting if not supported:
                 multipart = options.multipart || !$.support.xhrFileUpload,
                 paramName = options.paramName[0];
-            options.headers = options.headers || {};
+            options.headers = $.extend({}, options.headers);
             if (options.contentRange) {
                 options.headers['Content-Range'] = options.contentRange;
             }
@@ -1301,6 +1301,10 @@
                     this._getFileInputFiles(data.fileInput).always(
                         function (files) {
                             if (aborted) {
+                                return;
+                            }
+                            if (!files.length) {
+                                dfd.reject();
                                 return;
                             }
                             data.files = files;

@@ -1,5 +1,5 @@
 /*
- * jQuery File Upload AngularJS Plugin 1.4.0
+ * jQuery File Upload AngularJS Plugin 1.4.4
  * https://github.com/blueimp/jQuery-File-Upload
  *
  * Copyright 2013, Sebastian Tschan
@@ -38,10 +38,14 @@
         .provider('fileUpload', function () {
             var scopeApply = function () {
                     var scope = angular.element(this)
-                        .fileupload('option', 'scope')();
-                    if (!scope.$$phase) {
+                            .fileupload('option', 'scope')(),
+                        $timeout = angular.injector(['ng'])
+                            .get('$timeout');
+                    // Safe apply, makes sure $apply is called
+                    // asynchronously outside of the $digest cycle:
+                    $timeout(function () {
                         scope.$apply();
-                    }
+                    });
                 },
                 $config;
             $config = this.defaults = {
@@ -64,23 +68,22 @@
                             var file = data.files[0],
                                 submit = function () {
                                     return data.submit();
-                                },
-                                i;
-                            for (i = 0; i < data.files.length; i += 1) {
-                                data.files[i]._index = i;
-                            }
+                                };
+                            angular.forEach(data.files, function (file, index) {
+                                file._index = index;
+                                file.$state = function () {
+                                    return data.state();
+                                };
+                                file.$progress = function () {
+                                    return data.progress();
+                                };
+                                file.$response = function () {
+                                    return data.response();
+                                };
+                            });
                             file.$cancel = function () {
                                 scope.clear(data.files);
                                 return data.abort();
-                            };
-                            file.$state = function () {
-                                return data.state();
-                            };
-                            file.$progress = function () {
-                                return data.progress();
-                            };
-                            file.$response = function () {
-                                return data.response();
                             };
                             if (file.$state() === 'rejected') {
                                 file._$submit = submit;
@@ -135,7 +138,6 @@
                     return this.scope().queue.length;
                 },
                 dataType: 'json',
-                prependFiles: true,
                 autoUpload: false
             };
             this.$get = [
@@ -296,7 +298,9 @@
                     'fileuploadprocessalways',
                     'fileuploadprocessstop'
                 ].join(' '), function (e, data) {
-                    $scope.$emit(e.type, data);
+                    if ($scope.$emit(e.type, data).defaultPrevented) {
+                        e.preventDefault();
+                    }
                 }).on('remove', function () {
                     // Remove upload methods from the scope,
                     // when the widget is removed:

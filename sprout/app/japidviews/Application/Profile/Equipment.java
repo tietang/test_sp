@@ -100,7 +100,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\E
 "        <div class=\"row-fluid well profile_right\">\n" + 
 "            <div class=\"span11  \">\n" + 
 "\n" + 
-"                <form class=\"form-horizontal\" method=\"post\"\n" + 
+"                <form class=\"form-horizontal\" method=\"post\" id=\"equipmentForm\"\n" + 
 "                      action=\"/settings/camera/done\">\n" + 
 "\n" + 
 "                    <div class=\"control-group\">\n" + 
@@ -121,7 +121,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\E
 		;p(getMessage("camera.add.filter"));// line 42, japidviews\Application\profile\Equipment.html
 		p("                        </button>\n" + 
 "                    </div>\n" + 
-"                    <div class=\"control-group\" id=\"forms\">\n" + 
+"                    <div class=\"control-group\" id=\"equipmentForms\">\n" + 
 "                        ");// line 42, japidviews\Application\profile\Equipment.html
 		for(Camera c : cameras){// line 46, japidviews\Application\profile\Equipment.html
 		p("                        <div>\n" + 

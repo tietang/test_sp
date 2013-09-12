@@ -19,7 +19,7 @@
             <div class="span12 well">
                 <input type="hidden" value="${value}" id="licenseLastValue"/>
 
-                <form class="form-horizontal" action="/settings/license/done"
+                <form class="form-horizontal" action="/settings/license/done" id="licenseForm"
                       method="post">
                     `tag AllMessage`
 
@@ -32,11 +32,11 @@
                             &{yes}
                         </label>
                         <label class="radio">
-                            <input type="radio" name="by" value="nd">
+                            <input type="radio" name="by" id="nd" value="nd">
                             &{no}
                         </label>
                         <label class="radio">
-                            <input type="radio" name="by" value="sa">
+                            <input type="radio" name="by" id="sa" value="sa">
                             &{license.by.share}
                         </label>
 
@@ -50,7 +50,7 @@
                             &{yes}
                         </label>
                         <label class="radio">
-                            <input type="radio" name="c" value="nc">
+                            <input type="radio" name="c" id="nc" value="nc">
                             &{no}
                         </label>
 
@@ -67,14 +67,8 @@
                     </div>
                     <h3>你选择的许可协议</h3>
 
-                    <h4 id="cctxt">
-                        <a href="http://creativecommons.org/licenses/by/3.0/cn/" target="_target">署名3.0</a>
+                    <h4 id="cc" class="cc">
                     </h4>
-
-                    <div class="cc" id="cc">
-                        <img src="/public/images/cc/cc.png">
-                        <img src="/public/images/cc/by.png">
-                    </div>
 
 
                 </form>

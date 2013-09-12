@@ -16,10 +16,10 @@ $(function () {
     'use strict';
     $("#license1").change(function () {
         var licenseKey = $(this).val();
-        License.displayLicenseImage(licenseKey, "cc","image_32");
-        License.displayLicenseText(licenseKey, "cctxt");
+        License.displayLicense(licenseKey, "cc", "image_32");
 
     });
+    License.displayLicense("by", "cc", "image_32");
     //$('#tags1').tokenfield();
     // Change this to the location of your server-side upload handler:
     var url = "/upload/done";

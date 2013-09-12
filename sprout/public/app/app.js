@@ -88,6 +88,44 @@ function initializeEditMap() {
 }
 var License = {
     imgSrc: "/public/images/cc/{0}.png",
+    values: {
+        "1": "by-nc", "2": "by-nc-nd", "3": "by-nc-sa", "4": "by", "5": "by-nd", "6": "by-sa"
+    },
+    displayLicense: function (licenseKey, containerId, imageClass, txtClass) {
+
+        var container = $("#" + containerId);
+        container.empty();
+
+        //create link
+        var a = $("<a/>");
+        var href = "http://creativecommons.org/licenses/{0}/3.0/cn/";
+        a.attr("href", href.replace("{0}", licenseKey));
+        a.attr("target", "_target");
+        //
+        var cc = ["cc"].concat(licenseKey.split("-"));
+        var txt = "";
+        var imgContent = $("<div/>");//.css("text-align", "right");
+        var content = imgContent.clone();
+        content.addClass(txtClass ? txtClass : "");
+        for (var i in cc) {
+            var img = $('<img >'); //Equivalent: $(document.createElement('img'))
+            img.attr('src', this.imgSrc.replace("{0}", cc[i]));
+            img.addClass(imageClass ? imageClass : "image_64")
+            //img.addClass("img");
+            img.appendTo(imgContent);
+            if (i > 0) {
+                txt += " " + i18n.License.Cc[cc[i]];
+            }
+        }
+
+        txt += " 3.0";
+        content.text(txt);
+        a.append(imgContent);
+        a.append(content);
+        console.log(txt);
+        a.appendTo(container);
+
+    },
     displayLicenseImage: function (licenseKey, containerId, imageClass) {
 
         var container = $("#" + containerId);
@@ -100,6 +138,7 @@ var License = {
             //img.addClass("img");
             img.appendTo(container);
         }
+
     },
 
     displayLicenseText: function (licenseKey, containerId) {

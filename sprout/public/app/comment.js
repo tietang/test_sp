@@ -1,6 +1,7 @@
 $(function() {
-	$("#comment_btn").click(function() {
-		var value = $("#comment").val();
+    var photoCommentForm=$("#photoCommentForm");
+    photoCommentForm.find("#comment_btn").click(function() {
+		var value = photoCommentForm.find("#comment").val();
 		if (value == "") {
 			$("#comment").addClass("comment_error");
 			return;

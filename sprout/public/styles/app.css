@@ -965,3 +965,8 @@ a.tag:focus {
     padding-bottom: 10px;
     padding-top: 5px;
 }
+
+.license_by {
+    font-size: 24px;
+    font-weight: bold;
+}

@@ -1,21 +1,22 @@
 $(function() {
-	$("#camera").click(function() {
-		$("#forms").append(tmpl("camera_tml", {
+    var equipmentForm=$("#equipmentForm");
+    equipmentForm.find("#camera").click(function() {
+        equipmentForm.find("#equipmentForms").append(tmpl("camera_tml", {
 			index : 0
 		}));
 	});
-	$("#lens").click(function() {
-		$("#forms").append(tmpl("lens_tml", {
+    equipmentForm.find("#lens").click(function() {
+        equipmentForm.find("#equipmentForms").append(tmpl("lens_tml", {
 			index : 0
 		}));
 	});
-	$("#tripod").click(function() {
-		$("#forms").append(tmpl("tripod_tml", {
+    equipmentForm.find("#tripod").click(function() {
+        equipmentForm.find("#equipmentForms").append(tmpl("tripod_tml", {
 			index : 0
 		}));
 	});
-	$("#filter").click(function() {
-		$("#forms").append(tmpl("filter_tml", {
+    equipmentForm.find("#filter").click(function() {
+        equipmentForm.find("#equipmentForms").append(tmpl("filter_tml", {
 			index : 0
 		}));
 	});

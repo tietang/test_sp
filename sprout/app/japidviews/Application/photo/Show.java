@@ -148,7 +148,7 @@ public class Show extends japidviews._layouts.Layout
 "        </div>\n" + 
 "        <div class=\"line10\"></div>\n" + 
 "        <div>\n" + 
-"            <form class=\"form-horizontal\" id=\"commentForm\" method=\"post\">\n" + 
+"            <form class=\"form-horizontal\" id=\"photoCommentForm\" method=\"post\">\n" + 
 "                ");// line 63, japidviews\Application\photo\Show.html
 		if (session.get(Admin.SESSION_LOGIN_KEY) == null) {// line 77, japidviews\Application\photo\Show.html
 		p("\n" + 

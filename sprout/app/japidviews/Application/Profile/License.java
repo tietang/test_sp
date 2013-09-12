@@ -98,7 +98,7 @@ public class License extends japidviews._layouts.Layout
 		p(value);// line 20, japidviews\Application\profile\License.html
 		p("\" id=\"licenseLastValue\"/>\n" + 
 "\n" + 
-"                <form class=\"form-horizontal\" action=\"/settings/license/done\"\n" + 
+"                <form class=\"form-horizontal\" action=\"/settings/license/done\" id=\"licenseForm\"\n" + 
 "                      method=\"post\">\n" + 
 "                    ");// line 20, japidviews\Application\profile\License.html
 		final AllMessage _AllMessage4 = new AllMessage(getOut()); _AllMessage4.setActionRunners(getActionRunners()).setOut(getOut()); _AllMessage4.render(); // line 24, japidviews\Application\profile\License.html// line 24, japidviews\Application\profile\License.html
@@ -117,12 +117,12 @@ public class License extends japidviews._layouts.Layout
 		;p(getMessage("yes"));// line 32, japidviews\Application\profile\License.html
 		p("                        </label>\n" + 
 "                        <label class=\"radio\">\n" + 
-"                            <input type=\"radio\" name=\"by\" value=\"nd\">\n" + 
+"                            <input type=\"radio\" name=\"by\" id=\"nd\" value=\"nd\">\n" + 
 "                            ");// line 32, japidviews\Application\profile\License.html
 		;p(getMessage("no"));// line 36, japidviews\Application\profile\License.html
 		p("                        </label>\n" + 
 "                        <label class=\"radio\">\n" + 
-"                            <input type=\"radio\" name=\"by\" value=\"sa\">\n" + 
+"                            <input type=\"radio\" name=\"by\" id=\"sa\" value=\"sa\">\n" + 
 "                            ");// line 36, japidviews\Application\profile\License.html
 		;p(getMessage("license.by.share"));// line 40, japidviews\Application\profile\License.html
 		p("                        </label>\n" + 
@@ -140,7 +140,7 @@ public class License extends japidviews._layouts.Layout
 		;p(getMessage("yes"));// line 50, japidviews\Application\profile\License.html
 		p("                        </label>\n" + 
 "                        <label class=\"radio\">\n" + 
-"                            <input type=\"radio\" name=\"c\" value=\"nc\">\n" + 
+"                            <input type=\"radio\" name=\"c\" id=\"nc\" value=\"nc\">\n" + 
 "                            ");// line 50, japidviews\Application\profile\License.html
 		;p(getMessage("no"));// line 54, japidviews\Application\profile\License.html
 		p("                        </label>\n" + 
@@ -159,14 +159,8 @@ public class License extends japidviews._layouts.Layout
 "                    </div>\n" + 
 "                    <h3>你选择的许可协议</h3>\n" + 
 "\n" + 
-"                    <h4 id=\"cctxt\">\n" + 
-"                        <a href=\"http://creativecommons.org/licenses/by/3.0/cn/\" target=\"_target\">署名3.0</a>\n" + 
+"                    <h4 id=\"cc\" class=\"cc\">\n" + 
 "                    </h4>\n" + 
-"\n" + 
-"                    <div class=\"cc\" id=\"cc\">\n" + 
-"                        <img src=\"/public/images/cc/cc.png\">\n" + 
-"                        <img src=\"/public/images/cc/by.png\">\n" + 
-"                    </div>\n" + 
 "\n" + 
 "\n" + 
 "                </form>\n" + 
