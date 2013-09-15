@@ -383,9 +383,12 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "<h3>");// line 222, japidviews\_layouts\Layout.html
 		header();p("</h3>\n" + 
 "</div> -->\n" + 
-"\n");// line 231, japidviews\_layouts\Layout.html
+"<div class=\"content_container\">\n" + 
+"    ");// line 231, japidviews\_layouts\Layout.html
 		doLayout();// line 234, japidviews\_layouts\Layout.html
-		p("\n" + 
+		p("</div>\n" + 
+"\n" + 
+"\n" + 
 "<footer class=\"footer\">\n" + 
 "    <div class=\"container\">\n" + 
 "        <p>\n" + 

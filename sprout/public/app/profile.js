@@ -87,6 +87,7 @@ $(function() {
 
 	$('#birthday').datepicker({
 		format : 'yyyy-mm-dd',
+        defaultStartDate:"1980-02-02",
 		language : "zh-CN"
 	});
 });

@@ -89,7 +89,7 @@ p("<pre style=\"display: none\">\n" +
 "	\n");// line 1, japidviews\Application\profile\PhotoEdit.html
 // line 7, japidviews\Application\profile\PhotoEdit.html
 		p("</pre>\n" + 
-"<form id=\"fileuploadForm\" action=\"/edit/done\" method=\"post\" enctype=\"multipart/form-data\"  >\n" + 
+"<form id=\"photoEditForm\" action=\"/edit/done\" method=\"post\" enctype=\"multipart/form-data\"  >\n" + 
 "	<div class=\"grid_row upload \">\n" + 
 "		<div class=\"col col_16\">\n" + 
 "\n" + 

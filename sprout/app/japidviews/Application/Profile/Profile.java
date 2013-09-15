@@ -89,16 +89,16 @@ public class Profile extends japidviews._layouts.Layout
 "\n" + 
 "    <div class=\"col col_3 \">\n" + 
 "        <div class=\"sidebar-nav \">\n" + 
-"            ");// line 39, japidviews\Application\profile\Profile.html
-		final SettingsMenu _SettingsMenu3 = new SettingsMenu(getOut()); _SettingsMenu3.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu3.render("Profile"); // line 45, japidviews\Application\profile\Profile.html// line 45, japidviews\Application\profile\Profile.html
+"            ");// line 36, japidviews\Application\profile\Profile.html
+		final SettingsMenu _SettingsMenu3 = new SettingsMenu(getOut()); _SettingsMenu3.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu3.render("Profile"); // line 42, japidviews\Application\profile\Profile.html// line 42, japidviews\Application\profile\Profile.html
 		p("        </div>\n" + 
 "    </div>\n" + 
 "\n" + 
 "    <div class=\"col col_13 \">\n" + 
 "        <div class=\"row-fluid well profile_right\">\n" + 
 "            <div class=\"span12  \">\n" + 
-"                ");// line 45, japidviews\Application\profile\Profile.html
-		final ErrorMessage _ErrorMessage4 = new ErrorMessage(getOut()); _ErrorMessage4.setActionRunners(getActionRunners()).setOut(getOut()); _ErrorMessage4.render(); // line 52, japidviews\Application\profile\Profile.html// line 52, japidviews\Application\profile\Profile.html
+"                ");// line 42, japidviews\Application\profile\Profile.html
+		final ErrorMessage _ErrorMessage4 = new ErrorMessage(getOut()); _ErrorMessage4.setActionRunners(getActionRunners()).setOut(getOut()); _ErrorMessage4.render(); // line 49, japidviews\Application\profile\Profile.html// line 49, japidviews\Application\profile\Profile.html
 		p("\n" + 
 "                <form class=\"\" action=\"/settings/profile/done\" method=\"post\">\n" + 
 "                    <div class=\"row-fluid\">\n" + 
@@ -108,13 +108,13 @@ public class Profile extends japidviews._layouts.Layout
 "                                <div class=\"controls inline\">\n" + 
 "                                    <div class=\"head_img\">\n" + 
 "                                        <img id=\"head_img\"\n" + 
-"                                             src=\"");// line 52, japidviews\Application\profile\Profile.html
-		p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(user.idUser,1));// line 62, japidviews\Application\profile\Profile.html
+"                                             src=\"");// line 49, japidviews\Application\profile\Profile.html
+		p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(user.idUser,1));// line 59, japidviews\Application\profile\Profile.html
 		p("\">\n" + 
 "                                    </div>\n" + 
 "                                    <input type=\"hidden\" id=\"user_id_photo\" name=\"user_photo\"\n" + 
-"                                           value=\"");// line 62, japidviews\Application\profile\Profile.html
-		p(user.isHeadPhoto);// line 65, japidviews\Application\profile\Profile.html
+"                                           value=\"");// line 59, japidviews\Application\profile\Profile.html
+		p(user.isHeadPhoto);// line 62, japidviews\Application\profile\Profile.html
 		p("\">\n" + 
 "                                    <label class=\" inline\">\n" + 
 "                                    <span id=\"upload_head\"\n" + 
@@ -124,103 +124,103 @@ public class Profile extends japidviews._layouts.Layout
 "                                </div>\n" + 
 "                            </div>\n" + 
 "                            <div class=\"control-group \">\n" + 
-"                                <label class=\"control-label\" for=\"gender0\">");// line 65, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.gender"));// line 74, japidviews\Application\profile\Profile.html
+"                                <label class=\"control-label\" for=\"gender0\">");// line 62, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.gender"));// line 71, japidviews\Application\profile\Profile.html
 		p("</label>\n" + 
 "\n" + 
 "                                <div class=\"controls \">\n" + 
 "                                    <label class=\"radio inline\">\n" + 
 "                                        <input type=\"radio\"\n" + 
-"                                               id=\"gender1\" name=\"gender\" value=\"1\" ");// line 74, japidviews\Application\profile\Profile.html
-		p(user.gender==1?"checked":"");// line 79, japidviews\Application\profile\Profile.html
+"                                               id=\"gender1\" name=\"gender\" value=\"1\" ");// line 71, japidviews\Application\profile\Profile.html
+		p(user.gender==1?"checked":"");// line 76, japidviews\Application\profile\Profile.html
 		p(">\n" + 
-"                                        ");// line 79, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.male"));// line 80, japidviews\Application\profile\Profile.html
+"                                        ");// line 76, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.male"));// line 77, japidviews\Application\profile\Profile.html
 		p(" </label><label class=\"radio inline\">\n" + 
 "                                    <input type=\"radio\"\n" + 
-"                                           id=\"gender2\" name=\"gender\" value=\"2\" ");// line 80, japidviews\Application\profile\Profile.html
-		p(user.gender==2?"checked":"");// line 82, japidviews\Application\profile\Profile.html
+"                                           id=\"gender2\" name=\"gender\" value=\"2\" ");// line 77, japidviews\Application\profile\Profile.html
+		p(user.gender==2?"checked":"");// line 79, japidviews\Application\profile\Profile.html
 		p(">\n" + 
-"                                    ");// line 82, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.female"));// line 83, japidviews\Application\profile\Profile.html
+"                                    ");// line 79, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.female"));// line 80, japidviews\Application\profile\Profile.html
 		p(" </label><label class=\"radio inline\">\n" + 
 "                                    <input type=\"radio\"\n" + 
 "                                           id=\"gender0\" name=\"gender\" value=\"0\"\n" + 
-"                                    ");// line 83, japidviews\Application\profile\Profile.html
-		p((user.gender==null || user.gender==0)?"checked":"");// line 86, japidviews\Application\profile\Profile.html
+"                                    ");// line 80, japidviews\Application\profile\Profile.html
+		p((user.gender==null || user.gender==0)?"checked":"");// line 83, japidviews\Application\profile\Profile.html
 		p("                                    >\n" + 
-"                                    ");// line 86, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.not.specified"));// line 88, japidviews\Application\profile\Profile.html
+"                                    ");// line 83, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.not.specified"));// line 85, japidviews\Application\profile\Profile.html
 		p(" </label>\n" + 
 "                                </div>\n" + 
 "                            </div>\n" + 
 "\n" + 
 "                            <div class=\"control-group\">\n" + 
-"                                <label class=\"control-label\" for=\"username\">");// line 88, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.username"));// line 93, japidviews\Application\profile\Profile.html
+"                                <label class=\"control-label\" for=\"username\">");// line 85, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.username"));// line 90, japidviews\Application\profile\Profile.html
 		p("</label>\n" + 
 "\n" + 
 "                                <div class=\"controls\">\n" + 
 "                                    <input type=\"text\" id=\"username1\" name=\"username1\"\n" + 
-"                                           class=\"span11\" placeholder=\"");// line 93, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.userName"));// line 97, japidviews\Application\profile\Profile.html
+"                                           class=\"span11\" placeholder=\"");// line 90, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.userName"));// line 94, japidviews\Application\profile\Profile.html
 		p("\"\n" + 
-"                                           value=\"");// line 97, japidviews\Application\profile\Profile.html
-		p(user.userName);// line 98, japidviews\Application\profile\Profile.html
+"                                           value=\"");// line 94, japidviews\Application\profile\Profile.html
+		p(user.userName);// line 95, japidviews\Application\profile\Profile.html
 		p("\" readonly=\"readonly\">\n" + 
 "                                    <input\n" + 
 "                                            type=\"hidden\" id=\"username\" name=\"username\" class=\"span11\"\n" + 
-"                                            value=\"");// line 98, japidviews\Application\profile\Profile.html
-		p(user.userName);// line 101, japidviews\Application\profile\Profile.html
+"                                            value=\"");// line 95, japidviews\Application\profile\Profile.html
+		p(user.userName);// line 98, japidviews\Application\profile\Profile.html
 		p("\">\n" + 
 "                                </div>\n" + 
 "                            </div>\n" + 
 "                            <div class=\"control-group\">\n" + 
-"                                <label class=\"control-label\" for=\"email\">");// line 101, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.email"));// line 105, japidviews\Application\profile\Profile.html
+"                                <label class=\"control-label\" for=\"email\">");// line 98, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.email"));// line 102, japidviews\Application\profile\Profile.html
 		p("</label>\n" + 
 "\n" + 
 "                                <div class=\"controls\">\n" + 
 "                                    <input type=\"text\" id=\"email1\" name=\"email1\" class=\"span11\"\n" + 
-"                                           placeholder=\"");// line 105, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.email"));// line 109, japidviews\Application\profile\Profile.html
-		p("\" value=\"");// line 109, japidviews\Application\profile\Profile.html
-		p(user.email);// line 109, japidviews\Application\profile\Profile.html
+"                                           placeholder=\"");// line 102, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.email"));// line 106, japidviews\Application\profile\Profile.html
+		p("\" value=\"");// line 106, japidviews\Application\profile\Profile.html
+		p(user.email);// line 106, japidviews\Application\profile\Profile.html
 		p("\" readonly=\"readonly\">\n" + 
 "                                    <input type=\"hidden\" id=\"email\" name=\"email\" class=\"span11\"\n" + 
-"                                           placeholder=\"");// line 109, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.email"));// line 111, japidviews\Application\profile\Profile.html
-		p("\" value=\"");// line 111, japidviews\Application\profile\Profile.html
-		p(user.email);// line 111, japidviews\Application\profile\Profile.html
+"                                           placeholder=\"");// line 106, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.email"));// line 108, japidviews\Application\profile\Profile.html
+		p("\" value=\"");// line 108, japidviews\Application\profile\Profile.html
+		p(user.email);// line 108, japidviews\Application\profile\Profile.html
 		p("\">\n" + 
 "                                </div>\n" + 
 "                            </div>\n" + 
 "\n" + 
 "                            <div class=\"control-group\">\n" + 
-"                                <label class=\"control-label\">");// line 111, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.location"));// line 116, japidviews\Application\profile\Profile.html
+"                                <label class=\"control-label\">");// line 108, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.location"));// line 113, japidviews\Application\profile\Profile.html
 		p("</label>\n" + 
 "\n" + 
 "                                <div class=\"controls\">\n" + 
-"                                    <input id=\"city\" name=\"city\" class=\"span11\" placeholder=\"");// line 116, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.city"));// line 119, japidviews\Application\profile\Profile.html
+"                                    <input id=\"city\" name=\"city\" class=\"span11\" placeholder=\"");// line 113, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.city"));// line 116, japidviews\Application\profile\Profile.html
 		p("\"\n" + 
-"                                           type=\"text\" value=\"");// line 119, japidviews\Application\profile\Profile.html
-		p(user.city);// line 120, japidviews\Application\profile\Profile.html
+"                                           type=\"text\" value=\"");// line 116, japidviews\Application\profile\Profile.html
+		p(user.city);// line 117, japidviews\Application\profile\Profile.html
 		p("\"/>\n" + 
 "                                    <input class=\"span11\"\n" + 
-"                                           id=\"state\" name=\"state\" placeholder=\"");// line 120, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.state"));// line 122, japidviews\Application\profile\Profile.html
+"                                           id=\"state\" name=\"state\" placeholder=\"");// line 117, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.state"));// line 119, japidviews\Application\profile\Profile.html
 		p("\" type=\"text\"\n" + 
-"                                           value=\"");// line 122, japidviews\Application\profile\Profile.html
-		p(user.state);// line 123, japidviews\Application\profile\Profile.html
+"                                           value=\"");// line 119, japidviews\Application\profile\Profile.html
+		p(user.state);// line 120, japidviews\Application\profile\Profile.html
 		p("\"/>\n" + 
 "                                    <input id=\"country\" name=\"country\"\n" + 
-"                                           class=\"span11\" placeholder=\"");// line 123, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.country"));// line 125, japidviews\Application\profile\Profile.html
+"                                           class=\"span11\" placeholder=\"");// line 120, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.country"));// line 122, japidviews\Application\profile\Profile.html
 		p("\" type=\"text\"\n" + 
-"                                           value=\"");// line 125, japidviews\Application\profile\Profile.html
-		p(user.country);// line 126, japidviews\Application\profile\Profile.html
+"                                           value=\"");// line 122, japidviews\Application\profile\Profile.html
+		p(user.country);// line 123, japidviews\Application\profile\Profile.html
 		p("\"/>\n" + 
 "                                </div>\n" + 
 "                            </div>\n" + 
@@ -230,76 +230,77 @@ public class Profile extends japidviews._layouts.Layout
 "                        <div class=\"span6  \">\n" + 
 "\n" + 
 "                            <div class=\"control-group\">\n" + 
-"                                <label class=\"control-label\" for=\"nicename\">");// line 126, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.nice.name"));// line 135, japidviews\Application\profile\Profile.html
+"                                <label class=\"control-label\" for=\"nicename\">");// line 123, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.nice.name"));// line 132, japidviews\Application\profile\Profile.html
 		p("</label>\n" + 
 "\n" + 
 "                                <div class=\"controls\">\n" + 
 "                                    <input type=\"text\" id=\"nicename\" name=\"nicename\"\n" + 
-"                                           class=\"span11\" placeholder=\"");// line 135, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.nice.name"));// line 139, japidviews\Application\profile\Profile.html
+"                                           class=\"span11\" placeholder=\"");// line 132, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.nice.name"));// line 136, japidviews\Application\profile\Profile.html
 		p("\"\n" + 
-"                                           value=\"");// line 139, japidviews\Application\profile\Profile.html
-		p(user.niceName);// line 140, japidviews\Application\profile\Profile.html
+"                                           value=\"");// line 136, japidviews\Application\profile\Profile.html
+		p(user.niceName);// line 137, japidviews\Application\profile\Profile.html
 		p("\">\n" + 
 "                                </div>\n" + 
 "                            </div>\n" + 
 "                            <div class=\"control-group\">\n" + 
-"                                <label class=\"control-label\" for=\"birthday\">");// line 140, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.birthday"));// line 144, japidviews\Application\profile\Profile.html
+"                                <label class=\"control-label\" for=\"birthday\">");// line 137, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.birthday"));// line 141, japidviews\Application\profile\Profile.html
 		p("</label>\n" + 
 "\n" + 
 "                                <div class=\"controls\">\n" + 
-"                                    <input type=\"text\" id=\"birthday\" name=\"birthday\"\n" + 
-"                                           class=\"span11\" placeholder=\"");// line 144, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.birthday"));// line 148, japidviews\Application\profile\Profile.html
+"                                    <input type=\"text\" id=\"birthday\" name=\"birthday\" data-date=\"1980-02-02\"\n" + 
+"                                           class=\"span11\" placeholder=\"");// line 141, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.birthday"));// line 145, japidviews\Application\profile\Profile.html
 		p("\"\n" + 
-"                                           value=\"");// line 148, japidviews\Application\profile\Profile.html
-		p(user.birthday);// line 149, japidviews\Application\profile\Profile.html
+"                                           value=\"");// line 145, japidviews\Application\profile\Profile.html
+		p(user.birthday);// line 146, japidviews\Application\profile\Profile.html
 		p("\">\n" + 
 "                                </div>\n" + 
 "                            </div>\n" + 
 "\n" + 
 "                            <div class=\"control-group\">\n" + 
-"                                <label class=\"control-label\" for=\"phone\">");// line 149, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.phone"));// line 154, japidviews\Application\profile\Profile.html
+"                                <label class=\"control-label\" for=\"phone\">");// line 146, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.phone"));// line 151, japidviews\Application\profile\Profile.html
 		p("</label>\n" + 
 "\n" + 
 "                                <div class=\"controls\">\n" + 
 "                                    <input type=\"text\" id=\"phone\" name=\"phone\" class=\"span11\"\n" + 
-"                                           placeholder=\"");// line 154, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.phone"));// line 158, japidviews\Application\profile\Profile.html
-		p("\" value=\"");// line 158, japidviews\Application\profile\Profile.html
-		p(user.phoneNum);// line 158, japidviews\Application\profile\Profile.html
+"                                           placeholder=\"");// line 151, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.phone"));// line 155, japidviews\Application\profile\Profile.html
+		p("\" value=\"");// line 155, japidviews\Application\profile\Profile.html
+		p(user.phoneNum);// line 155, japidviews\Application\profile\Profile.html
 		p("\">\n" + 
 "                                </div>\n" + 
 "                            </div>\n" + 
 "                            <div class=\"control-group\">\n" + 
-"                                <label class=\"control-label\" for=\"realName\">");// line 158, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.real.name"));// line 162, japidviews\Application\profile\Profile.html
+"                                <label class=\"control-label\" for=\"realName\">");// line 155, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.real.name"));// line 159, japidviews\Application\profile\Profile.html
 		p("</label>\n" + 
 "\n" + 
 "                                <div class=\"controls\">\n" + 
 "                                    <input type=\"text\" id=\"realName\" name=\"realName\"\n" + 
-"                                           class=\"span11\" placeholder=\"");// line 162, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.real.name"));// line 166, japidviews\Application\profile\Profile.html
+"                                           class=\"span11\" placeholder=\"");// line 159, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.real.name"));// line 163, japidviews\Application\profile\Profile.html
 		p("\"\n" + 
-"                                           value=\"");// line 166, japidviews\Application\profile\Profile.html
-		p(user.realName);// line 167, japidviews\Application\profile\Profile.html
+"                                           value=\"");// line 163, japidviews\Application\profile\Profile.html
+		p(user.realName);// line 164, japidviews\Application\profile\Profile.html
 		p("\">\n" + 
 "                                </div>\n" + 
 "                            </div>\n" + 
 "\n" + 
 "                            <div class=\"control-group\">\n" + 
-"                                <label class=\"control-label\" for=\"about\">");// line 167, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.about"));// line 172, japidviews\Application\profile\Profile.html
+"                                <label class=\"control-label\" for=\"about\">");// line 164, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.about"));// line 169, japidviews\Application\profile\Profile.html
 		p("</label>\n" + 
 "\n" + 
 "                                <div class=\"controls\">\n" + 
-"                                    <textarea id=\"about\" name=\"about\" class=\"span11\" rows=\"6\" placeholder=\"");// line 172, japidviews\Application\profile\Profile.html
-		;p(getMessage("user.about"));// line 175, japidviews\Application\profile\Profile.html
-		p("\">");// line 175, japidviews\Application\profile\Profile.html
-		p(user.about);// line 175, japidviews\Application\profile\Profile.html
+"                                    <textarea id=\"about\" name=\"about\" class=\"span11\" rows=\"6\"\n" + 
+"                                              placeholder=\"");// line 169, japidviews\Application\profile\Profile.html
+		;p(getMessage("user.about"));// line 173, japidviews\Application\profile\Profile.html
+		p("\">");// line 173, japidviews\Application\profile\Profile.html
+		p(user.about);// line 173, japidviews\Application\profile\Profile.html
 		p("</textarea>\n" + 
 "                                </div>\n" + 
 "                            </div>\n" + 
@@ -336,8 +337,8 @@ public class Profile extends japidviews._layouts.Layout
 "    <div class=\"modal-body modal-body_photo\">\n" + 
 "        <div id=\"viewUserPhoto\">\n" + 
 "            <img\n" + 
-"                    src=\"");// line 175, japidviews\Application\profile\Profile.html
-		p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(user.idUser,0));// line 211, japidviews\Application\profile\Profile.html
+"                    src=\"");// line 173, japidviews\Application\profile\Profile.html
+		p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(user.idUser,0));// line 209, japidviews\Application\profile\Profile.html
 		p("\"\n" + 
 "                    id=\"ora_user_photo\"/>\n" + 
 "        </div>\n" + 
@@ -373,7 +374,7 @@ public class Profile extends japidviews._layouts.Layout
 "            </button>\n" + 
 "        </form>\n" + 
 "    </div>\n" + 
-"</div>");// line 211, japidviews\Application\profile\Profile.html
+"</div>");// line 209, japidviews\Application\profile\Profile.html
 		
 		endDoLayout(sourceTemplate);
 	}
@@ -394,23 +395,20 @@ public class Profile extends japidviews._layouts.Layout
 		p(lookupStatic("public/js/jquery.fineuploader/jquery.fineuploader-3.6.2.min.js"));// line 11, japidviews\Application\profile\Profile.html
 		p("\" type=\"text/javascript\"></script>\n" + 
 "<script src=\"");// line 11, japidviews\Application\profile\Profile.html
-		p(lookupStatic("public/app/profile.js"));// line 12, japidviews\Application\profile\Profile.html
+		p(lookupStatic("public/bootstrap/datepicker/js/bootstrap-datepicker.js"));// line 12, japidviews\Application\profile\Profile.html
 		p("\" type=\"text/javascript\"></script>\n" + 
 "<script src=\"");// line 12, japidviews\Application\profile\Profile.html
-		p(lookupStatic("public/bootstrap/datepicker/js/bootstrap-datepicker.js"));// line 13, japidviews\Application\profile\Profile.html
+		p(lookupStatic("public/bootstrap/datepicker/js/locales/bootstrap-datepicker.zh-CN.js"));// line 13, japidviews\Application\profile\Profile.html
 		p("\" type=\"text/javascript\"></script>\n" + 
-"<script src=\"");// line 13, japidviews\Application\profile\Profile.html
-		p(lookupStatic("public/bootstrap/datepicker/js/locales/bootstrap-datepicker.zh-CN.js"));// line 14, japidviews\Application\profile\Profile.html
-		p("\" type=\"text/javascript\"></script>\n" + 
-"\n" + 
-"<link href=\"");// line 14, japidviews\Application\profile\Profile.html
-		p(lookupStatic("/public/jcrop/jquery.Jcrop.min.css"));// line 16, japidviews\Application\profile\Profile.html
+"<link href=\"");// line 13, japidviews\Application\profile\Profile.html
+		p(lookupStatic("/public/jcrop/jquery.Jcrop.min.css"));// line 14, japidviews\Application\profile\Profile.html
 		p("\" rel=\"stylesheet\"/>\n" + 
-"\n" + 
-"<script src=\"");// line 16, japidviews\Application\profile\Profile.html
-		p(lookupStatic("public/jcrop/jquery.Jcrop.min.js"));// line 18, japidviews\Application\profile\Profile.html
-		p("\"\n" + 
-"        type=\"text/javascript\"></script>\n" + 
+"<script src=\"");// line 14, japidviews\Application\profile\Profile.html
+		p(lookupStatic("public/jcrop/jquery.Jcrop.min.js"));// line 15, japidviews\Application\profile\Profile.html
+		p("\" type=\"text/javascript\"></script>\n" + 
+"<script src=\"");// line 15, japidviews\Application\profile\Profile.html
+		p(lookupStatic("public/app/profile.js"));// line 16, japidviews\Application\profile\Profile.html
+		p("\" type=\"text/javascript\"></script>\n" + 
 "\n" + 
 "<style type=\"text/css\">\n" + 
 "    .head_img {\n" + 
@@ -429,7 +427,7 @@ public class Profile extends japidviews._layouts.Layout
 "        max-width: 800px;\n" + 
 "        max-height: 540px;\n" + 
 "    }\n" + 
-"</style>\n");// line 18, japidviews\Application\profile\Profile.html
+"</style>\n");// line 16, japidviews\Application\profile\Profile.html
 		;
 	}
 	@Override protected void header() {

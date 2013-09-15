@@ -91,9 +91,9 @@ var License = {
     values: {
         "1": "by-nc", "2": "by-nc-nd", "3": "by-nc-sa", "4": "by", "5": "by-nd", "6": "by-sa"
     },
-    displayLicense: function (licenseKey, containerId, imageClass, txtClass) {
+    displayLicense: function (licenseKey, containerElement, imageClass, txtClass) {
 
-        var container = $("#" + containerId);
+        var container = $(containerElement);
         container.empty();
 
         //create link
@@ -122,41 +122,9 @@ var License = {
         content.text(txt);
         a.append(imgContent);
         a.append(content);
-        console.log(txt);
+        //console.log(licenseKey+", "+txt);
         a.appendTo(container);
 
-    },
-    displayLicenseImage: function (licenseKey, containerId, imageClass) {
-
-        var container = $("#" + containerId);
-        container.empty();
-        var cc = ["cc"].concat(licenseKey.split("-"));
-        for (var a in cc) {
-            var img = $('<img >'); //Equivalent: $(document.createElement('img'))
-            img.attr('src', this.imgSrc.replace("{0}", cc[a]));
-            img.addClass(imageClass ? imageClass : "image_64")
-            //img.addClass("img");
-            img.appendTo(container);
-        }
-
-    },
-
-    displayLicenseText: function (licenseKey, containerId) {
-        var container = $("#" + containerId);
-        container.empty();
-        var cc = licenseKey.split("-");
-        var txt = "";
-        for (var a in cc) {
-            txt += " " + i18n.License.Cc[cc[a]];
-        }
-        txt += " 3.0";
-        console.log(txt);
-        var a = $("<a/>");
-        var link = licenseKey;
-        var href = "http://creativecommons.org/licenses/{0}/3.0/cn/";
-        a.attr("href", href.replace("{0}", link));
-        a.attr("target", "_target");
-        a.text(txt).appendTo(container);
     }
 
 

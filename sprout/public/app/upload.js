@@ -14,164 +14,167 @@ $.blueimp.fileupload.prototype.processActions.duplicateImage = function (data, o
 
 $(function () {
     'use strict';
-    $("#license1").change(function () {
-        var licenseKey = $(this).val();
-        License.displayLicense(licenseKey, "cc", "image_32");
-
-    });
-    License.displayLicense("by", "cc", "image_32");
-    //$('#tags1').tokenfield();
-    // Change this to the location of your server-side upload handler:
-    var url = "/upload/done";
-    var uploadButton = $('<button class="btn btn-primary" id="start" type="button">	<i class="icon-upload icon-white"></i>Save</button>').prop('disabled', true).text('Processing...').on('click', function () {
-        var $this = $(this), data = $this.data();
-        $this.off('click').text('Abort').on('click', function () {
-            $this.remove();
-            data.abort();
+    var photoUploadForm = $("#photoUploadForm");
+    if (photoUploadForm) {
+        var licenseContainer = photoUploadForm.find("#cc");
+        photoUploadForm.find("#license1").change(function () {
+            var licenseKey = $(this).val();
+            License.displayLicense(licenseKey, licenseContainer, "image_32");
         });
-        data.submit().always(function () {
-            $this.remove();
-        });
-    });
-
-    $('#fileuploadForm').fileupload({
-        url: url,
-        dataType: 'json',
-        forceIframeTransport: false, //When set “forceIframeTransport” is true, Drag&Drop can't work on chrome and firefox
-        autoUpload: false,
-        loadImageFileTypes: /(\.|\/)(jpe?g)$/i,
-        loadImageMaxFileSize: 10240000, // 15MB
-        // disableImageResize : false,
-        disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator && navigator.userAgent),
-        previewMaxWidth: 400,
-        previewMaxHeight: 400,
-        previewCrop: false,
-        previewAsCanvas: true,
-        imageCrop: false,
-        processQueue: [
-            {
-                action: 'loadImage'
-            },
-            {
-                action: 'resizeImage',
-                maxWidth: 1200,
-                maxHeight: 1200
-            },
-            {
-                action: 'saveImage'
-            },
-            {
-                action: 'setImage'
-            }
-            // , {
-            // action : 'duplicateImage'
-            // }, {
-            // action : 'resizeImage',
-            // maxWidth : 300,
-            // maxHeight : 300
-            // }, {
-            // action : 'saveImage'
-            // }, {
-            // action : 'duplicateImage'
-            // }, {
-            // action : 'resizeImage',
-            // maxWidth : 100,
-            // maxHeight : 100
-            // }, {
-            // action : 'saveImage'
-            // }
-
-        ]
-
-    }).bind('fileuploadadd',function (e, data) {
-            $('#progress .bar').css('width', '0%');
-            $("#preview > img").remove();
-            var file = data.files[0];
-            toForm(file);
-            data.context = $('#content');
-            $("#content").css("display", "block");
-            $("#dropzone").css("padding", "0px 0px");
-            $("#name").text(file.name);
-            $("#size").text(formatFileSize(file.size));
-            // $("#start").data(data);
-            $("#start").find('button').remove();
-            $("#start").append(uploadButton.clone(true).data(data));
-
-            initializeEditMap();
-
-            // $.each(data.files, function(index, file) {
-            // var node = $('<p/>').append(
-            // $('<span />').text(file.name));
-            // if (!index) {
-            // node.append('<br>').append(
-            // uploadButton.clone(true).data(data));
-            // }
-            //
-            // node.appendTo(data.context);
-            // });
-            window.loadImage(data.files[0], function (img) {
-                $("#preview").append(img);
-            }, {
-                maxWidth: 560
+        License.displayLicense("by", licenseContainer, "image_32");
+        //$('#tags1').tokenfield();
+        // Change this to the location of your server-side upload handler:
+        var url = "/upload/done";
+        var uploadButton = $('<button class="btn btn-primary" id="start" type="button">	<i class="icon-upload icon-white"></i>Save</button>').prop('disabled', true).text('Processing...').on('click', function () {
+            var $this = $(this), data = $this.data();
+            $this.off('click').text('Abort').on('click', function () {
+                $this.remove();
+                data.abort();
             });
+            data.submit().always(function () {
+                $this.remove();
+            });
+        });
 
-            // alert(data.files.length);
-        }).bind('fileuploadprocessalways',function (e, data) {
+        $('#fileuploadForm').fileupload({
+            url: url,
+            dataType: 'json',
+            forceIframeTransport: false, //When set “forceIframeTransport” is true, Drag&Drop can't work on chrome and firefox
+            autoUpload: false,
+            loadImageFileTypes: /(\.|\/)(jpe?g)$/i,
+            loadImageMaxFileSize: 10240000, // 15MB
+            // disableImageResize : false,
+            disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator && navigator.userAgent),
+            previewMaxWidth: 400,
+            previewMaxHeight: 400,
+            previewCrop: false,
+            previewAsCanvas: true,
+            imageCrop: false,
+            processQueue: [
+                {
+                    action: 'loadImage'
+                },
+                {
+                    action: 'resizeImage',
+                    maxWidth: 1200,
+                    maxHeight: 1200
+                },
+                {
+                    action: 'saveImage'
+                },
+                {
+                    action: 'setImage'
+                }
+                // , {
+                // action : 'duplicateImage'
+                // }, {
+                // action : 'resizeImage',
+                // maxWidth : 300,
+                // maxHeight : 300
+                // }, {
+                // action : 'saveImage'
+                // }, {
+                // action : 'duplicateImage'
+                // }, {
+                // action : 'resizeImage',
+                // maxWidth : 100,
+                // maxHeight : 100
+                // }, {
+                // action : 'saveImage'
+                // }
 
-            // var index = data.index, file = data.files[index], node =
-            // $(data.context
-            // .children()[index]);
-            // if (file.preview) {
-            // node.prepend('<br>').prepend(file.preview);
-            // }
-            // if (file.error) {
-            // node.append('<br>').append(file.error);
-            // }
-            // // if (index + 1 === data.files.length) {
-            // data.context.find('button').text('Upload').prop(
-            // 'disabled', !!data.files.error);
-            // }
-            $("#start").find('button').text('Upload').prop('disabled', !!data.files.error);
-        }).bind('fileuploadprogress',function (e, data) {
-        }).bind('fileuploadprogressall',function (e, data) {
-            var progress = parseInt(data.loaded / data.total * 100, 10);
-            $('#progress .bar').css('width', progress + '%');
-        }).bind('fileuploaddone',function (e, data) {
-            // alert(data.result);
-            // $.each(data.result.files, function(index, file) {
-            // var link = $('<a>').attr('target', '_blank').prop(
-            // 'href', file.url);
-            // $(data.context.children()[index]).wrap(link);
-            // });
-            if (data.result.success == true) {
-                notify("upload sucess.");
-            } else {
-                $("#start").find('button').text('Upload').prop('disabled', false);
-                // $.each(data.result.files, function(index, file) {
-                // var error = $('<span/>').text(file.error);
-                // $(data.context.children()[index]).append('<br>').append(error);
-                // $(data.context.children()[index]).append('<br>').append(error);
-                // });
-                $("#uploadError").css('display', "block");
+            ]
+
+        }).bind('fileuploadadd',function (e, data) {
                 $('#progress .bar').css('width', '0%');
-                notify("upload failure.", "error");
-            }
-        }).bind('fileuploadfail',function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                var error = $('<span/>').text(file.error);
-                $(data.context.children()[index]).append('<br>').append(error);
+                $("#preview > img").remove();
+                var file = data.files[0];
+                toForm(file);
+                data.context = $('#content');
+                $("#content").css("display", "block");
+                $("#dropzone").css("padding", "0px 0px");
+                $("#name").text(file.name);
+                $("#size").text(formatFileSize(file.size));
+                // $("#start").data(data);
+                $("#start").find('button').remove();
+                $("#start").append(uploadButton.clone(true).data(data));
+
+                initializeEditMap();
+
+                // $.each(data.files, function(index, file) {
+                // var node = $('<p/>').append(
+                // $('<span />').text(file.name));
+                // if (!index) {
+                // node.append('<br>').append(
+                // uploadButton.clone(true).data(data));
+                // }
+                //
+                // node.appendTo(data.context);
+                // });
+                window.loadImage(data.files[0], function (img) {
+                    $("#preview").append(img);
+                }, {
+                    maxWidth: 560
+                });
+
+                // alert(data.files.length);
+            }).bind('fileuploadprocessalways',function (e, data) {
+
+                // var index = data.index, file = data.files[index], node =
+                // $(data.context
+                // .children()[index]);
+                // if (file.preview) {
+                // node.prepend('<br>').prepend(file.preview);
+                // }
+                // if (file.error) {
+                // node.append('<br>').append(file.error);
+                // }
+                // // if (index + 1 === data.files.length) {
+                // data.context.find('button').text('Upload').prop(
+                // 'disabled', !!data.files.error);
+                // }
+                $("#start").find('button').text('Upload').prop('disabled', !!data.files.error);
+            }).bind('fileuploadprogress',function (e, data) {
+            }).bind('fileuploadprogressall',function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                $('#progress .bar').css('width', progress + '%');
+            }).bind('fileuploaddone',function (e, data) {
+                // alert(data.result);
+                // $.each(data.result.files, function(index, file) {
+                // var link = $('<a>').attr('target', '_blank').prop(
+                // 'href', file.url);
+                // $(data.context.children()[index]).wrap(link);
+                // });
+                if (data.result.success == true) {
+                    notify("upload sucess.");
+                } else {
+                    $("#start").find('button').text('Upload').prop('disabled', false);
+                    // $.each(data.result.files, function(index, file) {
+                    // var error = $('<span/>').text(file.error);
+                    // $(data.context.children()[index]).append('<br>').append(error);
+                    // $(data.context.children()[index]).append('<br>').append(error);
+                    // });
+                    $("#uploadError").css('display', "block");
+                    $('#progress .bar').css('width', '0%');
+                    notify("upload failure.", "error");
+                }
+            }).bind('fileuploadfail',function (e, data) {
+                $.each(data.result.files, function (index, file) {
+                    var error = $('<span/>').text(file.error);
+                    $(data.context.children()[index]).append('<br>').append(error);
+                });
+            }).bind('fileuploadsubmit', function (e, data) {
+                var formData = $('#fileuploadForm').serializeArray();
+                data.formData = formData;
+
             });
-        }).bind('fileuploadsubmit', function (e, data) {
-            var formData = $('#fileuploadForm').serializeArray();
-            data.formData = formData;
 
+        $("#close").click(function () {
+            $("#content").css("display", "none");
+            $("#dropzone").css("padding", "200px 0px");
+            $("#dropzone").css("display", "block");
         });
-
-    $("#close").click(function () {
-        $("#content").css("display", "none");
-        $("#dropzone").css("padding", "200px 0px");
-        $("#dropzone").css("display", "block");
-    });
+    }
 });
 
 function toForm(file) {

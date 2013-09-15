@@ -13,7 +13,7 @@ function initLicenseRadio() {
         var $this = $(this);
         var licenseKey = "by";
         var checkedValue = [];
-        $this.find("input:checked").each(function (j) {
+        $("#licenseForm").find("input:checked").each(function (j) {
             var val = $(this).val();
             if (val == "nc") {
                 checkedValue[0] = val;
@@ -25,13 +25,14 @@ function initLicenseRadio() {
         for (var a in checkedValue) {
             licenseKey += "-" + checkedValue[a];
         }
-        License.displayLicense(licenseKey, "cc", "image_64", "license_by");
+       // console.log(checkedValue);
+        License.displayLicense(licenseKey, $("#cc"), "image_64", "license_by");
     });
 }
 function setLicenseDefaultValue() {
     var licenseLastValue = $("#licenseLastValue").val();
     var licenseKey = License.values[licenseLastValue];
-    License.displayLicense(licenseKey, "cc", "image_64", "license_by");
+    License.displayLicense(licenseKey,  $("#licenseForm").find("#cc"), "image_64", "license_by");
     var subKeys = licenseKey.split("-");
     for (var i = 1; i < subKeys.length; i++) {
         var subKey = subKeys[i];

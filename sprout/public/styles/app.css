@@ -225,6 +225,32 @@ input.error {
     border: 1px solid red;
 }
 
+.content_container {
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.content_container:before,
+.content_container:after {
+    display: table;
+    content: " ";
+}
+
+.content_container:after {
+    clear: both;
+}
+
+.content_container:before,
+.content_container:after {
+    display: table;
+    content: " ";
+}
+
+.content_container:after {
+    clear: both;
+}
+
 /*app*/
 .notify_container {
     -moz-border-radius: 3px 3px 3px 3px;

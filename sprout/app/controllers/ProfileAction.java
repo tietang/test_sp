@@ -12,10 +12,7 @@ import fengfei.fir.utils.BASE64;
 import fengfei.fir.utils.Path;
 import fengfei.forest.database.DataAccessException;
 import fengfei.ucm.entity.photo.PhotoSet;
-import fengfei.ucm.entity.profile.Camera;
-import fengfei.ucm.entity.profile.LicenseType;
-import fengfei.ucm.entity.profile.User;
-import fengfei.ucm.entity.profile.UserPwd;
+import fengfei.ucm.entity.profile.*;
 import fengfei.ucm.repository.PhotoManageRepository;
 import fengfei.ucm.repository.ProfileRepository;
 import fengfei.ucm.repository.UserRepository;
@@ -121,12 +118,13 @@ public class ProfileAction extends Admin {
                     session.put(SESSION_USER_NAME_KEY, niceName);
                 }
             }
-            throw new JapidResult(new Profile().render(user));
+            //throw new JapidResult(new Profile().render(user));
         } catch (Exception e) {
             Logger.error(e, "add profile error.");
-            throw new JapidResult(new Profile().render(new User()));
+            // throw new JapidResult(new Profile().render(new User()));
 
         }
+        profile();
 
     }
 
@@ -300,12 +298,36 @@ public class ProfileAction extends Admin {
     }
 
     @Any("/settings/socialmedia")
-    public static void socialMedia() {
-        throw new JapidResult(new SocialMedia().render(""));
+    public static void socialMedia() throws Exception {
+        UserSocial userSocial = profileRepository.getUserSocial(currentUserId());
+        if (userSocial == null) {
+            userSocial = new UserSocial();
+        }
+        throw new JapidResult(new SocialMedia().render(userSocial));
     }
 
     @Post("/settings/socialmedia/done")
-    public static void socialMediaDone() {
+    public static void socialMediaDone() throws Exception {
+
+        Map<String, String> map = params.allSimple();
+        UserSocial userSocial = new UserSocial();
+        userSocial.idUser = currentUserId();
+        userSocial.web_site = MapUtils.getString(map, "	web_site");
+        userSocial.weibo = MapUtils.getString(map, "weibo");
+        userSocial.qq = MapUtils.getString(map, "qq");
+        userSocial.qq_weibo = MapUtils.getString(map, "qq_weibo");
+        userSocial.douban = MapUtils.getString(map, "douban");
+        userSocial.twitter = MapUtils.getString(map, "twitter");
+        userSocial.facebook = MapUtils.getString(map, "facebook");
+        userSocial.flickr = MapUtils.getString(map, "flickr");
+        userSocial.blog = MapUtils.getString(map, "blog");
+        userSocial.skype = MapUtils.getString(map, "skype");
+        userSocial.fengniao = MapUtils.getString(map, "fengniao");
+        userSocial.renren = MapUtils.getString(map, "renren");
+        int updated = profileRepository.saveUserSocial(userSocial);
+
+        //web_site, weibo, qq, qq_weibo, douban, twitter, facebook, flickr, blog, skype, fengniao, renren
+
         socialMedia();
     }
 
