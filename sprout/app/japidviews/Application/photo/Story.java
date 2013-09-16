@@ -89,8 +89,8 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Sto
 "\n" + 
 "\n" + 
 "\n" + 
-"\n");// line 104, japidviews\Application\photo\Story.html
-		final AddNav _AddNav3 = new AddNav(getOut()); _AddNav3.setActionRunners(getActionRunners()).setOut(getOut()); _AddNav3.render("story"); // line 112, japidviews\Application\photo\Story.html// line 112, japidviews\Application\photo\Story.html
+"\n");// line 103, japidviews\Application\photo\Story.html
+		final AddNav _AddNav3 = new AddNav(getOut()); _AddNav3.setActionRunners(getActionRunners()).setOut(getOut()); _AddNav3.render("story"); // line 111, japidviews\Application\photo\Story.html// line 111, japidviews\Application\photo\Story.html
 		p("\n" + 
 "<form id=\"fileuploadForm\" action=\"/story/done\" method=\"post\" enctype=\"multipart/form-data\">\n" + 
 "\n" + 
@@ -105,8 +105,8 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Sto
 "\n" + 
 "		<div class=\"col col_4\">\n" + 
 "			<div class=\"help  edit\">\n" + 
-"				<img src=\"");// line 112, japidviews\Application\photo\Story.html
-		p(lookupStatic("/public/images/stories_edit.png"));// line 127, japidviews\Application\photo\Story.html
+"				<img src=\"");// line 111, japidviews\Application\photo\Story.html
+		p(lookupStatic("/public/images/stories_edit.png"));// line 126, japidviews\Application\photo\Story.html
 		p("\" />\n" + 
 "				<div  >\n" + 
 "					Story book\n" + 
@@ -337,7 +337,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Sto
 "	</tbody>\n" + 
 "	</table>\n" + 
 "	{%  } %}\n" + 
-"</script>\n");// line 127, japidviews\Application\photo\Story.html
+"</script>\n");// line 126, japidviews\Application\photo\Story.html
 		
 		endDoLayout(sourceTemplate);
 	}
@@ -388,10 +388,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Sto
 		p(lookupStatic("/public/app/ExifUtils.js"));// line 21, japidviews\Application\photo\Story.html
 		p("\"></script>\n" + 
 "<script src=\"");// line 21, japidviews\Application\photo\Story.html
-		p(lookupStatic("/public/app/jquery.fileupload-ui-sprucy.js"));// line 22, japidviews\Application\photo\Story.html
-		p("\"></script>\n" + 
-"<script src=\"");// line 22, japidviews\Application\photo\Story.html
-		p(lookupStatic("/public/app/story.js"));// line 23, japidviews\Application\photo\Story.html
+		p(lookupStatic("/public/app/story.js"));// line 22, japidviews\Application\photo\Story.html
 		p("\"></script>\n" + 
 "<style type=\"text/css\">\n" + 
 "	.left {\n" + 
@@ -472,7 +469,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Sto
 "	}\n" + 
 "\n" + 
 "</style>\n" + 
-"\n");// line 23, japidviews\Application\photo\Story.html
+"\n");// line 22, japidviews\Application\photo\Story.html
 		;
 	}
 	@Override protected void header() {

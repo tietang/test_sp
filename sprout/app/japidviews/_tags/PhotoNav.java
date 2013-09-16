@@ -134,7 +134,7 @@ qString="?"+qs;// line 9, japidviews\_tags\PhotoNav.html
 		p("</a>\n" + 
 "			</li>\n" + 
 "\n" + 
-"			<li  ");// line 25, japidviews\_tags\PhotoNav.html
+"<!--			<li  ");// line 25, japidviews\_tags\PhotoNav.html
 		p(ms.get("/category"));// line 28, japidviews\_tags\PhotoNav.html
 		p(">\n" + 
 "				<a href=\"/category");// line 28, japidviews\_tags\PhotoNav.html
@@ -142,7 +142,7 @@ qString="?"+qs;// line 9, japidviews\_tags\PhotoNav.html
 		p("\">");// line 29, japidviews\_tags\PhotoNav.html
 		;p(getMessage("category"));// line 29, japidviews\_tags\PhotoNav.html
 		p("</a>\n" + 
-"			</li>\n" + 
+"			</li>-->\n" + 
 "		</ul>\n" + 
 "\n" + 
 "	</div>\n" + 

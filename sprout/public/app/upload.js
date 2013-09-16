@@ -16,8 +16,8 @@ $(function () {
     'use strict';
     var photoUploadForm = $("#photoUploadForm");
     if (photoUploadForm) {
-        var licenseContainer = photoUploadForm.find("#cc");
-        photoUploadForm.find("#license1").change(function () {
+        var licenseContainer = $("#cc");
+        $("#license1").change(function () {
             var licenseKey = $(this).val();
             License.displayLicense(licenseKey, licenseContainer, "image_32");
         });
@@ -100,7 +100,7 @@ $(function () {
                 $("#start").append(uploadButton.clone(true).data(data));
 
                 initializeEditMap();
-
+                License.displayLicense("by", licenseContainer, "image_32");
                 // $.each(data.files, function(index, file) {
                 // var node = $('<p/>').append(
                 // $('<span />').text(file.name));
