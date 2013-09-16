@@ -191,12 +191,12 @@ p("</pre>\n" +
 		p("                </select>\n" + 
 "\n" + 
 "                <p style=\"text-align: right\">\n" + 
-"\n" + 
 "                    <a href=\"#\">About License</a>\n" + 
 "                </p>\n" + 
 "\n" + 
 "                <p>\n" + 
-"                <div id=\"cc\"></div>\n" + 
+"\n" + 
+"                <div id=\"cc\" style=\"text-align: right\"></div>\n" + 
 "                </p>\n" + 
 "\n" + 
 "            </div>\n" + 

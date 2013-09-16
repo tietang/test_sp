@@ -36,7 +36,7 @@ $(function () {
             });
         });
 
-        $('#fileuploadForm').fileupload({
+        $('#photoUploadForm').fileupload({
             url: url,
             dataType: 'json',
             forceIframeTransport: false, //When set “forceIframeTransport” is true, Drag&Drop can't work on chrome and firefox
