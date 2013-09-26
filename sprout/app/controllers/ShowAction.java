@@ -4,7 +4,6 @@ import cn.bran.play.JapidResult;
 import fengfei.fir.model.PhotoShow;
 import fengfei.fir.rank.LastRank;
 import fengfei.fir.rank.PopularRank;
-import fengfei.fir.rank.TopRank;
 import fengfei.fir.utils.DateTimeUtils;
 import fengfei.fir.utils.Path;
 import fengfei.forest.database.DataAccessException;
@@ -44,7 +43,6 @@ public class ShowAction extends Admin {
     public static ReadFollowService readFollowService = FollowServiceUtils.readFollowService;
     public static LastRank last = new LastRank();
     public static PopularRank popular = new PopularRank();
-    public static TopRank top = new TopRank();
 
     @Any("/show/{<[0-9]+>idPhoto}_{<[0-9]+>photoIdUser}/?")
     public static void show(long idPhoto, Integer photoIdUser) {

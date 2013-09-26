@@ -20,7 +20,6 @@ import cn.bran.play.JapidResult;
 import fengfei.fir.model.PhotoShow;
 import fengfei.fir.rank.LastRank;
 import fengfei.fir.rank.PopularRank;
-import fengfei.fir.rank.TopRank;
 import fengfei.ucm.entity.photo.Refresh;
 import fengfei.ucm.repository.CommentRepository;
 import fengfei.ucm.repository.PhotoRepository;
@@ -37,9 +36,6 @@ public class UserPhotoAction extends Admin {
     public static CommentRepository comment = new SqlCommentRespository();
     static PhotoRepository photoRepository = new SqlPhotoRepository();
     public static ReadFollowService readFollowService = null;
-    public static LastRank last = new LastRank();
-    public static PopularRank popular = new PopularRank();
-    public static TopRank top = new TopRank();
 
     @Gets({ @Get("/show/following/{<[0-9]+>pageNum}/?"), @Get("/show/following/?") })
     @Any("/show/following/{<[0-9]+>pageNum}/?")

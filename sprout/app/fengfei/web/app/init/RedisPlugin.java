@@ -1,21 +1,20 @@
 package fengfei.web.app.init;
 
-import java.util.Properties;
-
-import org.apache.commons.pool.impl.GenericObjectPool.Config;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import play.Play;
-import play.PlayPlugin;
 import fengfei.fir.rank.LastRank;
 import fengfei.fir.rank.PopularRank;
-import fengfei.fir.rank.TopRank;
 import fengfei.fir.rank.UpcomingRank;
 import fengfei.forest.slice.plotter.HashPlotter;
 import fengfei.shard.Ploy;
 import fengfei.shard.Selector;
-import fengfei.shard.redis.ShardsRedis;
+import fengfei.shard.redis.JedisShards;
+import fengfei.shard.redis.RedisComand;
+import org.apache.commons.pool.impl.GenericObjectPool.Config;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import play.Play;
+import play.PlayPlugin;
+
+import java.util.Properties;
 
 public class RedisPlugin extends PlayPlugin {
 
@@ -33,20 +32,18 @@ public class RedisPlugin extends PlayPlugin {
         String ployClass = p.getProperty(PloyKey, HashPlotter.class.getCanonicalName());
         try {
             Ploy ploy = (Ploy) Class.forName(ployClass).newInstance();
-            ShardsRedis redis = new ShardsRedis(hosts, timeout, ploy, readConfig());
+            JedisShards redis = new JedisShards(hosts, timeout, ploy, readConfig());
 
             //
-            LastRank.read = redis.createRedisCommand();
-            LastRank.write = redis.createRedisCommand(Selector.Write);
+            LastRank.read = redis.create(RedisComand.class);
+            LastRank.write = redis.create(RedisComand.class, Selector.Write);
             //
-            TopRank.read = redis.createRedisCommand();
-            TopRank.write = redis.createRedisCommand(Selector.Write);
             //
-            PopularRank.read = redis.createRedisCommand();
-            PopularRank.write = redis.createRedisCommand(Selector.Write);
+            PopularRank.read = redis.create(RedisComand.class);
+            PopularRank.write = redis.create(RedisComand.class, Selector.Write);
             //
-            UpcomingRank.read = redis.createRedisCommand();
-            UpcomingRank.write = redis.createRedisCommand(Selector.Write);
+            UpcomingRank.read = redis.create(RedisComand.class);
+            UpcomingRank.write = redis.create(RedisComand.class, Selector.Write);
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -71,8 +68,8 @@ public class RedisPlugin extends PlayPlugin {
         cfg.timeBetweenEvictionRunsMillis = Integer.valueOf(p.getProperty(prefix
                 + "timeBetweenEvictionRunsMillis", "120000"));
         cfg.whenExhaustedAction = Byte.valueOf(
-            p.getProperty(prefix + "whenExhaustedAction", "1"),
-            10);
+                p.getProperty(prefix + "whenExhaustedAction", "1"),
+                10);
 
         return cfg;
 
