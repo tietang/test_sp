@@ -126,8 +126,11 @@ public class LorryAction extends Admin {
                         contents.put("username", username);
                         contents.put(JpegExifWriter.KeyIdUser, idUser.toString());
                         String licenseKey = contents.get("license");
-                        LicenseType licenseType = LicenseType.findByKey(licenseKey);
-                        contents.put("license", String.valueOf(licenseType.getValue()));
+                        if (licenseKey != null) {
+                            LicenseType licenseType = LicenseType.findByKey(licenseKey);
+                            contents.put("license", String.valueOf(licenseType.getValue()));
+                        }
+
                         done = lorryService.writeFile(contents, contents, file);
                         renderJSON(done);
                     } catch (Exception e) {

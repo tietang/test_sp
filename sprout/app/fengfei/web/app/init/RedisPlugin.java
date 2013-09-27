@@ -10,7 +10,6 @@ import play.Play;
 import play.PlayPlugin;
 import fengfei.fir.rank.LastRank;
 import fengfei.fir.rank.PopularRank;
-import fengfei.fir.rank.TopRank;
 import fengfei.fir.rank.UpcomingRank;
 import fengfei.forest.slice.plotter.HashPlotter;
 import fengfei.shard.Ploy;
@@ -39,8 +38,6 @@ public class RedisPlugin extends PlayPlugin {
             LastRank.read = redis.createRedisCommand();
             LastRank.write = redis.createRedisCommand(Selector.Write);
             //
-            TopRank.read = redis.createRedisCommand();
-            TopRank.write = redis.createRedisCommand(Selector.Write);
             //
             PopularRank.read = redis.createRedisCommand();
             PopularRank.write = redis.createRedisCommand(Selector.Write);

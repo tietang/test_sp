@@ -4,7 +4,6 @@ import cn.bran.play.JapidResult;
 import fengfei.fir.model.PhotoShow;
 import fengfei.fir.rank.LastRank;
 import fengfei.fir.rank.PopularRank;
-import fengfei.fir.rank.TopRank;
 import fengfei.fir.utils.DateTimeUtils;
 import fengfei.fir.utils.Path;
 import fengfei.forest.database.DataAccessException;
@@ -42,9 +41,6 @@ public class ShowAction extends Admin {
     public static CommentRepository comment = new SqlCommentRespository();
     static PhotoRepository photoRepository = new SqlPhotoRepository();
     public static ReadFollowService readFollowService = FollowServiceUtils.readFollowService;
-    public static LastRank last = new LastRank();
-    public static PopularRank popular = new PopularRank();
-    public static TopRank top = new TopRank();
 
     @Any("/show/{<[0-9]+>idPhoto}_{<[0-9]+>photoIdUser}/?")
     public static void show(long idPhoto, Integer photoIdUser) {
@@ -215,7 +211,7 @@ public class ShowAction extends Admin {
         }
     }
 
-     static <T extends PhotoShow> void rankable(List<T> shows) throws DataAccessException {
+    static <T extends PhotoShow> void rankable(List<T> shows) throws DataAccessException {
         if (shows != null && shows.size() > 0) {
             List<Long> ids = new ArrayList<>();
             for (PhotoShow photoShow : shows) {
