@@ -1,25 +1,23 @@
 package controllers;
 
-import japidviews.Application.ForgotPassword;
-import japidviews.Application.Login;
-import japidviews.Application.Signup;
-import japidviews.Application.SignupDone;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.mail.HtmlEmail;
-
-import play.Logger;
-import play.libs.Mail;
-import play.modules.router.Any;
 import cn.bran.play.JapidResult;
 import fengfei.fir.utils.UUID;
 import fengfei.ucm.entity.profile.User;
 import fengfei.ucm.entity.profile.UserPwd;
 import fengfei.ucm.repository.UserRepository;
 import fengfei.ucm.repository.impl.SqlUserRepository;
+import japidviews.Application.ForgotPassword;
+import japidviews.Application.Login;
+import japidviews.Application.Signup;
+import japidviews.Application.SignupDone;
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.mail.HtmlEmail;
+import play.Logger;
+import play.libs.Mail;
+import play.modules.router.Any;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserCenter extends Admin {
 

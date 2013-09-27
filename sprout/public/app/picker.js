@@ -1,3 +1,38 @@
+/**
+ *
+ <script type="text/javascript">
+ $(function () {
+            $(".s1 .picker").picker().pickAll();
+            $(".s2 .picker").picker().values([1, 5, 3]);
+            console.log($(".s2 .picker").pickerValues());
+        });
+ </script>
+
+ <ul class="s1">
+
+ <li class="picker transition" value="1"><img src="http://placehold.it/260x180"></li>
+ <li class="picker transition" value="2"><img src="http://placehold.it/260x180"></li>
+ <li class="picker transition" value="3"><img src="http://placehold.it/260x180"></li>
+ <li class="picker transition" value="4"><img src="http://placehold.it/260x180"></li>
+ <li class="picker transition" value="5"><img src="http://placehold.it/260x180"></li>
+ <li class="picker transition" value="6"><img src="http://placehold.it/260x180"></li>
+
+ </ul>
+ <br/>
+ <br/>
+ <br/>
+ <br/>
+ <ul class="s2">
+
+ <li class="picker transition" value="1"><img src="http://placehold.it/260x180"></li>
+ <li class="picker transition" value="2"><img src="http://placehold.it/260x180"></li>
+ <li class="picker transition" value="3"><img src="http://placehold.it/260x180"></li>
+ <li class="picker transition" value="4"><img src="http://placehold.it/260x180"></li>
+ <li class="picker transition" value="5"><img src="http://placehold.it/260x180"></li>
+ <li class="picker transition" value="6"><img src="http://placehold.it/260x180"></li>
+
+ </ul>
+ */
 (function ($) {
 
     $.fn.picker = function (options) {

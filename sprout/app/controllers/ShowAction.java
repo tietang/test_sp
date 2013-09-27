@@ -6,7 +6,6 @@ import fengfei.fir.rank.LastRank;
 import fengfei.fir.rank.PopularRank;
 import fengfei.fir.utils.DateTimeUtils;
 import fengfei.fir.utils.Path;
-import fengfei.forest.database.DataAccessException;
 import fengfei.spruce.cache.SimpleCache;
 import fengfei.spruce.utils.FollowServiceUtils;
 import fengfei.ucm.entity.photo.*;

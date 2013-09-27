@@ -1,12 +1,7 @@
 package controllers;
 
-import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import play.mvc.Before;
-import play.mvc.Http.Header;
 import cn.bran.play.JapidController;
+import play.mvc.Before;
 
 public class Secure extends JapidController {
 

@@ -17,7 +17,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class SqlCommentRepository implements CommentRepository {
-    final static String Table = "photo_comment";
+    public final static String CommentsTableName = "comments";
+    public final static String CommentsPhotoTableName = "comments_photo";
     UserRepository userRepository = new SqlUserRepository();
 
     @Override
@@ -25,7 +26,7 @@ public class SqlCommentRepository implements CommentRepository {
 
 
         long id = m.getIdUser();
-        m.idComment = Sequence.next(Table);
+        m.idComment = Sequence.next(CommentsTableName);
         int updated = Transactions.execute(
                 PhotoUnitName,
                 new Long(id),

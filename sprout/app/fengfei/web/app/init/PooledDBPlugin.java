@@ -1,22 +1,17 @@
 package fengfei.web.app.init;
 
+import fengfei.forest.database.pool.*;
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import play.Play;
+import play.PlayPlugin;
+import play.db.DB;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
-
-import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import play.Play;
-import play.PlayPlugin;
-import play.db.DB;
-import fengfei.forest.database.pool.BonePoolableDataSourceFactory;
-import fengfei.forest.database.pool.DbcpPoolableDataSourceFactory;
-import fengfei.forest.database.pool.PoolableDataSourceFactory;
-import fengfei.forest.database.pool.PoolableException;
-import fengfei.forest.database.pool.TomcatPoolableDataSourceFactory;
 
 public class PooledDBPlugin extends PlayPlugin {
 

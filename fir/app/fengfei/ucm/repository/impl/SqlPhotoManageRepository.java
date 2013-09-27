@@ -1,6 +1,5 @@
 package fengfei.ucm.repository.impl;
 
-import fengfei.forest.database.DataAccessException;
 import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.forest.slice.SliceResource.Function;
 import fengfei.forest.slice.database.utils.Transactions;
@@ -18,9 +17,8 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
 
     @Override
     public int saveSet(final PhotoSet m) throws Exception {
-        try {
 
-            Integer updated = Transactions.execute(
+        Integer updated = Transactions.execute(
                 UserUnitName,
                 new Long(m.idUser),
                 Function.Write,
@@ -45,17 +43,13 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
 
                 });
 
-            return updated;
-        } catch (Exception e) {
-            throw new DataAccessException("add set error.", e);
-        }
+        return updated;
     }
 
     @Override
     public int deleteSet(final long idSet, final Integer idUser) throws Exception {
-        try {
 
-            Integer updated = Transactions.execute(
+        Integer updated = Transactions.execute(
                 UserUnitName,
                 new Long(idUser),
                 Function.Write,
@@ -74,17 +68,13 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
 
                 });
 
-            return updated;
-        } catch (Exception e) {
-            throw new DataAccessException("delete set error.", e);
-        }
+        return updated;
     }
 
     @Override
     public List<PhotoSet> selectUserSets(final Integer idUser) throws Exception {
-        try {
 
-            List<PhotoSet> sets = Transactions.execute(
+        List<PhotoSet> sets = Transactions.execute(
                 UserUnitName,
                 new Long(idUser),
                 Function.Read,
@@ -92,25 +82,21 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
 
                     @Override
                     public List<PhotoSet> execute(ForestGrower grower, String suffix)
-                        throws SQLException {
+                            throws SQLException {
                         suffix = "";
                         return PhotoSetDao.selectUserSets(grower, suffix, idUser);
                     }
 
                 });
 
-            return sets;
-        } catch (Exception e) {
-            throw new DataAccessException("select set error.", e);
-        }
+        return sets;
     }
 
     @Override
     public List<Long> selectSetPhoto(final long idSet, final Integer idUser)
-        throws Exception {
-        try {
+            throws Exception {
 
-            List<Long> sets = Transactions.execute(
+        List<Long> sets = Transactions.execute(
                 UserUnitName,
                 new Long(idUser),
                 Function.Read,
@@ -118,25 +104,21 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
 
                     @Override
                     public List<Long> execute(ForestGrower grower, String suffix)
-                        throws SQLException {
+                            throws SQLException {
                         suffix = "";
                         return PhotoSetDao.selectSetPhoto(grower, suffix, idSet, idUser);
                     }
 
                 });
 
-            return sets;
-        } catch (Exception e) {
-            throw new DataAccessException("select sets error.", e);
-        }
+        return sets;
     }
 
     @Override
     public int addPhotoSets(final Integer idUser, final long idSet, final long idPhoto)
-        throws Exception {
-        try {
+            throws Exception {
 
-            Integer updated = Transactions.execute(
+        Integer updated = Transactions.execute(
                 UserUnitName,
                 new Long(idUser),
                 Function.Write,
@@ -150,18 +132,14 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
 
                 });
 
-            return updated;
-        } catch (Exception e) {
-            throw new DataAccessException("add sets error.", e);
-        }
+        return updated;
     }
 
     @Override
     public int deletePhotoSets(final Integer idUser, final long idPhoto)
-        throws Exception {
-        try {
+            throws Exception {
 
-            Integer updated = Transactions.execute(
+        Integer updated = Transactions.execute(
                 UserUnitName,
                 new Long(idUser),
                 Function.Write,
@@ -175,18 +153,14 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
 
                 });
 
-            return updated;
-        } catch (Exception e) {
-            throw new DataAccessException("delete sets error.", e);
-        }
+        return updated;
     }
 
     @Override
     public PhotoSet getPhotoSet(final long idPhoto, final Integer idUser)
-        throws Exception {
-        try {
+            throws Exception {
 
-            PhotoSet ps = Transactions.execute(
+        PhotoSet ps = Transactions.execute(
                 UserUnitName,
                 new Long(idUser),
                 Function.Write,
@@ -194,24 +168,20 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
 
                     @Override
                     public PhotoSet execute(ForestGrower grower, String suffix)
-                        throws SQLException {
+                            throws SQLException {
                         suffix = "";
                         return PhotoSetDao.getPhotoSet(grower, suffix, idPhoto, idUser);
                     }
 
                 });
 
-            return ps;
-        } catch (Exception e) {
-            throw new DataAccessException("delete sets error.", e);
-        }
+        return ps;
     }
 
     @Override
     public long getPhotoSetId(final long idPhoto, final Integer idUser) throws Exception {
-        try {
 
-            Long ps = Transactions.execute(
+        Long ps = Transactions.execute(
                 UserUnitName,
                 new Long(idUser),
                 Function.Write,
@@ -225,10 +195,7 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
 
                 });
 
-            return ps;
-        } catch (Exception e) {
-            throw new DataAccessException("delete sets error.", e);
-        }
+        return ps;
     }
 
 }

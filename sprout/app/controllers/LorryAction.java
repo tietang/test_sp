@@ -8,7 +8,6 @@ import fengfei.fir.service.JpegExifWriter;
 import fengfei.fir.service.LorryStorage;
 import fengfei.fir.service.impl.SqlJpegExifWriter;
 import fengfei.fir.utils.MapUtils;
-import fengfei.forest.database.DataAccessException;
 import fengfei.sprucy.Spruce;
 import fengfei.ucm.entity.photo.Photo;
 import fengfei.ucm.entity.photo.PhotoSet;
@@ -49,7 +48,7 @@ public class LorryAction extends Admin {
         try {
             List<PhotoSet> photoSets = photoManage.selectUserSets(idUser);
             throw new JapidResult(new UploadPS().render(photoSets));
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             throw new JapidResult(new UploadPS().render(new ArrayList<PhotoSet>()));
 
@@ -61,7 +60,7 @@ public class LorryAction extends Admin {
         try {
             List<PhotoSet> photoSets = photoManage.selectUserSets(idUser);
             throw new JapidResult(new Upload().render(photoSets));
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             throw new JapidResult(new Upload().render(new ArrayList<PhotoSet>()));
 
@@ -75,7 +74,7 @@ public class LorryAction extends Admin {
             Photo photo = photoRepository.selectOne(idPhoto, idUser);
             List<PhotoSet> photoSets = photoManage.selectUserSets(idUser);
             throw new JapidResult(new UploadForm().render(photo, photoSets));
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             throw new JapidResult(new UploadForm().render(null, new ArrayList<PhotoSet>()));
 
@@ -211,7 +210,7 @@ public class LorryAction extends Admin {
             }
 
             throw new JapidResult(new PhotoEdit().render(photo, photoSets));
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             throw new JapidResult(new PhotoEdit().render(null, new ArrayList<PhotoSet>()));
 

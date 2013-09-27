@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50525
 File Encoding         : 65001
 
-Date: 2013-09-11 17:20:07
+Date: 2013-09-27 16:36:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,6 +49,17 @@ CREATE TABLE `idtb64_2` (
   PRIMARY KEY (`table`),
   UNIQUE KEY `idx_table` (`table`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Table structure for idtb64__2
+-- ----------------------------
+DROP TABLE IF EXISTS `idtb64__2`;
+CREATE TABLE `idtb64__2` (
+  `id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `table` varchar(32) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_table` (`table`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for idtbl64
@@ -243,7 +254,7 @@ CREATE TABLE `photo_choice` (
 -- ----------------------------
 DROP TABLE IF EXISTS `photo_comments`;
 CREATE TABLE `photo_comments` (
-  `id_comment` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `id_comment` bigint(20) unsigned NOT NULL,
   `id_photo` bigint(20) unsigned DEFAULT NULL,
   `content` varchar(256) DEFAULT NULL,
   `id_user` int(11) unsigned DEFAULT NULL,
@@ -251,11 +262,12 @@ CREATE TABLE `photo_comments` (
   `ip` varchar(96) DEFAULT NULL,
   `create_at` int(11) unsigned DEFAULT NULL,
   `create_at_gmt` datetime DEFAULT NULL,
-  `disabled` tinyint(4) unsigned DEFAULT NULL,
+  `status` tinyint(4) unsigned DEFAULT NULL,
   `id_user_reply` int(11) unsigned DEFAULT NULL,
   `id_parent` bigint(20) unsigned DEFAULT NULL,
+  `comment_photo` bigint(20) unsigned DEFAULT NULL,
   PRIMARY KEY (`id_comment`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for photo_favorite

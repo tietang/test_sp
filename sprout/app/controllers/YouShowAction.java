@@ -1,28 +1,10 @@
 package controllers;
 
-import fengfei.ucm.repository.*;
-import fengfei.ucm.repository.impl.*;
-import japidviews.Application.photo.Edit;
-import japidviews.Application.photo.UserViews;
-import japidviews.Application.photo.Yours;
-
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import play.Logger;
-import play.modules.router.Any;
-import play.modules.router.Get;
-import play.modules.router.Gets;
 import cn.bran.play.JapidResult;
-
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
-
 import fengfei.fir.model.PhotoShow;
 import fengfei.fir.utils.Path;
-import fengfei.forest.database.DataAccessException;
 import fengfei.spruce.utils.FollowServiceUtils;
 import fengfei.ucm.entity.photo.Favorite;
 import fengfei.ucm.entity.photo.Photo;
@@ -30,10 +12,22 @@ import fengfei.ucm.entity.photo.PhotoAccess;
 import fengfei.ucm.entity.photo.Rank;
 import fengfei.ucm.entity.profile.Camera;
 import fengfei.ucm.entity.profile.User;
-import fengfei.ucm.repository.ProfileRepository;
-import fengfei.ucm.repository.impl.SqlProfileRepository;
+import fengfei.ucm.repository.*;
+import fengfei.ucm.repository.impl.*;
 import fengfei.ucm.service.ReadFollowService;
 import fengfei.ucm.service.WriteFollowService;
+import japidviews.Application.photo.Edit;
+import japidviews.Application.photo.UserViews;
+import japidviews.Application.photo.Yours;
+import play.Logger;
+import play.modules.router.Any;
+import play.modules.router.Get;
+import play.modules.router.Gets;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public class YouShowAction extends Admin {
 

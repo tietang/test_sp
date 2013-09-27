@@ -1,29 +1,21 @@
 package controllers;
 
-import japidviews.Application.photo.HomeViews;
+import cn.bran.play.JapidResult;
+import fengfei.ucm.repository.ShowRepository;
+import fengfei.ucm.repository.impl.SqlShowRepository;
 import japidviews.Application.photo.Test;
 import japidviews.Application.photo.TestUpload;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.commons.io.FileUtils;
-
-import play.Logger;
 import play.data.Upload;
 import play.modules.router.Any;
 import play.modules.router.Get;
 import play.modules.router.Gets;
 import play.modules.router.Post;
-import cn.bran.play.JapidResult;
-import fengfei.fir.model.PhotoShow;
-import fengfei.forest.database.DataAccessException;
-import fengfei.ucm.entity.photo.Favorite;
-import fengfei.ucm.entity.photo.PhotoAccess;
-import fengfei.ucm.repository.ShowRepository;
-import fengfei.ucm.repository.impl.SqlShowRepository;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Usher extends Admin {
 

@@ -1,10 +1,10 @@
 package controllers;
 
-import play.Logger;
-import play.mvc.With;
 import fengfei.spruce.utils.FollowServiceUtils;
 import fengfei.ucm.service.ReadFollowService;
 import fengfei.ucm.service.WriteFollowService;
+import play.Logger;
+import play.mvc.With;
 
 @With(SecureForJson.class)
 public class FollowAction extends Admin {

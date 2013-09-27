@@ -1,25 +1,7 @@
 package controllers;
 
-import japidviews.Application.profile.Dir;
-import japidviews.Application.profile.DirNav;
-import japidviews.Application.profile.DirReOrg;
-import japidviews.Application.profile.PhotoList;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.commons.collections.MapUtils;
-
-import play.Logger;
-import play.modules.router.Any;
-import play.modules.router.Get;
-import play.modules.router.Gets;
-import play.modules.router.Post;
-import play.mvc.With;
 import cn.bran.play.JapidResult;
 import fengfei.fir.model.PhotoShow;
-import fengfei.forest.database.DataAccessException;
 import fengfei.sprucy.AppConstants;
 import fengfei.ucm.entity.photo.PhotoSet;
 import fengfei.ucm.entity.photo.Rank;
@@ -29,6 +11,21 @@ import fengfei.ucm.repository.ShowRepository;
 import fengfei.ucm.repository.impl.SqlPhotoManageRepository;
 import fengfei.ucm.repository.impl.SqlPhotoRepository;
 import fengfei.ucm.repository.impl.SqlShowRepository;
+import japidviews.Application.profile.Dir;
+import japidviews.Application.profile.DirNav;
+import japidviews.Application.profile.DirReOrg;
+import japidviews.Application.profile.PhotoList;
+import org.apache.commons.collections.MapUtils;
+import play.Logger;
+import play.modules.router.Any;
+import play.modules.router.Get;
+import play.modules.router.Gets;
+import play.modules.router.Post;
+import play.mvc.With;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @With(SecureForJson.class)
 public class PhotoManagerAction extends Admin {
@@ -51,7 +48,7 @@ public class PhotoManagerAction extends Admin {
                     TotalRowLimit);
             throw new JapidResult(new PhotoList().render("/photo/manage/all",
                     ranks, pageNum));
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             throw new JapidResult(new PhotoList().render("/photo/manage/all",
                     new ArrayList<PhotoShow>(), pageNum));
         }
@@ -70,7 +67,7 @@ public class PhotoManagerAction extends Admin {
                     TotalRowLimit);
             throw new JapidResult(new PhotoList().render(
                     "/photo/manage/public", ranks, pageNum));
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             throw new JapidResult(
                     new PhotoList().render("/photo/manage/public",
                             new ArrayList<PhotoShow>(), pageNum));
@@ -84,7 +81,7 @@ public class PhotoManagerAction extends Admin {
             Map<String, String> contents = params.allSimple();
             List<PhotoSet> photoSets = photoManage.selectUserSets(idUser);
             throw new JapidResult(new Dir().render(photoSets));
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             throw new JapidResult(new Dir().render(new ArrayList<PhotoSet>()));
 
@@ -97,7 +94,7 @@ public class PhotoManagerAction extends Admin {
         try {
             List<PhotoSet> photoSets = photoManage.selectUserSets(idUser);
             throw new JapidResult(new DirNav().render(photoSets));
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             throw new JapidResult(
                     new DirNav().render(new ArrayList<PhotoSet>()));
@@ -112,7 +109,7 @@ public class PhotoManagerAction extends Admin {
         try {
             List<PhotoSet> photoSets = photoManage.selectUserSets(idUser);
             throw new JapidResult(new DirReOrg().render(photoSets));
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             throw new JapidResult(
                     new DirReOrg().render(new ArrayList<PhotoSet>()));
@@ -130,7 +127,7 @@ public class PhotoManagerAction extends Admin {
             List<Long> photos = photoManage.selectSetPhoto(idSet, idUser);
             List<Rank> ranks = show.selectRanks(photos);
             throw new JapidResult(new PhotoList().render(pagePath, ranks, 0));
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             throw new JapidResult(new PhotoList().render(pagePath,
                     new ArrayList<PhotoShow>(), pageNum));
@@ -165,7 +162,7 @@ public class PhotoManagerAction extends Admin {
                 flash.error(i18n("dir.name.existed", AppConstants.DirLimit));
             }
 
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             flash.error(i18n("dir.save.error"));
             Logger.error(e, i18n("dir.save.error"));
         }
@@ -183,7 +180,7 @@ public class PhotoManagerAction extends Admin {
                 int updated = photoManage.deleteSet(idSet, idUser);
             }
 
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             Logger.error(e, "delete set error.");
             e.printStackTrace();
         }
@@ -199,7 +196,7 @@ public class PhotoManagerAction extends Admin {
             long idSet = MapUtils.getLongValue(contents, "id_set");
             int updated = photoManage.addPhotoSets(idUser, idSet, idPhoto);
             renderDone(updated > 0);
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             renderError();
         }
     }
@@ -212,7 +209,7 @@ public class PhotoManagerAction extends Admin {
             long idPhoto = MapUtils.getLongValue(contents, "id_photo");
             int updated = photoManage.deletePhotoSets(idUser, idPhoto);
             renderDone(updated > 0);
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             renderError();
         }
     }
@@ -224,7 +221,7 @@ public class PhotoManagerAction extends Admin {
             boolean updated = photoRepository.deleteOne(idPhoto, idUser);
             System.out.println(updated);
             renderDone(updated);
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             renderError();
         }
     }

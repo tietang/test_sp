@@ -1,8 +1,8 @@
 package fengfei.spruce.utils;
 
-import java.io.File;
-
 import fengfei.fir.utils.Path;
+
+import java.io.File;
 
 public class PhotoPathUtils {
 

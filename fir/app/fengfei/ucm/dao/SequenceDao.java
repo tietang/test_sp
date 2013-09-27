@@ -1,12 +1,11 @@
 package fengfei.ucm.dao;
 
-import java.sql.SQLException;
-
+import fengfei.forest.database.dbutils.ForestGrower;
+import fengfei.forest.database.dbutils.LongTransducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import fengfei.forest.database.dbutils.ForestGrower;
-import fengfei.forest.database.dbutils.LongTransducer;
+import java.sql.SQLException;
 
 public class SequenceDao {
 
@@ -17,7 +16,7 @@ public class SequenceDao {
             + "  UNIQUE KEY `stub` (`stub`) \n" + ") ENGINE=MyISAM AUTO_INCREMENT=%s";
 
     public static long nextIdFromSequence(ForestGrower grower, String suffix, String table)
-        throws SQLException {
+            throws SQLException {
         String update = "REPLACE INTO Seq64_%s(stub) VALUES ('a')";
         String sql = "SELECT LAST_INSERT_ID()";
         int updated = grower.update(String.format(update, table));
@@ -26,7 +25,7 @@ public class SequenceDao {
     }
 
     public static int[] createSequence(ForestGrower grower, String suffix, String... tables)
-        throws SQLException {
+            throws SQLException {
         int[] rs = new int[tables.length];
         for (int i = 0; i < rs.length; i++) {
             int updated = grower.update(String.format(Sequence, tables[i]));
@@ -44,7 +43,7 @@ public class SequenceDao {
             + "  UNIQUE KEY `idx_table` (`table`)\r\n" + ") ENGINE=InnoDB ";
 
     public static long nextIdFromSequenceTable(ForestGrower grower, String suffix, String table)
-        throws SQLException {
+            throws SQLException {
         String update = "UPDATE `idtb64_%s` SET `id` = LAST_INSERT_ID(`id` + 2) where `table`=?";
         String sql = "SELECT LAST_INSERT_ID()";
         int updated = grower.update(String.format(update, suffix), table);
@@ -53,24 +52,27 @@ public class SequenceDao {
     }
 
     public static int[] createSequenceTable(
-        ForestGrower grower,
-        String suffix,
-        long seq,
-        String... tables) throws SQLException {
+            ForestGrower grower,
+            String suffix,
+            long seq,
+            String... tables) throws SQLException {
+
+        //create table if not exists
+        int updated = grower.update(String.format(SequenceTable, suffix));
+        if (updated > 0) {
+            log.info("Created sequence table.");
+        }
         String sql = "select id from `idtb64_%s` where `table`=? ";
 
         String insert = "INSERT INTO `idtb64_%s`(`table`,`id`) values(?,?)";
         int[] rs = new int[tables.length];
-        for (int i = 0; i < rs.length; i++) {
-            int updated = grower.update(String.format(SequenceTable, suffix));
-            if (updated > 0) {
-                log.info("Created sequence table. ");
-            }
+        for (int i = 0; i < tables.length; i++) {
+
             Long id = grower
-                .selectOne(String.format(sql, suffix), new LongTransducer(), tables[i]);
+                    .selectOne(String.format(sql, suffix), new LongTransducer(), tables[i]);
             if (id == null) {
                 int inserted = grower.update(String.format(insert, suffix), tables[i], seq);
-                log.info("Inited sequence table . ");
+                log.info("Inited sequence table: " + tables[i]);
             }
             rs[i] = updated;
         }

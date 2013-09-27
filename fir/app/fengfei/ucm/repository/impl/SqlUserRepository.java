@@ -24,6 +24,7 @@ import java.util.Map;
 
 @Repository
 public class SqlUserRepository implements UserRepository {
+    public final static String UserTableName = "photo";
 
     @Override
     public int addUserPwd(final UserPwd userPwd) throws Exception {

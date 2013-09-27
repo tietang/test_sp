@@ -1,15 +1,13 @@
 package fengfei.spruce.utils;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import org.apache.commons.codec.DecoderException;
-import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 import org.apache.commons.mail.SimpleEmail;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class Mail {
 

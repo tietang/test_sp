@@ -1,16 +1,15 @@
 package fengfei.spruce.utils;
 
-import java.security.Key;
-import java.security.SecureRandom;
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+import java.security.Key;
+import java.security.SecureRandom;
 
 /**
  * DES安全编码组件

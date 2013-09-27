@@ -32,7 +32,7 @@ import java.util.List;
 public class SqlPhotoRepository implements PhotoRepository {
 
     PhotoExtRepository photoExtRepository = new RedisPhotoExtRepository();
-    final static String PhotosTableName = "photos";
+    public final static String PhotosTableName = "photo";
     LastRank last = new LastRank();
 
     @Override
