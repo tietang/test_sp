@@ -1,15 +1,11 @@
 package fengfei.ucm.repository.impl;
 
-import fengfei.ucm.entity.photo.Choice;
-import fengfei.ucm.entity.photo.Refresh;
-import org.apache.sanselan.formats.jpeg.segments.APPNSegment;
-
 import fengfei.fir.rank.LastRank;
 import fengfei.fir.rank.PopularRank;
 import fengfei.fir.rank.UpcomingRank;
-import fengfei.forest.database.DataAccessException;
 import fengfei.sprucy.AppConstants;
 import fengfei.ucm.entity.photo.Rank;
+import fengfei.ucm.entity.photo.Refresh;
 import fengfei.ucm.repository.PhotoExtRepository;
 
 public class RedisPhotoExtRepository implements PhotoExtRepository {
@@ -19,7 +15,7 @@ public class RedisPhotoExtRepository implements PhotoExtRepository {
     UpcomingRank upcoming = new UpcomingRank();
 
     @Override
-    public long updateUpcoming(Rank rank) throws DataAccessException {
+    public long updateUpcoming(Rank rank) throws Exception {
         if (rank.score >= AppConstants.UpcomingMinScore
                 && rank.score < AppConstants.UpcomingMaxScore) {
             return upcoming.add(rank.idPhoto, rank.score);
@@ -28,7 +24,7 @@ public class RedisPhotoExtRepository implements PhotoExtRepository {
     }
 
     @Override
-    public long deletePopular(Rank rank) throws DataAccessException {
+    public long deletePopular(Rank rank) throws Exception {
         if (rank.score < rank.maxScore && rank.score < AppConstants.PopularMinScore) {
             return pop.removeSinking();
         }
@@ -36,7 +32,7 @@ public class RedisPhotoExtRepository implements PhotoExtRepository {
     }
 
     @Override
-    public long updatePopular(Rank rank) throws DataAccessException {
+    public long updatePopular(Rank rank) throws Exception {
         if (rank.score >= AppConstants.PopularMinScore) {
             return pop.add(rank.idPhoto, rank.score);
         }
@@ -44,17 +40,17 @@ public class RedisPhotoExtRepository implements PhotoExtRepository {
     }
 
     @Override
-    public int addRefresh(Refresh refresh) throws DataAccessException {
+    public int addRefresh(Refresh refresh) throws Exception {
         return 0;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
-    public int deleteRefresh(long idPhoto) throws DataAccessException {
+    public int deleteRefresh(long idPhoto) throws Exception {
         return 0;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
-    public int deleteRefreshByAt(long at) throws DataAccessException {
+    public int deleteRefreshByAt(long at) throws Exception {
         return 0;  //To change body of implemented methods use File | Settings | File Templates.
     }
 

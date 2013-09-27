@@ -1,16 +1,8 @@
 package fengfei.ucm.repository.impl;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import org.springframework.stereotype.Repository;
-
 import fengfei.fir.rank.LastRank;
 import fengfei.fir.rank.RankUtils;
 import fengfei.fir.utils.AppUtils;
-import fengfei.forest.database.DataAccessException;
 import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.forest.database.dbutils.impl.ForestRunner.InsertResultSet;
 import fengfei.forest.slice.SliceResource.Function;
@@ -19,15 +11,7 @@ import fengfei.forest.slice.database.utils.Transactions;
 import fengfei.forest.slice.database.utils.Transactions.TaCallback;
 import fengfei.forest.slice.database.utils.Transactions.TransactionCallback;
 import fengfei.sprucy.AppConstants;
-import fengfei.ucm.dao.PhotoAccessDao;
-import fengfei.ucm.dao.PhotoDao;
-import fengfei.ucm.dao.PhotoDeleteDao;
-import fengfei.ucm.dao.PhotoFavoriteDao;
-import fengfei.ucm.dao.PhotoSetDao;
-import fengfei.ucm.dao.RankDao;
-import fengfei.ucm.dao.Sequence;
-import fengfei.ucm.dao.ShowDao;
-import fengfei.ucm.dao.UserDao;
+import fengfei.ucm.dao.*;
 import fengfei.ucm.entity.photo.Favorite;
 import fengfei.ucm.entity.photo.Photo;
 import fengfei.ucm.entity.photo.PhotoAccess;
@@ -37,6 +21,12 @@ import fengfei.ucm.entity.profile.User;
 import fengfei.ucm.entity.profile.UserPwd;
 import fengfei.ucm.repository.PhotoExtRepository;
 import fengfei.ucm.repository.PhotoRepository;
+import org.springframework.stereotype.Repository;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Repository
 public class SqlPhotoRepository implements PhotoRepository {
@@ -47,7 +37,7 @@ public class SqlPhotoRepository implements PhotoRepository {
 
     @Override
     public List<InsertResultSet<Long>> save(List<Photo> models, final String userName)
-            throws DataAccessException {
+            throws Exception {
         List<InsertResultSet<Long>> insertResultSets = new ArrayList<>();
         for (Photo exifModel : models) {
             InsertResultSet<Long> u = saveOne(exifModel, userName);
@@ -59,7 +49,7 @@ public class SqlPhotoRepository implements PhotoRepository {
 
     @Override
     public InsertResultSet<Long> saveOne(final Photo m, final String userName)
-            throws DataAccessException {
+            throws Exception {
         if (m.idPhoto <= 0) {
             m.idPhoto = Sequence.next(PhotosTableName);
         }
@@ -85,7 +75,7 @@ public class SqlPhotoRepository implements PhotoRepository {
     }
 
     @Override
-    public boolean deleteOne(final long idPhoto, final Integer idUser) throws DataAccessException {
+    public boolean deleteOne(final long idPhoto, final Integer idUser) throws Exception {
 
         TransactionCallback<Boolean> callback = new TransactionCallback<Boolean>() {
 
@@ -106,7 +96,7 @@ public class SqlPhotoRepository implements PhotoRepository {
 
     // @Override
     // public InsertResultSet<Long> addOne(final Photo m, final String userName)
-    // throws DataAccessException {
+    // throws Exception {
     // if (m.idPhoto <= 0) {
     // m.idPhoto = Sequence.next(PhotosTableName);
     // }
@@ -130,7 +120,7 @@ public class SqlPhotoRepository implements PhotoRepository {
     // }
 
     @Override
-    public int updateOne(final Photo m, final String userName) throws DataAccessException {
+    public int updateOne(final Photo m, final String userName) throws Exception {
         if (m.idPhoto <= 0) {
             m.idPhoto = Sequence.next(PhotosTableName);
         }
@@ -155,7 +145,7 @@ public class SqlPhotoRepository implements PhotoRepository {
     }
 
     @Override
-    public Photo selectOne(final long idPhoto, final Integer idUser) throws DataAccessException {
+    public Photo selectOne(final long idPhoto, final Integer idUser) throws Exception {
 
         TransactionCallback<Photo> callback = new TransactionCallback<Photo>() {
 
@@ -171,7 +161,7 @@ public class SqlPhotoRepository implements PhotoRepository {
     }
 
     @Override
-    public Photo selectOne(final long idPhoto) throws DataAccessException {
+    public Photo selectOne(final long idPhoto) throws Exception {
 
         TransactionCallback<Photo> callback = new TransactionCallback<Photo>() {
 
@@ -186,7 +176,7 @@ public class SqlPhotoRepository implements PhotoRepository {
         return Transactions.execute(UserUnitName, new Long(idPhoto), Function.Read, callback);
     }
 
-    public Rank getRank(final long idPhoto) throws DataAccessException {
+    public Rank getRank(final long idPhoto) throws Exception {
         TransactionCallback<Rank> callback = new TransactionCallback<Rank>() {
 
             @Override
@@ -208,108 +198,106 @@ public class SqlPhotoRepository implements PhotoRepository {
             final long idPhoto,
             final Integer photoIdUser,
             final Integer accessIdUser,
-            final int iip) throws DataAccessException {
+            final int iip) throws Exception {
         // TODO 要根据访问者ID或者IP分片，如果是登录用户ID分片，否则IP分片（可以直接使用int型IP），
         // 所以这里的photo查询和写要在不同的事务里，那么就需要把photo所有者的User Id也要传进来
-        try {
-            long current = System.currentTimeMillis();
-            final int updateAt = (int) (current / 1000);
 
-            Photo photo = Transactions.execute(
-                    UserUnitName,
-                    new Long(photoIdUser),
-                    Function.Write,
-                    new TaCallback<Photo>() {
+        long current = System.currentTimeMillis();
+        final int updateAt = (int) (current / 1000);
 
-                        @Override
-                        public Photo execute(ForestGrower grower, String suffix) throws SQLException {
-                            suffix = "";
-                            Photo photo = ShowDao.getPhoto(grower, suffix, idPhoto, photoIdUser);
-                            if (photo == null) {
-                                return null;
+        Photo photo = Transactions.execute(
+                UserUnitName,
+                new Long(photoIdUser),
+                Function.Write,
+                new TaCallback<Photo>() {
+
+                    @Override
+                    public Photo execute(ForestGrower grower, String suffix) throws SQLException {
+                        suffix = "";
+                        Photo photo = ShowDao.getPhoto(grower, suffix, idPhoto, photoIdUser);
+                        if (photo == null) {
+                            return null;
+                        }
+                        //
+                        UserPwd up = UserDao.getUserPwd(grower, "", photo.idUser);
+                        if (up != null) {
+                            User user = UserDao.getUser(grower, suffix, photo.idUser);
+                            if (user == null) {
+                                user = new User();
                             }
-                            //
-                            UserPwd up = UserDao.getUserPwd(grower, "", photo.idUser);
-                            if (up != null) {
-                                User user = UserDao.getUser(grower, suffix, photo.idUser);
-                                if (user == null) {
-                                    user = new User();
-                                }
-                                user.setUserPwd(up);
-                                photo.user = user;
-                                user.niceName = AppUtils.toNiceName(user);
-                            } else {
-                                photo.user = new User();
-                            }
-
-                            return photo;
+                            user.setUserPwd(up);
+                            photo.user = user;
+                            user.niceName = AppUtils.toNiceName(user);
+                        } else {
+                            photo.user = new User();
                         }
 
-                    });
-            final Photo thatPhoto = photo;
-            photo = Transactions.execute(UserUnitName, new Long(accessIdUser == null ? iip
-                    : accessIdUser), Function.Write, new TaCallback<Photo>() {
-
-                @Override
-                public Photo execute(ForestGrower grower, String suffix) throws SQLException {
-                    suffix = "";
-                    Photo photo = thatPhoto;
-                    PhotoAccess pa = new PhotoAccess(
-                            idPhoto,
-                            photo.title,
-                            photo.idUser,
-                            photo.user.niceName,
-                            updateAt,
-                            0,
-                            AccessType.View);
-
-                    pa.iip = iip;
-
-                    pa.category = photo.category;
-                    pa.accessIdUser = accessIdUser;
-                    int updated = PhotoAccessDao.addPhotoAccess(grower, suffix, pa);
-                    Rank rank = new Rank();
-                    if (updated > 0) {
-                        rank = RankDao.updateRank(
-                                grower,
-                                suffix,
-                                idPhoto,
-                                photo.idUser,
-                                AccessType.View,
-                                1);
-                    } else {
-                        rank = RankDao.getRank(grower, suffix, idPhoto);
+                        return photo;
                     }
-                    rank.sMaxScore = RankUtils.decimalFormat.format(rank.maxScore);
-                    rank.sMaxAt = AppUtils.dateFormat.format(new Date(rank.maxAt * 1000));
-                    //
-                    // Rank rank = PhotoAccessDao.getRank(grower,
-                    // suffix, idPhoto);
-                    //
 
-                    photo.rank = rank;
-                    //
+                });
+        final Photo thatPhoto = photo;
+        photo = Transactions.execute(UserUnitName, new Long(accessIdUser == null ? iip
+                : accessIdUser), Function.Write, new TaCallback<Photo>() {
 
-                    return photo;
+            @Override
+            public Photo execute(ForestGrower grower, String suffix) throws SQLException {
+                suffix = "";
+                Photo photo = thatPhoto;
+                PhotoAccess pa = new PhotoAccess(
+                        idPhoto,
+                        photo.title,
+                        photo.idUser,
+                        photo.user.niceName,
+                        updateAt,
+                        0,
+                        AccessType.View);
+
+                pa.iip = iip;
+
+                pa.category = photo.category;
+                pa.accessIdUser = accessIdUser;
+                int updated = PhotoAccessDao.addPhotoAccess(grower, suffix, pa);
+                Rank rank = new Rank();
+                if (updated > 0) {
+                    rank = RankDao.updateRank(
+                            grower,
+                            suffix,
+                            idPhoto,
+                            photo.idUser,
+                            AccessType.View,
+                            1);
+                } else {
+                    rank = RankDao.getRank(grower, suffix, idPhoto);
                 }
+                rank.sMaxScore = RankUtils.decimalFormat.format(rank.maxScore);
+                rank.sMaxAt = AppUtils.dateFormat.format(new Date(rank.maxAt * 1000));
+                //
+                // Rank rank = PhotoAccessDao.getRank(grower,
+                // suffix, idPhoto);
+                //
 
-            });
+                photo.rank = rank;
+                //
 
-            photo.tagList = photo.tags == null ||  "".equals(photo.tags)
-                    ? null
-                    : photo.tags.split(AppConstants.TextSplitRegex);
-
-            if (photo.rank != null) {
-                photoExtRepository.updateUpcoming(photo.rank);
-                photoExtRepository.updatePopular(photo.rank);
-                photoExtRepository.deletePopular(photo.rank);
-
+                return photo;
             }
 
-            return photo;
-        } catch (Exception e) {
-            throw new DataAccessException("select photo error.", e);
+        });
+
+        photo.tagList = photo.tags == null || "".equals(photo.tags)
+                ? null
+                : photo.tags.split(AppConstants.TextSplitRegex);
+
+        if (photo.rank != null) {
+            photoExtRepository.updateUpcoming(photo.rank);
+            photoExtRepository.updatePopular(photo.rank);
+            photoExtRepository.deletePopular(photo.rank);
+
         }
+
+        return photo;
+
     }
 
     @Override
@@ -319,77 +307,75 @@ public class SqlPhotoRepository implements PhotoRepository {
             final String photoNiceName,
             final byte photoCategory,
             final Integer accessIdUser,
-            final int iip) throws DataAccessException {
+            final int iip) throws Exception {
         // TODO 要根据访问者ID或者IP分片，如果是登录用户ID分片，否则IP分片（可以直接使用int型IP），
         // 所以这里的photo查询和写要在不同的事务里，那么就需要把photo所有者的User Id也要传进来
-        try {
-            Photo photo = Transactions.execute(
-                    UserUnitName,
-                    new Long(photoIdUser),
-                    Function.Write,
-                    new TaCallback<Photo>() {
 
-                        @Override
-                        public Photo execute(ForestGrower grower, String suffix) throws SQLException {
-                            suffix = "";
-                            Photo photo = PhotoDao.selectOne(grower, suffix, idPhoto);
+        Photo photo = Transactions.execute(
+                UserUnitName,
+                new Long(photoIdUser),
+                Function.Write,
+                new TaCallback<Photo>() {
 
-                            return photo;
-                        }
+                    @Override
+                    public Photo execute(ForestGrower grower, String suffix) throws SQLException {
+                        suffix = "";
+                        Photo photo = PhotoDao.selectOne(grower, suffix, idPhoto);
 
-                    });
-            final Photo thatPhoto = photo;
-            RankModel rm = Transactions.execute(PhotoUnitName, new Long(accessIdUser == null ? iip
-                    : accessIdUser), Function.Write, new TaCallback<RankModel>() {
-
-                @Override
-                public RankModel execute(ForestGrower grower, String suffix) throws SQLException {
-                    suffix = "";
-                    long curr = System.currentTimeMillis();
-                    int updateAt = (int) (curr / 1000);
-                    Photo photo = thatPhoto;
-                    String title = photo.title;
-                    PhotoAccess access = new PhotoAccess(
-                            idPhoto,
-                            title,
-                            photo.idUser,
-                            photoNiceName,
-                            updateAt,
-                            0,
-
-                            AccessType.Vote);
-                    access.iip = iip;
-                    access.accessIdUser = accessIdUser;
-                    access.category = photo.category;
-                    int updated = PhotoAccessDao.addPhotoAccess(grower, suffix, access);
-                    RankModel rm = new RankModel();
-                    if (updated > 0) {
-                        Rank rank = RankDao.updateRank(
-                                grower,
-                                suffix,
-                                idPhoto,
-                                photo.idUser,
-                                AccessType.Vote,
-                                1);
-                        rm.rank = rank;
-                        rm.updated = 1;
-                        return rm;
-
+                        return photo;
                     }
-                    rm.updated = 0;
-                    return rm;
-                }
 
-            });
-            if (rm.rank != null) {
-                photoExtRepository.updateUpcoming(rm.rank);
-                photoExtRepository.updatePopular(rm.rank);
-                photoExtRepository.deletePopular(rm.rank);
+                });
+        final Photo thatPhoto = photo;
+        RankModel rm = Transactions.execute(PhotoUnitName, new Long(accessIdUser == null ? iip
+                : accessIdUser), Function.Write, new TaCallback<RankModel>() {
+
+            @Override
+            public RankModel execute(ForestGrower grower, String suffix) throws SQLException {
+                suffix = "";
+                long curr = System.currentTimeMillis();
+                int updateAt = (int) (curr / 1000);
+                Photo photo = thatPhoto;
+                String title = photo.title;
+                PhotoAccess access = new PhotoAccess(
+                        idPhoto,
+                        title,
+                        photo.idUser,
+                        photoNiceName,
+                        updateAt,
+                        0,
+
+                        AccessType.Vote);
+                access.iip = iip;
+                access.accessIdUser = accessIdUser;
+                access.category = photo.category;
+                int updated = PhotoAccessDao.addPhotoAccess(grower, suffix, access);
+                RankModel rm = new RankModel();
+                if (updated > 0) {
+                    Rank rank = RankDao.updateRank(
+                            grower,
+                            suffix,
+                            idPhoto,
+                            photo.idUser,
+                            AccessType.Vote,
+                            1);
+                    rm.rank = rank;
+                    rm.updated = 1;
+                    return rm;
+
+                }
+                rm.updated = 0;
+                return rm;
             }
-            return rm.updated;
-        } catch (Exception e) {
-            throw new DataAccessException("vote error.", e);
+
+        });
+        if (rm.rank != null) {
+            photoExtRepository.updateUpcoming(rm.rank);
+            photoExtRepository.updatePopular(rm.rank);
+            photoExtRepository.deletePopular(rm.rank);
         }
+        return rm.updated;
+
     }
 
     @Override
@@ -399,72 +385,70 @@ public class SqlPhotoRepository implements PhotoRepository {
             final String photoNiceName,
             final byte photoCategory,
             final Integer accessIdUser,
-            final int iip) throws DataAccessException {
+            final int iip) throws Exception {
         // TODO 要根据访问者ID或者IP分片，如果是登录用户ID分片，否则IP分片（可以直接使用int型IP），
         // 所以这里的photo查询和写要在不同的事务里，那么就需要把photo所有者的User Id也要传进来
-        try {
-            long current = System.currentTimeMillis();
-            final int updateAt = (int) (current / 1000);
-            Photo photo = Transactions.execute(
-                    UserUnitName,
-                    new Long(photoIdUser),
-                    Function.Write,
-                    new TaCallback<Photo>() {
 
-                        @Override
-                        public Photo execute(ForestGrower grower, String suffix) throws SQLException {
-                            suffix = "";
-                            Photo photo = PhotoDao.selectOne(grower, suffix, idPhoto);
+        long current = System.currentTimeMillis();
+        final int updateAt = (int) (current / 1000);
+        Photo photo = Transactions.execute(
+                UserUnitName,
+                new Long(photoIdUser),
+                Function.Write,
+                new TaCallback<Photo>() {
 
-                            return photo;
-                        }
+                    @Override
+                    public Photo execute(ForestGrower grower, String suffix) throws SQLException {
+                        suffix = "";
+                        Photo photo = PhotoDao.selectOne(grower, suffix, idPhoto);
 
-                    });
-            final Photo thatPhoto = photo;
-            RankModel rm = Transactions.execute(UserUnitName, new Long(accessIdUser == null ? iip
-                    : accessIdUser), Function.Write, new TaCallback<RankModel>() {
-
-                @Override
-                public RankModel execute(ForestGrower grower, String suffix) throws SQLException {
-                    suffix = "";
-                    Photo photo = thatPhoto;//
-                    Favorite favorite = new Favorite(
-                            idPhoto,
-                            photo.title,
-                            photo.idUser,
-                            photoNiceName,
-                            updateAt,
-                            0);
-                    favorite.iip = iip;
-                    favorite.accessIdUser = accessIdUser;
-                    favorite.category = photo.category;
-                    int[] updated = PhotoFavoriteDao.addPhotoFavorite(grower, suffix, favorite);
-                    RankModel rm = new RankModel();
-                    if (updated[0] == 1 && updated[1] > 0) {
-                        Rank rank = RankDao.updateRank(
-                                grower,
-                                suffix,
-                                idPhoto,
-                                photo.idUser,
-                                AccessType.Favorite,
-                                1);
-                        rm.rank = rank;
-
+                        return photo;
                     }
-                    rm.updated = updated[1];
-                    return rm;
-                }
 
-            });
-            if (rm.rank != null) {
-                photoExtRepository.updateUpcoming(rm.rank);
-                photoExtRepository.updatePopular(rm.rank);
-                photoExtRepository.deletePopular(rm.rank);
+                });
+        final Photo thatPhoto = photo;
+        RankModel rm = Transactions.execute(UserUnitName, new Long(accessIdUser == null ? iip
+                : accessIdUser), Function.Write, new TaCallback<RankModel>() {
+
+            @Override
+            public RankModel execute(ForestGrower grower, String suffix) throws SQLException {
+                suffix = "";
+                Photo photo = thatPhoto;//
+                Favorite favorite = new Favorite(
+                        idPhoto,
+                        photo.title,
+                        photo.idUser,
+                        photoNiceName,
+                        updateAt,
+                        0);
+                favorite.iip = iip;
+                favorite.accessIdUser = accessIdUser;
+                favorite.category = photo.category;
+                int[] updated = PhotoFavoriteDao.addPhotoFavorite(grower, suffix, favorite);
+                RankModel rm = new RankModel();
+                if (updated[0] == 1 && updated[1] > 0) {
+                    Rank rank = RankDao.updateRank(
+                            grower,
+                            suffix,
+                            idPhoto,
+                            photo.idUser,
+                            AccessType.Favorite,
+                            1);
+                    rm.rank = rank;
+
+                }
+                rm.updated = updated[1];
+                return rm;
             }
-            return rm.updated;
-        } catch (Exception e) {
-            throw new DataAccessException("favorite error.", e);
+
+        });
+        if (rm.rank != null) {
+            photoExtRepository.updateUpcoming(rm.rank);
+            photoExtRepository.updatePopular(rm.rank);
+            photoExtRepository.deletePopular(rm.rank);
         }
+        return rm.updated;
+
     }
 
     @Override
@@ -472,54 +456,51 @@ public class SqlPhotoRepository implements PhotoRepository {
             final long idPhoto,
             final Integer photoIdUser,
             final Integer accessIdUser,
-            final int iip) throws DataAccessException {
+            final int iip) throws Exception {
         // TODO 要根据访问者ID或者IP分片，如果是登录用户ID分片，否则IP分片（可以直接使用int型IP），
         // 所以这里的photo查询和写要在不同的事务里，那么就需要把photo所有者的User Id也要传进来
-        try {
-            RankModel rm = Transactions.execute(UserUnitName, new Long(accessIdUser == null ? iip
-                    : accessIdUser), Function.Write, new TaCallback<RankModel>() {
+        RankModel rm = Transactions.execute(UserUnitName, new Long(accessIdUser == null ? iip
+                : accessIdUser), Function.Write, new TaCallback<RankModel>() {
 
-                @Override
-                public RankModel execute(ForestGrower grower, String suffix) throws SQLException {
-                    suffix = "";
-                    int updated = PhotoFavoriteDao.cancelPhotoFavorite(
+            @Override
+            public RankModel execute(ForestGrower grower, String suffix) throws SQLException {
+                suffix = "";
+                int updated = PhotoFavoriteDao.cancelPhotoFavorite(
+                        grower,
+                        suffix,
+                        idPhoto,
+                        accessIdUser,
+                        iip);
+                RankModel rm = new RankModel();
+                if (updated > 0) {
+                    Rank rank = RankDao.updateRank(
                             grower,
                             suffix,
                             idPhoto,
-                            accessIdUser,
-                            iip);
-                    RankModel rm = new RankModel();
-                    if (updated > 0) {
-                        Rank rank = RankDao.updateRank(
-                                grower,
-                                suffix,
-                                idPhoto,
-                                photoIdUser,
-                                AccessType.Favorite,
-                                -1);
-                        rm.rank = rank;
-                        rm.updated = 1;
-                        return rm;
-                    }
+                            photoIdUser,
+                            AccessType.Favorite,
+                            -1);
+                    rm.rank = rank;
                     rm.updated = 1;
                     return rm;
                 }
-
-            });
-            if (rm.rank != null) {
-                photoExtRepository.updateUpcoming(rm.rank);
-                photoExtRepository.updatePopular(rm.rank);
-                photoExtRepository.deletePopular(rm.rank);
+                rm.updated = 1;
+                return rm;
             }
-            return rm.updated;
-        } catch (Exception e) {
-            throw new DataAccessException("favorite error.", e);
+
+        });
+        if (rm.rank != null) {
+            photoExtRepository.updateUpcoming(rm.rank);
+            photoExtRepository.updatePopular(rm.rank);
+            photoExtRepository.deletePopular(rm.rank);
         }
+        return rm.updated;
+
     }
 
     @Override
     public boolean isFavorite(final long idPhoto, final Integer accessIdUser, final int iip)
-            throws DataAccessException {
+            throws Exception {
         // TODO 要根据访问者ID或者IP分片，如果是登录用户ID分片，否则IP分片（可以直接使用int型IP），
         TransactionCallback<Boolean> callback = new TransactionCallback<Boolean>() {
 
@@ -537,7 +518,7 @@ public class SqlPhotoRepository implements PhotoRepository {
 
     @Override
     public boolean isVote(final long idPhoto, final Integer accessIdUser, final int iip)
-            throws DataAccessException {
+            throws Exception {
         // TODO 要根据访问者ID或者IP分片，如果是登录用户ID分片，否则IP分片（可以直接使用int型IP），
         TransactionCallback<Boolean> callback = new TransactionCallback<Boolean>() {
 

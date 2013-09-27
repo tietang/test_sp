@@ -1,5 +1,6 @@
 package controllers;
 
+import fengfei.ucm.repository.impl.SqlCommentRepository;
 import japidviews.Application.photo.Group;
 import japidviews.Application.photo.Views;
 
@@ -18,13 +19,10 @@ import play.modules.router.Gets;
 import play.mvc.With;
 import cn.bran.play.JapidResult;
 import fengfei.fir.model.PhotoShow;
-import fengfei.fir.rank.LastRank;
-import fengfei.fir.rank.PopularRank;
 import fengfei.ucm.entity.photo.Refresh;
 import fengfei.ucm.repository.CommentRepository;
 import fengfei.ucm.repository.PhotoRepository;
 import fengfei.ucm.repository.ShowRepository;
-import fengfei.ucm.repository.impl.SqlCommentRespository;
 import fengfei.ucm.repository.impl.SqlPhotoRepository;
 import fengfei.ucm.repository.impl.SqlShowRepository;
 import fengfei.ucm.service.ReadFollowService;
@@ -33,7 +31,7 @@ import fengfei.ucm.service.ReadFollowService;
 public class UserPhotoAction extends Admin {
 
     public static ShowRepository show = new SqlShowRepository();
-    public static CommentRepository comment = new SqlCommentRespository();
+    public static CommentRepository comment = new SqlCommentRepository();
     static PhotoRepository photoRepository = new SqlPhotoRepository();
     public static ReadFollowService readFollowService = null;
 

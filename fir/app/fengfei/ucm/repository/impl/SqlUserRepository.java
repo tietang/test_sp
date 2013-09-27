@@ -1,15 +1,7 @@
 package fengfei.ucm.repository.impl;
 
-import java.sql.SQLException;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.stereotype.Repository;
-
 import fengfei.fir.utils.AppUtils;
 import fengfei.fir.utils.Path;
-import fengfei.forest.database.DataAccessException;
 import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.forest.database.dbutils.impl.ForestRunner.InsertResultSet;
 import fengfei.forest.slice.SliceResource.Function;
@@ -23,27 +15,33 @@ import fengfei.ucm.dao.UserVerifyDao;
 import fengfei.ucm.entity.profile.User;
 import fengfei.ucm.entity.profile.UserPwd;
 import fengfei.ucm.repository.UserRepository;
+import org.springframework.stereotype.Repository;
+
+import java.sql.SQLException;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 @Repository
 public class SqlUserRepository implements UserRepository {
 
     @Override
-    public int addUserPwd(final UserPwd userPwd) throws DataAccessException {
+    public int addUserPwd(final UserPwd userPwd) throws Exception {
 
         TransactionCallback<Integer> callback = new TransactionCallback<Integer>() {
 
             @Override
             public Integer execute(ForestGrower grower, PoolableDatabaseResource resource)
-                throws SQLException {
+                    throws SQLException {
                 long curr = System.currentTimeMillis();
                 userPwd.updateAt = curr;
                 userPwd.createAt = (int) (curr / 1000);
                 String suffix = resource.getAlias();
                 suffix = "";
                 boolean isUserNamed = UserDao.isExistsForUserName(
-                    grower,
-                    suffix,
-                    userPwd.getUserName());
+                        grower,
+                        suffix,
+                        userPwd.getUserName());
                 boolean isEmailed = UserDao.isExistsForEmail(grower, suffix, userPwd.getEmail());
                 if (isUserNamed && isEmailed) {
                     return -3;
@@ -59,11 +57,11 @@ public class SqlUserRepository implements UserRepository {
                     int update1 = RankDao.addUserRank(grower, suffix, rs.autoPk, userPwd.updateAt);
                     if (update1 > 0) {
                         UserVerifyDao.add(
-                            grower,
-                            suffix,
-                            rs.autoPk,
-                            userPwd.verify,
-                            userPwd.createAt);
+                                grower,
+                                suffix,
+                                rs.autoPk,
+                                userPwd.verify,
+                                userPwd.createAt);
                         return rs.autoPk;
                     } else
                         throw new SQLException("add user stat error.");
@@ -76,13 +74,13 @@ public class SqlUserRepository implements UserRepository {
     }
 
     @Override
-    public int saveUserPwd(final UserPwd userPwd) throws DataAccessException {
+    public int saveUserPwd(final UserPwd userPwd) throws Exception {
 
         TransactionCallback<Integer> callback = new TransactionCallback<Integer>() {
 
             @Override
             public Integer execute(ForestGrower grower, PoolableDatabaseResource resource)
-                throws SQLException {
+                    throws SQLException {
                 String suffix = resource.getAlias();
                 suffix = "";
                 return UserDao.saveUserPwd(grower, suffix, userPwd);
@@ -92,13 +90,13 @@ public class SqlUserRepository implements UserRepository {
     }
 
     @Override
-    public boolean isExists(final UserPwd userPwd) throws DataAccessException {
+    public boolean isExists(final UserPwd userPwd) throws Exception {
 
         TransactionCallback<Boolean> callback = new TransactionCallback<Boolean>() {
 
             @Override
             public Boolean execute(ForestGrower grower, PoolableDatabaseResource resource)
-                throws SQLException {
+                    throws SQLException {
                 String suffix = resource.getAlias();
                 suffix = "";
                 return UserDao.isExists(grower, suffix, userPwd);
@@ -108,7 +106,7 @@ public class SqlUserRepository implements UserRepository {
     }
 
     @Override
-    public UserPwd getUserPwd(final Integer idUser) throws DataAccessException {
+    public UserPwd getUserPwd(final Integer idUser) throws Exception {
 
         TaCallback<UserPwd> callback = new TaCallback<UserPwd>() {
 
@@ -123,7 +121,7 @@ public class SqlUserRepository implements UserRepository {
     }
 
     @Override
-    public UserPwd getUserPwd(final String userName) throws DataAccessException {
+    public UserPwd getUserPwd(final String userName) throws Exception {
 
         TaCallback<UserPwd> callback = new TaCallback<UserPwd>() {
 
@@ -138,7 +136,7 @@ public class SqlUserRepository implements UserRepository {
     }
 
     public UserPwd getUserPwd(final String emailOrName, final String pwd)
-        throws DataAccessException {
+            throws Exception {
 
         TaCallback<UserPwd> callback = new TaCallback<UserPwd>() {
 
@@ -154,7 +152,7 @@ public class SqlUserRepository implements UserRepository {
 
     @Override
     public int updatePassword(final Integer idUser, final String oldPwd, final String newPwd)
-        throws DataAccessException {
+            throws Exception {
 
         TaCallback<Integer> callback = new TaCallback<Integer>() {
 
@@ -164,11 +162,11 @@ public class SqlUserRepository implements UserRepository {
                 Map<String, Object> user = UserDao.getFullUserPwd(grower, suffix, idUser);
                 String pwd = user.get("password").toString();
                 System.out.printf(
-                    "old=%s,new=%s,pwd=%s,up=%s\n",
-                    oldPwd,
-                    newPwd,
-                    pwd,
-                    user.toString());
+                        "old=%s,new=%s,pwd=%s,up=%s\n",
+                        oldPwd,
+                        newPwd,
+                        pwd,
+                        user.toString());
 
                 if (user == null || !oldPwd.equals(pwd)) {
                     return -1;
@@ -182,7 +180,7 @@ public class SqlUserRepository implements UserRepository {
 
     // -------------------------------------User
     @Override
-    public User getUser(final Integer idUser) throws DataAccessException {
+    public User getUser(final Integer idUser) throws Exception {
 
         TaCallback<User> callback = new TaCallback<User>() {
 
@@ -199,7 +197,7 @@ public class SqlUserRepository implements UserRepository {
     }
 
     @Override
-    public int saveUser(final User user) throws DataAccessException {
+    public int saveUser(final User user) throws Exception {
 
         TaCallback<Integer> callback = new TaCallback<Integer>() {
 
@@ -220,7 +218,7 @@ public class SqlUserRepository implements UserRepository {
     }
 
     @Override
-    public int updateUserById(final User user) throws DataAccessException {
+    public int updateUserById(final User user) throws Exception {
 
         TaCallback<Integer> callback = new TaCallback<Integer>() {
 
@@ -234,7 +232,7 @@ public class SqlUserRepository implements UserRepository {
     }
 
     @Override
-    public int updateUserByEmail(final User user) throws DataAccessException {
+    public int updateUserByEmail(final User user) throws Exception {
 
         TaCallback<Integer> callback = new TaCallback<Integer>() {
 
@@ -248,7 +246,7 @@ public class SqlUserRepository implements UserRepository {
     }
 
     @Override
-    public int updateUserByUserName(final User user) throws DataAccessException {
+    public int updateUserByUserName(final User user) throws Exception {
 
         TaCallback<Integer> callback = new TaCallback<Integer>() {
 
@@ -263,7 +261,7 @@ public class SqlUserRepository implements UserRepository {
 
     @Override
     public boolean updateHeadPhoto(final Integer idUser, final boolean isHeadPhoto)
-        throws DataAccessException {
+            throws Exception {
         TaCallback<Integer> callback = new TaCallback<Integer>() {
 
             @Override
@@ -285,10 +283,9 @@ public class SqlUserRepository implements UserRepository {
         return updated > 0;
     }
 
-    public User getFullUser(final Integer idUser) throws DataAccessException {
-        try {
+    public User getFullUser(final Integer idUser) throws Exception {
 
-            User user = Transactions.execute(
+        User user = Transactions.execute(
                 UserUnitName,
                 UserPwdSliceId,
                 Function.Read,
@@ -312,21 +309,17 @@ public class SqlUserRepository implements UserRepository {
                     }
 
                 });
-            if (user != null) {
-                user.niceName = AppUtils.toNiceName(user);
-                user.headPath = Path.getHeadPhotoDownloadPath(user.idUser);
-            }
-            return user;
-        } catch (Exception e) {
-            throw new DataAccessException("get full user error.", e);
+        if (user != null) {
+            user.niceName = AppUtils.toNiceName(user);
+            user.headPath = Path.getHeadPhotoDownloadPath(user.idUser);
         }
+        return user;
 
     }
 
-    public User getUserByUserName(final String userName) throws DataAccessException {
-        try {
+    public User getUserByUserName(final String userName) throws Exception {
 
-            User user = Transactions.execute(
+        User user = Transactions.execute(
                 UserUnitName,
                 UserPwdSliceId,
                 Function.Read,
@@ -350,18 +343,15 @@ public class SqlUserRepository implements UserRepository {
                     }
 
                 });
-            if (user != null) {
-                user.niceName = AppUtils.toNiceName(user);
-                user.headPath = Path.getHeadPhotoDownloadPath(user.idUser);
-            }
-            return user;
-        } catch (Exception e) {
-            throw new DataAccessException("select user error.", e);
+        if (user != null) {
+            user.niceName = AppUtils.toNiceName(user);
+            user.headPath = Path.getHeadPhotoDownloadPath(user.idUser);
         }
+        return user;
 
     }
 
-    public String getNiceName(int idUser) throws DataAccessException {
+    public String getNiceName(int idUser) throws Exception {
         User user = getUser(idUser);
 
         return AppUtils.toNiceName(user);
@@ -369,10 +359,9 @@ public class SqlUserRepository implements UserRepository {
 
     @Override
     public List<User> selectUserList(final Collection<? extends Number> idUsers)
-        throws DataAccessException {
-        try {
+            throws Exception {
 
-            List<User> users = Transactions.execute(
+        List<User> users = Transactions.execute(
                 UserUnitName,
                 UserPwdSliceId,
                 Function.Read,
@@ -380,7 +369,7 @@ public class SqlUserRepository implements UserRepository {
 
                     @Override
                     public List<User> execute(ForestGrower grower, String suffix)
-                        throws SQLException {
+                            throws SQLException {
                         suffix = "";
 
                         return UserDao.selectUserList(grower, suffix, idUsers);
@@ -388,19 +377,15 @@ public class SqlUserRepository implements UserRepository {
 
                 });
 
-            return users;
-        } catch (Exception e) {
-            throw new DataAccessException("select user list error.", e);
-        }
+        return users;
     }
 
     @Override
     public Map<Integer, User> selectUsers(final Collection<? extends Number> idUsers)
-        throws DataAccessException {
+            throws Exception {
 
-        try {
 
-            Map<Integer, User> users = Transactions.execute(
+        Map<Integer, User> users = Transactions.execute(
                 UserUnitName,
                 UserPwdSliceId,
                 Function.Read,
@@ -408,7 +393,7 @@ public class SqlUserRepository implements UserRepository {
 
                     @Override
                     public Map<Integer, User> execute(ForestGrower grower, String suffix)
-                        throws SQLException {
+                            throws SQLException {
                         suffix = "";
                         Map<Integer, User> users = UserDao.selectUsers(grower, suffix, idUsers);
                         return UserDao.selectFullUsers(grower, suffix, idUsers, users);
@@ -416,10 +401,7 @@ public class SqlUserRepository implements UserRepository {
 
                 });
 
-            return users;
-        } catch (Exception e) {
-            throw new DataAccessException("select user list error.", e);
-        }
+        return users;
     }
 
 }

@@ -16,9 +16,10 @@ public class Comment {
     public String ip;
     public int createAt;
     public Timestamp createAtGmt;
-    public int disabled = 0;
+    public int status = 0;
     public int idUserReply;
     public long idParent;
+    public long commentPhoto;
     //
     public User user;
     public String sinceTime;
@@ -128,12 +129,12 @@ public class Comment {
         this.createAtGmt = createAtGmt;
     }
 
-    public int getDisabled() {
-        return disabled;
+    public int getStatus() {
+        return status;
     }
 
-    public void setDisabled(int disabled) {
-        this.disabled = disabled;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public int getIdUserReply() {

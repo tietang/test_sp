@@ -3,7 +3,7 @@ package controllers;
 import java.sql.Timestamp;
 import java.util.Map;
 
-import fengfei.fir.model.Done;
+import fengfei.ucm.repository.impl.SqlCommentRepository;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 
@@ -11,13 +11,12 @@ import play.Logger;
 import play.mvc.With;
 import fengfei.ucm.entity.photo.Comment;
 import fengfei.ucm.repository.CommentRepository;
-import fengfei.ucm.repository.impl.SqlCommentRespository;
 
 @With(SecureForJson.class)
 public class CommentAction extends Admin {
 
 
-    static CommentRepository repository = new SqlCommentRespository();
+    static CommentRepository repository = new SqlCommentRepository();
 
     public static void commentDone() {
         int idUser = currentUserId();

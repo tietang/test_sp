@@ -1,11 +1,9 @@
 package fengfei.ucm.repository.impl;
 
-import fengfei.forest.database.DataAccessException;
 import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.forest.slice.SliceResource;
 import fengfei.forest.slice.database.PoolableDatabaseResource;
 import fengfei.forest.slice.database.utils.Transactions;
-import fengfei.ucm.dao.PhotoDeleteDao;
 import fengfei.ucm.dao.PhotoExtDao;
 import fengfei.ucm.entity.photo.Choice;
 import fengfei.ucm.repository.ChoiceRepository;
@@ -21,7 +19,7 @@ import java.sql.SQLException;
 public class SqlChoiceRepository implements ChoiceRepository {
 
     @Override
-    public int addChoice(final Choice choice) throws DataAccessException {
+    public int addChoice(final Choice choice) throws Exception {
         Transactions.TransactionCallback<Integer> callback = new Transactions.TransactionCallback<Integer>() {
 
             @Override
@@ -39,7 +37,7 @@ public class SqlChoiceRepository implements ChoiceRepository {
     }
 
     @Override
-    public int deleteChoice(final long idPhoto) throws DataAccessException {
+    public int deleteChoice(final long idPhoto) throws Exception {
         Transactions.TransactionCallback<Integer> callback = new Transactions.TransactionCallback<Integer>() {
 
             @Override
@@ -57,7 +55,7 @@ public class SqlChoiceRepository implements ChoiceRepository {
     }
 
     @Override
-    public int deleteChoiceByAt(final int at) throws DataAccessException {
+    public int deleteChoiceByAt(final int at) throws Exception {
         Transactions.TransactionCallback<Integer> callback = new Transactions.TransactionCallback<Integer>() {
 
             @Override

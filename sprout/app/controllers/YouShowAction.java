@@ -40,7 +40,7 @@ public class YouShowAction extends Admin {
     public static ShowRepository show = new SqlShowRepository();
     static UserRepository userRepository = new SqlUserRepository();
     static ProfileRepository profileRepository = new SqlProfileRepository();
-    public static CommentRepository comment = new SqlCommentRespository();
+    public static CommentRepository comment = new SqlCommentRepository();
     static PhotoRepository photoRepository = new SqlPhotoRepository();
     public static WriteFollowService writeFollowService = FollowServiceUtils.writeFollowService;
     public static ReadFollowService readFollowService = FollowServiceUtils.readFollowService;
@@ -50,7 +50,7 @@ public class YouShowAction extends Admin {
         String action,
         Integer idUser,
         int offset,
-        int limit) throws DataAccessException {
+        int limit) throws Exception {
 
         switch (action) {
         case "home":

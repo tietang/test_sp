@@ -1,24 +1,22 @@
 package fengfei.ucm.dao;
 
-import java.sql.SQLException;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import fengfei.forest.database.DataAccessException;
 import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.forest.slice.SliceResource.Function;
 import fengfei.forest.slice.database.utils.Transactions;
 import fengfei.forest.slice.database.utils.Transactions.TaCallback;
+
+import java.sql.SQLException;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Sequence {
 
     final static String SequenceUnitName = "Sequence";
     final static AtomicInteger nextSeq = new AtomicInteger();
 
-    public static long next(final String table) throws DataAccessException {
+    public static long next(final String table) throws Exception {
 
-        try {
-            final long seed = nextSeq.getAndIncrement();
-            long id = Transactions.execute(
+        final long seed = nextSeq.getAndIncrement();
+        long id = Transactions.execute(
                 SequenceUnitName,
                 new Long(seed),
                 Function.Write,
@@ -32,17 +30,14 @@ public class Sequence {
 
                 });
 
-            return id;
-        } catch (Exception e) {
-            throw new DataAccessException("get next seq error.", e);
-        }
+        return id;
+
     }
 
     public static boolean install(final long id, final String... tables)
-        throws DataAccessException {
+            throws Exception {
 
-        try {
-            boolean created = Transactions.execute(
+        boolean created = Transactions.execute(
                 SequenceUnitName,
                 new Long(id),
                 Function.Write,
@@ -51,15 +46,13 @@ public class Sequence {
                     @Override
                     public Boolean execute(ForestGrower grower, String suffix) throws SQLException {
                         suffix = String.valueOf(id % 2 + 1);
-                        int[] i = SequenceDao.createSequenceTable(grower, suffix,id, tables);
+                        int[] i = SequenceDao.createSequenceTable(grower, suffix, id, tables);
                         return true;
                     }
 
                 });
 
-            return created;
-        } catch (Exception e) {
-            throw new DataAccessException("install seq error.", e);
-        }
+        return created;
+
     }
 }

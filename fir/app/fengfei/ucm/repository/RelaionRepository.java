@@ -1,37 +1,36 @@
 package fengfei.ucm.repository;
 
-import java.util.List;
-
-import fengfei.forest.database.DataAccessException;
 import fengfei.ucm.dao.UnitNames;
 import fengfei.ucm.entity.relation.State;
 
+import java.util.List;
+
 public interface RelaionRepository extends UnitNames {
 
-    boolean write(long sourceId, long targetId, State state) throws DataAccessException;
+    boolean write(long sourceId, long targetId, State state) throws Exception;
 
-    List<Long> findTargets(long sourceId, State state) throws DataAccessException;
+    List<Long> findTargets(long sourceId, State state) throws Exception;
 
     List<Long> findSources(long targetId, State state, int offset, int limit)
-        throws DataAccessException;
+        throws Exception;
 
     List<Long> findTargets(long sourceId, State state, int offset, int limit)
-        throws DataAccessException;
+        throws Exception;
 
-    List<Long> findSources(long targetId, State state) throws DataAccessException;
+    List<Long> findSources(long targetId, State state) throws Exception;
 
-    int computeSourceCount(long targetId, State state) throws DataAccessException;
+    int computeSourceCount(long targetId, State state) throws Exception;
 
-    int computeTargetCount(long sourceId, State state) throws DataAccessException;
+    int computeTargetCount(long sourceId, State state) throws Exception;
 
-    int countTarget(long sourceId, State state) throws DataAccessException;
+    int countTarget(long sourceId, State state) throws Exception;
 
-    int countSource(long targetId, State state) throws DataAccessException;
+    int countSource(long targetId, State state) throws Exception;
 
     boolean isFollow(final long sourceId, final long targetId, final State state)
-        throws DataAccessException;
+        throws Exception;
 
-    int[] count(long sourceId) throws DataAccessException;
+    int[] count(long sourceId) throws Exception;
 
-    int[] computeCount(long sourceId) throws DataAccessException;
+    int[] computeCount(long sourceId) throws Exception;
 }

@@ -1,25 +1,23 @@
 package fengfei.ucm.repository.impl;
 
-import java.sql.SQLException;
-import java.util.List;
-
 import fengfei.forest.database.DataAccessException;
 import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.forest.slice.SliceResource.Function;
 import fengfei.forest.slice.database.utils.Transactions;
 import fengfei.forest.slice.database.utils.Transactions.TaCallback;
 import fengfei.sprucy.AppConstants;
-import fengfei.ucm.dao.CommentDao;
 import fengfei.ucm.dao.PhotoSetDao;
 import fengfei.ucm.dao.UserConfigDao;
-import fengfei.ucm.entity.photo.Comment;
 import fengfei.ucm.entity.photo.PhotoSet;
 import fengfei.ucm.repository.PhotoManageRepository;
+
+import java.sql.SQLException;
+import java.util.List;
 
 public class SqlPhotoManageRepository implements PhotoManageRepository {
 
     @Override
-    public int saveSet(final PhotoSet m) throws DataAccessException {
+    public int saveSet(final PhotoSet m) throws Exception {
         try {
 
             Integer updated = Transactions.execute(
@@ -54,7 +52,7 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
     }
 
     @Override
-    public int deleteSet(final long idSet, final Integer idUser) throws DataAccessException {
+    public int deleteSet(final long idSet, final Integer idUser) throws Exception {
         try {
 
             Integer updated = Transactions.execute(
@@ -83,7 +81,7 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
     }
 
     @Override
-    public List<PhotoSet> selectUserSets(final Integer idUser) throws DataAccessException {
+    public List<PhotoSet> selectUserSets(final Integer idUser) throws Exception {
         try {
 
             List<PhotoSet> sets = Transactions.execute(
@@ -109,7 +107,7 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
 
     @Override
     public List<Long> selectSetPhoto(final long idSet, final Integer idUser)
-        throws DataAccessException {
+        throws Exception {
         try {
 
             List<Long> sets = Transactions.execute(
@@ -135,7 +133,7 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
 
     @Override
     public int addPhotoSets(final Integer idUser, final long idSet, final long idPhoto)
-        throws DataAccessException {
+        throws Exception {
         try {
 
             Integer updated = Transactions.execute(
@@ -160,7 +158,7 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
 
     @Override
     public int deletePhotoSets(final Integer idUser, final long idPhoto)
-        throws DataAccessException {
+        throws Exception {
         try {
 
             Integer updated = Transactions.execute(
@@ -185,7 +183,7 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
 
     @Override
     public PhotoSet getPhotoSet(final long idPhoto, final Integer idUser)
-        throws DataAccessException {
+        throws Exception {
         try {
 
             PhotoSet ps = Transactions.execute(
@@ -210,7 +208,7 @@ public class SqlPhotoManageRepository implements PhotoManageRepository {
     }
 
     @Override
-    public long getPhotoSetId(final long idPhoto, final Integer idUser) throws DataAccessException {
+    public long getPhotoSetId(final long idPhoto, final Integer idUser) throws Exception {
         try {
 
             Long ps = Transactions.execute(
