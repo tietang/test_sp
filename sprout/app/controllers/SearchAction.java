@@ -1,18 +1,14 @@
 package controllers;
 
+import cn.bran.play.JapidResult;
+import fengfei.ucm.repository.impl.SqlSearchRespository;
 import japidviews.Application.Search;
-
-import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.collections.MapUtils;
-
 import play.modules.router.Any;
 import play.modules.router.Get;
 import play.modules.router.Gets;
-import cn.bran.play.JapidResult;
-import fengfei.ucm.entity.photo.Rank;
-import fengfei.ucm.repository.impl.SqlSearchRespository;
+
+import java.util.Map;
 
 public class SearchAction extends Admin {
 

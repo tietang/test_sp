@@ -1,14 +1,12 @@
 package fengfei.ucm.service.relation;
 
-import java.util.ArrayList;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import fengfei.forest.database.DataAccessException;
 import fengfei.ucm.entity.relation.State;
 import fengfei.ucm.repository.RelaionRepository;
 import fengfei.ucm.service.WriteFollowService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
 
 public class WriteFollowSqlService implements WriteFollowService {
 
@@ -23,13 +21,13 @@ public class WriteFollowSqlService implements WriteFollowService {
 
     @Override
     public boolean add(ArrayList<Object> results, long sourceId, long targetId)
-        throws DataAccessException {
+        throws Exception {
         return repository.write(sourceId, targetId, State.Normal);
     }
 
     @Override
     public boolean remove(ArrayList<Object> results, long sourceId, long targetId)
-        throws DataAccessException {
+        throws Exception {
         return repository.write(sourceId, targetId, State.Removed);
     }
 

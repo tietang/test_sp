@@ -1,55 +1,51 @@
 package fengfei.ucm.repository;
 
-import java.sql.SQLException;
+import fengfei.ucm.dao.UnitNames;
+import fengfei.ucm.entity.profile.User;
+import fengfei.ucm.entity.profile.UserPwd;
+import org.springframework.stereotype.Repository;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Repository;
-
-import fengfei.forest.database.DataAccessException;
-import fengfei.forest.database.dbutils.ForestGrower;
-import fengfei.ucm.dao.UnitNames;
-import fengfei.ucm.entity.profile.User;
-import fengfei.ucm.entity.profile.UserPwd;
-
 @Repository
 public interface UserRepository extends UnitNames {
 
-    int addUserPwd(UserPwd userPwd) throws DataAccessException;
+    int addUserPwd(UserPwd userPwd) throws Exception;
 
-    int saveUserPwd(UserPwd userPwd) throws DataAccessException;
+    int saveUserPwd(UserPwd userPwd) throws Exception;
 
-    boolean isExists(UserPwd userPwd) throws DataAccessException;
+    boolean isExists(UserPwd userPwd) throws Exception;
 
-    User getUser(Integer idUser) throws DataAccessException;
+    User getUser(Integer idUser) throws Exception;
 
-    User getUserByUserName(String userName) throws DataAccessException;
+    User getUserByUserName(String userName) throws Exception;
 
-    UserPwd getUserPwd(Integer idUser) throws DataAccessException;
+    UserPwd getUserPwd(Integer idUser) throws Exception;
 
-    UserPwd getUserPwd(String emailOrName, String pwd) throws DataAccessException;
+    UserPwd getUserPwd(String emailOrName, String pwd) throws Exception;
 
-    public UserPwd getUserPwd(final String userName) throws DataAccessException;
+    public UserPwd getUserPwd(final String userName) throws Exception;
 
     // /
-    int saveUser(User user) throws DataAccessException;
+    int saveUser(User user) throws Exception;
 
-    int updatePassword(Integer idUser, String oldPwd, String newPwd) throws DataAccessException;
+    int updatePassword(Integer idUser, String oldPwd, String newPwd) throws Exception;
 
-    int updateUserById(User user) throws DataAccessException;
+    int updateUserById(User user) throws Exception;
 
-    int updateUserByEmail(User user) throws DataAccessException;
+    int updateUserByEmail(User user) throws Exception;
 
-    int updateUserByUserName(User user) throws DataAccessException;
+    int updateUserByUserName(User user) throws Exception;
 
-    boolean updateHeadPhoto(Integer idUser, boolean isHeadPhoto) throws DataAccessException;
+    boolean updateHeadPhoto(Integer idUser, boolean isHeadPhoto) throws Exception;
 
     List<User> selectUserList(final Collection<? extends Number> idUsers)
-        throws DataAccessException;
+        throws Exception;
 
-    User getFullUser(final Integer idUser) throws DataAccessException;
+    User getFullUser(final Integer idUser) throws Exception;
 
     Map<Integer, User> selectUsers(Collection<? extends Number> idUsers)
-        throws DataAccessException;
+        throws Exception;
 }

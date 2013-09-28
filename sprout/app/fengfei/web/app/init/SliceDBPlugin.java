@@ -1,18 +1,17 @@
 package fengfei.web.app.init;
 
-import java.util.Properties;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import play.Play;
-import play.PlayPlugin;
 import fengfei.forest.slice.config.Config;
 import fengfei.forest.slice.config.SliceConfigReader;
 import fengfei.forest.slice.config.xml.XmlSliceConfigReader;
 import fengfei.forest.slice.config.zk.ZKSliceConfigReader;
 import fengfei.forest.slice.database.DatabaseRouterFactory;
 import fengfei.forest.slice.database.utils.Transactions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import play.Play;
+import play.PlayPlugin;
+
+import java.util.Properties;
 
 public class SliceDBPlugin extends PlayPlugin {
 

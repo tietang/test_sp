@@ -6,7 +6,6 @@ import fengfei.fir.rank.LastRank;
 import fengfei.fir.rank.PopularRank;
 import fengfei.fir.utils.DateTimeUtils;
 import fengfei.fir.utils.Path;
-import fengfei.forest.database.DataAccessException;
 import fengfei.spruce.cache.SimpleCache;
 import fengfei.spruce.utils.FollowServiceUtils;
 import fengfei.ucm.entity.photo.*;
@@ -15,7 +14,7 @@ import fengfei.ucm.repository.CommentRepository;
 import fengfei.ucm.repository.PhotoRepository;
 import fengfei.ucm.repository.ShowRepository;
 import fengfei.ucm.repository.UserRepository;
-import fengfei.ucm.repository.impl.SqlCommentRespository;
+import fengfei.ucm.repository.impl.SqlCommentRepository;
 import fengfei.ucm.repository.impl.SqlPhotoRepository;
 import fengfei.ucm.repository.impl.SqlShowRepository;
 import fengfei.ucm.repository.impl.SqlUserRepository;
@@ -35,10 +34,10 @@ import java.util.*;
 
 public class ShowAction extends Admin {
 
-    static CommentRepository repository = new SqlCommentRespository();
+    static CommentRepository repository = new SqlCommentRepository();
     static UserRepository userRepository = new SqlUserRepository();
     public static ShowRepository show = new SqlShowRepository();
-    public static CommentRepository comment = new SqlCommentRespository();
+    public static CommentRepository comment = new SqlCommentRepository();
     static PhotoRepository photoRepository = new SqlPhotoRepository();
     public static ReadFollowService readFollowService = FollowServiceUtils.readFollowService;
 
@@ -211,7 +210,9 @@ public class ShowAction extends Admin {
         }
     }
 
-    static <T extends PhotoShow> void rankable(List<T> shows) throws DataAccessException {
+
+    static <T extends PhotoShow> void rankable(List<T> shows) throws Exception {
+
         if (shows != null && shows.size() > 0) {
             List<Long> ids = new ArrayList<>();
             for (PhotoShow photoShow : shows) {
@@ -336,7 +337,7 @@ public class ShowAction extends Admin {
             String action,
             Integer idUser,
             int offset,
-            int limit) throws DataAccessException {
+            int limit) throws Exception {
         int iip = getIIP();
         switch (action) {
             case "fav":

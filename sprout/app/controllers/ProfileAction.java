@@ -10,7 +10,6 @@ import fengfei.fir.service.impl.DefaultJpegProcess;
 import fengfei.fir.service.impl.SqlJpegExifWriter;
 import fengfei.fir.utils.BASE64;
 import fengfei.fir.utils.Path;
-import fengfei.forest.database.DataAccessException;
 import fengfei.ucm.entity.photo.PhotoSet;
 import fengfei.ucm.entity.profile.*;
 import fengfei.ucm.repository.PhotoManageRepository;
@@ -341,7 +340,7 @@ public class ProfileAction extends Admin {
             List<Camera> cameras = profileRepository.selectCamerasForSorted(idUser);
 
             throw new JapidResult(new Equipment().render(cameras));
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             flash.error(i18n("server.inner.error"));
             Logger.error(e, "camera error.");
             throw new JapidResult(new Equipment().render(new ArrayList<Camera>()));
@@ -363,7 +362,7 @@ public class ProfileAction extends Admin {
             addCamera(models, idUser, filters, Camera.TypeTripod);
             profileRepository.addCamera(models, idUser);
             camera();
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             Logger.error(e, "camera error.");
             throw new JapidResult(new Equipment().render(new ArrayList<Camera>()));
         }
@@ -422,7 +421,7 @@ public class ProfileAction extends Admin {
         try {
             List<PhotoSet> photoSets = photoManage.selectUserSets(idUser);
             throw new JapidResult(new PhotoManage().render(photoSets));
-        } catch (DataAccessException e) {
+        } catch (Exception e) {
             throw new JapidResult(new PhotoManage().render(new ArrayList<PhotoSet>()));
         }
     }

@@ -1,21 +1,11 @@
 package japidviews._javatags;
 
-import java.util.*;
-import java.io.*;
-import cn.bran.japid.tags.Each;
-import static play.templates.JavaExtensions.*;
-import static cn.bran.play.JapidPlayAdapter.*;
-import static play.data.validation.Validation.*;
-import static japidviews._javatags.Pic.*;
-import japidviews._layouts.*;
 import play.data.validation.Validation;
-import play.mvc.Scope.*;
-import models.*;
-import play.data.validation.Error;
-import japidviews._tags.*;
-import controllers.*;
-import play.mvc.Http.*;
-import japidviews._javatags.*;
+import play.mvc.Http.Request;
+import play.mvc.Http.Response;
+import play.mvc.Scope.Params;
+import play.mvc.Scope.RenderArgs;
+import play.mvc.Scope.Session;
 //
 // NOTE: This file was generated from: japidviews/_javatags/Pic.html
 // Change to this file will be lost next time the template file is compiled.

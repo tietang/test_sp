@@ -1,16 +1,15 @@
 package fengfei.ucm.service;
 
-import java.util.ArrayList;
-
-import fengfei.forest.database.DataAccessException;
 import fengfei.ucm.dao.UnitNames;
+
+import java.util.ArrayList;
 
 public interface WriteFollowService extends UnitNames {
 
     boolean add(ArrayList<Object> results, long sourceId, long targetId)
-        throws DataAccessException;
+        throws Exception;
 
     boolean remove(ArrayList<Object> results, long sourceId, long targetId)
-        throws DataAccessException;
+        throws Exception;
 
 }

@@ -1,8 +1,8 @@
 package controllers;
 
-import japidviews.Application.Index;
 import cn.bran.play.JapidController;
 import cn.bran.play.JapidResult;
+import japidviews.Application.Index;
 
 public class Store extends JapidController {
 

@@ -1,22 +1,6 @@
 package japidviews.Application.profile;
-import java.util.*;
-import java.io.*;
-import cn.bran.japid.tags.Each;
-import static play.templates.JavaExtensions.*;
-import static cn.bran.play.JapidPlayAdapter.*;
-import static play.data.validation.Validation.*;
-import japidviews._layouts.*;
-import play.i18n.Messages;
-import play.data.validation.Validation;
-import static japidviews._javatags.Pic.*;
-import play.mvc.Scope.*;
-import models.*;
-import play.data.validation.Error;
-import play.i18n.Lang;
-import japidviews._tags.*;
-import play.mvc.Http.*;
-import controllers.*;
-import japidviews._javatags.*;
+
+import japidviews._tags.SettingsMenu;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/Account.html
 // Change to this file will be lost next time the template file is compiled.

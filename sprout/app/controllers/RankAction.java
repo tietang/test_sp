@@ -1,16 +1,13 @@
 package controllers;
 
-import java.util.Map;
-
-import org.apache.commons.collections.MapUtils;
-
-import play.Logger;
-import play.mvc.With;
 import fengfei.fir.model.Done;
 import fengfei.fir.model.Done.Status;
-import fengfei.fir.utils.AppUtils;
 import fengfei.ucm.repository.PhotoRepository;
 import fengfei.ucm.repository.impl.SqlPhotoRepository;
+import org.apache.commons.collections.MapUtils;
+import play.Logger;
+
+import java.util.Map;
 
 //@With(SecureForJson.class)
 public class RankAction extends Admin {

@@ -23,6 +23,15 @@ a:hover {
     text-decoration: none;
 }
 
+.transition {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: 1;
+}
+
 .transform {
     margin-top: 40px;
     -moz-transform: rotate(-5deg);
@@ -995,4 +1004,12 @@ a.tag:focus {
 .license_by {
     font-size: 24px;
     font-weight: bold;
+}
+
+.picked {
+    border: 2px solid #3c6ab9;
+}
+
+.unpicked {
+    border: 2px solid #ffffff;
 }

@@ -1,9 +1,9 @@
 package controllers;
 
+import cn.bran.play.JapidResult;
 import japidviews.Application.error.E404;
 import japidviews.Application.error.E500;
 import play.modules.router.Any;
-import cn.bran.play.JapidResult;
 
 public class ErrorAction extends Admin {
 

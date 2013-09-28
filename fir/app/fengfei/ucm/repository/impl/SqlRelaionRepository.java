@@ -1,9 +1,5 @@
 package fengfei.ucm.repository.impl;
 
-import java.sql.SQLException;
-import java.util.List;
-
-import fengfei.forest.database.DataAccessException;
 import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.forest.database.dbutils.impl.DefaultForestGrower;
 import fengfei.forest.slice.SliceResource.Function;
@@ -18,27 +14,29 @@ import fengfei.ucm.entity.relation.Relation;
 import fengfei.ucm.entity.relation.State;
 import fengfei.ucm.repository.RelaionRepository;
 
+import java.sql.SQLException;
+import java.util.List;
+
 public class SqlRelaionRepository implements RelaionRepository {
 
     final static byte Type = 0;
     final RelationDao dao = RelationDao.get();
 
     @Override
-    public boolean write(long sourceId, long targetId, State state) throws DataAccessException {
+    public boolean write(long sourceId, long targetId, State state) throws Exception {
         long ctime = System.currentTimeMillis();
         long updatedAt = ctime;
         int createdAt = (int) (ctime / 1000);
         final Relation relation = new Relation(
-            sourceId,
-            targetId,
-            Type,
-            state.getCode(),
-            updatedAt,
-            createdAt);
+                sourceId,
+                targetId,
+                Type,
+                state.getCode(),
+                updatedAt,
+                createdAt);
 
-        try {
 
-            TransactionModel<Integer> sModel = getTransactionModel(
+        TransactionModel<Integer> sModel = getTransactionModel(
                 relation.getSourceId(),
                 true,
                 new MutiTaCallback<Integer>() {
@@ -49,7 +47,7 @@ public class SqlRelaionRepository implements RelaionRepository {
                         return dao.write(grower, suffix, r);
                     }
                 });
-            TransactionModel<Integer> tModel = getTransactionModel(
+        TransactionModel<Integer> tModel = getTransactionModel(
                 relation.getTargetId(),
                 false,
                 new MutiTaCallback<Integer>() {
@@ -61,33 +59,30 @@ public class SqlRelaionRepository implements RelaionRepository {
                     }
                 });
 
-            MutiTransaction<Integer> transaction = new MutiTransaction<>();
-            transaction.addTransactionModel(sModel);
-            transaction.addTransactionModel(tModel);
-            transaction.execute();
-        } catch (Exception e) {
-            throw new DataAccessException("write relation error.", e);
-        }
+        MutiTransaction<Integer> transaction = new MutiTransaction<>();
+        transaction.addTransactionModel(sModel);
+        transaction.addTransactionModel(tModel);
+        transaction.execute();
         return true;
     }
 
     private <T> TransactionModel<T> getTransactionModel(
-        long id,
-        boolean isFoloowing,
-        MutiTaCallback<T> callback) throws Exception {
+            long id,
+            boolean isFoloowing,
+            MutiTaCallback<T> callback) throws Exception {
         PoolableDatabaseResource resource = Transactions.get(Relation, id, Function.Write);
         return getTransactionModel(isFoloowing, resource, callback);
     }
 
     private <T> TransactionModel<T> getTransactionModel(
-        boolean isFoloowing,
-        PoolableDatabaseResource resource,
-        MutiTaCallback<T> callback) throws SQLException {
+            boolean isFoloowing,
+            PoolableDatabaseResource resource,
+            MutiTaCallback<T> callback) throws SQLException {
         ForestGrower grower = new DefaultForestGrower(resource.getConnection());
         String alias = resource.getAlias();
         TransactionModel<T> model = new TransactionModel<>(grower, getFullSuffix(
-            alias,
-            isFoloowing), callback);
+                alias,
+                isFoloowing), callback);
         return model;
     }
 
@@ -97,10 +92,9 @@ public class SqlRelaionRepository implements RelaionRepository {
 
     @Override
     public List<Long> findTargets(final long sourceId, final State state)
-        throws DataAccessException {
-        try {
+            throws Exception {
 
-            List<Long> targets = Transactions.execute(
+        List<Long> targets = Transactions.execute(
                 Relation,
                 sourceId,
                 Function.Read,
@@ -108,27 +102,23 @@ public class SqlRelaionRepository implements RelaionRepository {
 
                     @Override
                     public List<Long> execute(ForestGrower grower, String suffix)
-                        throws SQLException {
+                            throws SQLException {
                         suffix = getFullSuffix(suffix, true);
                         return dao.findTargets(grower, suffix, sourceId, state);
                     }
 
                 });
-            return targets;
-        } catch (Exception e) {
-            throw new DataAccessException("find targets error.", e);
-        }
+        return targets;
     }
 
     @Override
     public List<Long> findTargets(
-        final long sourceId,
-        final State state,
-        final int offset,
-        final int limit) throws DataAccessException {
-        try {
+            final long sourceId,
+            final State state,
+            final int offset,
+            final int limit) throws Exception {
 
-            List<Long> targets = Transactions.execute(
+        List<Long> targets = Transactions.execute(
                 Relation,
                 sourceId,
                 Function.Read,
@@ -136,24 +126,20 @@ public class SqlRelaionRepository implements RelaionRepository {
 
                     @Override
                     public List<Long> execute(ForestGrower grower, String suffix)
-                        throws SQLException {
+                            throws SQLException {
                         suffix = getFullSuffix(suffix, true);
                         return dao.findTargets(grower, suffix, sourceId, state, offset, limit);
                     }
 
                 });
-            return targets;
-        } catch (Exception e) {
-            throw new DataAccessException("find targets error.", e);
-        }
+        return targets;
     }
 
     @Override
     public int computeTargetCount(final long sourceId, final State state)
-        throws DataAccessException {
-        try {
+            throws Exception {
 
-            Integer count = Transactions.execute(
+        Integer count = Transactions.execute(
                 Relation,
                 sourceId,
                 Function.Read,
@@ -166,17 +152,12 @@ public class SqlRelaionRepository implements RelaionRepository {
                     }
 
                 });
-            return count;
-        } catch (Exception e) {
-            throw new DataAccessException("compute to count targets error.", e);
-        }
+        return count;
     }
 
     @Override
-    public int countTarget(final long sourceId, final State state) throws DataAccessException {
-        try {
-
-            Integer count = Transactions.execute(
+    public int countTarget(final long sourceId, final State state) throws Exception {
+        Integer count = Transactions.execute(
                 Relation,
                 sourceId,
                 Function.Read,
@@ -189,10 +170,7 @@ public class SqlRelaionRepository implements RelaionRepository {
                     }
 
                 });
-            return count;
-        } catch (Exception e) {
-            throw new DataAccessException("count targets error.", e);
-        }
+        return count;
     }
 
     private Relation switchRelation(Relation relation) {
@@ -207,10 +185,9 @@ public class SqlRelaionRepository implements RelaionRepository {
 
     @Override
     public List<Long> findSources(final long targetId, final State state)
-        throws DataAccessException {
-        try {
+            throws Exception {
 
-            List<Long> targets = Transactions.execute(
+        List<Long> targets = Transactions.execute(
                 Relation,
                 targetId,
                 Function.Read,
@@ -218,27 +195,23 @@ public class SqlRelaionRepository implements RelaionRepository {
 
                     @Override
                     public List<Long> execute(ForestGrower grower, String suffix)
-                        throws SQLException {
+                            throws SQLException {
                         suffix = getFullSuffix(suffix, true);
                         return dao.findTargets(grower, suffix, targetId, state);
                     }
 
                 });
-            return targets;
-        } catch (Exception e) {
-            throw new DataAccessException("find sources error.", e);
-        }
+        return targets;
     }
 
     @Override
     public List<Long> findSources(
-        final long targetId,
-        final State state,
-        final int offset,
-        final int limit) throws DataAccessException {
-        try {
+            final long targetId,
+            final State state,
+            final int offset,
+            final int limit) throws Exception {
 
-            List<Long> targets = Transactions.execute(
+        List<Long> targets = Transactions.execute(
                 Relation,
                 targetId,
                 Function.Read,
@@ -246,24 +219,20 @@ public class SqlRelaionRepository implements RelaionRepository {
 
                     @Override
                     public List<Long> execute(ForestGrower grower, String suffix)
-                        throws SQLException {
+                            throws SQLException {
                         suffix = getFullSuffix(suffix, true);
                         return dao.findTargets(grower, suffix, targetId, state, offset, limit);
                     }
 
                 });
-            return targets;
-        } catch (Exception e) {
-            throw new DataAccessException("find sources error.", e);
-        }
+        return targets;
     }
 
     @Override
     public int computeSourceCount(final long targetId, final State state)
-        throws DataAccessException {
-        try {
+            throws Exception {
 
-            Integer count = Transactions.execute(
+        Integer count = Transactions.execute(
                 Relation,
                 targetId,
                 Function.Read,
@@ -276,17 +245,13 @@ public class SqlRelaionRepository implements RelaionRepository {
                     }
 
                 });
-            return count;
-        } catch (Exception e) {
-            throw new DataAccessException("find targets error.", e);
-        }
+        return count;
     }
 
     @Override
-    public int countSource(final long targetId, final State state) throws DataAccessException {
-        try {
+    public int countSource(final long targetId, final State state) throws Exception {
 
-            Integer count = Transactions.execute(
+        Integer count = Transactions.execute(
                 Relation,
                 targetId,
                 Function.Read,
@@ -299,18 +264,14 @@ public class SqlRelaionRepository implements RelaionRepository {
                     }
 
                 });
-            return count;
-        } catch (Exception e) {
-            throw new DataAccessException("count sources error.", e);
-        }
+        return count;
     }
 
     @Override
     public boolean isFollow(final long sourceId, final long targetId, final State state)
-        throws DataAccessException {
-        try {
+            throws Exception {
 
-            Boolean isFollow = Transactions.execute(
+        Boolean isFollow = Transactions.execute(
                 Relation,
                 targetId,
                 Function.Read,
@@ -323,17 +284,13 @@ public class SqlRelaionRepository implements RelaionRepository {
                     }
 
                 });
-            return isFollow;
-        } catch (Exception e) {
-            throw new DataAccessException("is follow error.", e);
-        }
+        return isFollow;
     }
 
     @Override
-    public int[] count(final long sourceId) throws DataAccessException {
-        try {
+    public int[] count(final long sourceId) throws Exception {
 
-            Integer[] follow = Transactions.execute(
+        Integer[] follow = Transactions.execute(
                 Relation,
                 sourceId,
                 Function.Read,
@@ -341,28 +298,24 @@ public class SqlRelaionRepository implements RelaionRepository {
 
                     @Override
                     public Integer[] execute(ForestGrower grower, String suffix)
-                        throws SQLException {
+                            throws SQLException {
                         suffix = getFullSuffix(suffix, true);
                         int following = dao.count(grower, suffix, sourceId, State.Normal);
                         suffix = getFullSuffix(suffix, false);
                         int followed = dao.count(grower, suffix, sourceId, State.Normal);
-                        return new Integer[] { following, followed };
+                        return new Integer[]{following, followed};
                     }
 
                 });
 
-            return new int[] { follow[0], follow[1] };
-        } catch (Exception e) {
-            throw new DataAccessException("count sources error.", e);
-        }
+        return new int[]{follow[0], follow[1]};
 
     }
 
     @Override
-    public int[] computeCount(final long sourceId) throws DataAccessException {
-        try {
+    public int[] computeCount(final long sourceId) throws Exception {
 
-            Integer[] follow = Transactions.execute(
+        Integer[] follow = Transactions.execute(
                 Relation,
                 sourceId,
                 Function.Read,
@@ -370,28 +323,25 @@ public class SqlRelaionRepository implements RelaionRepository {
 
                     @Override
                     public Integer[] execute(ForestGrower grower, String suffix)
-                        throws SQLException {
+                            throws SQLException {
                         suffix = getFullSuffix(suffix, true);
                         int following = dao.computeRelationCount(
-                            grower,
-                            suffix,
-                            sourceId,
-                            State.Normal);
+                                grower,
+                                suffix,
+                                sourceId,
+                                State.Normal);
                         suffix = getFullSuffix(suffix, false);
                         int followed = dao.computeRelationCount(
-                            grower,
-                            suffix,
-                            sourceId,
-                            State.Normal);
-                        return new Integer[] { following, followed };
+                                grower,
+                                suffix,
+                                sourceId,
+                                State.Normal);
+                        return new Integer[]{following, followed};
                     }
 
                 });
 
-            return new int[] { follow[0], follow[1] };
-        } catch (Exception e) {
-            throw new DataAccessException("count sources error.", e);
-        }
+        return new int[]{follow[0], follow[1]};
 
     }
 

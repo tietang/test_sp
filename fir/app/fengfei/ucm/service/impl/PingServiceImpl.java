@@ -1,11 +1,11 @@
 package fengfei.ucm.service.impl;
 
+import fengfei.ucm.service.PingService;
+import fengfei.ucm.service.cmd.Command;
+
 import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
-
-import fengfei.ucm.service.PingService;
-import fengfei.ucm.service.cmd.Command;
 
 public class PingServiceImpl implements PingService {
 

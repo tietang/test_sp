@@ -1,39 +1,32 @@
 package controllers;
 
+import cn.bran.play.JapidResult;
+import fengfei.fir.model.PhotoShow;
+
+import fengfei.ucm.entity.photo.Refresh;
+import fengfei.ucm.repository.CommentRepository;
+import fengfei.ucm.repository.PhotoRepository;
+import fengfei.ucm.repository.ShowRepository;
+import fengfei.ucm.repository.impl.SqlCommentRepository;
+import fengfei.ucm.repository.impl.SqlPhotoRepository;
+import fengfei.ucm.repository.impl.SqlShowRepository;
+import fengfei.ucm.service.ReadFollowService;
 import japidviews.Application.photo.Group;
 import japidviews.Application.photo.Views;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import org.apache.commons.collections.MapUtils;
-
 import play.Logger;
 import play.modules.router.Any;
 import play.modules.router.Get;
 import play.modules.router.Gets;
 import play.mvc.With;
-import cn.bran.play.JapidResult;
-import fengfei.fir.model.PhotoShow;
-import fengfei.fir.rank.LastRank;
-import fengfei.fir.rank.PopularRank;
-import fengfei.ucm.entity.photo.Refresh;
-import fengfei.ucm.repository.CommentRepository;
-import fengfei.ucm.repository.PhotoRepository;
-import fengfei.ucm.repository.ShowRepository;
-import fengfei.ucm.repository.impl.SqlCommentRespository;
-import fengfei.ucm.repository.impl.SqlPhotoRepository;
-import fengfei.ucm.repository.impl.SqlShowRepository;
-import fengfei.ucm.service.ReadFollowService;
+
+import java.util.*;
 
 @With(Secure.class)
 public class UserPhotoAction extends Admin {
 
     public static ShowRepository show = new SqlShowRepository();
-    public static CommentRepository comment = new SqlCommentRespository();
+    public static CommentRepository comment = new SqlCommentRepository();
     static PhotoRepository photoRepository = new SqlPhotoRepository();
     public static ReadFollowService readFollowService = null;
 
