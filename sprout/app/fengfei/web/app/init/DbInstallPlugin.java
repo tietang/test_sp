@@ -19,9 +19,12 @@ public class DbInstallPlugin extends PlayPlugin {
     public void onApplicationStart() {
         try {
             Sequence.install(1, Tables);
-            Sequence.install(501, Tables);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            Sequence.install(2, Tables);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

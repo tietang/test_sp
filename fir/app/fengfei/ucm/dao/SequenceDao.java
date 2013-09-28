@@ -37,10 +37,12 @@ public class SequenceDao {
 
     //
 
-    public final static String SequenceTable = "CREATE TABLE IF NOT EXISTS `idtb64_%s` (\r\n"
-            + "  `id` bigint(20) unsigned NOT NULL default 0 ,\r\n"
-            + "  `table` varchar(32) NOT NULL DEFAULT '',\r\n" + "  PRIMARY KEY (`id`),\r\n"
-            + "  UNIQUE KEY `idx_table` (`table`)\r\n" + ") ENGINE=InnoDB ";
+    public final static String SequenceTable =
+            "CREATE TABLE IF NOT EXISTS `idtb64%s` ("
+                    + "  `id` bigint(20) unsigned NOT NULL default 0 ,"
+                    + "  `table` varchar(32) NOT NULL,"
+                    + "  PRIMARY KEY (`table`)"
+                    + ") ENGINE=InnoDB ";
 
     public static long nextIdFromSequenceTable(ForestGrower grower, String suffix, String table)
             throws SQLException {
@@ -60,11 +62,11 @@ public class SequenceDao {
         //create table if not exists
         int updated = grower.update(String.format(SequenceTable, suffix));
         if (updated > 0) {
-            log.info("Created sequence table.");
+            log.info(String.format("Created sequence table idtb64%s.", suffix));
         }
-        String sql = "select id from `idtb64_%s` where `table`=? ";
+        String sql = "select id from `idtb64%s` where `table`=? for update";
 
-        String insert = "INSERT INTO `idtb64_%s`(`table`,`id`) values(?,?)";
+        String insert = "INSERT INTO `idtb64%s`(`table`,`id`) values(?,?)";
         int[] rs = new int[tables.length];
         for (int i = 0; i < tables.length; i++) {
 
@@ -72,7 +74,7 @@ public class SequenceDao {
                     .selectOne(String.format(sql, suffix), new LongTransducer(), tables[i]);
             if (id == null) {
                 int inserted = grower.update(String.format(insert, suffix), tables[i], seq);
-                log.info("Inited sequence table: " + tables[i]);
+                log.info("Inited sequence table " + tables[i]);
             }
             rs[i] = updated;
         }

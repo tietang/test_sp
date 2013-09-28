@@ -45,7 +45,6 @@ public class Sequence {
 
                     @Override
                     public Boolean execute(ForestGrower grower, String suffix) throws SQLException {
-                        suffix = String.valueOf(id % 2 + 1);
                         int[] i = SequenceDao.createSequenceTable(grower, suffix, id, tables);
                         return true;
                     }

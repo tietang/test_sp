@@ -22,9 +22,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+
 @Repository
 public class SqlUserRepository implements UserRepository {
-    public final static String UserTableName = "photo";
+    public final static String UserTableName = "user";
 
     @Override
     public int addUserPwd(final UserPwd userPwd) throws Exception {
