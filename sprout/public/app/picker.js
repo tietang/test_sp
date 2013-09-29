@@ -69,7 +69,7 @@
                         vs.push(value);
                     }
                 });
-                return vs.toString();
+                return vs;
             }
         }
 
@@ -116,7 +116,7 @@
                 vs.push(value);
             }
         });
-        return vs.toString();
+        return vs;
     }
     $.fn.picker.defaults = {
         pickedClass: 'picked',

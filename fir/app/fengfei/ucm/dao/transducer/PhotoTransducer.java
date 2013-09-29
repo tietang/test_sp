@@ -27,6 +27,7 @@ public class PhotoTransducer implements Transducer<Photo> {
         int commentCount = rs.getInt("comment_count");
         byte license = rs.getByte("license");
         byte canPS = rs.getByte("can_ps");
+        byte jiff = rs.getByte("jiff");
         //
         String make = rs.getString("make");
         String model = rs.getString("model");
@@ -65,6 +66,7 @@ public class PhotoTransducer implements Transducer<Photo> {
         photo.license = license;
         photo.canPS = canPS;
         photo.status = status;
+        photo.jiff = jiff;
         photo.WhiteBalance = rs.getShort("white_balance");
         photo.Software = rs.getString("software");
         photo.Flash = rs.getShort("flash");

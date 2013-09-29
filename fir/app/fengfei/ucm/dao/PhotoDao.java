@@ -19,7 +19,7 @@ public class PhotoDao {
 
     final static String IncrCommentCount = "update photo%s set comment_count=comment_count+1 where id_photo=?";
     final static String Insert = "INSERT INTO photo%s"
-            + "(id_photo, id_user, title, `desc`, category, adult,copyright,license,can_ps,"
+            + "(id_photo, id_user, title, `desc`, category, adult,copyright,license,can_ps,jiff,"
             + "tags,create_at, create_at_gmt, update_at, status,comment_count, original_at,"
             + " make, model, aperture, shutter, iso, lens, focus,  ev"
             + ", white_balance, software, flash, color_space, metering_mode, exposure_mode, exposure_program, gps_latitude, gps_longitude, gps_altitude, gps_origin,ip"
@@ -28,7 +28,7 @@ public class PhotoDao {
             + " set original_at=?,make=?,model=?,aperture=?,shutter=?,iso=?,lens=?,focus=?,ev=?,"
             + " white_balance = ?, software = ?, flash = ?, color_space = ?, metering_mode = ?,"
             + " exposure_mode = ?, exposure_program = ?, gps_latitude = ?, gps_longitude = ?, gps_altitude = ?, gps_origin = ? ,ip=?, "
-            + " title=?, `desc`=?,category=?,adult=?,copyright=?,license=?,can_ps=?,tags=?,update_at=?,status=? "
+            + " title=?, `desc`=?,category=?,adult=?,copyright=?,license=?,can_ps=?,jiff=?,tags=?,update_at=?,status=? "
             + " where id_photo=? and id_user=?";
 
     public static List<InsertResultSet<Long>> save(
@@ -77,7 +77,7 @@ public class PhotoDao {
                     m.description,
                     (int) m.category,
                     m.adult,
-                    m.copyright, m.license, m.canPS,
+                    m.copyright, m.license, m.canPS,m.jiff,
                     m.tags,
                     m.createAt,
                     createAtGmt,
@@ -143,7 +143,7 @@ public class PhotoDao {
                     m.description,
                     m.category,
                     m.adult,
-                    m.copyright, m.license, m.canPS,
+                    m.copyright, m.license, m.canPS,m.jiff,
                     m.tags,
                     m.updateAt, m.status,
                     m.idPhoto,
@@ -184,7 +184,7 @@ public class PhotoDao {
                 m.description,
                 m.category,
                 m.adult,
-                m.copyright, m.license, m.canPS,
+                m.copyright, m.license, m.canPS,m.jiff,
                 m.tags,
                 m.updateAt,
                 m.idPhoto,
@@ -217,7 +217,7 @@ public class PhotoDao {
                     m.description,
                     (int) m.category,
                     m.adult,
-                    m.copyright, m.license, m.canPS,
+                    m.copyright, m.license, m.canPS,m.jiff,
                     m.tags,
                     m.createAt,
                     createAtGmt,
@@ -276,7 +276,7 @@ public class PhotoDao {
                     m.description,
                     m.category,
                     m.adult,
-                    m.copyright, m.license, m.canPS,
+                    m.copyright, m.license, m.canPS,m.jiff,
                     m.tags,
                     m.updateAt,
                     m.idPhoto,
@@ -288,7 +288,7 @@ public class PhotoDao {
     }
 
    public final static String SelectPhotoClause = "SELECT id_photo,id_user,nice_name,title,`desc`,category,"
-            + "create_at,create_at_gmt,update_at,status,comment_count,adult,copyright,`license`,can_ps,tags,"
+            + "create_at,create_at_gmt,update_at,status,comment_count,adult,copyright,`license`,can_ps,jiff,tags,"
             + "make,model,lens,aperture,shutter,iso,focus,ev,original_at,white_balance,software,flash,"
             + "color_space,metering_mode,exposure_mode,exposure_program,gps_latitude,gps_longitude,gps_altitude,gps_origin,ip";
 

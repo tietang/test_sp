@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import play.Play;
 import play.PlayPlugin;
 
+import java.io.File;
 import java.util.Properties;
 
 public class SliceDBPlugin extends PlayPlugin {
@@ -51,7 +52,9 @@ public class SliceDBPlugin extends PlayPlugin {
             }
         }
     }
+    private void expressInstallTable() {
 
+    }
     @Override
     public void onApplicationStop() {
         // try {

@@ -27,6 +27,7 @@ public class Photo extends PhotoShow implements Serializable {
     public long updateAt;
     public byte status;
     public int commentCount;
+    public byte jiff=0;//瞬间
     //
     public String make;
     public String model;
