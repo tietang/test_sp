@@ -1,14 +1,24 @@
 package japidviews.Application.photo;
-
-import fengfei.fir.utils.Path;
-import fengfei.ucm.entity.photo.Photo;
-import fengfei.ucm.entity.photo.PhotoSet;
-import japidviews._tags.CategorySelectOptions;
-import japidviews._tags.LicenseSelectOptions;
-
-import java.util.List;
-
-import static cn.bran.play.JapidPlayAdapter.getMessage;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import java.util.*;import fengfei.ucm.entity.photo.*;import fengfei.fir.utils.Path;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/UploadForm.html
 // Change to this file will be lost next time the template file is compiled.
@@ -94,38 +104,38 @@ p("</pre>\n" +
 "            </div>\n" + 
 "            <p>\n" + 
 "\n" + 
-"            <div\n" + 
-"            ");// line 14, japidviews\Application\photo\UploadForm.html
-		if(photo!=null){// line 20, japidviews\Application\photo\UploadForm.html
-		p("style=\"display: none\"");// line 20, japidviews\Application\photo\UploadForm.html
-		}// line 20, japidviews\Application\photo\UploadForm.html
-		p(">\n" + 
-"            <div>\n" + 
-"                ");// line 20, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.file.name"));// line 22, japidviews\Application\photo\UploadForm.html
+"            <div style=\"");// line 14, japidviews\Application\photo\UploadForm.html
+		if(photo!=null){// line 19, japidviews\Application\photo\UploadForm.html
+		p("display: none");// line 19, japidviews\Application\photo\UploadForm.html
+		}// line 19, japidviews\Application\photo\UploadForm.html
+		p("\">\n" + 
+"                <div>\n" + 
+"                    ");// line 19, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.file.name"));// line 21, japidviews\Application\photo\UploadForm.html
 		p(" <span id=\"name\"></span>\n" + 
-"            </div>\n" + 
-"            <div>\n" + 
-"                ");// line 22, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.file.size"));// line 25, japidviews\Application\photo\UploadForm.html
+"                </div>\n" + 
+"                <div>\n" + 
+"                    ");// line 21, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.file.size"));// line 24, japidviews\Application\photo\UploadForm.html
 		p(" <span id=\"size\"></span>\n" + 
+"                </div>\n" + 
+"\n" + 
 "            </div>\n" + 
+"            </p>\n" + 
+"            <div class=\"alert alert-error\" id=\"uploadError\" style=\"display: none\">\n" + 
+"                <button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 
+"                    &times;\n" + 
+"                </button>\n" + 
+"                ");// line 24, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("upload.error"));// line 33, japidviews\Application\photo\UploadForm.html
+		p("            </div>\n" + 
 "\n" + 
 "        </div>\n" + 
-"        </p>\n" + 
-"        <div class=\"alert alert-error\" id=\"uploadError\" style=\"display: none\">\n" + 
-"            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 
-"                &times;\n" + 
-"            </button>\n" + 
-"            ");// line 25, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("upload.error"));// line 34, japidviews\Application\photo\UploadForm.html
-		p("        </div>\n" + 
-"\n" + 
-"        </div></td>\n" + 
+"    </td>\n" + 
 "    <td class=\"right_line col_4\">\n" + 
 "        <div class=\" magin_left\">\n" + 
 "            <div class=\"block\">\n" + 
-"                <label for=\"title1\">");// line 34, japidviews\Application\photo\UploadForm.html
+"                <label for=\"title1\">");// line 33, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("photo.title"));// line 41, japidviews\Application\photo\UploadForm.html
 		p("</label>\n" + 
 "                <input type=\"text\"\n" + 

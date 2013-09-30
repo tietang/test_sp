@@ -16,25 +16,25 @@
             </div>
             <p>
 
-            <div
-            `if(photo!=null){`style="display: none"`}`>
-            <div>
-                &{photo.file.name} <span id="name"></span>
+            <div style="`if(photo!=null){`display: none`}`">
+                <div>
+                    &{photo.file.name} <span id="name"></span>
+                </div>
+                <div>
+                    &{photo.file.size} <span id="size"></span>
+                </div>
+
             </div>
-            <div>
-                &{photo.file.size} <span id="size"></span>
+            </p>
+            <div class="alert alert-error" id="uploadError" style="display: none">
+                <button type="button" class="close" data-dismiss="alert">
+                    &times;
+                </button>
+                &{upload.error}
             </div>
 
         </div>
-        </p>
-        <div class="alert alert-error" id="uploadError" style="display: none">
-            <button type="button" class="close" data-dismiss="alert">
-                &times;
-            </button>
-            &{upload.error}
-        </div>
-
-        </div></td>
+    </td>
     <td class="right_line col_4">
         <div class=" magin_left">
             <div class="block">

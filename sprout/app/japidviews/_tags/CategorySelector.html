@@ -1,0 +1,35 @@
+`import java.util.*; import java.util.Map.Entry;
+`args Map kv, Byte defaultKey
+`if(kv==null) kv=new HashMap();
+`Set sets = kv.entrySet();
+<section>
+`for (Object obj : sets) {
+`   Entry entries=(Entry)obj;
+`    String title=(String)entries.getKey();
+`    Map mapValue=(Map)entries.getValue();
+`    Set values = mapValue.entrySet();
+    <h3 style="width:80px;float:left;text-align:right;">${title}</h3>
+    <ul>
+`    for(Object item:values){
+`        Entry entry=(Entry)obj;
+`       Byte key=(Byte)entry.getKey();
+`       Object value=entry.getValue();
+`       if(key<0){
+<li data-divider="true"></li>
+`       }else{
+`           if(key.equals(defaultKey)){
+<li selected="selected"><a href="javascript:void(0)" value="${key}">${value}</a></li>
+`           }else{`
+<li><a href="javascript:void(0)" value="${key}">${value}</a></li>
+
+`           }
+`       }
+`    }
+    </ul>
+
+`}
+
+
+
+
+</section>
