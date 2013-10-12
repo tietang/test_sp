@@ -1,12 +1,12 @@
 package fengfei.ucm.entity.photo;
 
+import fengfei.fir.model.PhotoShow;
+import fengfei.ucm.entity.profile.User;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-
-import fengfei.fir.model.PhotoShow;
-import fengfei.ucm.entity.profile.User;
 
 public class Photo extends PhotoShow implements Serializable {
 
@@ -27,7 +27,7 @@ public class Photo extends PhotoShow implements Serializable {
     public long updateAt;
     public byte status;
     public int commentCount;
-    public byte jiff=0;//瞬间
+    public byte jiff = 0;//瞬间
     //
     public String make;
     public String model;
@@ -65,26 +65,26 @@ public class Photo extends PhotoShow implements Serializable {
     }
 
     public Photo(
-        int idUser,
-        String title,
-        String description,
-        byte category,
-        int adult,
-        int copyright,
-        String tags,
-        int createAt,
-        Timestamp createAtGmt,
-        long updateAt,
-        int commentCount,
-        String make,
-        String model,
-        String aperture,
-        String shutter,
-        String iso,
-        String lens,
-        String focus,
-        String ev,
-        String dateTimeOriginal) {
+            int idUser,
+            String title,
+            String description,
+            byte category,
+            int adult,
+            int copyright,
+            String tags,
+            int createAt,
+            Timestamp createAtGmt,
+            long updateAt,
+            int commentCount,
+            String make,
+            String model,
+            String aperture,
+            String shutter,
+            String iso,
+            String lens,
+            String focus,
+            String ev,
+            String dateTimeOriginal) {
         super();
         this.idUser = idUser;
         this.title = title;
@@ -109,27 +109,27 @@ public class Photo extends PhotoShow implements Serializable {
     }
 
     public Photo(
-        long idPhoto,
-        int idUser,
-        String title,
-        String description,
-        byte category,
-        int adult,
-        int copyright,
-        String tags,
-        int createAt,
-        Timestamp createAtGmt,
-        long updateAt,
-        int commentCount,
-        String make,
-        String model,
-        String aperture,
-        String shutter,
-        String iso,
-        String lens,
-        String focus,
-        String ev,
-        String dateTimeOriginal) {
+            long idPhoto,
+            int idUser,
+            String title,
+            String description,
+            byte category,
+            int adult,
+            int copyright,
+            String tags,
+            int createAt,
+            Timestamp createAtGmt,
+            long updateAt,
+            int commentCount,
+            String make,
+            String model,
+            String aperture,
+            String shutter,
+            String iso,
+            String lens,
+            String focus,
+            String ev,
+            String dateTimeOriginal) {
         super();
         this.idPhoto = idPhoto;
         this.idUser = idUser;
@@ -333,4 +333,21 @@ public class Photo extends PhotoShow implements Serializable {
                 + ", commentCount=" + commentCount + "]";
     }
 
+    public String toCSV() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.make).append(CSV_SEPARATOR);
+        sb.append(this.model).append(CSV_SEPARATOR);
+        sb.append(this.aperture).append(CSV_SEPARATOR);
+        sb.append(this.shutter).append(CSV_SEPARATOR);
+        sb.append(this.iso).append(CSV_SEPARATOR);
+        sb.append(this.lens).append(CSV_SEPARATOR);
+        sb.append(this.focus).append(CSV_SEPARATOR);
+        sb.append(this.ev).append(CSV_SEPARATOR);
+        sb.append(this.tags).append(CSV_SEPARATOR);
+        sb.append(this.title).append(CSV_SEPARATOR);
+        sb.append(this.description).append(CSV_SEPARATOR);
+        return sb.toString();
+    }
+
+    private static final String CSV_SEPARATOR = ",";
 }

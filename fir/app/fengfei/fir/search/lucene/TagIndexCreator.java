@@ -1,7 +1,11 @@
 package fengfei.fir.search.lucene;
 
-import demo.analysis.CommaAnalyzer;
+import fengfei.fir.search.lucene.analysis.CommaAnalyzer;
 import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.document.Document;
+import org.apache.lucene.document.Field;
+import org.apache.lucene.document.StringField;
+import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.Term;
@@ -16,6 +20,13 @@ import java.io.IOException;
 /**
  */
 public class TagIndexCreator {
+    private static TagIndexCreator creator = new TagIndexCreator("index");
+
+    public static TagIndexCreator get() {
+        return creator;
+    }
+
+
     /**
      * 索引优化后文件段的数量，数量越大，优化效率越大
      */
@@ -28,6 +39,10 @@ public class TagIndexCreator {
     private IndexWriter writer;
 
     public TagIndexCreator(String dir) {
+        setDir(dir);
+    }
+
+    public void setDir(String dir) {
         try {
             writer = createIndexWriter(dir);
         } catch (Exception e) {

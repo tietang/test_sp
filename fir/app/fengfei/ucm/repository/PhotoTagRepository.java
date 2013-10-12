@@ -1,6 +1,7 @@
 package fengfei.ucm.repository;
 
 import fengfei.ucm.dao.UnitNames;
+import fengfei.ucm.entity.photo.Photo;
 import fengfei.ucm.entity.photo.PhotoTag;
 
 import java.util.List;
@@ -8,11 +9,9 @@ import java.util.List;
 /**
  */
 public interface PhotoTagRepository extends UnitNames {
-    int[] saveTags(
-            long idContent,
-            byte category,
-            String[] oldTags,
-            String[] newTags) throws Exception;
+    int[] saveTags(Photo photo,
+                   String[] oldTags,
+                   String[] newTags) throws Exception;
 
     List<PhotoTag> fuzzilyFind(
             String name,
