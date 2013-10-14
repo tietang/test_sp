@@ -4,6 +4,7 @@ import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.forest.slice.SliceResource;
 import fengfei.forest.slice.database.utils.Transactions;
 import fengfei.ucm.dao.PhotoTagDao;
+import fengfei.ucm.entity.photo.Photo;
 import fengfei.ucm.entity.photo.PhotoTag;
 import fengfei.ucm.repository.PhotoTagRepository;
 
@@ -13,7 +14,6 @@ import java.util.List;
 /**
  */
 public class SqlPhotoTagRepository implements PhotoTagRepository {
-    @Override
     public int[] saveTags(final long idContent, final byte category, final String[] oldTags,
                           final String[] newTags) throws Exception {
 
@@ -32,6 +32,11 @@ public class SqlPhotoTagRepository implements PhotoTagRepository {
                 });
 
         return updated;
+    }
+
+    @Override
+    public int[] saveTags(Photo photo, String[] oldTags, String[] newTags) throws Exception {
+        return new int[0];
     }
 
     @Override

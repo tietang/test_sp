@@ -1,7 +1,6 @@
 package fengfei.fir.search.lucene;
 
-import fengfei.fir.search.lucene.analysis.CommaAnalyzer;
-import org.apache.lucene.analysis.Analyzer;
+import fengfei.ucm.entity.photo.Photo;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StringField;
@@ -11,22 +10,15 @@ import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.TermQuery;
+import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
  */
-public class TagIndexCreator {
-    private static TagIndexCreator creator = new TagIndexCreator("index");
-
-    public static TagIndexCreator get() {
-        return creator;
-    }
-
-
+public class TagIndexCreator extends TagBase {
     /**
      * 索引优化后文件段的数量，数量越大，优化效率越大
      */
@@ -35,14 +27,16 @@ public class TagIndexCreator {
      * 低版本的查询索引存活周期
      */
     private final static long STALE_INDEXREADER_SURVIVAL_TIME = 60000;
+    private static TagIndexCreator creator = new TagIndexCreator("../index");
 
+    public static TagIndexCreator get() {
+        return creator;
+    }
+
+    Directory directory;
     private IndexWriter writer;
 
     public TagIndexCreator(String dir) {
-        setDir(dir);
-    }
-
-    public void setDir(String dir) {
         try {
             writer = createIndexWriter(dir);
         } catch (Exception e) {
@@ -53,7 +47,6 @@ public class TagIndexCreator {
     private IndexWriter createIndexWriter(String dir)
             throws Exception {
         /*
-         * mmseg4j：ComplexAnalyzer 适用于高匹配度的中文 lucene标准：StandardAnalyzer
          */
         IndexWriterConfig conf = new IndexWriterConfig(Version.LUCENE_45,
                 getAnalyzer());
@@ -66,76 +59,62 @@ public class TagIndexCreator {
         if (IndexWriter.isLocked(FSDirectory.open(getIndexFile(dir)))) {
             IndexWriter.unlock(FSDirectory.open(getIndexFile(dir)));
         }
-        IndexWriter writer = new IndexWriter(FSDirectory
-                .open(getIndexFile(dir)), conf);
+        directory = FSDirectory.open(getIndexFile(dir));
+        IndexWriter writer = new IndexWriter(directory, conf);
         return writer;
-    }
-
-    private Analyzer getAnalyzer() {
-        Analyzer analyzer = new CommaAnalyzer(Version.LUCENE_45);
-        return analyzer;
-    }
-
-    private File getIndexFile(String dir) {
-        final File docDir = new File(dir);
-        if (!docDir.exists()) {
-            docDir.mkdirs();
-        }
-        return docDir;
-
     }
 
 
     /**
      * 添加的方法
      */
-    public void add(long id, String content) {
+    public void add(Photo photo) throws IOException {
         try {
-
-            Document doc = new Document();
-            doc.add(new StringField("id", String.valueOf(id), Field.Store.YES));
-            doc.add(new TextField("content", content, Field.Store.YES));//存储
+            Document doc = toDocument(photo);
             writer.addDocument(doc);//添加进写入流里
             writer.forceMerge(1);//优化压缩段,大规模添加数据的时候建议，少使用本方法，会影响性能
             writer.commit();//提交数据
-            System.out.println("添加成功");
         } catch (Exception e) {
-
             e.printStackTrace();
-
+            writer.rollback();
         } finally {
-
             if (writer != null) {
-                try {
-                    writer.close();//关闭流
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                writer.close();//关闭流
             }
-
-
         }
-
     }
 
+    protected Document toDocument(Photo photo) {
+        Document doc = new Document();
+        doc.add(new StringField(TagFields.ID, String.valueOf(photo.idPhoto), Field.Store.YES));
+        doc.add(new TextField(TagFields.Title, photo.title, Field.Store.YES));//存储
+        doc.add(new TextField(TagFields.Description, photo.title, Field.Store.YES));//存储
+        doc.add(new TextField(TagFields.Exif, photo.title, Field.Store.YES));//存储
+        doc.add(new TextField(TagFields.Tag, photo.tags, Field.Store.YES));//存储
+        return doc;
+    }
+
+    public void close() throws IOException {
+        writer.close();
+    }
 
     /**
      * 删除方法
      *
      * @param id 根据ID删除
      */
-    public void delete(String id) {
+    public void delete(String id) throws IOException {
         try {
 
             Query q = new TermQuery(new Term("id", id));
             writer.deleteDocuments(q);//删除指定ID的Document
             // writer.forceMerge(DEFAULT_MAX_NUM_SEGMENTS);
             writer.commit();//提交
-            writer.close();//关闭
-            System.out.println("删除id为" + id + "的记录成功");
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            writer.close();//关闭
         }
 
     }
@@ -143,25 +122,37 @@ public class TagIndexCreator {
     /**
      * 根据ID进行更行的方法
      */
-    public void updateByID(String indexPath, String id, String content) throws IOException {
+    public void updateByID(Photo photo) throws IOException {
         try {
-            Document doc = new Document();
-            doc.add(new StringField("id", id, Field.Store.YES));
-            doc.add(new TextField("content", content, Field.Store.YES));//存储
-
-            writer.updateDocument(new Term("id", id), doc);
-
+            Document doc = toDocument(photo);
+            writer.updateDocument(new Term("id", String.valueOf(photo.idPhoto)), doc);
             writer.commit();
-
-            System.out.println("更新成功!");
-
         } catch (Exception e) {
             e.printStackTrace();
-
         } finally {
             writer.close();//关闭
         }
     }
 
+    public static void main(String[] args) throws IOException {
+        TagIndexCreator creator = new TagIndexCreator("/opt/lucene/index");
+        for (int i = 0; i < 5; i++) {
+            Photo photo = new Photo();
+            photo.idPhoto = i;
+            photo.title = "贡嘎" + i;
+            photo.description = "描述";
+            photo.tags = "风景";
+            photo.make = "";
+            photo.model = "";
+            photo.aperture = "";
+            photo.shutter = "";
+            photo.iso = "";
+            photo.lens = "";
+            photo.focus = "";
+            photo.ev = "";
+            creator.add(photo);
+        }
+
+    }
 
 }

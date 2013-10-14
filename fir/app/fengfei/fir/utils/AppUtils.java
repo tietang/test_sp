@@ -1,13 +1,12 @@
 package fengfei.fir.utils;
 
+import com.google.common.net.InetAddresses;
+import fengfei.ucm.entity.profile.User;
+
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
-
-import com.google.common.net.InetAddresses;
-
-import fengfei.ucm.entity.profile.User;
 
 public class AppUtils {
 
@@ -57,6 +56,10 @@ public class AppUtils {
         int address = InetAddresses.coerceToInteger(addr);
         return address;
 
+    }
+
+    public static boolean isEmpty(String str) {
+        return str == null || "".equals(str);
     }
 
     public static long bytes2long(byte[] b) {

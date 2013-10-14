@@ -1,6 +1,7 @@
 package fengfei.ucm.entity.photo;
 
 import fengfei.fir.model.PhotoShow;
+import fengfei.fir.utils.AppUtils;
 import fengfei.ucm.entity.profile.User;
 
 import java.io.Serializable;
@@ -333,19 +334,16 @@ public class Photo extends PhotoShow implements Serializable {
                 + ", commentCount=" + commentCount + "]";
     }
 
-    public String toCSV() {
+    public String exifToCSV() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.make).append(CSV_SEPARATOR);
-        sb.append(this.model).append(CSV_SEPARATOR);
-        sb.append(this.aperture).append(CSV_SEPARATOR);
-        sb.append(this.shutter).append(CSV_SEPARATOR);
-        sb.append(this.iso).append(CSV_SEPARATOR);
-        sb.append(this.lens).append(CSV_SEPARATOR);
-        sb.append(this.focus).append(CSV_SEPARATOR);
-        sb.append(this.ev).append(CSV_SEPARATOR);
-        sb.append(this.tags).append(CSV_SEPARATOR);
-        sb.append(this.title).append(CSV_SEPARATOR);
-        sb.append(this.description).append(CSV_SEPARATOR);
+        if (AppUtils.isEmpty(this.make)) sb.append(this.make).append(CSV_SEPARATOR);
+        if (AppUtils.isEmpty(this.model)) sb.append(this.model).append(CSV_SEPARATOR);
+        if (AppUtils.isEmpty(this.aperture)) sb.append(this.aperture).append(CSV_SEPARATOR);
+        if (AppUtils.isEmpty(this.shutter)) sb.append(this.shutter).append(CSV_SEPARATOR);
+        if (AppUtils.isEmpty(this.iso)) sb.append(this.iso).append(CSV_SEPARATOR);
+        if (AppUtils.isEmpty(this.lens)) sb.append(this.lens).append(CSV_SEPARATOR);
+        if (AppUtils.isEmpty(this.focus)) sb.append(this.focus).append(CSV_SEPARATOR);
+        if (AppUtils.isEmpty(this.ev)) sb.append(this.ev).append(CSV_SEPARATOR);
         return sb.toString();
     }
 

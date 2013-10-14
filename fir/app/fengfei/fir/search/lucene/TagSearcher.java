@@ -1,8 +1,6 @@
 package fengfei.fir.search.lucene;
 
-import demo.analysis.CommaAnalyzer;
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
@@ -14,7 +12,6 @@ import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,7 +19,8 @@ import java.util.regex.PatternSyntaxException;
 
 /**
  */
-public class TagSearcher {
+public class TagSearcher extends TagBase {
+    private final static String Fields[] = new String[]{TagFields.Title, TagFields.Exif, TagFields.Description};
     private IndexReader reader;
 
     public TagSearcher(String dir) {
@@ -41,19 +39,6 @@ public class TagSearcher {
         return reader;
     }
 
-    private Analyzer getAnalyzer() {
-        Analyzer analyzer = new CommaAnalyzer(Version.LUCENE_45);
-        return analyzer;
-    }
-
-    private File getIndexFile(String dir) {
-        final File docDir = new File(dir);
-        if (!docDir.exists()) {
-            docDir.mkdirs();
-        }
-        return docDir;
-
-    }
 
     public static String stringFilter(String str) throws PatternSyntaxException {
         String regEx = "[`~!@#$%^&*()+=|{ }':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？·\'\"\\-\t\n\r]";
@@ -77,15 +62,18 @@ public class TagSearcher {
         }
 
         IndexSearcher searcher = new IndexSearcher(reader);
-        Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_45);
+        Analyzer analyzer = getAnalyzer();
 
-
-        Query query = MultiFieldQueryParser.parse(Version.LUCENE_45, keywords, new String[]{"content"}, analyzer);
+        Query query = MultiFieldQueryParser.parse(Version.LUCENE_45, keywords, Fields, analyzer);
         //5.根据searcher搜索并且返回TopDocs
         if (currentPage <= 1) {
             return searcher.search(query, pageSize);
         } else {
             return searcher.searchAfter(after, query, 10);
         }
+    }
+
+    public static void main(String[] args) {
+
     }
 }
