@@ -49,7 +49,7 @@ public class ChoiceRank {
         long time = (rank.updateAt / 1000 / 60) - T2013Minute;
         Transaction ta = write.multi();
         String id = String.valueOf(rank.idPhoto);
-//        String key=formatDateKey(rankKey,rank.updateAt);
+//        String key=formatDateKey(rankKey,rank.updatedAt);
         ta.zadd(rankKey, time, id);
 
         byte[] bs = KryoSerializer.write(PhotoRank.createPhotoRank(rank));

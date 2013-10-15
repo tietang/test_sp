@@ -66,7 +66,7 @@ public class Upcoming extends PhotoVisit {
 
     @Override
     public String toString() {
-        return "Upcoming [updateAt=" + updateAt + ", idPhoto=" + idPhoto + ", category=" + category
+        return "Upcoming [updatedAt=" + updateAt + ", idPhoto=" + idPhoto + ", category=" + category
                 + ", title=" + title + ", idUser=" + idUser + ", niceName=" + niceName + "]";
     }
 

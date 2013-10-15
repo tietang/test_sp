@@ -1,10 +1,7 @@
 package fengfei.fir.search.lucene;
 
 import fengfei.ucm.entity.photo.Photo;
-import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
-import org.apache.lucene.document.StringField;
-import org.apache.lucene.document.TextField;
+import org.apache.lucene.document.*;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.Term;
@@ -84,13 +81,16 @@ public class TagIndexCreator extends TagBase {
         }
     }
 
-    protected Document toDocument(Photo photo) {
+    protected Document toDocument(Photo photo) throws Exception {
         Document doc = new Document();
+        String title = AnalyzerUtils.toCommaString(photo.title);
+        String desc = AnalyzerUtils.toCommaString(photo.description);
         doc.add(new StringField(TagFields.ID, String.valueOf(photo.idPhoto), Field.Store.YES));
-        doc.add(new TextField(TagFields.Title, photo.title, Field.Store.YES));//存储
-        doc.add(new TextField(TagFields.Description, photo.title, Field.Store.YES));//存储
-        doc.add(new TextField(TagFields.Exif, photo.title, Field.Store.YES));//存储
+        doc.add(new TextField(TagFields.Title, title, Field.Store.YES));//存储
+        doc.add(new TextField(TagFields.Description, desc, Field.Store.YES));//存储
+        doc.add(new TextField(TagFields.Exif, photo.exifToCSV(), Field.Store.YES));//存储
         doc.add(new TextField(TagFields.Tag, photo.tags, Field.Store.YES));//存储
+        doc.add(new NumericDocValuesField(TagFields.At, photo.updatedAt));//存储
         return doc;
     }
 

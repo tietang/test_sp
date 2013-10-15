@@ -66,7 +66,7 @@ public class Refresh extends PhotoVisit {
 
     @Override
     public String toString() {
-        return "Refresh [updateAt=" + updateAt + ", idPhoto=" + idPhoto + ", category=" + category
+        return "Refresh [updatedAt=" + updateAt + ", idPhoto=" + idPhoto + ", category=" + category
                 + ", title=" + title + ", idUser=" + idUser + ", niceName=" + niceName + "]";
     }
 

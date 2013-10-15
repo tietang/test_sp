@@ -66,7 +66,7 @@ public class Choice extends PhotoVisit {
 
     @Override
     public String toString() {
-        return "Choice [updateAt=" + updateAt + ", idPhoto=" + idPhoto + ", category=" + category
+        return "Choice [updatedAt=" + updateAt + ", idPhoto=" + idPhoto + ", category=" + category
                 + ", title=" + title + ", idUser=" + idUser + ", niceName=" + niceName + "]";
     }
 

@@ -68,7 +68,7 @@ public class PhotoVisit extends PhotoShow {
 
     @Override
     public String toString() {
-        return "Refresh [idPhoto=" + idPhoto + ", idUser=" + idUser + ", updateAt=" + updateAt
+        return "Refresh [idPhoto=" + idPhoto + ", idUser=" + idUser + ", updatedAt=" + updateAt
                 + "]";
     }
 

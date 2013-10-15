@@ -68,7 +68,7 @@ public class YourPhoto extends PhotoShow {
 
     @Override
     public String toString() {
-        return "YourPhoto [idPhoto=" + idPhoto + ", idUser=" + idUser + ", updateAt=" + updateAt
+        return "YourPhoto [idPhoto=" + idPhoto + ", idUser=" + idUser + ", updatedAt=" + updateAt
                 + "]";
     }
 

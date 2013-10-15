@@ -93,7 +93,7 @@ public class Favorite extends PhotoShow{
     public String toString() {
         return "Favorite [id=" + id + ", idPhoto=" + idPhoto + ", category=" + category
                 + ", title=" + title + ", idUser=" + idUser + ", username=" + niceName
-                + ", updateAt=" + updateAt + ", cancel=" + cancel + ", ip=" + ip
+                + ", updatedAt=" + updateAt + ", cancel=" + cancel + ", ip=" + ip
                 + ", accessIdUser=" + accessIdUser + "]";
     }
 

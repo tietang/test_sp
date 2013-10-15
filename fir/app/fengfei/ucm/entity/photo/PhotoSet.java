@@ -11,6 +11,6 @@ public class PhotoSet {
     @Override
     public String toString() {
         return "PhotoSet [idSet=" + idSet + ", name=" + name + ", idUser=" + idUser
-                + ", createAt=" + createAt + ", updateAt=" + updateAt + "]";
+                + ", createdAt=" + createAt + ", updatedAt=" + updateAt + "]";
     }
 }

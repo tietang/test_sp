@@ -172,7 +172,7 @@ public class PhotoAccess extends PhotoShow{
 
     @Override
     public String toString() {
-        return "Vote [idPhoto=" + idPhoto + ", idUser=" + idUser + ", updateAt=" + updateAt
+        return "Vote [idPhoto=" + idPhoto + ", idUser=" + idUser + ", updatedAt=" + updateAt
                 + ", cancel=" + cancel + "]";
     }
 
