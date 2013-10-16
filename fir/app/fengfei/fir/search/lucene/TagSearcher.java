@@ -20,12 +20,15 @@ import java.util.regex.PatternSyntaxException;
 /**
  */
 public class TagSearcher extends TagBase {
-    private final static String Fields[] = new String[]{TagFields.Title, TagFields.Exif, TagFields.Description};
+    private final static String Fields[] = new String[]{TagFields.Content};
     private IndexReader reader;
+
+    private IndexSearcher searcher;
 
     public TagSearcher(String dir) {
         try {
             reader = createIndexReader(dir);
+            searcher = new IndexSearcher(reader);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -71,6 +74,38 @@ public class TagSearcher extends TagBase {
         } else {
             return searcher.searchAfter(after, query, 10);
         }
+    }
+
+    public TopDocs search(
+            ScoreDoc after,
+            int pageSize,
+            int currentPage,
+            String... keywords) throws ParseException, IOException {
+        //将关键字中的特殊符号过滤
+        String[] fields=new String[keywords.length];
+        if (null != keywords && keywords.length > 0) {
+            String[] tmp = new String[keywords.length];
+            for (int i = 0; i < keywords.length; i++) {
+                tmp[i] = stringFilter(keywords[i]);
+                fields[i]=TagFields.Content;
+            }
+            keywords = tmp;
+        }
+
+//        IndexSearcher searcher = new IndexSearcher(reader);
+        Analyzer analyzer = getAnalyzer();
+
+        Query query = MultiFieldQueryParser.parse(Version.LUCENE_45, keywords, fields, analyzer);
+        //5.根据searcher搜索并且返回TopDocs
+        if (currentPage <= 1) {
+            return searcher.search(query, pageSize);
+        } else {
+            return searcher.searchAfter(after, query, 10);
+        }
+    }
+
+    public IndexSearcher getSearcher() {
+        return searcher;
     }
 
     public static void main(String[] args) {

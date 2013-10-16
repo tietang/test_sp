@@ -5,8 +5,7 @@ import org.apache.lucene.document.*;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.Term;
-import org.apache.lucene.search.Query;
-import org.apache.lucene.search.TermQuery;
+import org.apache.lucene.search.*;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
@@ -65,7 +64,7 @@ public class TagIndexCreator extends TagBase {
     /**
      * 添加的方法
      */
-    public void add(Photo photo) throws IOException {
+    public void add(Photo photo) throws Exception {
         try {
             Document doc = toDocument(photo);
             writer.addDocument(doc);//添加进写入流里
@@ -74,10 +73,6 @@ public class TagIndexCreator extends TagBase {
         } catch (Exception e) {
             e.printStackTrace();
             writer.rollback();
-        } finally {
-            if (writer != null) {
-                writer.close();//关闭流
-            }
         }
     }
 
@@ -85,11 +80,10 @@ public class TagIndexCreator extends TagBase {
         Document doc = new Document();
         String title = AnalyzerUtils.toCommaString(photo.title);
         String desc = AnalyzerUtils.toCommaString(photo.description);
+        StringBuilder sb = new StringBuilder();
+        sb.append(title).append(desc).append(photo.tags).append(photo.exifToCSV());
         doc.add(new StringField(TagFields.ID, String.valueOf(photo.idPhoto), Field.Store.YES));
-        doc.add(new TextField(TagFields.Title, title, Field.Store.YES));//存储
-        doc.add(new TextField(TagFields.Description, desc, Field.Store.YES));//存储
-        doc.add(new TextField(TagFields.Exif, photo.exifToCSV(), Field.Store.YES));//存储
-        doc.add(new TextField(TagFields.Tag, photo.tags, Field.Store.YES));//存储
+        doc.add(new TextField(TagFields.Content, sb.toString(), Field.Store.YES));//存储
         doc.add(new NumericDocValuesField(TagFields.At, photo.updatedAt));//存储
         return doc;
     }
@@ -113,8 +107,6 @@ public class TagIndexCreator extends TagBase {
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            writer.close();//关闭
         }
 
     }
@@ -129,19 +121,24 @@ public class TagIndexCreator extends TagBase {
             writer.commit();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            writer.close();//关闭
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        TagIndexCreator creator = new TagIndexCreator("/opt/lucene/index");
+    public static void main(String[] args) throws Exception {
+        String dir = "/opt/lucene/index";
+        TagIndexCreator creator = new TagIndexCreator(dir);
         for (int i = 0; i < 5; i++) {
             Photo photo = new Photo();
             photo.idPhoto = i;
-            photo.title = "贡嘎" + i;
+            if (i % 2 == 0) {
+                photo.title = "贡嘎" + i;
+                photo.tags = "风景";
+
+            } else {
+                photo.tags = "贡嘎,丽江,四川" ;
+                photo.title = "风景";
+            }
             photo.description = "描述";
-            photo.tags = "风景";
             photo.make = "";
             photo.model = "";
             photo.aperture = "";
@@ -152,7 +149,23 @@ public class TagIndexCreator extends TagBase {
             photo.ev = "";
             creator.add(photo);
         }
+        creator.close();
+
+        TagSearcher searcher = new TagSearcher(dir);
+        TopDocs tds = searcher.search(null, 100, 1, "贡嘎", "风景");
+        out(tds, searcher.getSearcher());
 
     }
 
+    private static void out(TopDocs tds, IndexSearcher searcher) throws IOException {
+        System.out.println("总共有【" + tds.totalHits + "】条匹配结果");
+        //6.根据TopDocs获取ScoreDoc对象
+        ScoreDoc[] sds = tds.scoreDocs;
+        for (ScoreDoc sd : sds) {
+            //7.根据searcher和TopDocs对象获取Document对象
+            Document d = searcher.doc(sd.doc);//sd.doc:文档内部编号
+            //8.根据Document对象获取需要的值
+            System.out.println(String.format("%f  %d  %s    %s", sd.score, sd.shardIndex, d.get("id"), d.get(TagFields.Content)));
+        }
+    }
 }
