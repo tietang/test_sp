@@ -16,5 +16,6 @@ public class AppConstants {
     //
     public static String TextSplitRegex = "\n|\t|,| |  |，|#";
     public static String TextTagReSeparator = ",";
+    public static String CommaSeparator = ",";
 
 }

@@ -148,7 +148,7 @@ public class Rank extends PhotoShow {
     public String toString() {
         return "Rank [idPhoto=" + idPhoto + ", day=" + day + ", idUser=" + idUser + ", view="
                 + view + ", vote=" + vote + ", favorite=" + favorite + ", comment=" + comment
-                + ", score=" + score + ", updateAt=" + updateAt + ", maxScore=" + maxScore
+                + ", score=" + score + ", updatedAt=" + updateAt + ", maxScore=" + maxScore
                 + ", maxAt=" + maxAt + ", title=" + title + ", userName=" + niceName + ", path="
                 + path + ", sscore=" + sscore + "]";
     }

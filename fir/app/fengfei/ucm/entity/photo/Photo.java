@@ -1,12 +1,14 @@
 package fengfei.ucm.entity.photo;
 
+import fengfei.fir.model.PhotoShow;
+import fengfei.fir.utils.AppUtils;
+import fengfei.sprucy.AppConstants;
+import fengfei.ucm.entity.profile.User;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-
-import fengfei.fir.model.PhotoShow;
-import fengfei.ucm.entity.profile.User;
 
 public class Photo extends PhotoShow implements Serializable {
 
@@ -22,12 +24,12 @@ public class Photo extends PhotoShow implements Serializable {
     public byte license;
     public byte canPS;
     public String tags;
-    public int createAt;
-    public Timestamp createAtGmt;
-    public long updateAt;
+    public int createdAt;
+    public Timestamp createdAtGmt;
+    public long updatedAt;
     public byte status;
     public int commentCount;
-    public byte jiff=0;//瞬间
+    public byte jiff = 0;//瞬间
     //
     public String make;
     public String model;
@@ -65,26 +67,26 @@ public class Photo extends PhotoShow implements Serializable {
     }
 
     public Photo(
-        int idUser,
-        String title,
-        String description,
-        byte category,
-        int adult,
-        int copyright,
-        String tags,
-        int createAt,
-        Timestamp createAtGmt,
-        long updateAt,
-        int commentCount,
-        String make,
-        String model,
-        String aperture,
-        String shutter,
-        String iso,
-        String lens,
-        String focus,
-        String ev,
-        String dateTimeOriginal) {
+            int idUser,
+            String title,
+            String description,
+            byte category,
+            int adult,
+            int copyright,
+            String tags,
+            int createdAt,
+            Timestamp createdAtGmt,
+            long updatedAt,
+            int commentCount,
+            String make,
+            String model,
+            String aperture,
+            String shutter,
+            String iso,
+            String lens,
+            String focus,
+            String ev,
+            String dateTimeOriginal) {
         super();
         this.idUser = idUser;
         this.title = title;
@@ -93,9 +95,9 @@ public class Photo extends PhotoShow implements Serializable {
         this.adult = adult;
         this.copyright = copyright;
         this.tags = tags;
-        this.createAt = createAt;
-        this.createAtGmt = createAtGmt;
-        this.updateAt = updateAt;
+        this.createdAt = createdAt;
+        this.createdAtGmt = createdAtGmt;
+        this.updatedAt = updatedAt;
         this.commentCount = commentCount;
         this.make = make;
         this.model = model;
@@ -109,27 +111,27 @@ public class Photo extends PhotoShow implements Serializable {
     }
 
     public Photo(
-        long idPhoto,
-        int idUser,
-        String title,
-        String description,
-        byte category,
-        int adult,
-        int copyright,
-        String tags,
-        int createAt,
-        Timestamp createAtGmt,
-        long updateAt,
-        int commentCount,
-        String make,
-        String model,
-        String aperture,
-        String shutter,
-        String iso,
-        String lens,
-        String focus,
-        String ev,
-        String dateTimeOriginal) {
+            long idPhoto,
+            int idUser,
+            String title,
+            String description,
+            byte category,
+            int adult,
+            int copyright,
+            String tags,
+            int createdAt,
+            Timestamp createdAtGmt,
+            long updatedAt,
+            int commentCount,
+            String make,
+            String model,
+            String aperture,
+            String shutter,
+            String iso,
+            String lens,
+            String focus,
+            String ev,
+            String dateTimeOriginal) {
         super();
         this.idPhoto = idPhoto;
         this.idUser = idUser;
@@ -139,9 +141,9 @@ public class Photo extends PhotoShow implements Serializable {
         this.adult = adult;
         this.copyright = copyright;
         this.tags = tags;
-        this.createAt = createAt;
-        this.createAtGmt = createAtGmt;
-        this.updateAt = updateAt;
+        this.createdAt = createdAt;
+        this.createdAtGmt = createdAtGmt;
+        this.updatedAt = updatedAt;
         this.commentCount = commentCount;
         this.make = make;
         this.model = model;
@@ -290,28 +292,28 @@ public class Photo extends PhotoShow implements Serializable {
         this.tags = tags;
     }
 
-    public int getCreateAt() {
-        return createAt;
+    public int getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreateAt(int createAt) {
-        this.createAt = createAt;
+    public void setCreatedAt(int createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public Timestamp getCreateAtGmt() {
-        return createAtGmt;
+    public Timestamp getCreatedAtGmt() {
+        return createdAtGmt;
     }
 
-    public void setCreateAtGmt(Timestamp createAtGmt) {
-        this.createAtGmt = createAtGmt;
+    public void setCreatedAtGmt(Timestamp createdAtGmt) {
+        this.createdAtGmt = createdAtGmt;
     }
 
-    public long getUpdateAt() {
-        return updateAt;
+    public long getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdateAt(long updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdatedAt(long updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public int getCommentCount() {
@@ -328,9 +330,22 @@ public class Photo extends PhotoShow implements Serializable {
                 + ", description=" + description + ", category=" + category + ", make=" + make
                 + ", model=" + model + ", aperture=" + aperture + ", shutter=" + shutter
                 + ", iso=" + iso + ", lens=" + lens + ", focus=" + focus + ", ev=" + ev
-                + ", dateTimeOriginal=" + dateTimeOriginal + ", tags=" + tags + ", createAt="
-                + createAt + ", createAtGmt=" + createAtGmt + ", updateAt=" + updateAt
+                + ", dateTimeOriginal=" + dateTimeOriginal + ", tags=" + tags + ", createdAt="
+                + createdAt + ", createdAtGmt=" + createdAtGmt + ", updatedAt=" + updatedAt
                 + ", commentCount=" + commentCount + "]";
+    }
+
+    public String exifToCSV() {
+        StringBuilder sb = new StringBuilder();
+        if (AppUtils.isEmpty(this.make)) sb.append(this.make).append(AppConstants.CommaSeparator);
+        if (AppUtils.isEmpty(this.model)) sb.append(this.model).append(AppConstants.CommaSeparator);
+        if (AppUtils.isEmpty(this.aperture)) sb.append(this.aperture).append(AppConstants.CommaSeparator);
+        if (AppUtils.isEmpty(this.shutter)) sb.append(this.shutter).append(AppConstants.CommaSeparator);
+        if (AppUtils.isEmpty(this.iso)) sb.append(this.iso).append(AppConstants.CommaSeparator);
+        if (AppUtils.isEmpty(this.lens)) sb.append(this.lens).append(AppConstants.CommaSeparator);
+        if (AppUtils.isEmpty(this.focus)) sb.append(this.focus).append(AppConstants.CommaSeparator);
+        if (AppUtils.isEmpty(this.ev)) sb.append(this.ev).append(AppConstants.CommaSeparator);
+        return sb.toString();
     }
 
 }

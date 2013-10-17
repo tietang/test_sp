@@ -1,7 +1,7 @@
 package fengfei.fir.rank;
 
 import fengfei.fir.model.PhotoRank;
-import fengfei.fir.utils.KryoSerializer;
+import fengfei.fir.utils.Kryor;
 import fengfei.shard.redis.RedisComand;
 import fengfei.ucm.entity.photo.Rank;
 import redis.clients.jedis.Transaction;
@@ -49,10 +49,10 @@ public class ChoiceRank {
         long time = (rank.updateAt / 1000 / 60) - T2013Minute;
         Transaction ta = write.multi();
         String id = String.valueOf(rank.idPhoto);
-//        String key=formatDateKey(rankKey,rank.updateAt);
+//        String key=formatDateKey(rankKey,rank.updatedAt);
         ta.zadd(rankKey, time, id);
 
-        byte[] bs = KryoSerializer.write(PhotoRank.createPhotoRank(rank));
+        byte[] bs = Kryor.write(PhotoRank.createPhotoRank(rank));
         ta.hset(rankLastHashKey.getBytes(), id.getBytes(), bs);
         List<Object> rs = ta.exec();
         return 1;

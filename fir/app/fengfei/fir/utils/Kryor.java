@@ -1,16 +1,14 @@
 package fengfei.fir.utils;
 
-import java.io.ByteArrayOutputStream;
-
-import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
-
 import fengfei.fir.model.PhotoRank;
 
-public class KryoSerializer {
+import java.io.ByteArrayOutputStream;
 
-    static Kryo kryo = new Kryo();
+public class Kryor {
+
+    static com.esotericsoftware.kryo.Kryo kryo = new com.esotericsoftware.kryo.Kryo();
 
     public static byte[] write(Object obj) {
         ByteArrayOutputStream out = new ByteArrayOutputStream(1024);

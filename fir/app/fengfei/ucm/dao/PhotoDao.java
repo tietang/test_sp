@@ -66,7 +66,7 @@ public class PhotoDao {
 
         if (id == null || "".equals(id)) {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String createAtGmt = sdf.format(m.createAtGmt);
+            String createAtGmt = sdf.format(m.createdAtGmt);
             String insert = String.format(Insert, suffix);
 
             int up = grower.update(
@@ -79,9 +79,9 @@ public class PhotoDao {
                     m.adult,
                     m.copyright, m.license, m.canPS,m.jiff,
                     m.tags,
-                    m.createAt,
+                    m.createdAt,
                     createAtGmt,
-                    m.updateAt, m.status,
+                    m.updatedAt, m.status,
                     0,
                     m.dateTimeOriginal,
                     m.make,
@@ -104,10 +104,10 @@ public class PhotoDao {
                     m.GPSAltitude,
                     m.GPSOrigin,
                     m.iip);
-            Refresh refresh = new Refresh(m.idPhoto, m.title, m.idUser, userName, m.createAt);
+            Refresh refresh = new Refresh(m.idPhoto, m.title, m.idUser, userName, m.createdAt);
             refresh.category = m.category;
             int updated = PhotoExtDao.addRefresh(grower, suffix, refresh);
-            Rank rank = new Rank(m.idPhoto, m.idUser, 0, 0, 0, 0, 0, m.createAt);
+            Rank rank = new Rank(m.idPhoto, m.idUser, 0, 0, 0, 0, 0, m.createdAt);
             rank.title = m.title;
             rank.niceName = userName;
             RankDao.addRank(grower, suffix, rank);
@@ -145,7 +145,7 @@ public class PhotoDao {
                     m.adult,
                     m.copyright, m.license, m.canPS,m.jiff,
                     m.tags,
-                    m.updateAt, m.status,
+                    m.updatedAt, m.status,
                     m.idPhoto,
                     m.idUser);
             u = new InsertResultSet<Long>(updated, null);
@@ -186,7 +186,7 @@ public class PhotoDao {
                 m.adult,
                 m.copyright, m.license, m.canPS,m.jiff,
                 m.tags,
-                m.updateAt,
+                m.updatedAt,
                 m.idPhoto,
                 m.idUser);
         return updated;
@@ -207,7 +207,7 @@ public class PhotoDao {
 
         if (id == null || "".equals(id)) {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String createAtGmt = sdf.format(m.createAtGmt);
+            String createAtGmt = sdf.format(m.createdAtGmt);
             String insert = String.format(Insert, suffix);
             int up = grower.update(
                     insert,
@@ -219,9 +219,9 @@ public class PhotoDao {
                     m.adult,
                     m.copyright, m.license, m.canPS,m.jiff,
                     m.tags,
-                    m.createAt,
+                    m.createdAt,
                     createAtGmt,
-                    m.updateAt,
+                    m.updatedAt,
                     0,
                     m.dateTimeOriginal,
                     m.make,
@@ -278,7 +278,7 @@ public class PhotoDao {
                     m.adult,
                     m.copyright, m.license, m.canPS,m.jiff,
                     m.tags,
-                    m.updateAt,
+                    m.updatedAt,
                     m.idPhoto,
                     m.idUser);
             u = new InsertResultSet<Long>(updated, m.idPhoto);

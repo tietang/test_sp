@@ -171,7 +171,7 @@ public class StoryAction extends Admin {
 			// models.add(new PhotoModel(idUser, title[i], description[i],
 			// category[i], make[i], model[i], aperture[i], shutter[i],
 			// iso[i], lens[i], focus[i], ev[i], dateTimeOriginal[i],
-			// tags[i], createAt, createAtGmt, updateAt, -1));
+			// tags[i], createdAt, createdAtGmt, updatedAt, -1));
 
 		}
 

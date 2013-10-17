@@ -37,13 +37,13 @@ public class SqlSearchRespository implements SearchRespository {
                             throws SQLException {
                         suffix = "";
                         if (category == null) {
-                            return PhotoTagDao.findPhotoIds(grower, suffix, qstr, offset, limit);
+                            return PhotoTagDao.findPhotoIds(grower, suffix, qstr, true, offset, limit);
                         } else {
                             return PhotoTagDao.findPhotoIds(
                                     grower,
                                     suffix,
                                     qstr,
-                                    category,
+                                    category, true,
                                     offset,
                                     limit);
                         }
