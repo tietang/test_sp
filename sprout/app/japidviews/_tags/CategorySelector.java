@@ -98,7 +98,7 @@ Set sets = kv.entrySet();// line 4, japidviews\_tags\CategorySelector.html
 		p("</h3>\n" + 
 "    <ul>\n");// line 11, japidviews\_tags\CategorySelector.html
 		    for(Object item:values){// line 13, japidviews\_tags\CategorySelector.html
-        Entry entry=(Entry)obj;// line 14, japidviews\_tags\CategorySelector.html
+       Entry entry=(Entry)item;// line 14, japidviews\_tags\CategorySelector.html
        Byte key=(Byte)entry.getKey();// line 15, japidviews\_tags\CategorySelector.html
        Object value=entry.getValue();// line 16, japidviews\_tags\CategorySelector.html
        if(key<0){// line 17, japidviews\_tags\CategorySelector.html

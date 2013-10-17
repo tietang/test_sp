@@ -11,7 +11,7 @@
     <h3 style="width:80px;float:left;text-align:right;">${title}</h3>
     <ul>
 `    for(Object item:values){
-`        Entry entry=(Entry)obj;
+`       Entry entry=(Entry)item;
 `       Byte key=(Byte)entry.getKey();
 `       Object value=entry.getValue();
 `       if(key<0){
