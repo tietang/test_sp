@@ -21,24 +21,39 @@ import java.util.regex.PatternSyntaxException;
  */
 public class TagSearcher extends TagBase {
     private final static String Fields[] = new String[]{TagFields.Content};
-    private IndexReader reader;
-
-    private IndexSearcher searcher;
+    private static IndexReader reader;
+    private FSDirectory directory;
 
     public TagSearcher(String dir) {
         try {
             reader = createIndexReader(dir);
-            searcher = new IndexSearcher(reader);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    public IndexSearcher getSearcher() throws IOException {
+
+        if (reader == null) {
+            reader = DirectoryReader.open(directory);
+        } else {
+            IndexReader tr = DirectoryReader.openIfChanged((DirectoryReader) reader);
+            if (tr != null) {
+                reader.close();
+                reader = tr;
+            }
+        }
+        return new IndexSearcher(reader);
+
+
+    }
+
+
     private IndexReader createIndexReader(String dir)
             throws Exception {
 
-        FSDirectory directory = FSDirectory.open(getIndexFile(dir));
-        IndexReader reader = DirectoryReader.open(directory);
+        directory = FSDirectory.open(getIndexFile(dir));
+        reader = DirectoryReader.open(directory);
         return reader;
     }
 
@@ -50,31 +65,6 @@ public class TagSearcher extends TagBase {
         return m.replaceAll("").trim();
     }
 
-    public TopDocs search(boolean isHighlighter,
-                          ScoreDoc after,
-                          int pageSize,
-                          int currentPage,
-                          String... keywords) throws ParseException, IOException {
-        //将关键字中的特殊符号过滤
-        if (null != keywords && keywords.length > 0) {
-            String[] tmp = new String[keywords.length];
-            for (int i = 0; i < keywords.length; i++) {
-                tmp[i] = stringFilter(keywords[i]);
-            }
-            keywords = tmp;
-        }
-
-        IndexSearcher searcher = new IndexSearcher(reader);
-        Analyzer analyzer = getAnalyzer();
-
-        Query query = MultiFieldQueryParser.parse(Version.LUCENE_45, keywords, Fields, analyzer);
-        //5.根据searcher搜索并且返回TopDocs
-        if (currentPage <= 1) {
-            return searcher.search(query, pageSize);
-        } else {
-            return searcher.searchAfter(after, query, 10);
-        }
-    }
 
     public TopDocs search(
             ScoreDoc after,
@@ -82,31 +72,27 @@ public class TagSearcher extends TagBase {
             int currentPage,
             String... keywords) throws ParseException, IOException {
         //将关键字中的特殊符号过滤
-        String[] fields=new String[keywords.length];
+        String[] fields = new String[keywords.length];
         if (null != keywords && keywords.length > 0) {
             String[] tmp = new String[keywords.length];
             for (int i = 0; i < keywords.length; i++) {
                 tmp[i] = stringFilter(keywords[i]);
-                fields[i]=TagFields.Content;
+                fields[i] = TagFields.Content;
             }
             keywords = tmp;
         }
 
-//        IndexSearcher searcher = new IndexSearcher(reader);
         Analyzer analyzer = getAnalyzer();
 
         Query query = MultiFieldQueryParser.parse(Version.LUCENE_45, keywords, fields, analyzer);
         //5.根据searcher搜索并且返回TopDocs
         if (currentPage <= 1) {
-            return searcher.search(query, pageSize);
+            return getSearcher().search(query, pageSize);
         } else {
-            return searcher.searchAfter(after, query, 10);
+            return getSearcher().searchAfter(after, query, 10);
         }
     }
 
-    public IndexSearcher getSearcher() {
-        return searcher;
-    }
 
     public static void main(String[] args) {
 

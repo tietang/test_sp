@@ -26,6 +26,7 @@ require:
     - commons-beanutils -> commons-beanutils 1.8.3 
     - com.google.guava -> guava 14.0.1
     - org.imgscalr -> imgscalr-lib 4.2
+    - com.googlecode.xmemcached -> xmemcached 1.4.2
     - com.ibm.icu -> icu4j 49.1
     - org.apache.lucene -> lucene-core 4.5.0
     - org.apache.lucene -> lucene-analyzers-common 4.5.0

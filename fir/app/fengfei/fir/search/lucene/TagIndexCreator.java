@@ -83,7 +83,9 @@ public class TagIndexCreator extends TagBase {
         StringBuilder sb = new StringBuilder();
         sb.append(title).append(desc).append(photo.tags).append(photo.exifToCSV());
         doc.add(new StringField(TagFields.ID, String.valueOf(photo.idPhoto), Field.Store.YES));
-        doc.add(new TextField(TagFields.Content, sb.toString(), Field.Store.YES));//存储
+        doc.add(new TextField(TagFields.Content, sb.toString(), Field.Store.NO));//存储
+        doc.add(new StringField(TagFields.UserIdAndNiceName, photo.idUser + "#" + photo.niceName, Field.Store.YES));//存储
+        doc.add(new StringField(TagFields.Title, photo.title, Field.Store.YES));//存储
         doc.add(new NumericDocValuesField(TagFields.At, photo.updatedAt));//存储
         return doc;
     }
@@ -135,7 +137,7 @@ public class TagIndexCreator extends TagBase {
                 photo.tags = "风景";
 
             } else {
-                photo.tags = "贡嘎,丽江,四川" ;
+                photo.tags = "贡嘎,丽江,四川";
                 photo.title = "风景";
             }
             photo.description = "描述";

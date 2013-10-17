@@ -1,23 +1,14 @@
 package fengfei.fir.rank;
 
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.nio.ByteBuffer;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
 
+import fengfei.fir.utils.Kryor;
 import redis.clients.jedis.Transaction;
 import redis.clients.jedis.Tuple;
 
-import com.esotericsoftware.kryo.Kryo;
-import com.esotericsoftware.kryo.io.ByteBufferOutputStream;
-import com.esotericsoftware.kryo.io.Input;
-import com.esotericsoftware.kryo.io.Output;
-
 import fengfei.fir.model.PhotoRank;
-import fengfei.fir.utils.KryoSerializer;
 import fengfei.shard.redis.RedisComand;
 import fengfei.ucm.entity.photo.Rank;
 
@@ -57,7 +48,7 @@ public class LastRank {
         String id = String.valueOf(rank.idPhoto);
         ta.zadd(rankLastKey, time, id);
 
-        byte[] bs = KryoSerializer.write(PhotoRank.createPhotoRank(rank));
+        byte[] bs = Kryor.write(PhotoRank.createPhotoRank(rank));
         // ta.hset(rankLastHashKey, id, rank);
         List<Object> rs = ta.exec();
         return 1;
