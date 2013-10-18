@@ -10,7 +10,6 @@ import java.util.List;
 /**
  */
 public class LucenePhotoTagRepository implements PhotoTagRepository {
-    static TagIndexCreator creator = TagIndexCreator.get();
 
     @Override
     public int[] saveTags(Photo photo, String[] oldTags, String[] newTags) throws Exception {

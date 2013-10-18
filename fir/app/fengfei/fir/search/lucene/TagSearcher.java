@@ -1,15 +1,11 @@
 package fengfei.fir.search.lucene;
 
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.index.DirectoryReader;
-import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
 import org.apache.lucene.queryparser.classic.ParseException;
-import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
-import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 
 import java.io.IOException;
@@ -21,40 +17,12 @@ import java.util.regex.PatternSyntaxException;
  */
 public class TagSearcher extends TagBase {
     private final static String Fields[] = new String[]{TagFields.Content};
-    private static IndexReader reader;
-    private FSDirectory directory;
 
-    public TagSearcher(String dir) {
-        try {
-            reader = createIndexReader(dir);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public IndexSearcher getSearcher() throws IOException {
-
-        if (reader == null) {
-            reader = DirectoryReader.open(directory);
-        } else {
-            IndexReader tr = DirectoryReader.openIfChanged((DirectoryReader) reader);
-            if (tr != null) {
-                reader.close();
-                reader = tr;
-            }
-        }
-        return new IndexSearcher(reader);
+    LuceneFactory factory;
 
 
-    }
-
-
-    private IndexReader createIndexReader(String dir)
-            throws Exception {
-
-        directory = FSDirectory.open(getIndexFile(dir));
-        reader = DirectoryReader.open(directory);
-        return reader;
+    public TagSearcher(LuceneFactory factory) {
+        this.factory = factory;
     }
 
 
@@ -87,9 +55,9 @@ public class TagSearcher extends TagBase {
         Query query = MultiFieldQueryParser.parse(Version.LUCENE_45, keywords, fields, analyzer);
         //5.根据searcher搜索并且返回TopDocs
         if (currentPage <= 1) {
-            return getSearcher().search(query, pageSize);
+            return this.factory.getSearcher().search(query, pageSize);
         } else {
-            return getSearcher().searchAfter(after, query, 10);
+            return this.factory.getSearcher().searchAfter(after, query, 10);
         }
     }
 

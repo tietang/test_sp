@@ -1,5 +1,6 @@
 package fengfei.ucm.repository.impl;
 
+import fengfei.fir.queue.PhotoQueue;
 import fengfei.fir.rank.LastRank;
 import fengfei.fir.rank.RankUtils;
 import fengfei.fir.utils.AppUtils;
@@ -70,7 +71,11 @@ public class SqlPhotoRepository implements PhotoRepository {
             }
         };
 
-        return Transactions.execute(PhotoUnitName, new Long(m.idPhoto), Function.Write, callback);
+        InsertResultSet<Long> updated = Transactions.execute(PhotoUnitName, new Long(m.idPhoto), Function.Write, callback);
+        if (updated.autoPk != null && updated.autoPk > 0) {
+            PhotoQueue.add(m);
+        }
+        return updated;
 
     }
 
@@ -90,7 +95,14 @@ public class SqlPhotoRepository implements PhotoRepository {
             }
         };
 
-        return Transactions.execute(PhotoUnitName, new Long(idUser), Function.Write, callback);
+        boolean deleted = Transactions.execute(PhotoUnitName, new Long(idUser), Function.Write, callback);
+        if (deleted) {
+            Photo photo = new Photo();
+            photo.idPhoto = idPhoto;
+            photo.idUser = idUser;
+            PhotoQueue.delete(photo);
+        }
+        return deleted;
 
     }
 
@@ -140,8 +152,11 @@ public class SqlPhotoRepository implements PhotoRepository {
                 return u;
             }
         };
-        return Transactions.execute(PhotoUnitName, new Long(m.idPhoto), Function.Write, callback);
-
+        int updated = Transactions.execute(PhotoUnitName, new Long(m.idPhoto), Function.Write, callback);
+        if (updated > 0) {
+            PhotoQueue.update(m);
+        }
+        return updated;
     }
 
     @Override

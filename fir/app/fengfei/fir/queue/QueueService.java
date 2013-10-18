@@ -2,12 +2,12 @@ package fengfei.fir.queue;
 
 /**
  */
-public interface QueueService<T> {
+public interface QueueService {
     void start() throws Exception;
 
-    void add(T item);
+    <T> void add(QueueMessage<T> item);
 
-    T getOne(Class<T> clazz);
+    <T> QueueMessage<T> poll();
 
     void close();
 
