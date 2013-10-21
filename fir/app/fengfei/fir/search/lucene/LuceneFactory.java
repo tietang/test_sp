@@ -17,7 +17,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  */
-public class LuceneFactory extends TagBase {
+public class LuceneFactory extends BaseLucene {
     private static Map<String, LuceneFactory> luceneFactoryMap = new ConcurrentHashMap<>();
     private String dir;
     private Directory directory;

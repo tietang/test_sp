@@ -8,7 +8,7 @@ import java.io.File;
 
 /**
  */
-public abstract class TagBase {
+public abstract class BaseLucene {
 
     protected Analyzer getAnalyzer() {
         Analyzer analyzer = new CommaAnalyzer(Version.LUCENE_45);

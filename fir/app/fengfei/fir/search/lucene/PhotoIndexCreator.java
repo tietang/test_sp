@@ -9,11 +9,11 @@ import java.io.IOException;
 
 /**
  */
-public class TagIndexCreator {
+public class PhotoIndexCreator {
     LuceneFactory factory;
 
 
-    public TagIndexCreator(LuceneFactory factory) {
+    public PhotoIndexCreator(LuceneFactory factory) {
         this.factory = factory;
     }
 
@@ -39,11 +39,11 @@ public class TagIndexCreator {
         String desc = AnalyzerUtils.toCommaString(photo.description);
         StringBuilder sb = new StringBuilder();
         sb.append(title).append(desc).append(photo.tags).append(photo.exifToCSV());
-        doc.add(new StringField(TagFields.ID, String.valueOf(photo.idPhoto), Field.Store.YES));
-        doc.add(new TextField(TagFields.Content, sb.toString(), Field.Store.NO));//存储
-        doc.add(new StringField(TagFields.UserIdAndNiceName, photo.idUser + "#" + photo.niceName, Field.Store.YES));//存储
-        doc.add(new StringField(TagFields.Title, photo.title, Field.Store.YES));//存储
-        doc.add(new NumericDocValuesField(TagFields.At, photo.updatedAt));//存储
+        doc.add(new StringField(PhotoFields.ID, String.valueOf(photo.idPhoto), Field.Store.YES));
+        doc.add(new TextField(PhotoFields.Content, sb.toString(), Field.Store.NO));//存储
+        doc.add(new StringField(PhotoFields.UserIdAndNiceName, photo.idUser + "#" + photo.niceName, Field.Store.YES));//存储
+        doc.add(new StringField(PhotoFields.Title, photo.title, Field.Store.YES));//存储
+        doc.add(new NumericDocValuesField(PhotoFields.At, photo.updatedAt));//存储
         return doc;
     }
 
@@ -86,7 +86,7 @@ public class TagIndexCreator {
     public static void main(String[] args) throws Exception {
         String dir = "/opt/lucene/index";
         LuceneFactory luceneFactory=LuceneFactory.get(dir);
-        TagIndexCreator creator = new TagIndexCreator(luceneFactory);
+        PhotoIndexCreator creator = new PhotoIndexCreator(luceneFactory);
         for (int i = 0; i < 5; i++) {
             Photo photo = new Photo();
             photo.idPhoto = i;
@@ -111,7 +111,7 @@ public class TagIndexCreator {
         }
         creator.close();
 
-        TagSearcher searcher = new TagSearcher(luceneFactory);
+        SearcherLucene searcher = new SearcherLucene(luceneFactory);
         TopDocs tds = searcher.search(null, 100, 1, "贡嘎", "风景");
         out(tds, luceneFactory.getSearcher());
 
@@ -125,7 +125,7 @@ public class TagIndexCreator {
             //7.根据searcher和TopDocs对象获取Document对象
             Document d = searcher.doc(sd.doc);//sd.doc:文档内部编号
             //8.根据Document对象获取需要的值
-            System.out.println(String.format("%f  %d  %s    %s", sd.score, sd.shardIndex, d.get("id"), d.get(TagFields.Content)));
+            System.out.println(String.format("%f  %d  %s    %s", sd.score, sd.shardIndex, d.get("id"), d.get(PhotoFields.Content)));
         }
     }
 }

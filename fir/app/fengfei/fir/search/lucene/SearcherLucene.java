@@ -15,13 +15,13 @@ import java.util.regex.PatternSyntaxException;
 
 /**
  */
-public class TagSearcher extends TagBase {
-    private final static String Fields[] = new String[]{TagFields.Content};
+public class SearcherLucene extends BaseLucene {
+    private final static String Fields[] = new String[]{PhotoFields.Content};
 
     LuceneFactory factory;
 
 
-    public TagSearcher(LuceneFactory factory) {
+    public SearcherLucene(LuceneFactory factory) {
         this.factory = factory;
     }
 
@@ -45,7 +45,7 @@ public class TagSearcher extends TagBase {
             String[] tmp = new String[keywords.length];
             for (int i = 0; i < keywords.length; i++) {
                 tmp[i] = stringFilter(keywords[i]);
-                fields[i] = TagFields.Content;
+                fields[i] = PhotoFields.Content;
             }
             keywords = tmp;
         }
