@@ -45,19 +45,15 @@ public class LuceneFactory extends BaseLucene {
         try {
             this.dir = dir;
             directory = FSDirectory.open(getIndexFile(dir));
-            reader = createIndexReader();
-            writer = createIndexWriter();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public IndexWriter getWriter() {
-        return writer;
-    }
 
-    private IndexWriter createIndexWriter()
-            throws Exception {
+    public IndexWriter createIndexWriter()
+            throws IOException {
         /*
          */
         IndexWriterConfig conf = new IndexWriterConfig(Version.LUCENE_45,
@@ -78,7 +74,7 @@ public class LuceneFactory extends BaseLucene {
     public IndexSearcher getSearcher() throws IOException {
 
         if (reader == null) {
-            reader = DirectoryReader.open(directory);
+            reader = createIndexReader();
         } else {
             IndexReader tr = DirectoryReader.openIfChanged((DirectoryReader) reader);
             if (tr != null) {
@@ -94,7 +90,7 @@ public class LuceneFactory extends BaseLucene {
 
 
     private IndexReader createIndexReader()
-            throws Exception {
+            throws IOException {
         reader = DirectoryReader.open(directory);
         return reader;
     }

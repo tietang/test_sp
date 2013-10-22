@@ -2,38 +2,23 @@ package fengfei.fir.search.lucene;
 
 import fengfei.ucm.entity.photo.Photo;
 import org.apache.lucene.document.*;
-import org.apache.lucene.index.Term;
-import org.apache.lucene.search.*;
+import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.ScoreDoc;
+import org.apache.lucene.search.TopDocs;
 
 import java.io.IOException;
 
 /**
  */
-public class PhotoIndexCreator {
-    LuceneFactory factory;
+public class PhotoIndexCreator extends IndexCreator<Photo> {
 
 
     public PhotoIndexCreator(LuceneFactory factory) {
-        this.factory = factory;
+        super(factory);
     }
 
 
-    /**
-     * 添加的方法
-     */
-    public void add(Photo photo) throws Exception {
-        try {
-            Document doc = toDocument(photo);
-            this.factory.getWriter().addDocument(doc);//添加进写入流里
-            this.factory.getWriter().forceMerge(1);//优化压缩段,大规模添加数据的时候建议，少使用本方法，会影响性能
-            this.factory.getWriter().commit();//提交数据
-        } catch (Exception e) {
-            e.printStackTrace();
-            this.factory.getWriter().rollback();
-        }
-    }
-
-    protected Document toDocument(Photo photo) throws Exception {
+    protected Document toDocument(Photo photo) throws IOException {
         Document doc = new Document();
         String title = AnalyzerUtils.toCommaString(photo.title);
         String desc = AnalyzerUtils.toCommaString(photo.description);
@@ -47,46 +32,16 @@ public class PhotoIndexCreator {
         return doc;
     }
 
-    public void close() throws IOException {
-        this.factory.getWriter().close();
-    }
 
-    /**
-     * 删除方法
-     *
-     * @param id 根据ID删除
-     */
-    public void delete(String id) throws IOException {
-        try {
-
-            Query q = new TermQuery(new Term("id", id));
-            this.factory.getWriter().deleteDocuments(q);//删除指定ID的Document
-            // this.factory.getWriter().forceMerge(DEFAULT_MAX_NUM_SEGMENTS);
-            this.factory.getWriter().commit();//提交
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    /**
-     * 根据ID进行更行的方法
-     */
-    public void updateByID(Photo photo) throws IOException {
-        try {
-            Document doc = toDocument(photo);
-            this.factory.getWriter().updateDocument(new Term("id", String.valueOf(photo.idPhoto)), doc);
-            this.factory.getWriter().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    @Override
+    protected String getEntityId(Photo obj) {
+        return String.valueOf(obj.idPhoto);
     }
 
     public static void main(String[] args) throws Exception {
-        String dir = "/opt/lucene/index";
-        LuceneFactory luceneFactory=LuceneFactory.get(dir);
-        PhotoIndexCreator creator = new PhotoIndexCreator(luceneFactory);
+        String dir = "/opt/lucene/index/photo";
+        LuceneFactory luceneFactory = LuceneFactory.get(dir);
+        PhotoIndexCreator creator = new PhotoIndexCreator(luceneFactory);creator.begin();
         for (int i = 0; i < 5; i++) {
             Photo photo = new Photo();
             photo.idPhoto = i;
@@ -109,9 +64,9 @@ public class PhotoIndexCreator {
             photo.ev = "";
             creator.add(photo);
         }
-        creator.close();
+        creator.end();
 
-        SearcherLucene searcher = new SearcherLucene(luceneFactory);
+        Searcher searcher = new Searcher(luceneFactory);
         TopDocs tds = searcher.search(null, 100, 1, "贡嘎", "风景");
         out(tds, luceneFactory.getSearcher());
 

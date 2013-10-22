@@ -4,99 +4,89 @@ import fengfei.sprucy.AppConstants;
 import fengfei.ucm.entity.profile.User;
 import fengfei.ucm.entity.profile.UserPwd;
 import org.apache.lucene.document.*;
-import org.apache.lucene.index.Term;
-import org.apache.lucene.search.*;
+import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.ScoreDoc;
+import org.apache.lucene.search.TopDocs;
 
 import java.io.IOException;
 
 /**
  */
-public class UserIndexCreator {
-    LuceneFactory factory;
+public class UserIndexCreator extends IndexCreator<UserPwd> {
 
 
     public UserIndexCreator(LuceneFactory factory) {
-        this.factory = factory;
+        super(factory);
     }
 
-
-    /**
-     * 添加的方法
-     */
-    public void add(UserPwd user) throws Exception {
-        try {
-            Document doc = toDocument(user);
-            this.factory.getWriter().addDocument(doc);//添加进写入流里
-            this.factory.getWriter().forceMerge(1);//优化压缩段,大规模添加数据的时候建议，少使用本方法，会影响性能
-            this.factory.getWriter().commit();//提交数据
-        } catch (Exception e) {
-            e.printStackTrace();
-            this.factory.getWriter().rollback();
-        }
-    }
-
-    protected Document toDocument(UserPwd user) throws Exception {
+    @Override
+    protected Document toDocument(UserPwd user) throws IOException {
         Document doc = new Document();
 
         String content = toContent(user);
         doc.add(new StringField(UserFields.ID, String.valueOf(user.idUser), Field.Store.YES));
-        doc.add(new TextField(UserFields.Content, content, Field.Store.YES));//存储
+//        doc.add(new StringField(UserFields.Name, String.valueOf(user.idUser), Field.Store.YES));
+        doc.add(new TextField(UserFields.Content, content, Field.Store.NO));//存储
         doc.add(new NumericDocValuesField(UserFields.At, user.createAt));//存储
         return doc;
     }
 
     private String toContent(UserPwd user) {
         StringBuilder sb = new StringBuilder();
-        sb.append(user.userName).append(AppConstants.CommaSeparator)
-                .append(user.email).append(AppConstants.CommaSeparator);
+        split(sb, user.userName);
+        split(sb, user.email);
         if (user instanceof User) {
             User u = (User) user;
-            if (u.getNiceName() != null) sb.append(u.getNiceName()).append(AppConstants.CommaSeparator);
-            if (u.getRealName() != null) sb.append(u.getRealName()).append(AppConstants.CommaSeparator);
+            if (u.getNiceName() != null) split(sb,u.niceName);
+            if (u.getRealName() != null) split(sb, u.realName);
 //            sb.append(((User) user).getGender())
 
 
         }
         return sb.toString();
-
     }
 
-    public void close() throws IOException {
-        this.factory.getWriter().close();
-    }
-
-    /**
-     * 删除方法
-     *
-     * @param id 根据ID删除
-     */
-    public void delete(String id) throws IOException {
-        try {
-
-            Query q = new TermQuery(new Term("id", id));
-            this.factory.getWriter().deleteDocuments(q);//删除指定ID的Document
-            // this.factory.getWriter().forceMerge(DEFAULT_MAX_NUM_SEGMENTS);
-            this.factory.getWriter().commit();//提交
-
-        } catch (Exception e) {
-            e.printStackTrace();
+    private void split(StringBuilder sb, String email) {
+        if (email == null || "".equals(email)) return;
+        String[] s = email.split("@|.|_| |-");
+        for (String s1 : s) {
+            if (!"".equals(s1)) {
+                sb.append(s1).append(AppConstants.CommaSeparator);
+            }
         }
 
     }
 
-    /**
-     * 根据ID进行更行的方法
-     */
-    public void updateByID(UserPwd user) throws IOException {
-        try {
-            Document doc = toDocument(user);
-            this.factory.getWriter().updateDocument(new Term("id", String.valueOf(user.idUser)), doc);
-            this.factory.getWriter().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    @Override
+    protected String getEntityId(UserPwd obj) {
+        return String.valueOf(obj.idUser);
     }
 
+    public static void main(String[] args) throws Exception {
+        String dir = "/opt/lucene/index/user";
+        LuceneFactory luceneFactory = LuceneFactory.get(dir);
+        UserIndexCreator creator = new UserIndexCreator(luceneFactory);
+        creator.begin();
+        for (int i = 0; i < 5; i++) {
+            User user = new User();
+            long current = System.currentTimeMillis();
+            user.idUser = i;
+
+            user.userName = "user_name";
+            user.niceName = "nice name";
+            user.realName = "real name last";
+            user.createAt = (int) (current / 1000);
+            user.updateAt = current;
+            user.gender = i % 2 == 0 ? 1 : 2;
+            creator.add(user);
+        }
+        creator.end();
+
+        Searcher searcher = new Searcher(luceneFactory);
+        TopDocs tds = searcher.search(null, 100, 1, "user", "nice");
+        out(tds, luceneFactory.getSearcher());
+
+    }
 
     private static void out(TopDocs tds, IndexSearcher searcher) throws IOException {
         System.out.println("总共有【" + tds.totalHits + "】条匹配结果");
