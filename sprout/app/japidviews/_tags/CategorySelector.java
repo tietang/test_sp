@@ -89,16 +89,16 @@ if(kv==null) kv=new HashMap();// line 3, japidviews\_tags\CategorySelector.html
 Set sets = kv.entrySet();// line 4, japidviews\_tags\CategorySelector.html
 		p("<section>\n");// line 4, japidviews\_tags\CategorySelector.html
 		for (Object obj : sets) {// line 6, japidviews\_tags\CategorySelector.html
-   Entry entries=(Entry)obj;// line 7, japidviews\_tags\CategorySelector.html
+    Entry entries=(Entry)obj;// line 7, japidviews\_tags\CategorySelector.html
     String title=(String)entries.getKey();// line 8, japidviews\_tags\CategorySelector.html
     Map mapValue=(Map)entries.getValue();// line 9, japidviews\_tags\CategorySelector.html
     Set values = mapValue.entrySet();// line 10, japidviews\_tags\CategorySelector.html
 		p("    <h3 style=\"width:80px;float:left;text-align:right;\">");// line 10, japidviews\_tags\CategorySelector.html
 		p(title);// line 11, japidviews\_tags\CategorySelector.html
 		p("</h3>\n" + 
-"    <ul>\n");// line 11, japidviews\_tags\CategorySelector.html
+"    <ul class=\"tag_selector\">\n");// line 11, japidviews\_tags\CategorySelector.html
 		    for(Object item:values){// line 13, japidviews\_tags\CategorySelector.html
-        Entry entry=(Entry)obj;// line 14, japidviews\_tags\CategorySelector.html
+       Entry entry=(Entry)item;// line 14, japidviews\_tags\CategorySelector.html
        Byte key=(Byte)entry.getKey();// line 15, japidviews\_tags\CategorySelector.html
        Object value=entry.getValue();// line 16, japidviews\_tags\CategorySelector.html
        if(key<0){// line 17, japidviews\_tags\CategorySelector.html
@@ -123,10 +123,7 @@ Set sets = kv.entrySet();// line 4, japidviews\_tags\CategorySelector.html
 		p("    </ul>\n" + 
 "\n");// line 27, japidviews\_tags\CategorySelector.html
 		}// line 30, japidviews\_tags\CategorySelector.html
-		p("\n" + 
-"\n" + 
-"\n" + 
-"</section>\n");// line 30, japidviews\_tags\CategorySelector.html
+		p("</section>\n");// line 30, japidviews\_tags\CategorySelector.html
 		
 		endDoLayout(sourceTemplate);
 	}

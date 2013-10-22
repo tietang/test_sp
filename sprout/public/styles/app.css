@@ -1013,3 +1013,10 @@ a.tag:focus {
 .unpicked {
     border: 2px solid #ffffff;
 }
+
+section ul.tag_selector,section ul.tag_selector li {
+    list-style: none;
+    float: left;
+    padding: 4px;
+}
+
