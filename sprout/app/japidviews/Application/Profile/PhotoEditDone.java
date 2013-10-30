@@ -1,3 +1,4 @@
+//version: 0.9.35
 package japidviews.Application.profile;
 
 //
@@ -51,7 +52,7 @@ public class PhotoEditDone extends cn.bran.play.JapidTemplateBase
 
 	public cn.bran.japid.template.RenderResult render() {
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 0, japidviews/Application/profile/PhotoEditDone.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/profile/PhotoEditDone.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -64,7 +65,9 @@ public class PhotoEditDone extends cn.bran.play.JapidTemplateBase
 //------
 p("<pre style=\"display: none\">\n" + 
 "	\n");// line 1, japidviews\Application\profile\PhotoEditDone.html
-p(" \n" + 
+
+p("\n" + 
+" \n" + 
 " \n" + 
 "</pre>\n" + 
 "<div class=\"grid_row   \">\n" + 

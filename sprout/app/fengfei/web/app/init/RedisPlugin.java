@@ -32,6 +32,7 @@ public class RedisPlugin extends PlayPlugin {
         String ployClass = p.getProperty(PloyKey, HashPlotter.class.getCanonicalName());
         try {
             Ploy ploy = (Ploy) Class.forName(ployClass).newInstance();
+            play.Logger.info("init redis shards.");
             JedisShards redis = new JedisShards(hosts, timeout, ploy, readConfig());
 
             //

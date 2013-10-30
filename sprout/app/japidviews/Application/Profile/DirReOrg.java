@@ -1,10 +1,11 @@
+//version: 0.9.35
 package japidviews.Application.profile;
+import java.util.*;
 
-import fengfei.ucm.entity.photo.PhotoSet;
+import fengfei.ucm.entity.photo.*;
 
-import java.util.List;
+import static cn.bran.play.JapidPlayAdapter.*;
 
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/DirReOrg.html
 // Change to this file will be lost next time the template file is compiled.
@@ -58,7 +59,7 @@ public class DirReOrg extends japidviews._layouts.Layout
 	public cn.bran.japid.template.RenderResult render(List<PhotoSet> photoSets) {
 		this.photoSets = photoSets;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 6, japidviews/Application/profile/DirReOrg.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 6, japidviews/Application/profile/DirReOrg.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -71,6 +72,7 @@ public class DirReOrg extends japidviews._layouts.Layout
 //------
 p("<pre style=\"display: none\">\n" + 
 "	\n");// line 1, japidviews\Application\profile\DirReOrg.html
+
 // line 7, japidviews\Application\profile\DirReOrg.html
 		p("</pre>\n" + 
 "<div class=\"grid_row dir_org\" >\n" + 
@@ -78,8 +80,10 @@ p("<pre style=\"display: none\">\n" +
 "		<ul class=\"sortable nav nav-list\">\n" + 
 "			");// line 10, japidviews\Application\profile\DirReOrg.html
 		if(photoSets!=null){// line 15, japidviews\Application\profile\DirReOrg.html
+
 			for(PhotoSet set:photoSets){// line 16, japidviews\Application\profile\DirReOrg.html
-		p("			<li class=\"setItem\" title=\"");// line 16, japidviews\Application\profile\DirReOrg.html
+		p("\n" + 
+"			<li class=\"setItem\" title=\"");// line 16, japidviews\Application\profile\DirReOrg.html
 		p(set.name);// line 17, japidviews\Application\profile\DirReOrg.html
 		p("\">\n" + 
 "				<a href=\"javascript:void(0)\"  src=\"/photo/manage/dir/");// line 17, japidviews\Application\profile\DirReOrg.html
@@ -90,8 +94,10 @@ p("<pre style=\"display: none\">\n" +
 "			</li>\n" + 
 "			");// line 18, japidviews\Application\profile\DirReOrg.html
 		}// line 20, japidviews\Application\profile\DirReOrg.html
+
 			}// line 21, japidviews\Application\profile\DirReOrg.html
 		p("\n" + 
+"\n" + 
 "		</ul>\n" + 
 "	</div>\n" + 
 "	<div class=\"col col_6 \">\n" + 

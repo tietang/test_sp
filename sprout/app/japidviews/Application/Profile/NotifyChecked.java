@@ -1,3 +1,4 @@
+//version: 0.9.35
 package japidviews.Application.profile;
 
 //
@@ -55,7 +56,7 @@ public class NotifyChecked extends cn.bran.play.JapidTemplateBase
 		this.checks = checks;
 		this.index = index;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 2, japidviews/Application/profile/NotifyChecked.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 2, japidviews/Application/profile/NotifyChecked.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 

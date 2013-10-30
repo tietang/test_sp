@@ -6,6 +6,7 @@ import fengfei.fir.search.lucene.PhotoIndexCreator;
 import fengfei.fir.search.lucene.Searcher;
 import fengfei.fir.search.lucene.UserIndexCreator;
 import fengfei.fir.utils.PausableLock;
+import play.Logger;
 import play.Play;
 import play.PlayPlugin;
 
@@ -33,6 +34,7 @@ public class SearchPlugin extends PlayPlugin {
         int corePoolSize = userConsumerSize + photoConsumerSize;
         int maximumPoolSize = corePoolSize * new Float(1 + increment).intValue();
         long keepAliveTime = Long.parseLong(keepAliveTimeStr);
+        Logger.info("starting queue consume...");
         ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(
                 corePoolSize,// corePoolSize
                 maximumPoolSize,// maximumPoolSize
@@ -48,7 +50,7 @@ public class SearchPlugin extends PlayPlugin {
         LuceneFactory photoLuceneFactory = LuceneFactory.get(lucenePhotoPath);
         PhotoIndexCreator photoIndexCreator = new PhotoIndexCreator(photoLuceneFactory);
         PhotoQueueConsumer photoQueueConsumer = new PhotoQueueConsumer(photoQueueService, photoPausableLock, photoIndexCreator);
-
+        Logger.info("starting photoQueueConsumer.");
         for (int i = 0; i < photoConsumerSize; i++) {
             poolExecutor.execute(photoQueueConsumer);
         }
@@ -64,12 +66,15 @@ public class SearchPlugin extends PlayPlugin {
         LuceneFactory userLuceneFactory = LuceneFactory.get(luceneUserPath);
         UserIndexCreator userIndexCreator = new UserIndexCreator(userLuceneFactory);
         UserQueueConsumer userQueueConsumer = new UserQueueConsumer(userQueueService, userPausableLock, userIndexCreator);
+        Logger.info("starting photoQueueConsumer.");
         for (int i = 0; i < userConsumerSize; i++) {
             poolExecutor.execute(userQueueConsumer);
         }
 
         //
+        Logger.info("Init user searcher.");
         Searcher.userSearcher = new Searcher(userLuceneFactory);
+        Logger.info("Init photo searcher.");
         Searcher.photoSearcher = new Searcher(photoLuceneFactory);
     }
 

@@ -1,6 +1,23 @@
+//version: 0.9.35
 package japidviews.Application.photo;
-
-import static cn.bran.play.JapidPlayAdapter.getMessage;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/Add.html
 // Change to this file will be lost next time the template file is compiled.
@@ -52,7 +69,7 @@ public class Add extends japidviews._layouts.Layout
 
 	public cn.bran.japid.template.RenderResult render() {
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 0, japidviews/Application/photo/Add.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/photo/Add.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -64,7 +81,9 @@ public class Add extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\photo\Add.html
+
 p("\n" + 
+"\n" + 
 "<div class=\"grid_row\">\n" + 
 "\n" + 
 "	<div class=\"col photo_col width_4\">\n" + 
@@ -72,28 +91,32 @@ p("\n" +
 "		<div class=\"photo_preview photo_preview_4 \">\n" + 
 "			");// line 3, japidviews\Application\photo\Add.html
 		;p(getMessage("add.upload"));// line 10, japidviews\Application\photo\Add.html
-		p("		</div></a>\n" + 
+		p("\n" + 
+"		</div></a>\n" + 
 "	</div>\n" + 
 "	<div class=\"col photo_col width_4\">\n" + 
 "		<a href=\"/story\"  >\n" + 
 "		<div class=\"photo_preview photo_preview_4 \">\n" + 
 "			");// line 10, japidviews\Application\photo\Add.html
 		;p(getMessage("add.story"));// line 16, japidviews\Application\photo\Add.html
-		p("		</div> </a>\n" + 
+		p("\n" + 
+"		</div> </a>\n" + 
 "	</div>\n" + 
 "	<div class=\"col photo_col width_4\">\n" + 
 "		<a href=\"/blink\"   >\n" + 
 "		<div class=\"photo_preview photo_preview_4 \">\n" + 
 "			");// line 16, japidviews\Application\photo\Add.html
 		;p(getMessage("add.blink"));// line 22, japidviews\Application\photo\Add.html
-		p("		</div> </a>\n" + 
+		p("\n" + 
+"		</div> </a>\n" + 
 "	</div>\n" + 
 "	<div class=\"col photo_col width_4\">\n" + 
 "		<a href=\"/photo/manage\"  >\n" + 
 "		<div class=\"photo_preview photo_preview_4 \">\n" + 
 "			");// line 22, japidviews\Application\photo\Add.html
 		;p(getMessage("add.manage"));// line 28, japidviews\Application\photo\Add.html
-		p("		</div> </a>\n" + 
+		p("\n" + 
+"		</div> </a>\n" + 
 "	</div>\n" + 
 "</div>");// line 28, japidviews\Application\photo\Add.html
 		

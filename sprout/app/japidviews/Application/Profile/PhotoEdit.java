@@ -1,13 +1,11 @@
+//version: 0.9.35
 package japidviews.Application.profile;
+import java.util.*;
 
-import fengfei.ucm.entity.photo.Photo;
-import fengfei.ucm.entity.photo.PhotoSet;
-import japidviews.Application.photo.UploadForm;
+import fengfei.ucm.entity.photo.*;import japidviews.Application.photo.*;
 
-import java.util.List;
+import static cn.bran.play.JapidPlayAdapter.*;
 
-import static cn.bran.play.JapidPlayAdapter.flash;
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/PhotoEdit.html
 // Change to this file will be lost next time the template file is compiled.
@@ -63,7 +61,7 @@ public class PhotoEdit extends japidviews._layouts.Layout
 		this.photo = photo;
 		this.photoSets = photoSets;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 6, japidviews/Application/profile/PhotoEdit.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 6, japidviews/Application/profile/PhotoEdit.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -76,6 +74,7 @@ public class PhotoEdit extends japidviews._layouts.Layout
 //------
 p("<pre style=\"display: none\">\n" + 
 "	\n");// line 1, japidviews\Application\profile\PhotoEdit.html
+
 // line 7, japidviews\Application\profile\PhotoEdit.html
 		p("</pre>\n" + 
 "<form id=\"photoEditForm\" action=\"/edit/done\" method=\"post\" enctype=\"multipart/form-data\"  >\n" + 
@@ -89,11 +88,14 @@ p("<pre style=\"display: none\">\n" +
 "						");// line 16, japidviews\Application\profile\PhotoEdit.html
 		final UploadForm _UploadForm1 = new UploadForm(getOut()); _UploadForm1.setActionRunners(getActionRunners()).setOut(getOut()); _UploadForm1.render(photo,photoSets); // line 26, japidviews\Application\profile\PhotoEdit.html// line 26, japidviews\Application\profile\PhotoEdit.html
 		p("\n" + 
+"\n" + 
 "						<tr>\n" + 
 "							<td colspan=\"2\">");// line 26, japidviews\Application\profile\PhotoEdit.html
 		String msg=(String)flash.get("msg");// line 29, japidviews\Application\profile\PhotoEdit.html
+
 							if( msg!=null){// line 30, japidviews\Application\profile\PhotoEdit.html
-		p("							<div class=\"alert ");// line 30, japidviews\Application\profile\PhotoEdit.html
+		p("\n" + 
+"							<div class=\"alert ");// line 30, japidviews\Application\profile\PhotoEdit.html
 		if("success".equals(msg)){// line 31, japidviews\Application\profile\PhotoEdit.html
 		p("alert-success");// line 31, japidviews\Application\profile\PhotoEdit.html
 		}else{// line 31, japidviews\Application\profile\PhotoEdit.html
@@ -105,7 +107,8 @@ p("<pre style=\"display: none\">\n" +
 "								</button>\n" + 
 "								");// line 31, japidviews\Application\profile\PhotoEdit.html
 		p(msg);// line 35, japidviews\Application\profile\PhotoEdit.html
-		p("							</div> ");// line 35, japidviews\Application\profile\PhotoEdit.html
+		p("\n" + 
+"							</div> ");// line 35, japidviews\Application\profile\PhotoEdit.html
 		}// line 36, japidviews\Application\profile\PhotoEdit.html
 		p(" </td>\n" + 
 "							<td>\n" + 

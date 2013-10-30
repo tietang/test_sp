@@ -1,10 +1,9 @@
+//version: 0.9.35
 package japidviews.Application.profile;
+import static cn.bran.play.JapidPlayAdapter.*;
 
-import japidviews._tags.AllMessage;
-import japidviews._tags.SettingsMenu;
+import japidviews._tags.*;
 
-import static cn.bran.play.JapidPlayAdapter.getMessage;
-import static cn.bran.play.JapidPlayAdapter.i18n;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/Password.html
 // Change to this file will be lost next time the template file is compiled.
@@ -56,7 +55,7 @@ public class Password extends japidviews._layouts.Layout
 
 	public cn.bran.japid.template.RenderResult render() {
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 0, japidviews/Application/profile/Password.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/profile/Password.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -68,14 +67,17 @@ public class Password extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\profile\Password.html
+
 p("\n" + 
+"\n" + 
 "<div class=\"grid_row\">\n" + 
 "\n" + 
 "    <div class=\"col col_3 \">\n" + 
 "        <div class=\"sidebar-nav \">\n" + 
 "            ");// line 3, japidviews\Application\profile\Password.html
 		final SettingsMenu _SettingsMenu2 = new SettingsMenu(getOut()); _SettingsMenu2.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu2.render("Password"); // line 9, japidviews\Application\profile\Password.html// line 9, japidviews\Application\profile\Password.html
-		p("        </div>\n" + 
+		p("\n" + 
+"        </div>\n" + 
 "    </div>\n" + 
 "    <div class=\"col col_13 \">\n" + 
 "        <div class=\"row-fluid well profile_right\">\n" + 
@@ -85,7 +87,8 @@ p("\n" +
 "                      method=\"post\">\n" + 
 "                    ");// line 9, japidviews\Application\profile\Password.html
 		final AllMessage _AllMessage3 = new AllMessage(getOut()); _AllMessage3.setActionRunners(getActionRunners()).setOut(getOut()); _AllMessage3.render(); // line 18, japidviews\Application\profile\Password.html// line 18, japidviews\Application\profile\Password.html
-		p("                    <div class=\"control-group\">\n" + 
+		p("\n" + 
+"                    <div class=\"control-group\">\n" + 
 "                        <label class=\"control-label\" for=\"oldPassword\">");// line 18, japidviews\Application\profile\Password.html
 		;p(getMessage("password.old"));// line 20, japidviews\Application\profile\Password.html
 		p("</label>\n" + 
@@ -100,7 +103,8 @@ p("\n" +
 "                    <div class=\"control-group\">\n" + 
 "                        <label class=\"control-label\" for=\"newPassword\">");// line 24, japidviews\Application\profile\Password.html
 		;p(getMessage("password.again"));// line 28, japidviews\Application\profile\Password.html
-		p("                            </label>\n" + 
+		p("\n" + 
+"                            </label>\n" + 
 "\n" + 
 "                        <div class=\"controls\">\n" + 
 "                            <input type=\"password\" id=\"newPassword\" name=\"newPassword\"\n" + 
@@ -112,7 +116,8 @@ p("\n" +
 "                    <div class=\"control-group\">\n" + 
 "                        <label class=\"control-label\" for=\"reNewPassword\">");// line 33, japidviews\Application\profile\Password.html
 		;p(getMessage("password.again.repeat"));// line 37, japidviews\Application\profile\Password.html
-		p("                            </label>\n" + 
+		p("\n" + 
+"                            </label>\n" + 
 "\n" + 
 "                        <div class=\"controls\">\n" + 
 "                            <input type=\"password\" id=\"reNewPassword\" name=\"reNewPassword\"\n" + 
@@ -127,7 +132,8 @@ p("\n" +
 "                            <button type=\"submit\" class=\"btn\">\n" + 
 "                                ");// line 42, japidviews\Application\profile\Password.html
 		;p(getMessage("save.change"));// line 49, japidviews\Application\profile\Password.html
-		p("                            </button>\n" + 
+		p("\n" + 
+"                            </button>\n" + 
 "                        </div>\n" + 
 "                    </div>\n" + 
 "\n" + 

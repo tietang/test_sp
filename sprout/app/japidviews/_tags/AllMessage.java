@@ -1,6 +1,24 @@
+//version: 0.9.35
 package japidviews._tags;
-
-import static cn.bran.play.JapidPlayAdapter.flash;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import java.util.*;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_tags/AllMessage.html
 // Change to this file will be lost next time the template file is compiled.
@@ -52,7 +70,7 @@ public class AllMessage extends cn.bran.play.JapidTemplateBase
 
 	public cn.bran.japid.template.RenderResult render() {
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 0, japidviews/_tags/AllMessage.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/_tags/AllMessage.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -65,28 +83,34 @@ public class AllMessage extends cn.bran.play.JapidTemplateBase
 //------
 ;// line 1, japidviews\_tags\AllMessage.html
 		p("\n" + 
+"\n" + 
 "\n");// line 1, japidviews\_tags\AllMessage.html
 		if(asBoolean(asBoolean(flash.get("error")))) {// line 4, japidviews\_tags\AllMessage.html
 		p("\n" + 
+"\n" + 
 "<div class=\"alert alert-error\">\n" + 
 "    <button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 
 "        &times;\n" + 
 "    </button>\n" + 
 "    ");// line 4, japidviews\_tags\AllMessage.html
 		p(flash.get("error"));// line 10, japidviews\_tags\AllMessage.html
-		p("</div>\n" + 
+		p("\n" + 
+"</div>\n" + 
 "\n");// line 10, japidviews\_tags\AllMessage.html
 		}// line 13, japidviews\_tags\AllMessage.html
-
-if(asBoolean(asBoolean(flash.get("success")))) {// line 15, japidviews\_tags\AllMessage.html
 		p("\n" + 
+"\n");// line 13, japidviews\_tags\AllMessage.html
+		if(asBoolean(asBoolean(flash.get("success")))) {// line 15, japidviews\_tags\AllMessage.html
+		p("\n" + 
+"\n" + 
 "<div class=\"alert alert-success\">\n" + 
 "    <button type=\"button\" class=\"close\" data-dismiss=\"success\">\n" + 
 "        &times;\n" + 
 "    </button>\n" + 
 "    ");// line 15, japidviews\_tags\AllMessage.html
 		p(flash.get("success"));// line 21, japidviews\_tags\AllMessage.html
-		p("</div>\n" + 
+		p("\n" + 
+"</div>\n" + 
 "\n");// line 21, japidviews\_tags\AllMessage.html
 		}// line 24, japidviews\_tags\AllMessage.html
 		;// line 24, japidviews\_tags\AllMessage.html

@@ -1,12 +1,24 @@
+//version: 0.9.35
 package japidviews.Application.photo;
-
-import fengfei.fir.model.PhotoShow;
-import japidviews._tags.PhotoNav;
-
-import java.util.List;
-import java.util.Map;
-
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import java.util.Set;import fengfei.ucm.entity.photo.Refresh;import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/Category.html
 // Change to this file will be lost next time the template file is compiled.
@@ -66,7 +78,7 @@ public class Category extends japidviews._layouts.Layout
 		this.photos = photos;
 		this.pageNum = pageNum;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 3, japidviews/Application/photo/Category.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 3, japidviews/Application/photo/Category.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -78,8 +90,10 @@ public class Category extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\photo\Category.html
+
 // line 6, japidviews\Application\photo\Category.html
 final PhotoNav _PhotoNav3 = new PhotoNav(getOut()); _PhotoNav3.setActionRunners(getActionRunners()).setOut(getOut()); _PhotoNav3.render(pagePath,pathTitle); // line 10, japidviews\Application\photo\Category.html// line 10, japidviews\Application\photo\Category.html
+
 final PhotoView _PhotoView4 = new PhotoView(getOut()); _PhotoView4.setActionRunners(getActionRunners()).setOut(getOut()); _PhotoView4.render(pagePath,photos,pageNum); // line 11, japidviews\Application\photo\Category.html// line 11, japidviews\Application\photo\Category.html
 		;// line 11, japidviews\Application\photo\Category.html
 		

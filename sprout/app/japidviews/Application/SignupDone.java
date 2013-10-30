@@ -1,6 +1,24 @@
+//version: 0.9.35
 package japidviews.Application;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
 import fengfei.ucm.entity.profile.UserPwd;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/SignupDone.html
 // Change to this file will be lost next time the template file is compiled.
@@ -54,7 +72,7 @@ public class SignupDone extends japidviews._layouts.Layout
 	public cn.bran.japid.template.RenderResult render(UserPwd up) {
 		this.up = up;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 3, japidviews/Application/SignupDone.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 3, japidviews/Application/SignupDone.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -66,6 +84,7 @@ public class SignupDone extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\SignupDone.html
+
 // line 6, japidviews\Application\SignupDone.html
 		p("<p class=\"line10\"></p><p class=\"line10\"></p>\n" + 
 "<div class=\"grid_row signupx\">\n" + 
@@ -81,7 +100,8 @@ public class SignupDone extends japidviews._layouts.Layout
 "			<p>\n" + 
 "				Your email address: ");// line 17, japidviews\Application\SignupDone.html
 		p(up.email);// line 19, japidviews\Application\SignupDone.html
-		p("			</p>\n" + 
+		p("\n" + 
+"			</p>\n" + 
 "			<p>\n" + 
 "				Register sucess! Check your email to verify email address.\n" + 
 "			</p>\n" + 
@@ -100,6 +120,7 @@ public class SignupDone extends japidviews._layouts.Layout
 	}
 	@Override protected void css() {
 		// line 6, japidviews\Application\SignupDone.html
+
 ;
 	}
 	@Override protected void header() {

@@ -1,8 +1,25 @@
+//version: 0.9.35
 package japidviews._tags;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
 import fengfei.ucm.entity.profile.User;
-
-import java.util.List;
+import java.util.Set;import fengfei.ucm.entity.photo.*;import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_tags/UsersCard.html
 // Change to this file will be lost next time the template file is compiled.
@@ -60,7 +77,7 @@ public class UsersCard extends cn.bran.play.JapidTemplateBase
 		this.users = users;
 		this.pageNum = pageNum;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 4, japidviews/_tags/UsersCard.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 4, japidviews/_tags/UsersCard.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -72,12 +89,15 @@ public class UsersCard extends cn.bran.play.JapidTemplateBase
 		beginDoLayout(sourceTemplate);
 //------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\_tags\UsersCard.html
-p("</pre>\n" + 
+
+p("\n" + 
+"</pre>\n" + 
 "\n" + 
 "\n" + 
 "<div class=\"grid_row yours\">\n");// line 4, japidviews\_tags\UsersCard.html
 		for(User user:users){// line 9, japidviews\_tags\UsersCard.html
-		p("	<div class=\"col col_4\">\n" + 
+		p("\n" + 
+"	<div class=\"col col_4\">\n" + 
 "		<div class=\"row-fluid card\"  >\n" + 
 "			<div class=\"span6 first\">\n" + 
 "				<img width=\"95\" height=\"95\" class=\"img-rounded\"\n" + 
@@ -114,7 +134,8 @@ p("</pre>\n" +
 "\n" + 
 "	</div>\n");// line 28, japidviews\_tags\UsersCard.html
 		}// line 36, japidviews\_tags\UsersCard.html
-		p("</div>\n" + 
+		p("\n" + 
+"</div>\n" + 
 "\n");// line 36, japidviews\_tags\UsersCard.html
 		
 		endDoLayout(sourceTemplate);

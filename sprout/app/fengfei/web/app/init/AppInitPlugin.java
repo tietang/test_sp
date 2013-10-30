@@ -46,7 +46,7 @@ public class AppInitPlugin extends PlayPlugin {
 
 
     private void initFollowService() {
-
+        Logger.info("init follow service.");
         RelaionRepository repository = new SqlRelaionRepository();
         //
         ChainExecuteProxy<WriteFollowService> writeChainExecuteProxy = new ChainExecuteProxy<>(
@@ -181,9 +181,4 @@ public class AppInitPlugin extends PlayPlugin {
     }
 
 
-    @Override
-    public boolean rawInvocation(Http.Request request, Http.Response response) throws Exception {
-        Logger.debug("11111");
-        return super.rawInvocation(request, response);    //To change body of overridden methods use File | Settings | File Templates.
-    }
 }

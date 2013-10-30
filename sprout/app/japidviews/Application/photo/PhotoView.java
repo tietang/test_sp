@@ -1,9 +1,25 @@
+//version: 0.9.35
 package japidviews.Application.photo;
-
-import fengfei.fir.model.PhotoShow;
-import fengfei.fir.utils.Path;
-
-import java.util.List;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import java.util.Set;import fengfei.ucm.entity.photo.Refresh;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/PhotoView.html
 // Change to this file will be lost next time the template file is compiled.
@@ -61,7 +77,7 @@ public class PhotoView extends cn.bran.play.JapidTemplateBase
 		this.photos = photos;
 		this.pageNum = pageNum;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 3, japidviews/Application/photo/PhotoView.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 3, japidviews/Application/photo/PhotoView.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -73,7 +89,9 @@ public class PhotoView extends cn.bran.play.JapidTemplateBase
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\photo\PhotoView.html
+
 p("\n" + 
+"\n" + 
 "<!--\n" + 
 "<div class=\"alert\">\n" + 
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 
@@ -84,11 +102,13 @@ p("\n" +
 "</div>\n" + 
 "-->\n");// line 3, japidviews\Application\photo\PhotoView.html
 		if(photos==null){}else{// line 14, japidviews\Application\photo\PhotoView.html
-		p("<div class=\"grid_row\">\n" + 
+		p("\n" + 
+"<div class=\"grid_row\">\n" + 
 "\n" + 
 "	");// line 14, japidviews\Application\photo\PhotoView.html
 		 for(PhotoShow photo : photos){// line 17, japidviews\Application\photo\PhotoView.html
-		p("	<div class=\"col photo_col width_4\">\n" + 
+		p("\n" + 
+"	<div class=\"col photo_col width_4\">\n" + 
 "		<div class=\"photo_preview photo_preview_4 \">\n" + 
 "			<a href=\"/show/");// line 17, japidviews\Application\photo\PhotoView.html
 		p(photo.idPhoto);// line 20, japidviews\Application\photo\PhotoView.html
@@ -127,6 +147,7 @@ p("\n" +
 "	");// line 29, japidviews\Application\photo\PhotoView.html
 		}// line 34, japidviews\Application\photo\PhotoView.html
 		p("\n" + 
+"\n" + 
 "</div>\n" + 
 "<div class=\"grid_row\">\n" + 
 "	<div class=\"col col_16 pager  pagination-right\">\n" + 
@@ -140,13 +161,15 @@ p("\n" +
 "			</li>\n" + 
 "			");// line 41, japidviews\Application\photo\PhotoView.html
 		if(pageNum>=2){// line 43, japidviews\Application\photo\PhotoView.html
-		p("			<li >\n" + 
+		p("\n" + 
+"			<li >\n" + 
 "				<a href=\"");// line 43, japidviews\Application\photo\PhotoView.html
 		p(pagePath);// line 45, japidviews\Application\photo\PhotoView.html
 		p("/1\">First</a>\n" + 
 "			</li>");// line 45, japidviews\Application\photo\PhotoView.html
 		}// line 46, japidviews\Application\photo\PhotoView.html
 		p("\n" + 
+"\n" + 
 "			<!--	<li class=\"disabled\"><a href=\"#\">1</a></li>\n" + 
 "			<li><a href=\"#\">2</a></li>\n" + 
 "			<li><a href=\"#\">3</a></li>\n" + 
@@ -154,7 +177,8 @@ p("\n" +
 "			<li><a href=\"#\">5</a></li>-->\n" + 
 "			");// line 46, japidviews\Application\photo\PhotoView.html
 		if(photos.size()>=20){// line 53, japidviews\Application\photo\PhotoView.html
-		p("			<li>\n" + 
+		p("\n" + 
+"			<li>\n" + 
 "				<a href=\"");// line 53, japidviews\Application\photo\PhotoView.html
 		p(pagePath);// line 55, japidviews\Application\photo\PhotoView.html
 		p("/");// line 55, japidviews\Application\photo\PhotoView.html
@@ -163,6 +187,7 @@ p("\n" +
 "			</li>");// line 55, japidviews\Application\photo\PhotoView.html
 		}// line 56, japidviews\Application\photo\PhotoView.html
 		p("\n" + 
+"\n" + 
 "		</ul>\n" + 
 "	</div>\n" + 
 "</div>\n");// line 56, japidviews\Application\photo\PhotoView.html

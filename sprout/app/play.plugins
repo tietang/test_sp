@@ -1,5 +1,5 @@
-1101:fengfei.web.app.init.SearchPlugin
 1102:fengfei.web.app.init.SliceDBPlugin
 1103:fengfei.web.app.init.RedisPlugin
 1104:fengfei.web.app.init.AppInitPlugin
 1105:fengfei.web.app.init.DbInstallPlugin
+1106:fengfei.web.app.init.SearchPlugin

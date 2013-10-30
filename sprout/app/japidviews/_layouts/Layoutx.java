@@ -1,8 +1,23 @@
+//version: 0.9.35
 package japidviews._layouts;
-
-import controllers.Admin;
-
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_layouts/Layoutx.html
 // Change to this file will be lost next time the template file is compiled.
@@ -38,7 +53,8 @@ public abstract class Layoutx extends cn.bran.play.JapidTemplateBase
 	}
 	@Override public void layout() {
 		beginDoLayout(sourceTemplate);		p("<!DOCTYPE html>\n");// line 1, japidviews\_layouts\Layoutx.html
-		p("<html lang=\"en\">\n" + 
+		p("\n" + 
+"<html lang=\"en\">\n" + 
 "	<head>\n" + 
 "		<meta charset=\"UTF-8\">\n" + 
 "		<title>");// line 2, japidviews\_layouts\Layoutx.html
@@ -94,7 +110,8 @@ public abstract class Layoutx extends cn.bran.play.JapidTemplateBase
 		p(lookupStatic("/public/basic/js/modernizr-1.7.min.js"));// line 24, japidviews\_layouts\Layoutx.html
 		p("\"></script><!-- this is the javascript allowing html5 to run in older browsers -->\n" + 
 "		");// line 24, japidviews\_layouts\Layoutx.html
-		css();p("		\n" + 
+		css();p("\n" + 
+"		\n" + 
 "		\n" + 
 "	</head>\n" + 
 "\n" + 
@@ -130,6 +147,7 @@ public abstract class Layoutx extends cn.bran.play.JapidTemplateBase
 "							");// line 25, japidviews\_layouts\Layoutx.html
 		if (session.get(Admin.SESSION_LOGIN_KEY) == null) {// line 59, japidviews\_layouts\Layoutx.html
 		p("\n" + 
+"\n" + 
 "							<div class=\"nav right\">\n" + 
 "								<a class=\"btn btn-small btn-primary\" href=\"/login\">Login</a>\n" + 
 "							</div>	\n" + 
@@ -138,7 +156,8 @@ public abstract class Layoutx extends cn.bran.play.JapidTemplateBase
 "							</div>\n" + 
 "							");// line 59, japidviews\_layouts\Layoutx.html
 		}else{// line 67, japidviews\_layouts\Layoutx.html
-		p("							<div class=\"nav right\" >\n" + 
+		p("\n" + 
+"							<div class=\"nav right\" >\n" + 
 "								<a class=\"btn btn-primary btn-small\" href=\"/yours\"> ");// line 67, japidviews\_layouts\Layoutx.html
 		try { p(session.get(Admin.SESSION_USER_NAME_KEY)); } catch (NullPointerException npe) {}// line 69, japidviews\_layouts\Layoutx.html
 		p("</a>\n" + 
@@ -150,7 +169,8 @@ public abstract class Layoutx extends cn.bran.play.JapidTemplateBase
 "\n" + 
 "							");// line 69, japidviews\_layouts\Layoutx.html
 		}// line 76, japidviews\_layouts\Layoutx.html
-		p("							<div class=\"nav right\">\n" + 
+		p("\n" + 
+"							<div class=\"nav right\">\n" + 
 "								<form class=\"navbar_search\" action=\"\">\n" + 
 "									<input type=\"text\" class=\"search-query \" placeholder=\"Search\">\n" + 
 "								</form>\n" + 
@@ -171,7 +191,8 @@ public abstract class Layoutx extends cn.bran.play.JapidTemplateBase
 "\n" + 
 "		");// line 92, japidviews\_layouts\Layoutx.html
 		doLayout();// line 95, japidviews\_layouts\Layoutx.html
-		p("		<footer>\n" + 
+		p("\n" + 
+"		<footer>\n" + 
 "			<div class=\"row\">\n" + 
 "				<div class=\"col col_16\">\n" + 
 "					fjdslfjsdl积分电流声开放的；是\n" + 

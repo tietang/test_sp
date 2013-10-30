@@ -1,5 +1,23 @@
+//version: 0.9.35
 package japidviews.Application.photo;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/you.html
 // Change to this file will be lost next time the template file is compiled.
@@ -51,7 +69,7 @@ public class you extends japidviews._layouts.Layout
 
 	public cn.bran.japid.template.RenderResult render() {
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 0, japidviews/Application/photo/you.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/photo/you.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -63,7 +81,9 @@ public class you extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\photo\you.html
+
 p("\n" + 
+"\n" + 
 "<ul class=\"dropdown-menu\">\n" + 
 "	<li>\n" + 
 "		<a href=\"/settings/profile\"><i class=\"icon-pencil\"></i>Setting</a>\n" + 
@@ -72,7 +92,7 @@ p("\n" +
 "		<a href=\"/account\"><i class=\"icon-trash\"></i> Account</a>\n" + 
 "	</li>\n" + 
 "	<li>\n" + 
-"		<a href=\"/profile\"><i class=\"icon-ban-circle\"></i>Profile</a>\n" + 
+"		<a href=\"/profile\"><i class=\"icon-ban-circle\"></i>profile</a>\n" +
 "	</li>\n" + 
 "	<li class=\"divider\"></li>\n" + 
 "	<li>\n" + 

@@ -1,3 +1,4 @@
+//version: 0.9.35
 package japidviews._tags;
 import java.util.*;
 import java.io.*;
@@ -73,7 +74,7 @@ public class CategorySelector extends cn.bran.play.JapidTemplateBase
 		this.kv = kv;
 		this.defaultKey = defaultKey;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 2, japidviews/_tags/CategorySelector.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 2, japidviews/_tags/CategorySelector.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -111,7 +112,8 @@ Set sets = kv.entrySet();// line 4, japidviews\_tags\CategorySelector.html
 		p(value);// line 21, japidviews\_tags\CategorySelector.html
 		p("</a></li>\n");// line 21, japidviews\_tags\CategorySelector.html
 		           }else{// line 22, japidviews\_tags\CategorySelector.html
-		p("<li><a href=\"javascript:void(0)\" value=\"");// line 22, japidviews\_tags\CategorySelector.html
+		p("\n" + 
+"<li><a href=\"javascript:void(0)\" value=\"");// line 22, japidviews\_tags\CategorySelector.html
 		p(key);// line 23, japidviews\_tags\CategorySelector.html
 		p("\">");// line 23, japidviews\_tags\CategorySelector.html
 		p(value);// line 23, japidviews\_tags\CategorySelector.html
@@ -123,7 +125,8 @@ Set sets = kv.entrySet();// line 4, japidviews\_tags\CategorySelector.html
 		p("    </ul>\n" + 
 "\n");// line 27, japidviews\_tags\CategorySelector.html
 		}// line 30, japidviews\_tags\CategorySelector.html
-		p("</section>\n");// line 30, japidviews\_tags\CategorySelector.html
+		p("\n" + 
+"</section>\n");// line 30, japidviews\_tags\CategorySelector.html
 		
 		endDoLayout(sourceTemplate);
 	}

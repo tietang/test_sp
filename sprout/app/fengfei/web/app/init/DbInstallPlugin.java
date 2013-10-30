@@ -4,6 +4,7 @@ import fengfei.ucm.dao.Sequence;
 import fengfei.ucm.repository.impl.SqlCommentRepository;
 import fengfei.ucm.repository.impl.SqlPhotoRepository;
 import fengfei.ucm.repository.impl.SqlUserRepository;
+import play.Logger;
 import play.PlayPlugin;
 
 public class DbInstallPlugin extends PlayPlugin {
@@ -17,6 +18,7 @@ public class DbInstallPlugin extends PlayPlugin {
 
     @Override
     public void onApplicationStart() {
+        Logger.info("Sequence init.");
         try {
             Sequence.install(1, Tables);
         } catch (Exception e) {
