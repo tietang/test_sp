@@ -27,6 +27,30 @@ public class AppUtils {
         return "%" + str + "%";
     }
 
+    public static String toLikes(String field, String... str) {
+        StringBuilder sb = new StringBuilder();
+        for (String s : str) {
+            if (sb.length() > 0) {
+                sb.append(" and ");
+            }
+            sb.append(field).append(" like ").append("%").append(s).append("%");
+
+        }
+        return sb.toString();
+    }
+
+    public static String toEquals(String field, String... str) {
+        StringBuilder sb = new StringBuilder();
+        for (String s : str) {
+            if (sb.length() > 0) {
+                sb.append(" and ");
+            }
+            sb.append(field).append(" = ").append("'").append(s).append("'");
+
+        }
+        return sb.toString();
+    }
+
     public static String toInCause(Collection<? extends Number> numbers) {
         StringBuilder sb = new StringBuilder();
         for (Number long1 : numbers) {

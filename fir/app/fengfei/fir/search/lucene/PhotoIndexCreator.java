@@ -25,6 +25,7 @@ public class PhotoIndexCreator extends IndexCreator<Photo> {
         StringBuilder sb = new StringBuilder();
         sb.append(title).append(desc).append(photo.tags).append(photo.exifToCSV());
         doc.add(new StringField(PhotoFields.ID, String.valueOf(photo.idPhoto), Field.Store.YES));
+        doc.add(new StringField(PhotoFields.UserID, String.valueOf(photo.idUser), Field.Store.YES));
         doc.add(new TextField(PhotoFields.Content, sb.toString(), Field.Store.NO));//存储
         doc.add(new StringField(PhotoFields.UserIdAndNiceName, photo.idUser + "#" + photo.niceName, Field.Store.YES));//存储
         doc.add(new StringField(PhotoFields.Title, photo.title, Field.Store.YES));//存储

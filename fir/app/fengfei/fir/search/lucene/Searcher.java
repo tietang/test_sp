@@ -17,6 +17,7 @@ import java.io.IOException;
 public class Searcher extends BaseLucene {
     public static Searcher userSearcher;
     public static Searcher photoSearcher;
+    public static int PageSize = 200;
 
     protected LuceneFactory factory;
 
@@ -25,6 +26,12 @@ public class Searcher extends BaseLucene {
         this.factory = factory;
     }
 
+    public TopDocs search(
+            ScoreDoc after,
+            int currentPage,
+            String... keywords) throws ParseException, IOException {
+        return search(after,PageSize, currentPage, keywords);
+    }
 
     public TopDocs search(
             ScoreDoc after,
@@ -51,6 +58,10 @@ public class Searcher extends BaseLucene {
         } else {
             return this.factory.getSearcher().searchAfter(after, query, 10);
         }
+    }
+
+    public IndexSearcher getIndexSearcher() throws IOException {
+        return this.factory.getSearcher();
     }
 
     public static void main(String[] args) throws IOException, ParseException {
