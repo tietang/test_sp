@@ -7,7 +7,7 @@ import fengfei.forest.slice.plotter.HashPlotter;
 import fengfei.shard.Ploy;
 import fengfei.shard.Selector;
 import fengfei.shard.redis.JedisShards;
-import fengfei.shard.redis.RedisComand;
+import fengfei.shard.redis.RedisCommand;
 import org.apache.commons.pool.impl.GenericObjectPool.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,15 +36,15 @@ public class RedisPlugin extends PlayPlugin {
             JedisShards redis = new JedisShards(hosts, timeout, ploy, readConfig());
 
             //
-            LastRank.read = redis.create(RedisComand.class);
-            LastRank.write = redis.create(RedisComand.class, Selector.Write);
+            LastRank.read = redis.create(RedisCommand.class);
+            LastRank.write = redis.create(RedisCommand.class, Selector.Write);
             //
             //
-            PopularRank.read = redis.create(RedisComand.class);
-            PopularRank.write = redis.create(RedisComand.class, Selector.Write);
+            PopularRank.read = redis.create(RedisCommand.class);
+            PopularRank.write = redis.create(RedisCommand.class, Selector.Write);
             //
-            UpcomingRank.read = redis.create(RedisComand.class);
-            UpcomingRank.write = redis.create(RedisComand.class, Selector.Write);
+            UpcomingRank.read = redis.create(RedisCommand.class);
+            UpcomingRank.write = redis.create(RedisCommand.class, Selector.Write);
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             e.printStackTrace();
         }

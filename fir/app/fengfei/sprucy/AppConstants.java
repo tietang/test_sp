@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class AppConstants {
-
+    public final static byte DefaultFollowType = 0;
     public static int StartTimeSeconds = 1325347200;// 2012开始seconds
     // Score
     public static double PopularMinScore = 20;

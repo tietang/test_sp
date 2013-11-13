@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class WriteFollowSqlService implements WriteFollowService {
 
@@ -20,15 +21,30 @@ public class WriteFollowSqlService implements WriteFollowService {
     }
 
     @Override
-    public boolean add(ArrayList<Object> results, long sourceId, long targetId)
-        throws Exception {
-        return repository.write(sourceId, targetId, State.Normal);
+    public boolean add(ArrayList<Object> results, long sourceId, long targetId, byte type)
+            throws Exception {
+        return repository.write(sourceId, targetId, type, State.Normal);
     }
 
     @Override
-    public boolean remove(ArrayList<Object> results, long sourceId, long targetId)
-        throws Exception {
-        return repository.write(sourceId, targetId, State.Removed);
+    public boolean remove(ArrayList<Object> results, long sourceId, long targetId, byte type)
+            throws Exception {
+        return repository.write(sourceId, targetId, type, State.Removed);
     }
 
+    @Override
+    public boolean add(ArrayList<Object> results, long sourceId, List<Long> targetIds, byte type) throws Exception {
+        for (Long targetId : targetIds) {
+            repository.write(sourceId, targetId, type, State.Normal);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean remove(ArrayList<Object> results, long sourceId, List<Long> targetIds, byte type) throws Exception {
+        for (Long targetId : targetIds) {
+            repository.write(sourceId, targetId, type, State.Removed);
+        }
+        return true;
+    }
 }

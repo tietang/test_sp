@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 
 public class ChainExecuteProxy<T> implements ChainRegistryService<T> {
 
-    private static Logger logger = LoggerFactory.getLogger(ChainExecuteProxy.class);
+    private static Logger logger = LoggerFactory.getLogger("Execute_time");
     protected ChainObjectRegistry<T> registry = new ChainObjectRegistry<T>();
     private Map<String, Method> methodMap = new ConcurrentHashMap<String, Method>();
     private Class<T> clazz;
@@ -92,7 +92,6 @@ public class ChainExecuteProxy<T> implements ChainRegistryService<T> {
                 return rs;
             } catch (Throwable e) {
                 log(method, args, start, true);
-                logger.error("Can not write to mysql ", e);
                 throw e;
 
             }

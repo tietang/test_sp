@@ -1,16 +1,15 @@
 package fengfei.fir.rank;
 
-import java.util.Calendar;
-import java.util.List;
-import java.util.Set;
-
+import fengfei.fir.model.PhotoRank;
 import fengfei.fir.utils.Kryor;
+import fengfei.shard.redis.RedisCommand;
+import fengfei.ucm.entity.photo.Rank;
 import redis.clients.jedis.Transaction;
 import redis.clients.jedis.Tuple;
 
-import fengfei.fir.model.PhotoRank;
-import fengfei.shard.redis.RedisComand;
-import fengfei.ucm.entity.photo.Rank;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 最新添加来排序
@@ -25,8 +24,8 @@ public class LastRank {
     private String rankLastHashKey = rankLastKey + "_H";
     final static int T2013Minute;
     final static int WeekMinute = 7 * 24 * 60;
-    public static RedisComand read;
-    public static RedisComand write;
+    public static RedisCommand read;
+    public static RedisCommand write;
 
     static {
         Calendar c = Calendar.getInstance();
