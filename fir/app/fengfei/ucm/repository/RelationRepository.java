@@ -5,9 +5,12 @@ import fengfei.ucm.entity.relation.State;
 
 import java.util.List;
 
-public interface RelaionRepository extends UnitNames {
+public interface RelationRepository extends UnitNames {
+    public final static long NullAttachmentId = -1;
 
     boolean write(long sourceId, long targetId, byte type, State state) throws Exception;
+
+    boolean write(long sourceId, long targetId, byte type, State state, long attachmentId) throws Exception;
 
     List<Long> findTargets(long sourceId, byte type, State state) throws Exception;
 
@@ -33,4 +36,16 @@ public interface RelaionRepository extends UnitNames {
     int[] count(long sourceId, byte type) throws Exception;
 
     int[] computeCount(long sourceId, byte type) throws Exception;
+
+    //
+    List<Long> findTargetAttachments(long sourceId, byte type, State state) throws Exception;
+
+    List<Long> findSourceAttachments(long targetId, byte type, State state, int offset, int limit)
+            throws Exception;
+
+    List<Long> findTargetAttachments(long sourceId, byte type, State state, int offset, int limit)
+            throws Exception;
+
+    List<Long> findSourceAttachments(long targetId, byte type, State state) throws Exception;
+
 }

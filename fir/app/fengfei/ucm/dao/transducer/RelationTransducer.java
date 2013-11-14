@@ -16,9 +16,10 @@ public class RelationTransducer implements Transducer<Relation> {
         int state = rs.getInt("state");
         int createdAt = rs.getInt("created_at");
         long updatedAt = rs.getLong("updated_at");
+        long attachmentId = rs.getLong("attachment_id");
 
         Relation relation = new Relation(sourceId, targetId, type, state, updatedAt, createdAt);
-
+        relation.attachmentId = attachmentId;
         return relation;
     }
 }

@@ -1,6 +1,7 @@
 package fengfei.ucm.service;
 
 import fengfei.ucm.dao.UnitNames;
+import fengfei.ucm.entity.relation.State;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,4 +32,16 @@ public interface ReadFollowService extends UnitNames {
 
     boolean isFollow(ArrayList<Object> results, long sourceId, long targetId, byte type)
             throws Exception;
+
+    //attachment
+    List<Long> findTargetAttachments(long sourceId, byte type, State state) throws Exception;
+
+    List<Long> findSourceAttachments(long targetId, byte type, State state, int offset, int limit)
+            throws Exception;
+
+    List<Long> findTargetAttachments(long sourceId, byte type, State state, int offset, int limit)
+            throws Exception;
+
+    List<Long> findSourceAttachments(long targetId, byte type, State state) throws Exception;
+
 }

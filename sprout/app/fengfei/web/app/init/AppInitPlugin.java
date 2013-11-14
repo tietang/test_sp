@@ -6,8 +6,8 @@ import fengfei.spruce.utils.FollowServiceUtils;
 import fengfei.sprucy.AppConstants;
 import fengfei.ucm.registry.ChainExecuteProxy;
 import fengfei.ucm.registry.ChainExecuteType;
-import fengfei.ucm.repository.RelaionRepository;
-import fengfei.ucm.repository.impl.SqlRelaionRepository;
+import fengfei.ucm.repository.RelationRepository;
+import fengfei.ucm.repository.impl.SqlRelationRepository;
 import fengfei.ucm.service.ReadFollowService;
 import fengfei.ucm.service.WriteFollowService;
 import fengfei.ucm.service.relation.ReadFollowSqlService;
@@ -17,7 +17,6 @@ import play.Logger;
 import play.PlayPlugin;
 import play.i18n.Lang;
 import play.i18n.Messages;
-import play.mvc.Http;
 
 import java.io.*;
 import java.util.Map;
@@ -47,7 +46,7 @@ public class AppInitPlugin extends PlayPlugin {
 
     private void initFollowService() {
         Logger.info("init follow service.");
-        RelaionRepository repository = new SqlRelaionRepository();
+        RelationRepository repository = new SqlRelationRepository();
         //
         ChainExecuteProxy<WriteFollowService> writeChainExecuteProxy = new ChainExecuteProxy<>(
                 WriteFollowService.class);

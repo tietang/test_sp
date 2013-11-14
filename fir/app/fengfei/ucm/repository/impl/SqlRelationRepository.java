@@ -12,17 +12,17 @@ import fengfei.forest.slice.database.utils.Transactions.TaCallback;
 import fengfei.ucm.dao.RelationDao;
 import fengfei.ucm.entity.relation.Relation;
 import fengfei.ucm.entity.relation.State;
-import fengfei.ucm.repository.RelaionRepository;
+import fengfei.ucm.repository.RelationRepository;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class SqlRelaionRepository implements RelaionRepository {
+public class SqlRelationRepository implements RelationRepository {
 
     final RelationDao dao = RelationDao.get();
 
     @Override
-    public boolean write(long sourceId, long targetId, final byte type, State state) throws Exception {
+    public boolean write(long sourceId, long targetId, final byte type, State state, long attachmentId) throws Exception {
         long ctime = System.currentTimeMillis();
         long updatedAt = ctime;
         int createdAt = (int) (ctime / 1000);
@@ -65,6 +65,12 @@ public class SqlRelaionRepository implements RelaionRepository {
         return true;
     }
 
+    @Override
+    public boolean write(long sourceId, long targetId, final byte type, State state) throws Exception {
+
+        return write(sourceId, targetId, type, state, NullAttachmentId);
+    }
+
     private <T> TransactionModel<T> getTransactionModel(
             long id,
             boolean isFoloowing,
@@ -103,7 +109,7 @@ public class SqlRelaionRepository implements RelaionRepository {
                     public List<Long> execute(ForestGrower grower, String suffix)
                             throws SQLException {
                         suffix = getFullSuffix(suffix, true);
-                        return dao.findTargets(grower, suffix, sourceId, type, state);
+                        return dao.find(grower, suffix, sourceId, type, state);
                     }
 
                 });
@@ -127,7 +133,7 @@ public class SqlRelaionRepository implements RelaionRepository {
                     public List<Long> execute(ForestGrower grower, String suffix)
                             throws SQLException {
                         suffix = getFullSuffix(suffix, true);
-                        return dao.findTargets(grower, suffix, sourceId, type, state, offset, limit);
+                        return dao.find(grower, suffix, sourceId, type, state, offset, limit);
                     }
 
                 });
@@ -186,7 +192,7 @@ public class SqlRelaionRepository implements RelaionRepository {
     public List<Long> findSources(final long targetId, final byte type, final State state)
             throws Exception {
 
-        List<Long> targets = Transactions.execute(
+        List<Long> sources = Transactions.execute(
                 Relation,
                 targetId,
                 Function.Read,
@@ -195,12 +201,12 @@ public class SqlRelaionRepository implements RelaionRepository {
                     @Override
                     public List<Long> execute(ForestGrower grower, String suffix)
                             throws SQLException {
-                        suffix = getFullSuffix(suffix, true);
-                        return dao.findTargets(grower, suffix, targetId, type, state);
+                        suffix = getFullSuffix(suffix, false);
+                        return dao.find(grower, suffix, targetId, type, state);
                     }
 
                 });
-        return targets;
+        return sources;
     }
 
     @Override
@@ -210,7 +216,7 @@ public class SqlRelaionRepository implements RelaionRepository {
             final int offset,
             final int limit) throws Exception {
 
-        List<Long> targets = Transactions.execute(
+        List<Long> sources = Transactions.execute(
                 Relation,
                 targetId,
                 Function.Read,
@@ -219,12 +225,12 @@ public class SqlRelaionRepository implements RelaionRepository {
                     @Override
                     public List<Long> execute(ForestGrower grower, String suffix)
                             throws SQLException {
-                        suffix = getFullSuffix(suffix, true);
-                        return dao.findTargets(grower, suffix, targetId, type, state, offset, limit);
+                        suffix = getFullSuffix(suffix, false);
+                        return dao.find(grower, suffix, targetId, type, state, offset, limit);
                     }
 
                 });
-        return targets;
+        return sources;
     }
 
     @Override
@@ -344,4 +350,80 @@ public class SqlRelaionRepository implements RelaionRepository {
 
     }
 
+    @Override
+    public List<Long> findTargetAttachments(final long sourceId, final byte type, final State state) throws Exception {
+        List<Long> targets = Transactions.execute(
+                Relation,
+                sourceId,
+                Function.Read,
+                new TaCallback<List<Long>>() {
+
+                    @Override
+                    public List<Long> execute(ForestGrower grower, String suffix)
+                            throws SQLException {
+                        suffix = getFullSuffix(suffix, true);
+                        return dao.findAttachments(grower, suffix, sourceId, type, state);
+                    }
+
+                });
+        return targets;
+    }
+
+    @Override
+    public List<Long> findTargetAttachments(final long sourceId, final byte type, final State state, final int offset, final int limit) throws Exception {
+        List<Long> targets = Transactions.execute(
+                Relation,
+                sourceId,
+                Function.Read,
+                new TaCallback<List<Long>>() {
+
+                    @Override
+                    public List<Long> execute(ForestGrower grower, String suffix)
+                            throws SQLException {
+                        suffix = getFullSuffix(suffix, true);
+                        return dao.findAttachments(grower, suffix, sourceId, type, state, offset, limit);
+                    }
+
+                });
+        return targets;
+    }
+
+    @Override
+    public List<Long> findSourceAttachments(final long targetId, final byte type, final State state, final int offset, final int limit) throws Exception {
+        List<Long> sources = Transactions.execute(
+                Relation,
+                targetId,
+                Function.Read,
+                new TaCallback<List<Long>>() {
+
+                    @Override
+                    public List<Long> execute(ForestGrower grower, String suffix)
+                            throws SQLException {
+                        suffix = getFullSuffix(suffix, false);
+                        return dao.findAttachments(grower, suffix, targetId, type, state, offset, limit);
+                    }
+
+                });
+        return sources;
+    }
+
+
+    @Override
+    public List<Long> findSourceAttachments(final long targetId, final byte type, final State state) throws Exception {
+        List<Long> sources = Transactions.execute(
+                Relation,
+                targetId,
+                Function.Read,
+                new TaCallback<List<Long>>() {
+
+                    @Override
+                    public List<Long> execute(ForestGrower grower, String suffix)
+                            throws SQLException {
+                        suffix = getFullSuffix(suffix, false);
+                        return dao.findAttachments(grower, suffix, targetId, type, state);
+                    }
+
+                });
+        return sources;
+    }
 }

@@ -9,17 +9,18 @@ public class Relation implements java.io.Serializable, Cloneable {
     public int state; // required
     public long updatedAt; // required
     public int createdAt; // required
+    public long attachmentId;//attachment id
 
     public Relation() {
     }
 
     public Relation(
-        long sourceId,
-        long targetId,
-        byte type,
-        int state,
-        long updatedAt,
-        int createdAt) {
+            long sourceId,
+            long targetId,
+            byte type,
+            int state,
+            long updatedAt,
+            int createdAt) {
         super();
         this.sourceId = sourceId;
         this.targetId = targetId;
@@ -40,6 +41,7 @@ public class Relation implements java.io.Serializable, Cloneable {
         this.state = other.state;
         this.updatedAt = other.updatedAt;
         this.createdAt = other.createdAt;
+        this.attachmentId = other.attachmentId;
     }
 
     public Relation deepCopy() {
