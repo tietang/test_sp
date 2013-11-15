@@ -1,6 +1,7 @@
 package fengfei.ucm.service.relation;
 
 import fengfei.shard.redis.RedisCommand;
+import fengfei.ucm.entity.relation.State;
 import fengfei.ucm.service.ReadFollowService;
 import redis.clients.jedis.Jedis;
 import redis.clients.util.SafeEncoder;
@@ -8,6 +9,10 @@ import redis.clients.util.SafeEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+import static fengfei.ucm.service.relation.KeyGenerator.*;
+import static fengfei.ucm.service.relation.KeyGenerator.genAttachedFollowingKey;
+import static fengfei.ucm.service.relation.KeyGenerator.getAttachedPrefix;
 
 public class ReadFollowRedisService implements ReadFollowService {
     private RedisCommand reader;
@@ -20,6 +25,7 @@ public class ReadFollowRedisService implements ReadFollowService {
     public List<Long> findTargets(ArrayList<Object> results, long sourceId, byte type) throws Exception {
         byte[] key = KeyGenerator.genFollowingKey(sourceId, type);
         Set<byte[]> members = reader.smembers(key);
+        if (members == null) return null;
         List<Long> targets = new ArrayList<>();
 
         for (byte[] member : members) {
@@ -30,9 +36,15 @@ public class ReadFollowRedisService implements ReadFollowService {
     }
 
     @Override
-    public List<Long> findTargets(ArrayList<Object> results, long sourceId, byte type, int offset, int limit) throws Exception {
+    public List<Long> findTargets(
+            ArrayList<Object> results,
+            long sourceId,
+            byte type,
+            int offset,
+            int limit) throws Exception {
         byte[] key = KeyGenerator.genFollowingKey(sourceId, type);
         Set<byte[]> members = reader.smembers(key);
+        if (members == null) return null;
         List<Long> targets = new ArrayList<>();
 
         for (byte[] member : members) {
@@ -60,6 +72,7 @@ public class ReadFollowRedisService implements ReadFollowService {
     public List<Long> findSources(ArrayList<Object> results, long targetId, byte type) throws Exception {
         byte[] key = KeyGenerator.genFollowedKey(targetId, type);
         Set<byte[]> members = reader.smembers(key);
+        if (members == null) return null;
         List<Long> sources = new ArrayList<>();
 
         for (byte[] member : members) {
@@ -70,9 +83,15 @@ public class ReadFollowRedisService implements ReadFollowService {
     }
 
     @Override
-    public List<Long> findSources(ArrayList<Object> results, long targetId, byte type, int offset, int limit) throws Exception {
+    public List<Long> findSources(
+            ArrayList<Object> results,
+            long targetId,
+            byte type,
+            int offset,
+            int limit) throws Exception {
         byte[] key = KeyGenerator.genFollowedKey(targetId, type);
         Set<byte[]> members = reader.smembers(key);
+        if (members == null) return null;
         List<Long> sources = new ArrayList<>();
 
         for (byte[] member : members) {
@@ -116,5 +135,68 @@ public class ReadFollowRedisService implements ReadFollowService {
         byte[] key = KeyGenerator.genFollowingKey(sourceId, type);
         byte[] member = SafeEncoder.encode(String.valueOf(targetId));
         return reader.sismember(key, member);
+    }
+
+    //attachment
+    @Override
+    public List<Long> findTargetAttachments(long sourceId, byte type, State state) throws Exception {
+        String attachedPrefix = getAttachedPrefix(type);
+        byte[] fakey = genAttachedFollowingKey(attachedPrefix, sourceId, type);
+        Set<byte[]> members = reader.smembers(fakey);
+        if (members == null) return null;
+        List<Long> attachmentIds = new ArrayList<>();
+
+        for (byte[] member : members) {
+            String id = SafeEncoder.encode(member);
+            attachmentIds.add(Long.parseLong(id));
+        }
+        return attachmentIds;
+    }
+    @Override
+    public List<Long> findTargetAttachments(
+            long sourceId, byte type, State state, int offset, int limit) throws Exception {
+        String attachedPrefix = getAttachedPrefix(type);
+        byte[] fakey = genAttachedFollowingKey(attachedPrefix, sourceId, type);
+        Set<byte[]> members = reader.smembers(fakey);
+        if (members == null) return null;
+        List<Long> attachmentIds = new ArrayList<>();
+
+        for (byte[] member : members) {
+            String id = SafeEncoder.encode(member);
+            attachmentIds.add(Long.parseLong(id));
+        }
+        return attachmentIds;
+    }
+
+    @Override
+    public List<Long> findSourceAttachments(
+            long targetId, byte type, State state, int offset, int limit) throws Exception {
+        String attachedPrefix = getAttachedPrefix(type);
+        byte[] bakey = genAttachedFollowedKey(attachedPrefix, targetId, type);
+        Set<byte[]> members = reader.smembers(bakey);
+        if (members == null) return null;
+        List<Long> attachmentIds = new ArrayList<>();
+
+        for (byte[] member : members) {
+            String id = SafeEncoder.encode(member);
+            attachmentIds.add(Long.parseLong(id));
+        }
+        return attachmentIds;
+    }
+
+
+    @Override
+    public List<Long> findSourceAttachments(long targetId, byte type, State state) throws Exception {
+        String attachedPrefix = getAttachedPrefix(type);
+        byte[] bakey = genAttachedFollowedKey(attachedPrefix, targetId, type);
+        Set<byte[]> members = reader.smembers(bakey);
+        if (members == null) return null;
+        List<Long> attachmentIds = new ArrayList<>();
+
+        for (byte[] member : members) {
+            String id = SafeEncoder.encode(member);
+            attachmentIds.add(Long.parseLong(id));
+        }
+        return attachmentIds;
     }
 }

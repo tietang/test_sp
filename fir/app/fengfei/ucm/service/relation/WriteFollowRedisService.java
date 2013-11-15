@@ -7,8 +7,16 @@ import redis.clients.jedis.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.concurrent.ConcurrentHashMap;
+
+import static fengfei.ucm.service.relation.KeyGenerator.*;
+
 
 public class WriteFollowRedisService implements WriteFollowService {
+
+
     private RedisCommand writer;
 
     public WriteFollowRedisService(RedisCommand writer) {
@@ -34,15 +42,19 @@ public class WriteFollowRedisService implements WriteFollowService {
     }
 
     @Override
-    public boolean add(ArrayList<Object> results, final long sourceId, final long targetId, final byte type) throws Exception {
+    public boolean add(
+            ArrayList<Object> results,
+            final long sourceId,
+            final long targetId,
+            final byte type) throws Exception {
         Boolean updated = execute(new Callback<Boolean>() {
             @Override
             public Boolean execute(Transaction transaction) {
-                String fkey = KeyGenerator.genFollowing(sourceId, type);
+                String fkey = genFollowing(sourceId, type);
                 String fvalue = String.valueOf(targetId);
                 transaction.sadd(fkey, fvalue);
                 //
-                String bkey = KeyGenerator.genFollowed(targetId, type);
+                String bkey = genFollowed(targetId, type);
                 String bvalue = String.valueOf(sourceId);
                 transaction.sadd(bkey, bvalue);
                 return true;
@@ -53,16 +65,20 @@ public class WriteFollowRedisService implements WriteFollowService {
     }
 
     @Override
-    public boolean remove(ArrayList<Object> results, final long sourceId, final long targetId, final byte type) throws Exception {
+    public boolean remove(
+            ArrayList<Object> results,
+            final long sourceId,
+            final long targetId,
+            final byte type) throws Exception {
 
         Boolean updated = execute(new Callback<Boolean>() {
             @Override
             public Boolean execute(Transaction transaction) {
-                String fkey = KeyGenerator.genFollowing(sourceId, type);
+                String fkey = genFollowing(sourceId, type);
                 String fvalue = String.valueOf(targetId);
                 transaction.srem(fkey, fvalue);
                 //
-                String bkey = KeyGenerator.genFollowed(targetId, type);
+                String bkey = genFollowed(targetId, type);
                 String bvalue = String.valueOf(sourceId);
                 transaction.srem(bkey, bvalue);
                 return true;
@@ -73,24 +89,26 @@ public class WriteFollowRedisService implements WriteFollowService {
     }
 
     @Override
-    public boolean add(ArrayList<Object> results, final long sourceId, final List<Long> targetIds, final byte type) throws Exception {
+    public boolean add(
+            ArrayList<Object> results,
+            final long sourceId,
+            final List<Long> targetIds,
+            final byte type) throws Exception {
 
         Boolean updated = execute(new Callback<Boolean>() {
             @Override
             public Boolean execute(Transaction transaction) {
-                String key = KeyGenerator.genFollowing(sourceId, type);
-                String[] value = new String[targetIds.size()];
+                String fkey = genFollowing(sourceId, type);
                 for (int i = 0; i < targetIds.size(); i++) {
-                    value[i] = String.valueOf(targetIds.get(i));
+                    long targetId = targetIds.get(i);
+                    String fvalue = String.valueOf(targetId);
+                    transaction.sadd(fkey, fvalue);
                 }
-                long updated = writer.sadd(key, value);
-
-
                 //
                 String bvalue = String.valueOf(sourceId);
                 for (int i = 0; i < targetIds.size(); i++) {
                     long targetId = targetIds.get(i);
-                    String bkey = KeyGenerator.genFollowed(targetId, type);
+                    String bkey = genFollowed(targetId, type);
                     transaction.sadd(bkey, bvalue);
                 }
 
@@ -102,53 +120,205 @@ public class WriteFollowRedisService implements WriteFollowService {
     }
 
     @Override
-    public boolean remove(ArrayList<Object> results, long sourceId, List<Long> targetIds, byte type) throws Exception {
-        String key = KeyGenerator.genFollowing(sourceId, type);
-        String[] value = new String[targetIds.size()];
-        for (int i = 0; i < targetIds.size(); i++) {
-            value[i] = String.valueOf(targetIds.get(i));
-        }
-        long updated = writer.srem(key, value);
-        return updated > 0;
+    public boolean remove(
+            ArrayList<Object> results,
+            final long sourceId,
+            final List<Long> targetIds,
+            final byte type) throws Exception {
+
+
+        Boolean updated = execute(new Callback<Boolean>() {
+            @Override
+            public Boolean execute(Transaction transaction) {
+
+                String fkey = genFollowing(sourceId, type);
+                for (int i = 0; i < targetIds.size(); i++) {
+                    long targetId = targetIds.get(i);
+                    String fvalue = String.valueOf(targetId);
+                    transaction.srem(fkey, fvalue);
+                }
+
+                //
+                String bvalue = String.valueOf(sourceId);
+                for (int i = 0; i < targetIds.size(); i++) {
+                    long targetId = targetIds.get(i);
+                    String bkey = genFollowed(targetId, type);
+                    transaction.srem(bkey, bvalue);
+                }
+
+                return true;
+            }
+        });
+
+        return updated == null ? false : updated;
     }
 
     //attachment
     @Override
-    public boolean add(ArrayList<Object> results, long sourceId, long targetId, byte type, long attachmentId) throws Exception {
-        String key = KeyGenerator.genMessageFollowing(sourceId, type);
-        String value = String.valueOf(targetId);
-        long updated = writer.sadd(key, value);
-        return updated > 0;
+    public boolean add(
+            ArrayList<Object> results,
+            final long sourceId,
+            final long targetId,
+            final byte type,
+            final long attachmentId) throws Exception {
+
+        Boolean updated = execute(new Callback<Boolean>() {
+            @Override
+            public Boolean execute(Transaction transaction) {
+
+                //add relation
+                String fkey = genFollowing(sourceId, type);
+                String fvalue = String.valueOf(targetId);
+                transaction.sadd(fkey, fvalue);
+                //
+                String bkey = genFollowed(targetId, type);
+                String bvalue = String.valueOf(sourceId);
+                transaction.sadd(bkey, bvalue);
+
+                //add message attachment
+                String attachmentValue = String.valueOf(attachmentId);
+                String attachedPrefix = getAttachedPrefix(type);
+                String fmkey = genAttachedFollowing(attachedPrefix, sourceId, type);
+                transaction.sadd(fmkey, attachmentValue);
+                //
+                String bmkey = genAttachedFollowed(attachedPrefix, targetId, type);
+                transaction.sadd(bmkey, attachmentValue);
+                return true;
+            }
+        });
+
+        return updated == null ? false : updated;
     }
 
     @Override
-    public boolean remove(ArrayList<Object> results, long sourceId, long targetId, byte type, long attachmentId) throws Exception {
-        String key = KeyGenerator.genMessageFollowing(sourceId, type);
-        String value = String.valueOf(targetId);
-        long updated = writer.srem(key, value);
-        return updated > 0;
+    public boolean remove(
+            ArrayList<Object> results,
+            final long sourceId,
+            final long targetId,
+            final byte type,
+            final long attachmentId) throws Exception {
+
+        Boolean updated = execute(new Callback<Boolean>() {
+            @Override
+            public Boolean execute(Transaction transaction) {
+                String fkey = genFollowing(sourceId, type);
+                String fvalue = String.valueOf(targetId);
+                transaction.srem(fkey, fvalue);
+                //
+                String bkey = genFollowed(targetId, type);
+                String bvalue = String.valueOf(sourceId);
+                transaction.srem(bkey, bvalue);
+                //add message attachment
+                String attachmentValue = String.valueOf(attachmentId);
+                String attachedPrefix = getAttachedPrefix(type);
+                String fakey = genAttachedFollowing(attachedPrefix, sourceId, type);
+                transaction.srem(fakey, attachmentValue);
+                //
+                String bakey = genAttachedFollowed(attachedPrefix, targetId, type);
+                transaction.srem(bakey, attachmentValue);
+
+
+                return true;
+            }
+        });
+
+        return updated == null ? false : updated;
     }
 
     @Override
-    public boolean add(ArrayList<Object> results, long sourceId, List<Long> targetIds, byte type, long attachmentId) throws Exception {
-        String key = KeyGenerator.genMessageFollowing(sourceId, type);
-        String[] value = new String[targetIds.size()];
-        for (int i = 0; i < targetIds.size(); i++) {
-            value[i] = String.valueOf(targetIds.get(i));
-        }
-        long updated = writer.sadd(key, value);
-        return updated > 0;
+    public boolean add(
+            ArrayList<Object> results,
+            final long sourceId,
+            final List<Long> targetIds,
+            final byte type,
+            final long attachmentId) throws Exception {
+
+
+        Boolean updated = execute(new Callback<Boolean>() {
+            @Override
+            public Boolean execute(Transaction transaction) {
+                String fkey = genFollowing(sourceId, type);
+                for (int i = 0; i < targetIds.size(); i++) {
+                    long targetId = targetIds.get(i);
+                    String fvalue = String.valueOf(targetId);
+                    transaction.sadd(fkey, fvalue);
+                }
+                //
+                String bvalue = String.valueOf(sourceId);
+                for (int i = 0; i < targetIds.size(); i++) {
+                    long targetId = targetIds.get(i);
+                    String bkey = genFollowed(targetId, type);
+                    transaction.sadd(bkey, bvalue);
+                }
+
+                //attachment
+                String attachmentValue = String.valueOf(attachmentId);
+                String attachedPrefix = getAttachedPrefix(type);
+                String fakey = genAttachedFollowing(attachedPrefix, sourceId, type);
+                transaction.sadd(fakey, attachmentValue);
+
+                //
+
+                for (int i = 0; i < targetIds.size(); i++) {
+                    long targetId = targetIds.get(i);
+                    String bakey = genAttachedFollowed(attachedPrefix, targetId, type);
+                    transaction.sadd(bakey, attachmentValue);
+                }
+
+
+                return true;
+            }
+        });
+
+        return updated == null ? false : updated;
     }
 
     @Override
-    public boolean remove(ArrayList<Object> results, long sourceId, List<Long> targetIds, byte type, long attachmentId) throws Exception {
-        String key = KeyGenerator.genMessageFollowing(sourceId, type);
-        String[] value = new String[targetIds.size()];
-        for (int i = 0; i < targetIds.size(); i++) {
-            value[i] = String.valueOf(targetIds.get(i));
-        }
-        long updated = writer.srem(key, value);
-        return updated > 0;
+    public boolean remove(
+            ArrayList<Object> results,
+            final long sourceId,
+            final List<Long> targetIds,
+            final byte type,
+            final long attachmentId) throws Exception {
+
+
+        Boolean updated = execute(new Callback<Boolean>() {
+            @Override
+            public Boolean execute(Transaction transaction) {
+                String fkey = genFollowing(sourceId, type);
+                for (int i = 0; i < targetIds.size(); i++) {
+                    long targetId = targetIds.get(i);
+                    String fvalue = String.valueOf(targetId);
+                    transaction.srem(fkey, fvalue);
+                }
+
+                //
+                String bvalue = String.valueOf(sourceId);
+                for (int i = 0; i < targetIds.size(); i++) {
+                    long targetId = targetIds.get(i);
+                    String bkey = genFollowed(targetId, type);
+                    transaction.srem(bkey, bvalue);
+                }
+
+                //attachment
+                String attachmentValue = String.valueOf(attachmentId);
+                String attachedPrefix = getAttachedPrefix(type);
+                String fakey = genAttachedFollowing(attachedPrefix, sourceId, type);
+                transaction.srem(fakey, attachmentValue);
+
+                //
+
+                for (int i = 0; i < targetIds.size(); i++) {
+                    long targetId = targetIds.get(i);
+                    String bakey = genAttachedFollowed(attachedPrefix, targetId, type);
+                    transaction.srem(bakey, attachmentValue);
+                }
+
+                return true;
+            }
+        });
+
+        return updated == null ? false : updated;
     }
 
 

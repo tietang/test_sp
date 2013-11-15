@@ -62,8 +62,12 @@ public class RelationDao {
     atomicallyMetadata(ForestGrower grower, String suffix, long sourceId, byte type)
             throws SQLException {
 
-        Metadata metadata = grower.selectOne("SELECT source_id,target_id,type,state,created_at,updated_at,attachment_id FROM metadata_" + suffix
-                + " WHERE source_id = ? AND type= ?  ", new MetadataTransducer(), sourceId, type);
+        Metadata metadata = grower.selectOne(
+                "SELECT source_id,target_id,type,state,created_at,updated_at,attachment_id FROM metadata_" + suffix
+                        + " WHERE source_id = ? AND type= ?  ",
+                new MetadataTransducer(),
+                sourceId,
+                type);
 
         return metadata;
     }
@@ -221,6 +225,24 @@ public class RelationDao {
                 State.Normal.getCode(),
                 relation.getUpdatedAt(),
                 currentTime);
+        return count;
+    }
+
+    // insert relation
+    public int deleteRelation(ForestGrower grower, String suffix, Relation relation)
+            throws SQLException {
+        int count = 0;
+        String sql = "";
+
+        sql = "DELETE FROM rs_" + suffix
+                + " WHERE source_id=? AND target_id=? AND type=? AND attachment_id=?";
+        count = grower.update(
+                sql,
+                relation.getSourceId(),
+                relation.getTargetId(),
+                relation.getType(),
+                relation.attachmentId);
+
         return count;
     }
 
