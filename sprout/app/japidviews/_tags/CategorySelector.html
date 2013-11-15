@@ -4,12 +4,12 @@
 `Set sets = kv.entrySet();
 <section>
 `for (Object obj : sets) {
-`   Entry entries=(Entry)obj;
+`    Entry entries=(Entry)obj;
 `    String title=(String)entries.getKey();
 `    Map mapValue=(Map)entries.getValue();
 `    Set values = mapValue.entrySet();
     <h3 style="width:80px;float:left;text-align:right;">${title}</h3>
-    <ul>
+    <ul class="tag_selector">
 `    for(Object item:values){
 `       Entry entry=(Entry)item;
 `       Byte key=(Byte)entry.getKey();
@@ -28,8 +28,5 @@
     </ul>
 
 `}
-
-
-
 
 </section>

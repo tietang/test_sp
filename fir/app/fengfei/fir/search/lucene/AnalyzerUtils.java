@@ -7,12 +7,13 @@ import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.util.Version;
 
+import java.io.IOException;
 import java.io.StringReader;
 
 /**
  */
 public class AnalyzerUtils {
-    public static String toCommaString(String str) throws Exception {
+    public static String toCommaString(String str) throws IOException {
 
         String st = null;
         StringBuffer sb = new StringBuffer();

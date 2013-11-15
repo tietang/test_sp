@@ -52,37 +52,31 @@ CREATE TABLE `metadata_1_following` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `rs_1_followed`
+-- Table structure for rs_1_followed
 -- ----------------------------
 DROP TABLE IF EXISTS `rs_1_followed`;
 CREATE TABLE `rs_1_followed` (
   `source_id` int(10) unsigned NOT NULL,
   `target_id` int(10) unsigned NOT NULL,
   `type` tinyint(4) NOT NULL,
-  `state` tinyint(4) NOT NULL,
+  `state` tinyint(4) unsigned NOT NULL,
   `created_at` int(10) unsigned NOT NULL,
   `updated_at` bigint(20) unsigned NOT NULL,
+  `content_id` bigint(20) DEFAULT '-1',
   PRIMARY KEY (`source_id`,`target_id`,`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='negative direction';
 
 -- ----------------------------
--- Records of rs_1_followed
--- ----------------------------
-
--- ----------------------------
--- Table structure for `rs_1_following`
+-- Table structure for rs_1_following
 -- ----------------------------
 DROP TABLE IF EXISTS `rs_1_following`;
 CREATE TABLE `rs_1_following` (
   `source_id` int(10) unsigned NOT NULL,
   `target_id` int(10) unsigned NOT NULL,
   `type` tinyint(4) NOT NULL,
-  `state` tinyint(4) NOT NULL,
+  `state` tinyint(4) unsigned NOT NULL,
   `created_at` int(10) unsigned NOT NULL,
-  `updated_at` bigint(20) unsigned NOT NULL,
+  `updated_at` bigint(20) unsigned NOT NULL, 
+  `content_id` bigint(20) DEFAULT '-1',
   PRIMARY KEY (`source_id`,`target_id`,`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='positive direction';
-
--- ----------------------------
--- Records of rs_1_following
--- ----------------------------

@@ -1,20 +1,18 @@
 package fengfei.fir.rank;
 
-import java.util.Set;
-
-import net.sf.cglib.transform.impl.AddDelegateTransformer;
-
-import redis.clients.jedis.Tuple;
-import fengfei.shard.redis.RedisComand;
+import fengfei.shard.redis.RedisCommand;
 import fengfei.sprucy.AppConstants;
+import redis.clients.jedis.Tuple;
+
+import java.util.Set;
 
 public class UpcomingRank {
 
     final static String RankUpcomingKey = "RankUpcoming";
     private String rankUpcomingKey = RankUpcomingKey;
-    
-    public static RedisComand read;
-    public static RedisComand write;
+
+    public static RedisCommand read;
+    public static RedisCommand write;
 
     public UpcomingRank(String rankUpcomingKey) {
         super();
@@ -47,11 +45,11 @@ public class UpcomingRank {
 
     public Set<Tuple> findWithScore(int offset, int limit) {
         Set<Tuple> tuples = read.zrevrangeByScoreWithScores(
-            rankUpcomingKey,
-            AppConstants.UpcomingMaxScore,
-            AppConstants.UpcomingMinScore,
-            offset,
-            limit);
+                rankUpcomingKey,
+                AppConstants.UpcomingMaxScore,
+                AppConstants.UpcomingMinScore,
+                offset,
+                limit);
 
         return tuples;
 
@@ -59,11 +57,11 @@ public class UpcomingRank {
 
     public Set<String> find(int offset, int limit) {
         Set<String> values = read.zrevrangeByScore(
-            rankUpcomingKey,
-            AppConstants.UpcomingMaxScore,
-            AppConstants.UpcomingMinScore,
-            offset,
-            limit);
+                rankUpcomingKey,
+                AppConstants.UpcomingMaxScore,
+                AppConstants.UpcomingMinScore,
+                offset,
+                limit);
 
         return values;
 

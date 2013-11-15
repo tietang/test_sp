@@ -1,15 +1,24 @@
+//version: 0.9.35
 package japidviews.Application.photo;
-
-import controllers.Admin;
-import fengfei.fir.utils.Path;
-import fengfei.ucm.entity.photo.Photo;
-import fengfei.ucm.entity.photo.Rank;
-
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.ucm.entity.photo.*;import fengfei.fir.utils.Path;import java.util.*;import java.util.Map.Entry;
+import static play.templates.JavaExtensions.*;
 import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/Show.html
 // Change to this file will be lost next time the template file is compiled.
@@ -73,7 +82,7 @@ public class Show extends japidviews._layouts.Layout
 		this.isFavorite = isFavorite;
 		this.isVote = isVote;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 4, japidviews/Application/photo/Show.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 4, japidviews/Application/photo/Show.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -86,7 +95,9 @@ public class Show extends japidviews._layouts.Layout
 //------
 ;// line 1, japidviews\Application\photo\Show.html
 
-// line 10, japidviews\Application\photo\Show.html
+p("\n" + 
+"\n");// line 8, japidviews\Application\photo\Show.html
+		// line 10, japidviews\Application\photo\Show.html
 		p("<div class=\"grid_row show\">\n" + 
 "\n" + 
 "    <div class=\"col col_16  \">\n" + 
@@ -144,6 +155,7 @@ public class Show extends japidviews._layouts.Layout
 "                ");// line 63, japidviews\Application\photo\Show.html
 		if (session.get(Admin.SESSION_LOGIN_KEY) == null) {// line 77, japidviews\Application\photo\Show.html
 		p("\n" + 
+"\n" + 
 "                <div class=\"line10\"></div>\n" + 
 "                <div class=\"line12\"></div>\n" + 
 "                <a href=\"/login\">Login</a> or <a href=\"/signup\">Sign up</a> to comment.\n" + 
@@ -151,7 +163,8 @@ public class Show extends japidviews._layouts.Layout
 "                <div class=\"line10\"></div>\n" + 
 "                ");// line 77, japidviews\Application\photo\Show.html
 		}else{// line 84, japidviews\Application\photo\Show.html
-		p("                <textarea class=\"col_12 comment\" rows=\"3\" cols=\"\" id=\"comment\" name=\"comment\"\n" + 
+		p("\n" + 
+"                <textarea class=\"col_12 comment\" rows=\"3\" cols=\"\" id=\"comment\" name=\"comment\"\n" + 
 "                          placeholder=\"Add your comments...\"></textarea>\n" + 
 "\n" + 
 "                <div class=\"line3\"></div>\n" + 
@@ -162,15 +175,20 @@ public class Show extends japidviews._layouts.Layout
 "\n" + 
 "                ");// line 90, japidviews\Application\photo\Show.html
 		//if(!String.valueOf(photo.idUser).equals(session.get(Admin.SESSION_USER_ID_KEY))){// line 92, japidviews\Application\photo\Show.html
-		p("                <button type=\"button\" id=\"comment_btn\" class=\"btn btn-info  btn-mini\">\n" + 
+		p("\n" + 
+"                <button type=\"button\" id=\"comment_btn\" class=\"btn btn-info  btn-mini\">\n" + 
 "                    ");// line 92, japidviews\Application\photo\Show.html
 		;p(getMessage("comment"));// line 94, japidviews\Application\photo\Show.html
-		p("                </button>\n" + 
+		p("\n" + 
+"                </button>\n" + 
 "                ");// line 94, japidviews\Application\photo\Show.html
 		//}// line 96, japidviews\Application\photo\Show.html
-
-                }// line 98, japidviews\Application\photo\Show.html
-		p("                <input type=\"hidden\" name=\"id_photo\" id=\"id_photo_x\" value=\"");// line 98, japidviews\Application\photo\Show.html
+		p("\n" + 
+"\n" + 
+"                ");// line 96, japidviews\Application\photo\Show.html
+		}// line 98, japidviews\Application\photo\Show.html
+		p("\n" + 
+"                <input type=\"hidden\" name=\"id_photo\" id=\"id_photo_x\" value=\"");// line 98, japidviews\Application\photo\Show.html
 		try { p(photo.idPhoto); } catch (NullPointerException npe) {}// line 99, japidviews\Application\photo\Show.html
 		p("\"/>\n" + 
 "                <input type=\"hidden\" name=\"niceName\" id=\"niceNameX\" value=\"");// line 99, japidviews\Application\photo\Show.html
@@ -212,7 +230,8 @@ public class Show extends japidviews._layouts.Layout
 "                <p>\n" + 
 "                    ");// line 121, japidviews\Application\photo\Show.html
 		try { p(photo.user.niceName); } catch (NullPointerException npe) {}// line 125, japidviews\Application\photo\Show.html
-		p("                </p>\n" + 
+		p("\n" + 
+"                </p>\n" + 
 "\n" + 
 "                <p>\n" + 
 "                    <button\n" + 
@@ -230,14 +249,16 @@ public class Show extends japidviews._layouts.Layout
 		p("\">\n" + 
 "                        ");// line 131, japidviews\Application\photo\Show.html
 		try { p(isFollow?i18n("following"):i18n("follow")); } catch (NullPointerException npe) {}// line 132, japidviews\Application\photo\Show.html
-		p("                    </button>\n" + 
+		p("\n" + 
+"                    </button>\n" + 
 "                </p>\n" + 
 "            </div>\n" + 
 "        </div>\n" + 
 "        <div class=\"line6\"></div>\n" + 
 "        ");// line 132, japidviews\Application\photo\Show.html
 		final RankShow _RankShow5 = new RankShow(getOut()); _RankShow5.setActionRunners(getActionRunners()).setOut(getOut()); _RankShow5.render(rank); // line 138, japidviews\Application\photo\Show.html// line 138, japidviews\Application\photo\Show.html
-		p("        <div class=\"line6\"></div>\n" + 
+		p("\n" + 
+"        <div class=\"line6\"></div>\n" + 
 "\n" + 
 "        <div class=\"row-fluid  \">\n" + 
 "            <div class=\"btn-group span12\">\n" + 
@@ -263,7 +284,8 @@ public class Show extends japidviews._layouts.Layout
 		;p(getMessage("like"));// line 147, japidviews\Application\photo\Show.html
 		;// line 147, japidviews\Application\photo\Show.html
 		}// line 147, japidviews\Application\photo\Show.html
-		p("                </button>\n" + 
+		p("\n" + 
+"                </button>\n" + 
 "                <button id=\"favorite_btn\" title=\"");// line 147, japidviews\Application\photo\Show.html
 		if(isFavorite){// line 149, japidviews\Application\photo\Show.html
 		;// line 149, japidviews\Application\photo\Show.html
@@ -293,42 +315,55 @@ public class Show extends japidviews._layouts.Layout
 "        <div class=\"row-fluid border-bottom shadow rounded6\">\n" + 
 "            ");// line 152, japidviews\Application\photo\Show.html
 		if(photo.description!=null && !"".equals(photo.description)){// line 158, japidviews\Application\photo\Show.html
-		p("            <div class=\"span12\">\n" + 
+		p("\n" + 
+"            <div class=\"span12\">\n" + 
 "                <div id=\"description\" class=\"photo_stats border-bottom\">\n" + 
 "                    ");// line 158, japidviews\Application\photo\Show.html
 		try { p(photo.description); } catch (NullPointerException npe) {}// line 161, japidviews\Application\photo\Show.html
-		p("                </div>\n" + 
+		p("\n" + 
+"                </div>\n" + 
 "            </div>\n" + 
 "\n" + 
 "            ");// line 161, japidviews\Application\photo\Show.html
 		}// line 165, japidviews\Application\photo\Show.html
-
-            if(photo.tagList!=null){// line 167, japidviews\Application\photo\Show.html
-		p("            <div class=\"span12\">\n" + 
+		p("\n" + 
+"\n" + 
+"            ");// line 165, japidviews\Application\photo\Show.html
+		if(photo.tagList!=null){// line 167, japidviews\Application\photo\Show.html
+		p("\n" + 
+"            <div class=\"span12\">\n" + 
 "                <div id=\"tags\" class=\"photo_stats border-bottom\">\n" + 
 "                    ");// line 167, japidviews\Application\photo\Show.html
 		for(String tag:photo.tagList){// line 170, japidviews\Application\photo\Show.html
-		p("                    <a class=\"badge tag\" href=\"javascript:void(0)\"> ");// line 170, japidviews\Application\photo\Show.html
+		p("\n" + 
+"                    <a class=\"badge tag\" href=\"javascript:void(0)\"> ");// line 170, japidviews\Application\photo\Show.html
 		try { p(tag); } catch (NullPointerException npe) {}// line 171, japidviews\Application\photo\Show.html
 		p(" </a>\n" + 
 "                    ");// line 171, japidviews\Application\photo\Show.html
 		}// line 172, japidviews\Application\photo\Show.html
-		p("                </div>\n" + 
+		p("\n" + 
+"                </div>\n" + 
 "            </div>\n" + 
 "\n" + 
 "            ");// line 172, japidviews\Application\photo\Show.html
 		}// line 176, japidviews\Application\photo\Show.html
 		p("\n" + 
+"\n" + 
 "            <div class=\"span12\">\n" + 
 "                <div id=\"exif\" class=\"exif_info \">\n" + 
 "                    <ul>\n" + 
 "                        ");// line 176, japidviews\Application\photo\Show.html
 		Set sets = exif.entrySet();// line 181, japidviews\Application\photo\Show.html
+
                         for (Object obj : sets) {// line 182, japidviews\Application\photo\Show.html
+
                         Entry entry=(Entry)obj;// line 183, japidviews\Application\photo\Show.html
+
                         String key=(String)entry.getKey();// line 184, japidviews\Application\photo\Show.html
+
                         String keyI18n=i18n(key);// line 185, japidviews\Application\photo\Show.html
-		p("                        <li>\n" + 
+		p("\n" + 
+"                        <li>\n" + 
 "                            <small class=\"key\">");// line 185, japidviews\Application\photo\Show.html
 		try { p(keyI18n); } catch (NullPointerException npe) {}// line 187, japidviews\Application\photo\Show.html
 		p("</small>\n" + 
@@ -338,7 +373,8 @@ public class Show extends japidviews._layouts.Layout
 "                        </li>\n" + 
 "                        ");// line 188, japidviews\Application\photo\Show.html
 		}// line 190, japidviews\Application\photo\Show.html
-		p("                    </ul>\n" + 
+		p("\n" + 
+"                    </ul>\n" + 
 "                </div>\n" + 
 "            </div>\n" + 
 "        </div>\n" + 

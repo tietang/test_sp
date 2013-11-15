@@ -3,6 +3,7 @@ package fengfei.fir.queue;
 import com.google.code.fqueue.FQueue;
 import fengfei.fir.serializer.KryoSerializer;
 import fengfei.fir.serializer.ObjectSerializer;
+import fengfei.fir.utils.PausableLock;
 import fengfei.ucm.entity.profile.UserPwd;
 
 import java.io.File;
@@ -15,6 +16,7 @@ public class QueueServiceFQueueImpl implements QueueService {
     private String path = "/opt/data/fqueue/";
     private String queueName;
     private FQueue queue;
+    private PausableLock pausableLock;
 
     public QueueServiceFQueueImpl() {
     }
@@ -38,7 +40,6 @@ public class QueueServiceFQueueImpl implements QueueService {
     public <T> void add(QueueMessage<T> item) {
         byte[] bytes = serializer.write(item);
         queue.add(bytes);
-        QueueConsumer.pausableLock.resume();
     }
 
     @Override

@@ -1,6 +1,7 @@
 package fengfei.ucm.repository.impl;
 
 import fengfei.fir.queue.PhotoQueue;
+import fengfei.fir.queue.QueueProducer;
 import fengfei.fir.rank.LastRank;
 import fengfei.fir.rank.RankUtils;
 import fengfei.fir.utils.AppUtils;

@@ -1,11 +1,12 @@
+//version: 0.9.35
 package japidviews.Application.profile;
-
 import fengfei.ucm.entity.profile.Camera;
-import japidviews._tags.SettingsMenu;
-
 import java.util.List;
 
 import static cn.bran.play.JapidPlayAdapter.*;
+
+import japidviews._tags.*;
+
 //
 // NOTE: This file was generated from: japidviews/Application/profile/Equipment.html
 // Change to this file will be lost next time the template file is compiled.
@@ -59,7 +60,7 @@ public class Equipment extends japidviews._layouts.Layout
 	public cn.bran.japid.template.RenderResult render(List<Camera> cameras) {
 		this.cameras = cameras;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 5, japidviews/Application/profile/Equipment.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 5, japidviews/Application/profile/Equipment.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -71,17 +72,21 @@ public class Equipment extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\Equipment.html
+
     p("\n" + 
+"\n" + 
 "\n" + 
 "</pre>\n");// line 7, japidviews\Application\profile\Equipment.html
 		// line 11, japidviews\Application\profile\Equipment.html
-		p("<div class=\"grid_row\">\n" + 
+		p("\n" + 
+"<div class=\"grid_row\">\n" + 
 "\n" + 
 "    <div class=\"col col_3 \">\n" + 
 "        <div class=\"sidebar-nav \">\n" + 
 "            ");// line 15, japidviews\Application\profile\Equipment.html
 		final SettingsMenu _SettingsMenu3 = new SettingsMenu(getOut()); _SettingsMenu3.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu3.render("Camera"); // line 21, japidviews\Application\profile\Equipment.html// line 21, japidviews\Application\profile\Equipment.html
-		p("        </div>\n" + 
+		p("\n" + 
+"        </div>\n" + 
 "    </div>\n" + 
 "    <div class=\"col col_13 \">\n" + 
 "        <div class=\"row-fluid well profile_right\">\n" + 
@@ -95,24 +100,29 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\E
 "                        <button class=\"btn btn-mini\" type=\"button\" id=\"camera\">\n" + 
 "                            ");// line 21, japidviews\Application\profile\Equipment.html
 		;p(getMessage("camera.add.camera"));// line 34, japidviews\Application\profile\Equipment.html
-		p("                        </button>\n" + 
+		p("\n" + 
+"                        </button>\n" + 
 "                        <button class=\"btn btn-mini\" type=\"button\" id=\"lens\">\n" + 
 "                            ");// line 34, japidviews\Application\profile\Equipment.html
 		;p(getMessage("camera.add.lens"));// line 37, japidviews\Application\profile\Equipment.html
-		p("                        </button>\n" + 
+		p("\n" + 
+"                        </button>\n" + 
 "                        <button class=\"btn btn-mini\" type=\"button\" id=\"tripod\">\n" + 
 "                            ");// line 37, japidviews\Application\profile\Equipment.html
 		;p(getMessage("camera.add.tripod"));// line 40, japidviews\Application\profile\Equipment.html
-		p("                        </button>\n" + 
+		p("\n" + 
+"                        </button>\n" + 
 "                        <button class=\"btn btn-mini\" type=\"button\" id=\"filter\">\n" + 
 "                            ");// line 40, japidviews\Application\profile\Equipment.html
 		;p(getMessage("camera.add.filter"));// line 43, japidviews\Application\profile\Equipment.html
-		p("                        </button>\n" + 
+		p("\n" + 
+"                        </button>\n" + 
 "                    </div>\n" + 
 "                    <div class=\"control-group\" id=\"equipmentForms\">\n" + 
 "                        ");// line 43, japidviews\Application\profile\Equipment.html
 		for(Camera c : cameras){// line 47, japidviews\Application\profile\Equipment.html
-		p("                        <div>\n" + 
+		p("\n" + 
+"                        <div>\n" + 
 "                            <div class=\"input-prepend input-append span11\">\n" + 
 "                                <span class=\"add-on\"><i class=\"icon-");// line 47, japidviews\Application\profile\Equipment.html
 		p(c.type);// line 50, japidviews\Application\profile\Equipment.html
@@ -129,14 +139,16 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\E
 "                                <button class=\"btn\" type=\"button\">\n" + 
 "                                    ");// line 53, japidviews\Application\profile\Equipment.html
 		;p(getMessage("delete"));// line 55, japidviews\Application\profile\Equipment.html
-		p("                                </button>\n" + 
+		p("\n" + 
+"                                </button>\n" + 
 "                            </div>\n" + 
 "\n" + 
 "                        </div>\n" + 
 "                        ");// line 55, japidviews\Application\profile\Equipment.html
 		}// line 60, japidviews\Application\profile\Equipment.html
  if(cameras.size()==0){// line 60, japidviews\Application\profile\Equipment.html
-		p("                        <div>\n" + 
+		p("\n" + 
+"                        <div>\n" + 
 "                            <div class=\"input-prepend span11\">\n" + 
 "                                <span class=\"add-on\"><i class=\"icon-camera\"></i></span>\n" + 
 "                                <input\n" + 
@@ -181,6 +193,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\E
 "                        ");// line 92, japidviews\Application\profile\Equipment.html
 		}// line 95, japidviews\Application\profile\Equipment.html
 		p("\n" + 
+"\n" + 
 "                    </div>\n" + 
 "\n" + 
 "                    <div class=\"control-group\">\n" + 
@@ -188,7 +201,8 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\E
 "                            <button type=\"submit\" class=\"btn\">\n" + 
 "                                ");// line 95, japidviews\Application\profile\Equipment.html
 		;p(getMessage("save.change"));// line 102, japidviews\Application\profile\Equipment.html
-		p("                            </button>\n" + 
+		p("\n" + 
+"                            </button>\n" + 
 "                        </div>\n" + 
 "                    </div>\n" + 
 "\n" + 

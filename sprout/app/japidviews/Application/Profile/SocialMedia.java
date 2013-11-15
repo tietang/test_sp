@@ -1,10 +1,11 @@
+//version: 0.9.35
 package japidviews.Application.profile;
-
 import fengfei.ucm.entity.profile.UserSocial;
-import japidviews._tags.SettingsMenu;
 
-import static cn.bran.play.JapidPlayAdapter.getMessage;
-import static cn.bran.play.JapidPlayAdapter.i18n;
+import static cn.bran.play.JapidPlayAdapter.*;
+
+import japidviews._tags.*;
+
 //
 // NOTE: This file was generated from: japidviews/Application/profile/SocialMedia.html
 // Change to this file will be lost next time the template file is compiled.
@@ -58,7 +59,7 @@ public class SocialMedia extends japidviews._layouts.Layout
 	public cn.bran.japid.template.RenderResult render(UserSocial m) {
 		this.m = m;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 3, japidviews/Application/profile/SocialMedia.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 3, japidviews/Application/profile/SocialMedia.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -70,14 +71,17 @@ public class SocialMedia extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\profile\SocialMedia.html
+
 p("\n" + 
+"\n" + 
 "<div class=\"grid_row\">\n" + 
 "\n" + 
 "    <div class=\"col col_3 \">\n" + 
 "        <div class=\"sidebar-nav \">\n" + 
 "            ");// line 5, japidviews\Application\profile\SocialMedia.html
 		final SettingsMenu _SettingsMenu2 = new SettingsMenu(getOut()); _SettingsMenu2.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu2.render("SocialMedia"); // line 11, japidviews\Application\profile\SocialMedia.html// line 11, japidviews\Application\profile\SocialMedia.html
-		p("        </div>\n" + 
+		p("\n" + 
+"        </div>\n" + 
 "    </div>\n" + 
 "    <div class=\"col col_13 \">\n" + 
 "        <div class=\"row-fluid well profile_right\">\n" + 
@@ -237,7 +241,8 @@ p("\n" +
 "                            <button type=\"submit\" class=\"btn\">\n" + 
 "                                ");// line 104, japidviews\Application\profile\SocialMedia.html
 		;p(getMessage("save.change"));// line 110, japidviews\Application\profile\SocialMedia.html
-		p("                            </button>\n" + 
+		p("\n" + 
+"                            </button>\n" + 
 "                        </div>\n" + 
 "                    </div>\n" + 
 "\n" + 

@@ -6,6 +6,7 @@ import com.google.common.collect.ListMultimap;
 import fengfei.fir.model.PhotoShow;
 import fengfei.fir.utils.Path;
 import fengfei.spruce.utils.FollowServiceUtils;
+import fengfei.sprucy.AppConstants;
 import fengfei.ucm.entity.photo.Favorite;
 import fengfei.ucm.entity.photo.Photo;
 import fengfei.ucm.entity.photo.PhotoAccess;
@@ -85,10 +86,10 @@ public class YouShowAction extends Admin {
 
             //
 
-            List<Long> targets = readFollowService.findTargets(null, idUser);
-            List<Long> sources = readFollowService.findSources(null, idUser);
-            int tc = readFollowService.countTarget(null, idUser);
-            int sc = readFollowService.countSource(null, idUser);
+            List<Long> targets = readFollowService.findTargets(null, idUser, AppConstants.DefaultFollowType);
+            List<Long> sources = readFollowService.findSources(null, idUser,AppConstants.DefaultFollowType);
+            int tc = readFollowService.countTarget(null, idUser,AppConstants.DefaultFollowType);
+            int sc = readFollowService.countSource(null, idUser,AppConstants.DefaultFollowType);
 
             List<PhotoShow> photos = (List<PhotoShow>) action(
                 action,
@@ -144,17 +145,17 @@ public class YouShowAction extends Admin {
                 rank = new Rank();
             }
             //
-            List<Long> targets = readFollowService.findTargets(null, idUser);
-            List<Long> sources = readFollowService.findSources(null, idUser);
-            int tc = readFollowService.countTarget(null, idUser);
-            int sc = readFollowService.countSource(null, idUser);
+            List<Long> targets = readFollowService.findTargets(null, idUser,AppConstants.DefaultFollowType);
+            List<Long> sources = readFollowService.findSources(null, idUser,AppConstants.DefaultFollowType);
+            int tc = readFollowService.countTarget(null, idUser,AppConstants.DefaultFollowType);
+            int sc = readFollowService.countSource(null, idUser,AppConstants.DefaultFollowType);
             // List<User> tUsers = userRepository.selectUserList(targets);
             // List<User> sUsers = userRepository.selectUserList(sources);
             boolean isFollow = false;
             Integer loginIdUser = currentUserId();
             if (loginIdUser != null) {
                 // 只有登陆
-                isFollow = readFollowService.isFollow(null, loginIdUser, user.idUser);
+                isFollow = readFollowService.isFollow(null, loginIdUser, user.idUser,AppConstants.DefaultFollowType);
             }
             throw new JapidResult(new UserViews().render(
                 path,
@@ -275,7 +276,7 @@ public class YouShowAction extends Admin {
     public static void follow(String toid) {
         long sourceId = currentUserId();
         try {
-            boolean followed = writeFollowService.add(null, sourceId, Long.parseLong(toid));
+            boolean followed = writeFollowService.add(null, sourceId, Long.parseLong(toid),AppConstants.DefaultFollowType);
             renderDone(followed);
         } catch (Exception e) {
             Logger.error(e, "follow error.");
@@ -287,7 +288,7 @@ public class YouShowAction extends Admin {
     public static void unfollow(String toid) {
         long sourceId = currentUserId();
         try {
-            boolean followed = writeFollowService.remove(null, sourceId, Long.parseLong(toid));
+            boolean followed = writeFollowService.remove(null, sourceId, Long.parseLong(toid),AppConstants.DefaultFollowType);
             renderDone(followed);
         } catch (Exception e) {
             Logger.error(e, "unfollow error.");
@@ -299,7 +300,7 @@ public class YouShowAction extends Admin {
     public static void countFollows() {
         long sourceId = currentUserId();
         try {
-            int follow[] = readFollowService.count(null, sourceId);
+            int follow[] = readFollowService.count(null, sourceId,AppConstants.DefaultFollowType);
             renderJSON("{following:" + follow[0] + ",followed:" + follow[1] + "}");
         } catch (Exception e) {
             Logger.error(e, "count follow error.");

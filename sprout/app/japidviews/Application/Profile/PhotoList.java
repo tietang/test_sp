@@ -1,11 +1,11 @@
+//version: 0.9.35
 package japidviews.Application.profile;
+import java.util.*;
 
-import fengfei.fir.model.PhotoShow;
-import fengfei.fir.utils.Path;
+import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
 
-import java.util.List;
+import static cn.bran.play.JapidPlayAdapter.*;
 
-import static cn.bran.play.JapidPlayAdapter.getMessage;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/PhotoList.html
 // Change to this file will be lost next time the template file is compiled.
@@ -63,7 +63,7 @@ public class PhotoList extends cn.bran.play.JapidTemplateBase
 		this.photos = photos;
 		this.pageNum = pageNum;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 3, japidviews/Application/profile/PhotoList.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 3, japidviews/Application/profile/PhotoList.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -75,12 +75,16 @@ public class PhotoList extends cn.bran.play.JapidTemplateBase
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\profile\PhotoList.html
+
 p("\n" + 
+"\n" + 
 "<div class=\"grid_row previews\" >\n" + 
 "	");// line 3, japidviews\Application\profile\PhotoList.html
 		for(PhotoShow photo : photos){// line 6, japidviews\Application\profile\PhotoList.html
+
 	String id="photo_id_"+photo.idPhoto;// line 7, japidviews\Application\profile\PhotoList.html
-		p("	<div class=\"col photo_col width_2\" id=\"");// line 7, japidviews\Application\profile\PhotoList.html
+		p("\n" + 
+"	<div class=\"col photo_col width_2\" id=\"");// line 7, japidviews\Application\profile\PhotoList.html
 		p(id);// line 8, japidviews\Application\profile\PhotoList.html
 		p("\">\n" + 
 "		<div class=\"photo_preview photo_preview_2 \">\n" + 
@@ -121,6 +125,7 @@ p("\n" +
 "	");// line 17, japidviews\Application\profile\PhotoList.html
 		}// line 22, japidviews\Application\profile\PhotoList.html
 		p("\n" + 
+"\n" + 
 "</div>\n" + 
 "<div class=\"grid_row previews\">\n" + 
 "	<div class=\"col col_14 pager  pagination-right\">\n" + 
@@ -134,13 +139,15 @@ p("\n" +
 "			</li>\n" + 
 "			");// line 29, japidviews\Application\profile\PhotoList.html
 		if(pageNum>=2){// line 31, japidviews\Application\profile\PhotoList.html
-		p("			<li >\n" + 
+		p("\n" + 
+"			<li >\n" + 
 "				<a href=\"");// line 31, japidviews\Application\profile\PhotoList.html
 		p(pagePath);// line 33, japidviews\Application\profile\PhotoList.html
 		p("/1\">First</a>\n" + 
 "			</li>");// line 33, japidviews\Application\profile\PhotoList.html
 		}// line 34, japidviews\Application\profile\PhotoList.html
 		p("\n" + 
+"\n" + 
 "			<!--	<li class=\"disabled\"><a href=\"#\">1</a></li>\n" + 
 "			<li><a href=\"#\">2</a></li>\n" + 
 "			<li><a href=\"#\">3</a></li>\n" + 
@@ -148,7 +155,8 @@ p("\n" +
 "			<li><a href=\"#\">5</a></li>-->\n" + 
 "			");// line 34, japidviews\Application\profile\PhotoList.html
 		if(photos.size()>=20){// line 41, japidviews\Application\profile\PhotoList.html
-		p("			<li>\n" + 
+		p("\n" + 
+"			<li>\n" + 
 "				<a href=\"");// line 41, japidviews\Application\profile\PhotoList.html
 		p(pagePath);// line 43, japidviews\Application\profile\PhotoList.html
 		p("/");// line 43, japidviews\Application\profile\PhotoList.html
@@ -157,6 +165,7 @@ p("\n" +
 "			</li>");// line 43, japidviews\Application\profile\PhotoList.html
 		}// line 44, japidviews\Application\profile\PhotoList.html
 		p("\n" + 
+"\n" + 
 "		</ul>\n" + 
 "	</div>\n" + 
 "</div>");// line 44, japidviews\Application\profile\PhotoList.html

@@ -1,7 +1,24 @@
+//version: 0.9.35
 package japidviews._tags;
-
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import java.util.*;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_tags/HomeNav.html
 // Change to this file will be lost next time the template file is compiled.
@@ -57,7 +74,7 @@ public class HomeNav extends cn.bran.play.JapidTemplateBase
 		this.item = item;
 		this.pathTitle = pathTitle;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 2, japidviews/_tags/HomeNav.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 2, japidviews/_tags/HomeNav.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -69,14 +86,22 @@ public class HomeNav extends cn.bran.play.JapidTemplateBase
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\_tags\HomeNav.html
+
 Map  ms=new HashMap();// line 3, japidviews\_tags\HomeNav.html
+
 ms.put(item," class=\"active\" ");// line 4, japidviews\_tags\HomeNav.html
+
 String qs= request.querystring;// line 5, japidviews\_tags\HomeNav.html
+
 String qString="";// line 6, japidviews\_tags\HomeNav.html
+
 if(qs!=null && !"".equals(qs)){// line 7, japidviews\_tags\HomeNav.html
+
 qString="?"+qs;// line 8, japidviews\_tags\HomeNav.html
+
 }// line 9, japidviews\_tags\HomeNav.html
-		p("<div class=\"grid_row  photo_nav\" >\n" + 
+		p("\n" + 
+"<div class=\"grid_row  photo_nav\" >\n" + 
 "	<div class=\"col col_13\">\n" + 
 "\n" + 
 "		<ul class=\"nav nav-pills\">\n" + 

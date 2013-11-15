@@ -6,8 +6,8 @@ import fengfei.spruce.utils.FollowServiceUtils;
 import fengfei.sprucy.AppConstants;
 import fengfei.ucm.registry.ChainExecuteProxy;
 import fengfei.ucm.registry.ChainExecuteType;
-import fengfei.ucm.repository.RelaionRepository;
-import fengfei.ucm.repository.impl.SqlRelaionRepository;
+import fengfei.ucm.repository.RelationRepository;
+import fengfei.ucm.repository.impl.SqlRelationRepository;
 import fengfei.ucm.service.ReadFollowService;
 import fengfei.ucm.service.WriteFollowService;
 import fengfei.ucm.service.relation.ReadFollowSqlService;
@@ -17,7 +17,6 @@ import play.Logger;
 import play.PlayPlugin;
 import play.i18n.Lang;
 import play.i18n.Messages;
-import play.mvc.Http;
 
 import java.io.*;
 import java.util.Map;
@@ -46,8 +45,8 @@ public class AppInitPlugin extends PlayPlugin {
 
 
     private void initFollowService() {
-
-        RelaionRepository repository = new SqlRelaionRepository();
+        Logger.info("init follow service.");
+        RelationRepository repository = new SqlRelationRepository();
         //
         ChainExecuteProxy<WriteFollowService> writeChainExecuteProxy = new ChainExecuteProxy<>(
                 WriteFollowService.class);
@@ -181,9 +180,4 @@ public class AppInitPlugin extends PlayPlugin {
     }
 
 
-    @Override
-    public boolean rawInvocation(Http.Request request, Http.Response response) throws Exception {
-        Logger.debug("11111");
-        return super.rawInvocation(request, response);    //To change body of overridden methods use File | Settings | File Templates.
-    }
 }

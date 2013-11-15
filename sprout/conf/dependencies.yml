@@ -2,7 +2,7 @@
 
 require:
     - play -> router 1.3
-    - play -> japid 0.9.30
+    - play -> japid 0.9.35
     - play -> redis 0.3
     - commons-pool -> commons-pool 1.6
     - commons-email -> commons-email 1.3.1

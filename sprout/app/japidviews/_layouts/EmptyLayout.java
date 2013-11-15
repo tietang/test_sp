@@ -1,6 +1,23 @@
+//version: 0.9.35
 package japidviews._layouts;
-
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_layouts/EmptyLayout.html
 // Change to this file will be lost next time the template file is compiled.
@@ -36,7 +53,8 @@ public abstract class EmptyLayout extends cn.bran.play.JapidTemplateBase
 	}
 	@Override public void layout() {
 		beginDoLayout(sourceTemplate);		p("<!DOCTYPE html>\n");// line 1, japidviews\_layouts\EmptyLayout.html
-		p("<html>\n" + 
+		p("\n" + 
+"<html>\n" + 
 "	<head>\n" + 
 "		<meta charset=\"UTF-8\">\n" + 
 "		<title>");// line 2, japidviews\_layouts\EmptyLayout.html
@@ -45,7 +63,8 @@ public abstract class EmptyLayout extends cn.bran.play.JapidTemplateBase
 		p(lookupStatic("/public/bootstrap/css/bootstrap.min.css"));// line 7, japidviews\_layouts\EmptyLayout.html
 		p("\">\n" + 
 "		");// line 7, japidviews\_layouts\EmptyLayout.html
-		css();p("	</head>\n" + 
+		css();p("\n" + 
+"	</head>\n" + 
 "\n" + 
 "	<body>\n" + 
 "\n" + 
@@ -56,6 +75,7 @@ public abstract class EmptyLayout extends cn.bran.play.JapidTemplateBase
 "		");// line 14, japidviews\_layouts\EmptyLayout.html
 		doLayout();// line 16, japidviews\_layouts\EmptyLayout.html
 		p("\n" + 
+"\n" + 
 "	</body>\n" + 
 "</html>\n");// line 16, japidviews\_layouts\EmptyLayout.html
 				endDoLayout(sourceTemplate);	}

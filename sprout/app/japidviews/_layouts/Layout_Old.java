@@ -1,6 +1,23 @@
+//version: 0.9.35
 package japidviews._layouts;
-
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_layouts/Layout_Old.html
 // Change to this file will be lost next time the template file is compiled.
@@ -112,7 +129,7 @@ public abstract class Layout_Old extends cn.bran.play.JapidTemplateBase
 "							<ul class=\"nav-dropdown\" style=\"width: 150px; margin-left: 0px; z-index: 300;\">\n" + 
 "								<li><a href=\"/setting\">Setting</a></li>\n" + 
 "								<li><a href=\"/account\">Account</a></li>\n" + 
-"								<li><a href=\"/profile\">Profile</a></li>\n" + 
+"								<li><a href=\"/profile\">profile</a></li>\n" +
 "								<li><a href=\"/store\">Store</a></li>\n" + 
 "							</ul></li>\n" + 
 "						<li>\n" + 

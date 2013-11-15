@@ -1,6 +1,5 @@
 package fengfei.ucm.repository.impl;
 
-import fengfei.fir.search.lucene.TagIndexCreator;
 import fengfei.ucm.entity.photo.Photo;
 import fengfei.ucm.entity.photo.PhotoTag;
 import fengfei.ucm.repository.PhotoTagRepository;

@@ -1,9 +1,24 @@
+//version: 0.9.35
 package japidviews.Application;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
 import fengfei.ucm.entity.profile.UserPwd;
-
-import static cn.bran.play.JapidPlayAdapter.flash;
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/Signup.html
 // Change to this file will be lost next time the template file is compiled.
@@ -57,7 +72,7 @@ public class Signup extends japidviews._layouts.Layout
 	public cn.bran.japid.template.RenderResult render(UserPwd up) {
 		this.up = up;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 3, japidviews/Application/Signup.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 3, japidviews/Application/Signup.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -69,8 +84,10 @@ public class Signup extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\Signup.html
+
 // line 6, japidviews\Application\Signup.html
-		p("<div class=\"grid_row signupx\">\n" + 
+		p("\n" + 
+"<div class=\"grid_row signupx\">\n" + 
 "\n" + 
 "	<div class=\"col col_16\">\n" + 
 "		<p>\n" + 
@@ -86,17 +103,20 @@ public class Signup extends japidviews._layouts.Layout
 "					");// line 16, japidviews\Application\Signup.html
 		if(asBoolean(asBoolean(flash.get("error")))) {// line 31, japidviews\Application\Signup.html
 		p("\n" + 
+"\n" + 
 "					<div class=\"alert alert-error\">\n" + 
 "						<button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 
 "							&times;\n" + 
 "						</button>\n" + 
 "						");// line 31, japidviews\Application\Signup.html
 		p(flash.get("error"));// line 37, japidviews\Application\Signup.html
-		p("					</div>\n" + 
+		p("\n" + 
+"					</div>\n" + 
 "\n" + 
 "					");// line 37, japidviews\Application\Signup.html
 		}// line 40, japidviews\Application\Signup.html
-		p("					<p class=\"control-group \">\n" + 
+		p("\n" + 
+"					<p class=\"control-group \">\n" + 
 "						<label for=\"username\">User Name</label>\n" + 
 "						<input id=\"username\" name=\"username\" type=\"text\" placeholder=\"User Name\" value=\"");// line 40, japidviews\Application\Signup.html
 		p(up.userName);// line 43, japidviews\Application\Signup.html
@@ -183,7 +203,8 @@ public class Signup extends japidviews._layouts.Layout
 	}
 	@Override protected void css() {
 		// line 6, japidviews\Application\Signup.html
-		p(" \n" + 
+		p("\n" + 
+" \n" + 
 "\n" + 
 "<script src=\"");// line 6, japidviews\Application\Signup.html
 		p(lookupStatic("/public/js/jquery.validate.js"));// line 10, japidviews\Application\Signup.html

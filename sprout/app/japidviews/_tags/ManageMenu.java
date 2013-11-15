@@ -1,8 +1,25 @@
+//version: 0.9.35
 package japidviews._tags;
-
-import fengfei.ucm.entity.photo.PhotoSet;
-
-import java.util.List;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import java.util.*;
+import fengfei.ucm.entity.photo.*;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_tags/ManageMenu.html
 // Change to this file will be lost next time the template file is compiled.
@@ -56,7 +73,7 @@ public class ManageMenu extends cn.bran.play.JapidTemplateBase
 	public cn.bran.japid.template.RenderResult render(List<PhotoSet> sets) {
 		this.sets = sets;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 4, japidviews/_tags/ManageMenu.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 4, japidviews/_tags/ManageMenu.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -68,7 +85,9 @@ public class ManageMenu extends cn.bran.play.JapidTemplateBase
 		beginDoLayout(sourceTemplate);
 //------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\_tags\ManageMenu.html
-p("</pre>\n" + 
+
+p("\n" + 
+"</pre>\n" + 
 "\n" + 
 "\n" + 
 "<ul class=\"nav nav-list\">\n" + 
@@ -86,8 +105,10 @@ p("</pre>\n" +
 "	</li>\n" + 
 "	");// line 4, japidviews\_tags\ManageMenu.html
 		if(sets!=null){// line 21, japidviews\_tags\ManageMenu.html
+
 	for(PhotoSet set:sets){// line 22, japidviews\_tags\ManageMenu.html
-		p("	<li }>\n" + 
+		p("\n" + 
+"	<li }>\n" + 
 "		<a href=\"");// line 22, japidviews\_tags\ManageMenu.html
 		p(set.idSet);// line 24, japidviews\_tags\ManageMenu.html
 		p("\">");// line 24, japidviews\_tags\ManageMenu.html
@@ -96,8 +117,10 @@ p("</pre>\n" +
 "	</li>\n" + 
 "	");// line 24, japidviews\_tags\ManageMenu.html
 		}// line 26, japidviews\_tags\ManageMenu.html
+
 	}// line 27, japidviews\_tags\ManageMenu.html
 		p("\n" + 
+"\n" + 
 "</ul>\n");// line 27, japidviews\_tags\ManageMenu.html
 		
 		endDoLayout(sourceTemplate);

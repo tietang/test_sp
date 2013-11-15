@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="../public/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../public/app/picker.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".s1 .picker").picker().pickAll();
+            $(".s2 .picker").picker().values([1, 5, 3]);
+            console.log($(".s2 .picker").pickerValues());
+        });
+    </script>
+
+    <style type="text/css">
+        body{
+        }
+        ul, ul li {
+            list-style: none;
+            float: left;
+            padding: 0px;
+        }
+        ul li {
+            list-style: none;
+            float: left;
+            padding: 0px;
+            margin: 5px;
+            -webkit-transition: all 0.3s ease-out;
+            -moz-transition: all 0.3s ease-out;
+            -ms-transition: all 0.3s ease-out;
+            -o-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+            -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        .picked {
+            border: solid 2px #942a25;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+
+        }
+
+        .unpicked {
+            border: solid 2px #FFFFFF;
+        }
+    </style>
+</head>
+
+<body>
+
+<ul class="s1">
+
+    <li class="picker transition" value="1"><img src="http://placehold.it/260x180"></li>
+    <li class="picker transition" value="2"><img src="http://placehold.it/260x180"></li>
+    <li class="picker transition" value="3"><img src="http://placehold.it/260x180"></li>
+    <li class="picker transition" value="4"><img src="http://placehold.it/260x180"></li>
+    <li class="picker transition" value="5"><img src="http://placehold.it/260x180"></li>
+    <li class="picker transition" value="6"><img src="http://placehold.it/260x180"></li>
+
+</ul>
+<br/>
+<br/>
+<br/>
+<br/>
+<ul class="s2">
+
+    <li class="picker transition" value="1"><img src="http://placehold.it/260x180"></li>
+    <li class="picker transition" value="2"><img src="http://placehold.it/260x180"></li>
+    <li class="picker transition" value="3"><img src="http://placehold.it/260x180"></li>
+    <li class="picker transition" value="4"><img src="http://placehold.it/260x180"></li>
+    <li class="picker transition" value="5"><img src="http://placehold.it/260x180"></li>
+    <li class="picker transition" value="6"><img src="http://placehold.it/260x180"></li>
+
+</ul>
+</body>
+</html>

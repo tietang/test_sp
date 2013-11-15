@@ -1,8 +1,23 @@
+//version: 0.9.35
 package japidviews.Application.photo;
-
-import java.util.List;
-
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/TestUpload.html
 // Change to this file will be lost next time the template file is compiled.
@@ -56,7 +71,7 @@ public class TestUpload extends japidviews._layouts.EmptyLayout
 	public cn.bran.japid.template.RenderResult render(List paths) {
 		this.paths = paths;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 2, japidviews/Application/photo/TestUpload.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 2, japidviews/Application/photo/TestUpload.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -68,6 +83,7 @@ public class TestUpload extends japidviews._layouts.EmptyLayout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\photo\TestUpload.html
+
 // line 4, japidviews\Application\photo\TestUpload.html
 		p("<div class=\"grid_row\">\n" + 
 "	<div class=\"col col_16\">\n" + 
@@ -240,14 +256,16 @@ public class TestUpload extends japidviews._layouts.EmptyLayout
 "	<div class=\"onerow\">\n" + 
 "		");// line 145, japidviews\Application\photo\TestUpload.html
 		for(Object path:paths){// line 315, japidviews\Application\photo\TestUpload.html
-		p("		<div class=\"col2\">\n" + 
+		p("\n" + 
+"		<div class=\"col2\">\n" + 
 "			<img src=\"");// line 315, japidviews\Application\photo\TestUpload.html
 		p(path);// line 317, japidviews\Application\photo\TestUpload.html
 		p("\"  />\n" + 
 "		</div>\n" + 
 "		");// line 317, japidviews\Application\photo\TestUpload.html
 		}// line 319, japidviews\Application\photo\TestUpload.html
-		p("	</div>\n" + 
+		p("\n" + 
+"	</div>\n" + 
 "</div>\n" + 
 "\n" + 
 "<style type=\"text/css\">\n" + 

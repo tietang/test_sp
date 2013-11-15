@@ -1,6 +1,23 @@
+//version: 0.9.35
 package japidviews._layouts;
-
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_layouts/Layout3.html
 // Change to this file will be lost next time the template file is compiled.
@@ -84,7 +101,8 @@ public abstract class Layout3 extends cn.bran.play.JapidTemplateBase
 		p(lookupStatic("/public/basic/js/bootstrap.js"));// line 21, japidviews\_layouts\Layout3.html
 		p("\"></script>\n" + 
 "		");// line 21, japidviews\_layouts\Layout3.html
-		css();p("	</head>\n" + 
+		css();p("\n" + 
+"	</head>\n" + 
 "\n" + 
 "\n" + 
 "\n" + 
@@ -193,7 +211,8 @@ public abstract class Layout3 extends cn.bran.play.JapidTemplateBase
 		header();p("</h3>\n" + 
 "			</div> -->\n");// line 128, japidviews\_layouts\Layout3.html
 		doLayout();// line 130, japidviews\_layouts\Layout3.html
-		p("		<div class=\"row container\">\n" + 
+		p("\n" + 
+"		<div class=\"row container\">\n" + 
 "			<div class=\"col width_4\">\n" + 
 "				<div class=\"photo_preview medium\" id=\"photo_preview_preview_39189268\">\n" + 
 "					<a href=\"/photo_preview/39189268?from=popular\"><img src=\"http://pcdn.500px.net/39189268/a26d91580c3c6f3aa6c4ff09564a752ced00b738/3.jpg\" /></a>\n" + 

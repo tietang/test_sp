@@ -1,8 +1,24 @@
+//version: 0.9.35
 package japidviews.Application.photo;
-
-import fengfei.ucm.entity.photo.Comment;
-
-import java.util.List;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.ucm.entity.photo.*;import fengfei.fir.utils.Path;import java.util.*;import java.util.Map.Entry;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/Comments.html
 // Change to this file will be lost next time the template file is compiled.
@@ -62,7 +78,7 @@ public class Comments extends cn.bran.play.JapidTemplateBase
 		this.cp = cp;
 		this.ct = ct;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 4, japidviews/Application/photo/Comments.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 4, japidviews/Application/photo/Comments.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -75,14 +91,16 @@ public class Comments extends cn.bran.play.JapidTemplateBase
 //------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Comments.html
  
-p("</pre>\n" + 
+p("\n" + 
+"</pre>\n" + 
 "\n" + 
 "\n" + 
 "<div>\n" + 
 "    <ul class=\"media-list\" id=\"comments\">\n" + 
 "        ");// line 4, japidviews\Application\photo\Comments.html
 		for(Comment c:comments){// line 10, japidviews\Application\photo\Comments.html
-		p("        <li class=\"media\">\n" + 
+		p("\n" + 
+"        <li class=\"media\">\n" + 
 "            <a class=\"pull-left\" href=\"/to/");// line 10, japidviews\Application\photo\Comments.html
 		try { p(c.idUser); } catch (NullPointerException npe) {}// line 12, japidviews\Application\photo\Comments.html
 		p("\">\n" + 
@@ -113,12 +131,14 @@ p("</pre>\n" +
 "        ");// line 24, japidviews\Application\photo\Comments.html
 		}// line 27, japidviews\Application\photo\Comments.html
 		p("\n" + 
+"\n" + 
 "    </ul>\n" + 
 "\n" + 
 "</div>\n" + 
 "<div class=\"line6\"></div>\n");// line 27, japidviews\Application\photo\Comments.html
 		if(pages.size()>1){// line 33, japidviews\Application\photo\Comments.html
-		p("<div class=\"pagination pagination-centered\" id=\"pagination\">\n" + 
+		p("\n" + 
+"<div class=\"pagination pagination-centered\" id=\"pagination\">\n" + 
 "    <input type=\"hidden\" name=\"cp\" id=\"cp\" value=\"");// line 33, japidviews\Application\photo\Comments.html
 		try { p(cp); } catch (NullPointerException npe) {}// line 35, japidviews\Application\photo\Comments.html
 		p("\"/>\n" + 
@@ -136,7 +156,8 @@ p("</pre>\n" +
 "        </li>\n" + 
 "        ");// line 40, japidviews\Application\photo\Comments.html
 		for(String page: pages){int p=Integer.parseInt(page);// line 42, japidviews\Application\photo\Comments.html
-		p("        <li\n" + 
+		p("\n" + 
+"        <li\n" + 
 "        ");// line 42, japidviews\Application\photo\Comments.html
 		try { p(cp==p?"class=\"active\"":""); } catch (NullPointerException npe) {}// line 44, japidviews\Application\photo\Comments.html
 		p(">\n" + 
@@ -150,7 +171,8 @@ p("</pre>\n" +
 "        </li>\n" + 
 "        ");// line 45, japidviews\Application\photo\Comments.html
 		}// line 47, japidviews\Application\photo\Comments.html
-		p("        <li\n" + 
+		p("\n" + 
+"        <li\n" + 
 "        ");// line 47, japidviews\Application\photo\Comments.html
 		try { p(cp==ct?"class=\"disabled\"":""); } catch (NullPointerException npe) {}// line 49, japidviews\Application\photo\Comments.html
 		p(">\n" + 
@@ -161,7 +183,8 @@ p("</pre>\n" +
 "    </ul>\n" + 
 "</div>\n");// line 50, japidviews\Application\photo\Comments.html
 		}// line 54, japidviews\Application\photo\Comments.html
-		p("</div>\n");// line 54, japidviews\Application\photo\Comments.html
+		p("\n" + 
+"</div>\n");// line 54, japidviews\Application\photo\Comments.html
 		
 		endDoLayout(sourceTemplate);
 	}

@@ -117,10 +117,10 @@ public class ProfileAction extends Admin {
                     session.put(SESSION_USER_NAME_KEY, niceName);
                 }
             }
-            //throw new JapidResult(new Profile().render(user));
+            //throw new JapidResult(new profile().render(user));
         } catch (Exception e) {
             Logger.error(e, "add profile error.");
-            // throw new JapidResult(new Profile().render(new User()));
+            // throw new JapidResult(new profile().render(new User()));
 
         }
         profile();

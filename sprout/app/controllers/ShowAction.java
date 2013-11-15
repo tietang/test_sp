@@ -8,6 +8,7 @@ import fengfei.fir.utils.DateTimeUtils;
 import fengfei.fir.utils.Path;
 import fengfei.spruce.cache.SimpleCache;
 import fengfei.spruce.utils.FollowServiceUtils;
+import fengfei.sprucy.AppConstants;
 import fengfei.ucm.entity.photo.*;
 import fengfei.ucm.entity.profile.User;
 import fengfei.ucm.repository.CommentRepository;
@@ -70,7 +71,7 @@ public class ShowAction extends Admin {
             isVote = photoRepository.isVote(idPhoto, idUser, iip);
             if (idUser != null) {
                 // 只有登陆
-                isFollow = readFollowService.isFollow(null, idUser, photo.idUser);
+                isFollow = readFollowService.isFollow(null, idUser, photo.idUser, AppConstants.DefaultFollowType);
                 // followNum[0] = readFollowService.countTarget(null, idUser);
                 // followNum[1] = readFollowService.countSource(null, idUser);
 

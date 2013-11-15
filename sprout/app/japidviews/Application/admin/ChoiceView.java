@@ -1,11 +1,25 @@
+//version: 0.9.35
 package japidviews.Application.admin;
-
-import fengfei.fir.model.PhotoShow;
-import fengfei.fir.utils.Path;
-
-import java.util.List;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import java.util.Set;import fengfei.ucm.entity.photo.Refresh;
+import static play.templates.JavaExtensions.*;
 import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/admin/ChoiceView.html
 // Change to this file will be lost next time the template file is compiled.
@@ -63,7 +77,7 @@ public class ChoiceView extends japidviews._layouts.Layout
 		this.photos = photos;
 		this.pageNum = pageNum;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 4, japidviews/Application/admin/ChoiceView.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 4, japidviews/Application/admin/ChoiceView.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -75,13 +89,16 @@ public class ChoiceView extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\admin\ChoiceView.html
+
 // line 7, japidviews\Application\admin\ChoiceView.html
 if(photos!=null){// line 11, japidviews\Application\admin\ChoiceView.html
-		p("<div class=\"grid_row choice\">\n" + 
+		p("\n" + 
+"<div class=\"grid_row choice\">\n" + 
 "\n" + 
 "    ");// line 11, japidviews\Application\admin\ChoiceView.html
 		for(PhotoShow photo : photos){// line 14, japidviews\Application\admin\ChoiceView.html
-		p("    <div class=\"col photo_col width_2\">\n" + 
+		p("\n" + 
+"    <div class=\"col photo_col width_2\">\n" + 
 "        <div class=\"photo_preview photo_preview_2 \">\n" + 
 "            <a href=\"javascript:void(0)\" src=\"/show/");// line 14, japidviews\Application\admin\ChoiceView.html
 		p(photo.idPhoto);// line 17, japidviews\Application\admin\ChoiceView.html
@@ -117,6 +134,7 @@ if(photos!=null){// line 11, japidviews\Application\admin\ChoiceView.html
 "    ");// line 27, japidviews\Application\admin\ChoiceView.html
 		}// line 32, japidviews\Application\admin\ChoiceView.html
 		p("\n" + 
+"\n" + 
 "</div>\n" + 
 "<div class=\"grid_row\">\n" + 
 "    <div class=\"col col_16 pager  pagination-right\">\n" + 
@@ -130,7 +148,8 @@ if(photos!=null){// line 11, japidviews\Application\admin\ChoiceView.html
 "            </li>\n" + 
 "            ");// line 39, japidviews\Application\admin\ChoiceView.html
 		if(pageNum>=2){// line 41, japidviews\Application\admin\ChoiceView.html
-		p("            <li>\n" + 
+		p("\n" + 
+"            <li>\n" + 
 "                <a href=\"");// line 41, japidviews\Application\admin\ChoiceView.html
 		p(pagePath);// line 43, japidviews\Application\admin\ChoiceView.html
 		p("/1\">First</a>\n" + 
@@ -138,6 +157,7 @@ if(photos!=null){// line 11, japidviews\Application\admin\ChoiceView.html
 "            ");// line 43, japidviews\Application\admin\ChoiceView.html
 		}// line 45, japidviews\Application\admin\ChoiceView.html
 		p("\n" + 
+"\n" + 
 "            <!--	<li class=\"disabled\"><a href=\"#\">1</a></li>\n" + 
 "            <li><a href=\"#\">2</a></li>\n" + 
 "            <li><a href=\"#\">3</a></li>\n" + 
@@ -145,7 +165,8 @@ if(photos!=null){// line 11, japidviews\Application\admin\ChoiceView.html
 "            <li><a href=\"#\">5</a></li>-->\n" + 
 "            ");// line 45, japidviews\Application\admin\ChoiceView.html
 		if(photos.size()>=20){// line 52, japidviews\Application\admin\ChoiceView.html
-		p("            <li>\n" + 
+		p("\n" + 
+"            <li>\n" + 
 "                <a href=\"");// line 52, japidviews\Application\admin\ChoiceView.html
 		p(pagePath);// line 54, japidviews\Application\admin\ChoiceView.html
 		p("/");// line 54, japidviews\Application\admin\ChoiceView.html
@@ -155,6 +176,7 @@ if(photos!=null){// line 11, japidviews\Application\admin\ChoiceView.html
 "            ");// line 54, japidviews\Application\admin\ChoiceView.html
 		}// line 56, japidviews\Application\admin\ChoiceView.html
 		p("\n" + 
+"\n" + 
 "        </ul>\n" + 
 "    </div>\n" + 
 "</div>\n");// line 56, japidviews\Application\admin\ChoiceView.html

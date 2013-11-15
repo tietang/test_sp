@@ -1,18 +1,19 @@
 package fengfei.fir.queue;
 
-import fengfei.fir.search.lucene.TagIndexCreator;
+import fengfei.fir.search.lucene.PhotoIndexCreator;
 import fengfei.fir.utils.PausableLock;
 import fengfei.ucm.entity.photo.Photo;
 
 /**
  */
-public class QueueConsumer implements Runnable {
-    public static QueueService queueService = new QueueServiceFQueueImpl();
-    public static PausableLock pausableLock = new PausableLock();
-    private long timeout = 2000;
-    TagIndexCreator creator;
+public class PhotoQueueConsumer extends BaseConsumer implements Runnable {
+    public QueueService queueService;
+    private PhotoIndexCreator creator;
 
-    public QueueConsumer(TagIndexCreator creator) {
+    public PhotoQueueConsumer(QueueService queueService,
+                              PausableLock pausableLock,
+                              PhotoIndexCreator creator) {
+        super(queueService, pausableLock);
         this.creator = creator;
     }
 
@@ -23,8 +24,12 @@ public class QueueConsumer implements Runnable {
             QueueMessage<?> message = queueService.poll();
             try {
                 if (message == null) {
-                    pausableLock.pause(timeout);
+                    pausableLock.setPaused(true);
+                    increaseSleepTime();
+                    pausableLock.pause(blockTime);
                 } else {
+                    pausableLock.setPaused(false);
+                    decreaseSleepTime();
                     process(message);
                 }
             } catch (Exception e) {
@@ -50,4 +55,6 @@ public class QueueConsumer implements Runnable {
 
         }
     }
+
+
 }

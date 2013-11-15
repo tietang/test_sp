@@ -1,8 +1,9 @@
+//version: 0.9.35
 package japidviews.Application.profile;
+import java.util.*;
 
-import fengfei.ucm.entity.photo.PhotoSet;
+import fengfei.ucm.entity.photo.*;
 
-import java.util.List;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/DirNav.html
 // Change to this file will be lost next time the template file is compiled.
@@ -56,7 +57,7 @@ public class DirNav extends cn.bran.play.JapidTemplateBase
 	public cn.bran.japid.template.RenderResult render(List<PhotoSet> photoSets) {
 		this.photoSets = photoSets;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 6, japidviews/Application/profile/DirNav.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 6, japidviews/Application/profile/DirNav.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -71,10 +72,15 @@ p("<pre style=\"display: none\">\n" +
 "	\n");// line 1, japidviews\Application\profile\DirNav.html
 
 p("\n" + 
+"\n");// line 4, japidviews\Application\profile\DirNav.html
+		p("\n" + 
+"\n" + 
 "</pre>\n");// line 6, japidviews\Application\profile\DirNav.html
 		if(photoSets!=null){// line 9, japidviews\Application\profile\DirNav.html
+
 for(PhotoSet set:photoSets){// line 10, japidviews\Application\profile\DirNav.html
-		p("<li class=\"setItem\" title=\"");// line 10, japidviews\Application\profile\DirNav.html
+		p("\n" + 
+"<li class=\"setItem\" title=\"");// line 10, japidviews\Application\profile\DirNav.html
 		p(set.name);// line 11, japidviews\Application\profile\DirNav.html
 		p("\">\n" + 
 "	<a href=\"javascript:void(0)\"  src=\"/photo/manage/dir/");// line 11, japidviews\Application\profile\DirNav.html
@@ -84,8 +90,9 @@ for(PhotoSet set:photoSets){// line 10, japidviews\Application\profile\DirNav.ht
 		p("</a>\n" + 
 "</li>\n");// line 12, japidviews\Application\profile\DirNav.html
 		}// line 14, japidviews\Application\profile\DirNav.html
+
 }// line 15, japidviews\Application\profile\DirNav.html
-		;// line 15, japidviews\Application\profile\DirNav.html
+		p("\n");// line 15, japidviews\Application\profile\DirNav.html
 		
 		endDoLayout(sourceTemplate);
 	}

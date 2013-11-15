@@ -1,12 +1,10 @@
 package fengfei.fir.rank;
 
-import java.util.Set;
-
-import net.sf.cglib.transform.impl.AddDelegateTransformer;
-
-import redis.clients.jedis.Tuple;
-import fengfei.shard.redis.RedisComand;
+import fengfei.shard.redis.RedisCommand;
 import fengfei.sprucy.AppConstants;
+import redis.clients.jedis.Tuple;
+
+import java.util.Set;
 
 public class PopularRank {
 
@@ -22,8 +20,8 @@ public class PopularRank {
 
     }
 
-    public static RedisComand read;
-    public static RedisComand write;
+    public static RedisCommand read;
+    public static RedisCommand write;
 
     public long add(String id, double score) {
         long updated = write.zadd(rankPopularKey, score, id);

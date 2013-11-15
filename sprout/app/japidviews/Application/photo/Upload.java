@@ -1,12 +1,25 @@
+//version: 0.9.35
 package japidviews.Application.photo;
-
-import fengfei.ucm.entity.photo.PhotoSet;
-import japidviews._tags.AddNav;
-
-import java.util.List;
-
-import static cn.bran.play.JapidPlayAdapter.getMessage;
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import java.util.*;import fengfei.ucm.entity.photo.*;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/Upload.html
 // Change to this file will be lost next time the template file is compiled.
@@ -60,7 +73,7 @@ public class Upload extends japidviews._layouts.Layout
 	public cn.bran.japid.template.RenderResult render(List<PhotoSet> photoSets) {
 		this.photoSets = photoSets;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 5, japidviews/Application/photo/Upload.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 5, japidviews/Application/photo/Upload.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -72,10 +85,13 @@ public class Upload extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Upload.html
-p("</pre>\n");// line 5, japidviews\Application\photo\Upload.html
+
+p("\n" + 
+"</pre>\n");// line 5, japidviews\Application\photo\Upload.html
 		// line 7, japidviews\Application\photo\Upload.html
 final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActionRunners()).setOut(getOut()); _AddNav2.render("upload"); // line 45, japidviews\Application\photo\Upload.html// line 45, japidviews\Application\photo\Upload.html
-		p("<form id=\"photoUploadForm\" action=\"/upload/done\" method=\"post\" enctype=\"multipart/form-data\">\n" + 
+		p("\n" + 
+"<form id=\"photoUploadForm\" action=\"/upload/done\" method=\"post\" enctype=\"multipart/form-data\">\n" + 
 "    <div class=\"grid_row upload \">\n" + 
 "        <div class=\"col col_16\">\n" + 
 "\n" + 
@@ -112,6 +128,7 @@ final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActio
 "                    ");// line 56, japidviews\Application\photo\Upload.html
 		final UploadForm _UploadForm3 = new UploadForm(getOut()); _UploadForm3.setActionRunners(getActionRunners()).setOut(getOut()); _UploadForm3.render(null,photoSets); // line 72, japidviews\Application\photo\Upload.html// line 72, japidviews\Application\photo\Upload.html
 		p("\n" + 
+"\n" + 
 "                    <tr>\n" + 
 "                        <td>");// line 72, japidviews\Application\photo\Upload.html
 		;p(getMessage("photo.note"));// line 75, japidviews\Application\photo\Upload.html
@@ -121,7 +138,8 @@ final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActio
 "                                <label for=\"status1\">\n" + 
 "                                    ");// line 75, japidviews\Application\photo\Upload.html
 		;p(getMessage("photo.status"));// line 79, japidviews\Application\photo\Upload.html
-		p("                                    <input type=\"checkbox\" name=\"status\" id=\"status1\"   checked value=\"1\"/>\n" + 
+		p("\n" + 
+"                                    <input type=\"checkbox\" name=\"status\" id=\"status1\"   checked value=\"1\"/>\n" + 
 "                                </label>\n" + 
 "                            </div>\n" + 
 "                        </td>\n" + 
@@ -129,18 +147,26 @@ final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActio
 "                            <button class=\"btn btn-info\" type=\"button\" id=\"close\">\n" + 
 "                                ");// line 79, japidviews\Application\photo\Upload.html
 		;p(getMessage("close"));// line 86, japidviews\Application\photo\Upload.html
-		p("                            </button>\n" + 
+		p("\n" + 
+"                            </button>\n" + 
 "                        </td>\n" + 
 "                    </tr>\n" + 
 "                    </tbody>\n" + 
 "                </table>\n" + 
+"                <div class=\"block\">\n" + 
+"                    ");// line 86, japidviews\Application\photo\Upload.html
+		Map map=new HashMap();map.put("catefory",fengfei.spruce.cache.SimpleCache.categories);// line 93, japidviews\Application\photo\Upload.html
+
+                    final CategorySelector _CategorySelector4 = new CategorySelector(getOut()); _CategorySelector4.setActionRunners(getActionRunners()).setOut(getOut()); _CategorySelector4.render(map,(byte) 0); // line 94, japidviews\Application\photo\Upload.html// line 94, japidviews\Application\photo\Upload.html
+		p("\n" + 
+"                </div>\n" + 
 "            </div>\n" + 
 "\n" + 
 "        </div>\n" + 
 "\n" + 
 "    </div>\n" + 
 "\n" + 
-"</form>\n");// line 86, japidviews\Application\photo\Upload.html
+"</form>\n");// line 94, japidviews\Application\photo\Upload.html
 		
 		endDoLayout(sourceTemplate);
 	}

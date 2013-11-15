@@ -1,12 +1,13 @@
+//version: 0.9.35
 package japidviews.Application.profile;
+import java.util.*;
 
-import fengfei.ucm.entity.photo.PhotoSet;
-import japidviews._tags.AddNav;
+import fengfei.ucm.entity.photo.*;
 
-import java.util.List;
+import static cn.bran.play.JapidPlayAdapter.*;
 
-import static cn.bran.play.JapidPlayAdapter.getMessage;
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import japidviews._tags.*;
+
 //
 // NOTE: This file was generated from: japidviews/Application/profile/PhotoManage.html
 // Change to this file will be lost next time the template file is compiled.
@@ -60,7 +61,7 @@ public class PhotoManage extends japidviews._layouts.Layout
 	public cn.bran.japid.template.RenderResult render(List<PhotoSet> sets) {
 		this.sets = sets;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 5, japidviews/Application/profile/PhotoManage.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 5, japidviews/Application/profile/PhotoManage.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -72,13 +73,15 @@ public class PhotoManage extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\PhotoManage.html
+
 // line 8, japidviews\Application\profile\PhotoManage.html
 		p("</pre>\n" + 
 "\n" + 
 "\n" + 
 "\n");// line 12, japidviews\Application\profile\PhotoManage.html
 		final AddNav _AddNav3 = new AddNav(getOut()); _AddNav3.setActionRunners(getActionRunners()).setOut(getOut()); _AddNav3.render("manage"); // line 17, japidviews\Application\profile\PhotoManage.html// line 17, japidviews\Application\profile\PhotoManage.html
-		p("<div class=\"grid_row manage\">\n" + 
+		p("\n" + 
+"<div class=\"grid_row manage\">\n" + 
 "\n" + 
 "	<div class=\"col col_2 \">\n" + 
 "		<div class=\"manage_nav \">\n" + 
@@ -105,6 +108,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\P
 "				");// line 34, japidviews\Application\profile\PhotoManage.html
 		final DirNav _DirNav4 = new DirNav(getOut()); _DirNav4.setActionRunners(getActionRunners()).setOut(getOut()); _DirNav4.render(sets); // line 36, japidviews\Application\profile\PhotoManage.html// line 36, japidviews\Application\profile\PhotoManage.html
 		p("\n" + 
+"\n" + 
 "			</ul>\n" + 
 "\n" + 
 "		</div>\n" + 
