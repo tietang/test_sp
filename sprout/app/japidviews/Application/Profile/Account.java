@@ -1,6 +1,7 @@
 //version: 0.9.35
 package japidviews.Application.profile;
-import japidviews._tags.*;
+
+import japidviews._tags.SettingsMenu;
 
 //
 // NOTE: This file was generated from: japidviews/Application/profile/Account.html

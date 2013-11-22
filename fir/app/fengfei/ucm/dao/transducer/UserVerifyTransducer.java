@@ -1,11 +1,10 @@
 package fengfei.ucm.dao.transducer;
 
+import fengfei.forest.database.dbutils.Transducer;
+import fengfei.ucm.entity.profile.UserVerify;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import fengfei.forest.database.dbutils.Transducer;
-import fengfei.ucm.entity.profile.User;
-import fengfei.ucm.entity.profile.UserVerify;
 
 public class UserVerifyTransducer implements Transducer<UserVerify> {
 

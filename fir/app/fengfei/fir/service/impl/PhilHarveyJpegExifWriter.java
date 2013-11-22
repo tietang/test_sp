@@ -1,15 +1,14 @@
 package fengfei.fir.service.impl;
 
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-
+import fengfei.fir.service.JpegExifWriter;
 import org.im4java.core.ETOperation;
 import org.im4java.core.ExiftoolCmd;
 import org.im4java.process.ArrayListOutputConsumer;
 
-import fengfei.fir.service.JpegExifWriter;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * <pre>

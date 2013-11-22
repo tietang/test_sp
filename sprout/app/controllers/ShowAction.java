@@ -2,8 +2,6 @@ package controllers;
 
 import cn.bran.play.JapidResult;
 import fengfei.fir.model.PhotoShow;
-import fengfei.fir.rank.LastRank;
-import fengfei.fir.rank.PopularRank;
 import fengfei.fir.utils.DateTimeUtils;
 import fengfei.fir.utils.Path;
 import fengfei.spruce.cache.SimpleCache;

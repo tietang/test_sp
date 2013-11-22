@@ -1,12 +1,12 @@
 package fengfei.ucm.dao.transducer;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import fengfei.fir.utils.AppUtils;
 import fengfei.forest.database.dbutils.Transducer;
 import fengfei.ucm.entity.photo.PhotoAccess;
 import fengfei.ucm.entity.photo.PhotoAccess.AccessType;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class PhotoAccessTransducer implements Transducer<PhotoAccess> {
 

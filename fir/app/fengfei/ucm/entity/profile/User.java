@@ -1,8 +1,8 @@
 package fengfei.ucm.entity.profile;
 
-import java.io.Serializable;
-
 import fengfei.fir.utils.AppUtils;
+
+import java.io.Serializable;
 
 public class User extends UserPwd implements Serializable {
 

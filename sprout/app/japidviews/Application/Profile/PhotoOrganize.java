@@ -1,10 +1,11 @@
 //version: 0.9.35
 package japidviews.Application.profile;
-import java.util.*;
 
-import fengfei.ucm.entity.photo.*;
+import fengfei.ucm.entity.photo.PhotoSet;
 
-import static cn.bran.play.JapidPlayAdapter.*;
+import java.util.List;
+
+import static cn.bran.play.JapidPlayAdapter.flash;
 
 //
 // NOTE: This file was generated from: japidviews/Application/profile/PhotoOrganize.html

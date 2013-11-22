@@ -14,7 +14,11 @@ from __future__ import with_statement
 from google.appengine.api import files, images
 from google.appengine.ext import blobstore, deferred
 from google.appengine.ext.webapp import blobstore_handlers
-import json, re, urllib, webapp2
+import json
+import re
+import urllib
+import webapp2
+
 
 WEBSITE = 'http://blueimp.github.com/jQuery-File-Upload/'
 MIN_FILE_SIZE = 1 # bytes

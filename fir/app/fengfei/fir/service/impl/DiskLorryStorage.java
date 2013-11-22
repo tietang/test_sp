@@ -1,7 +1,15 @@
 package fengfei.fir.service.impl;
 
-import static fengfei.sprucy.Spruce.getPreviewDimensions;
-import static fengfei.sprucy.Spruce.getPreviewNumber;
+import com.mongodb.DB;
+import fengfei.fir.model.UploadDone;
+import fengfei.fir.service.JpegExifWriter;
+import fengfei.fir.service.JpegProcess;
+import fengfei.fir.service.LorryStorage;
+import fengfei.fir.utils.Path;
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.InputStream;
@@ -9,18 +17,8 @@ import java.io.OutputStream;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.io.FileUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.mongodb.DB;
-
-import fengfei.fir.model.UploadDone;
-import fengfei.fir.service.JpegExifWriter;
-import fengfei.fir.service.JpegProcess;
-import fengfei.fir.service.LorryStorage;
-import fengfei.fir.utils.Path;
+import static fengfei.sprucy.Spruce.getPreviewDimensions;
+import static fengfei.sprucy.Spruce.getPreviewNumber;
 
 public class DiskLorryStorage implements LorryStorage {
 

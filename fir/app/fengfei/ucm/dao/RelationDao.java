@@ -1,8 +1,5 @@
 package fengfei.ucm.dao;
 
-import java.sql.SQLException;
-import java.util.List;
-
 import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.forest.database.dbutils.LongTransducer;
 import fengfei.ucm.dao.transducer.IntTransducer;
@@ -11,6 +8,9 @@ import fengfei.ucm.dao.transducer.RelationTransducer;
 import fengfei.ucm.entity.relation.Metadata;
 import fengfei.ucm.entity.relation.Relation;
 import fengfei.ucm.entity.relation.State;
+
+import java.sql.SQLException;
+import java.util.List;
 
 public class RelationDao {
 
@@ -47,7 +47,7 @@ public class RelationDao {
             long sourceId,
             long targetId,
             byte type) throws SQLException {
-        String sql = "SELECT source_id,target_id,type,state,created_at,updated_at,attachment_id FROM rs_" + suffix
+        String sql = "SELECT source_id,target_id,type,state,created_at,updated_at,attachment_id FROM rs" + suffix
                 + " WHERE source_id = ? AND target_id = ? AND type= ? for update";
         Relation oldRelation = grower.selectOne(
                 sql,
@@ -130,7 +130,7 @@ public class RelationDao {
             return 0;
         int count = 0;
 
-        String sql = "UPDATE rs_" + suffix + " SET updated_at = ?, state = ?  "
+        String sql = "UPDATE rs" + suffix + " SET updated_at = ?, state = ?  "
                 + "WHERE source_id = ? AND type = ?  AND target_id = ? and attachment_id=? ";
         count = grower.update(
                 sql,
@@ -149,7 +149,7 @@ public class RelationDao {
         int count = 0;
         String sql = "";
 
-        sql = "INSERT INTO rs_" + suffix
+        sql = "INSERT INTO rs" + suffix
                 + "(source_id, target_id,type,state,updated_at,created_at,attachment_id) "
                 + "VALUES (?, ?, ?, ?, ?, ?,?)";
         count = grower.update(
@@ -234,7 +234,7 @@ public class RelationDao {
         int count = 0;
         String sql = "";
 
-        sql = "DELETE FROM rs_" + suffix
+        sql = "DELETE FROM rs" + suffix
                 + " WHERE source_id=? AND target_id=? AND type=? AND attachment_id=?";
         count = grower.update(
                 sql,
@@ -255,7 +255,7 @@ public class RelationDao {
             State state) throws SQLException {
         List<Long> targets = grower
                 .select(
-                        "SELECT target_id FROM rs_" + suffix
+                        "SELECT target_id FROM rs" + suffix
                                 + " WHERE source_id =? and  type=? and  state=? ",
                         new LongTransducer(),
                         sourceId,
@@ -273,7 +273,7 @@ public class RelationDao {
             int offset,
             int limit) throws SQLException {
         List<Long> targets = grower.select(
-                "SELECT target_id FROM rs_" + suffix
+                "SELECT target_id FROM rs" + suffix
                         + " WHERE source_id =? and  type=? and  state=? limit ?,? ",
                 new LongTransducer(),
                 sourceId,
@@ -293,7 +293,7 @@ public class RelationDao {
             State state) throws SQLException {
         List<Long> targets = grower
                 .select(
-                        "SELECT attachment_id FROM rs_" + suffix
+                        "SELECT attachment_id FROM rs" + suffix
                                 + " WHERE source_id =? and  type=? and  state=? ",
                         new LongTransducer(),
                         sourceId,
@@ -311,7 +311,7 @@ public class RelationDao {
             int offset,
             int limit) throws SQLException {
         List<Long> targets = grower.select(
-                "SELECT attachment_id FROM rs_" + suffix
+                "SELECT attachment_id FROM rs" + suffix
                         + " WHERE source_id =? and  type=? and  state=? limit ?,? ",
                 new LongTransducer(),
                 sourceId,
@@ -330,7 +330,7 @@ public class RelationDao {
             byte type,
             State state) throws SQLException {
         Long target = grower.selectOne(
-                "SELECT target_id FROM rs_" + suffix
+                "SELECT target_id FROM rs" + suffix
                         + " WHERE source_id =? and target_id=? and  type=? and state=? ",
                 new LongTransducer(),
                 sourceId,
@@ -344,7 +344,7 @@ public class RelationDao {
     public List<Long> findTargets(ForestGrower grower, String suffix, long sourceId, State state)
             throws SQLException {
         List<Long> targets = grower.select(
-                "SELECT target_id FROM rs_" + suffix + " WHERE source_id =? and  state=? ",
+                "SELECT target_id FROM rs" + suffix + " WHERE source_id =? and  state=? ",
                 new LongTransducer(),
                 sourceId,
                 state.getCode());
@@ -359,7 +359,7 @@ public class RelationDao {
             int offset,
             int limit) throws SQLException {
         List<Long> targets = grower.select(
-                "SELECT target_id FROM rs_" + suffix + " WHERE source_id =? and  state=? limit ?,?",
+                "SELECT target_id FROM rs" + suffix + " WHERE source_id =? and  state=? limit ?,?",
                 new LongTransducer(),
                 sourceId,
                 state.getCode(),
@@ -374,33 +374,33 @@ public class RelationDao {
             long sourceId,
             byte type,
             State state) throws SQLException {
-        String sql = "SELECT count(*) FROM rs_" + suffix
+        String sql = "SELECT count(*) FROM rs" + suffix
                 + " WHERE source_id = ? AND type=? and state = ?";
-        int count = grower.selectOne(sql, new IntTransducer(), sourceId, type, state.getCode());
-        return count;
+        Integer count = grower.selectOne(sql, new IntTransducer(), sourceId, type, state.getCode());
+        return count == null ? 0 : count;
 
     }
 
     public int
     computeRelationCount(ForestGrower grower, String suffix, long sourceId, State state)
             throws SQLException {
-        String sql = "SELECT count(*) FROM rs_" + suffix + " WHERE source_id = ? and state = ?";
-        int count = grower.selectOne(sql, new IntTransducer(), sourceId, state.getCode());
-        return count;
+        String sql = "SELECT count(*) FROM rs" + suffix + " WHERE source_id = ? and state = ?";
+        Integer count = grower.selectOne(sql, new IntTransducer(), sourceId, state.getCode());
+        return count == null ? 0 : count;
 
     }
 
     public int count(ForestGrower grower, String suffix, long sourceId, byte type, State state)
             throws SQLException {
-        String sql = "SELECT count FROM metadata_" + suffix
+        String sql = "SELECT count FROM metadata" + suffix
                 + " WHERE source_id = ? AND type=? and state = ?";
-        int count = grower.selectOne(sql, new IntTransducer(), sourceId, type, state.getCode());
-        return count;
+        Integer count = grower.selectOne(sql, new IntTransducer(), sourceId, type, state.getCode());
+        return count == null ? 0 : count;
     }
 
     public int count(ForestGrower grower, String suffix, long sourceId, State state)
             throws SQLException {
-        String sql = "SELECT `count` as count FROM metadata_" + suffix
+        String sql = "SELECT `count` as count FROM metadata" + suffix
                 + " WHERE source_id = ?  and state = ?";
         Integer count = grower.selectOne(sql, new IntTransducer(), sourceId, state.getCode());
         return count == null ? 0 : count;

@@ -2,7 +2,7 @@ package fengfei.fir.rank;
 
 import fengfei.fir.model.PhotoRank;
 import fengfei.fir.utils.Kryor;
-import fengfei.shard.redis.RedisComand;
+import fengfei.shard.redis.RedisCommand;
 import fengfei.ucm.entity.photo.Rank;
 import redis.clients.jedis.Transaction;
 import redis.clients.jedis.Tuple;
@@ -26,8 +26,8 @@ public class ChoiceRank {
     private String rankLastHashKey = rankKey + "_M";
     final static int T2013Minute;
     final static int WeekMinute = 7 * 24 * 60;
-    public static RedisComand read;
-    public static RedisComand write;
+    public static RedisCommand read;
+    public static RedisCommand write;
 
     static {
         Calendar c = Calendar.getInstance();

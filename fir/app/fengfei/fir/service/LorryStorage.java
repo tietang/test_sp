@@ -1,12 +1,12 @@
 package fengfei.fir.service;
 
+import fengfei.fir.model.UploadDone;
+
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 import java.util.Map;
-
-import fengfei.fir.model.UploadDone;
 
 public interface LorryStorage {
 

@@ -1,11 +1,10 @@
 package fengfei.ucm.dao.transducer;
 
+import fengfei.forest.database.dbutils.Transducer;
+import fengfei.ucm.entity.photo.Upcoming;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import fengfei.forest.database.dbutils.Transducer;
-import fengfei.ucm.entity.photo.Refresh;
-import fengfei.ucm.entity.photo.Upcoming;
 
 public class UpcomingTransducer implements Transducer<Upcoming> {
 

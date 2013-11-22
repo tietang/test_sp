@@ -1,10 +1,10 @@
 package fengfei.ucm.dao.transducer;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import fengfei.forest.database.dbutils.Transducer;
 import fengfei.ucm.entity.relation.Relation;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class RelationTransducer implements Transducer<Relation> {
 

@@ -1,10 +1,5 @@
 package fengfei.fir.service.impl;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
 import com.drew.imaging.ImageMetadataReader;
 import com.drew.imaging.ImageProcessingException;
 import com.drew.metadata.Directory;
@@ -12,9 +7,13 @@ import com.drew.metadata.Metadata;
 import com.drew.metadata.exif.CanonMakernoteDirectory;
 import com.drew.metadata.exif.ExifIFD0Directory;
 import com.drew.metadata.exif.ExifSubIFDDirectory;
-
 import fengfei.fir.service.ExifException;
 import fengfei.fir.service.JpegExifReader;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <pre>

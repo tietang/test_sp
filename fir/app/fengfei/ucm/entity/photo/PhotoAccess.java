@@ -1,9 +1,9 @@
 package fengfei.ucm.entity.photo;
 
+import fengfei.fir.model.PhotoShow;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import fengfei.fir.model.PhotoShow;
 
 public class PhotoAccess extends PhotoShow{
 

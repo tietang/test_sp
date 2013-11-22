@@ -1,12 +1,13 @@
 //version: 0.9.35
 package japidviews.Application.profile;
-import java.util.*;
 
-import fengfei.ucm.entity.photo.*;
+import fengfei.ucm.entity.photo.PhotoSet;
+import japidviews._tags.AddNav;
 
-import static cn.bran.play.JapidPlayAdapter.*;
+import java.util.List;
 
-import japidviews._tags.*;
+import static cn.bran.play.JapidPlayAdapter.getMessage;
+import static cn.bran.play.JapidPlayAdapter.lookupStatic;
 
 //
 // NOTE: This file was generated from: japidviews/Application/profile/PhotoManage.html

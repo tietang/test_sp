@@ -1,17 +1,16 @@
 package fengfei.fir.service.impl;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
+import fengfei.fir.service.JpegProcess;
 import org.apache.commons.io.FilenameUtils;
 import org.im4java.core.ConvertCmd;
 import org.im4java.core.IM4JavaException;
 import org.im4java.core.IMOperation;
 import org.im4java.process.Pipe;
 
-import fengfei.fir.service.JpegProcess;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class GraphicsMagickJpegProcess implements JpegProcess {
 

@@ -1,24 +1,20 @@
 package fengfei.ucm.dao;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import fengfei.fir.utils.AppUtils;
 import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.sprucy.AppConstants;
 import fengfei.ucm.dao.transducer.ChoiceTransducer;
 import fengfei.ucm.dao.transducer.PhotoTransducer;
-import fengfei.ucm.dao.transducer.PopularTransducer;
 import fengfei.ucm.dao.transducer.RankTransducer;
 import fengfei.ucm.dao.transducer.RefreshTransducer;
-import fengfei.ucm.dao.transducer.UpcomingTransducer;
 import fengfei.ucm.entity.photo.Choice;
 import fengfei.ucm.entity.photo.Photo;
-import fengfei.ucm.entity.photo.Popular;
 import fengfei.ucm.entity.photo.Rank;
 import fengfei.ucm.entity.photo.Refresh;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 public class ShowDao {
 

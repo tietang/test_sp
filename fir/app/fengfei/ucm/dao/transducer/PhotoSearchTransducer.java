@@ -2,7 +2,6 @@ package fengfei.ucm.dao.transducer;
 
 import fengfei.forest.database.dbutils.Transducer;
 import fengfei.ucm.entity.photo.PhotoSearch;
-import fengfei.ucm.entity.photo.PhotoTag;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,10 +1,12 @@
 //version: 0.9.35
 package japidviews.Application.profile;
-import java.util.*;
 
-import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import fengfei.fir.model.PhotoShow;
+import fengfei.fir.utils.Path;
 
-import static cn.bran.play.JapidPlayAdapter.*;
+import java.util.List;
+
+import static cn.bran.play.JapidPlayAdapter.getMessage;
 
 //
 // NOTE: This file was generated from: japidviews/Application/profile/PhotoList.html

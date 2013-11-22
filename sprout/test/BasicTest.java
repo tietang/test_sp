@@ -1,6 +1,3 @@
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fengfei.forest.slice.config.Config;
 import fengfei.forest.slice.config.SliceConfigReader;
 import fengfei.forest.slice.config.xml.XmlSliceConfigReader;
@@ -9,6 +6,8 @@ import fengfei.forest.slice.database.DatabaseRouterFactory;
 import fengfei.forest.slice.database.utils.Transactions;
 import fengfei.ucm.entity.profile.UserPwd;
 import fengfei.ucm.repository.impl.SqlUserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class BasicTest {
 

@@ -1,7 +1,5 @@
 package fengfei.ucm.entity.photo;
 
-import fengfei.fir.model.PhotoShow;
-
 public class Refresh extends PhotoVisit {
 
     public Refresh() {

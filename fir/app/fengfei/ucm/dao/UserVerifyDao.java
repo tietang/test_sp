@@ -1,12 +1,10 @@
 package fengfei.ucm.dao;
 
-import java.sql.SQLException;
-import java.util.List;
-
 import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.ucm.dao.transducer.UserVerifyTransducer;
-import fengfei.ucm.entity.photo.Photo;
 import fengfei.ucm.entity.profile.UserVerify;
+
+import java.sql.SQLException;
 
 public class UserVerifyDao {
 

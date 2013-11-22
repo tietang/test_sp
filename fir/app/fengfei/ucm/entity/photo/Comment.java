@@ -1,8 +1,8 @@
 package fengfei.ucm.entity.photo;
 
-import java.sql.Timestamp;
-
 import fengfei.ucm.entity.profile.User;
+
+import java.sql.Timestamp;
 
 public class Comment {
 

@@ -1,8 +1,8 @@
 package fengfei.ucm.entity.photo;
 
-import java.sql.Date;
-
 import fengfei.fir.model.PhotoShow;
+
+import java.sql.Date;
 
 public class Rank extends PhotoShow {
 

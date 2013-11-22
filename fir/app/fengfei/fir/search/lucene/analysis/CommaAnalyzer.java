@@ -2,7 +2,6 @@ package fengfei.fir.search.lucene.analysis;
 
 
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.core.WhitespaceTokenizer;
 import org.apache.lucene.util.Version;
 
 import java.io.Reader;

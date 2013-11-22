@@ -1,13 +1,8 @@
 package fengfei.fir.mongo;
 
-import java.net.UnknownHostException;
+import com.mongodb.*;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBObject;
-import com.mongodb.Mongo;
-import com.mongodb.MongoException;
+import java.net.UnknownHostException;
 
 public class AutoIncrUtils {
 

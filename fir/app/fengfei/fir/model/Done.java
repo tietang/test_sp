@@ -1,9 +1,6 @@
 package fengfei.fir.model;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 
 public class Done extends HashMap<String, Object> {
 

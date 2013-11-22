@@ -1,11 +1,6 @@
 package fengfei.fir.service.impl;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.util.Map;
-import java.util.Map.Entry;
-
+import fengfei.fir.service.JpegExifWriter;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.sanselan.ImageWriteException;
@@ -18,17 +13,16 @@ import org.apache.sanselan.formats.tiff.TiffImageMetadata;
 import org.apache.sanselan.formats.tiff.constants.ExifTagConstants;
 import org.apache.sanselan.formats.tiff.constants.TagInfo;
 import org.apache.sanselan.formats.tiff.constants.TiffDirectoryConstants;
-import org.apache.sanselan.formats.tiff.fieldtypes.FieldType;
-import org.apache.sanselan.formats.tiff.fieldtypes.FieldTypeASCII;
-import org.apache.sanselan.formats.tiff.fieldtypes.FieldTypeByte;
-import org.apache.sanselan.formats.tiff.fieldtypes.FieldTypeLong;
-import org.apache.sanselan.formats.tiff.fieldtypes.FieldTypeRational;
-import org.apache.sanselan.formats.tiff.fieldtypes.FieldTypeShort;
+import org.apache.sanselan.formats.tiff.fieldtypes.*;
 import org.apache.sanselan.formats.tiff.write.TiffOutputDirectory;
 import org.apache.sanselan.formats.tiff.write.TiffOutputField;
 import org.apache.sanselan.formats.tiff.write.TiffOutputSet;
 
-import fengfei.fir.service.JpegExifWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class SanselanJpegExifWriter implements JpegExifWriter, SanselanExifTagConstants {
 

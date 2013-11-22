@@ -7,7 +7,6 @@ import fengfei.ucm.entity.photo.Photo;
 /**
  */
 public class PhotoQueueConsumer extends BaseConsumer implements Runnable {
-    public QueueService queueService;
     private PhotoIndexCreator creator;
 
     public PhotoQueueConsumer(QueueService queueService,

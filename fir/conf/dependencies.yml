@@ -36,6 +36,8 @@ require:
     - org.apache.lucene -> lucene-queries 4.5.0
     - org.apache.lucene -> lucene-queryparser 4.5.0
     - fengfei.forest -> forest-core 1.2-SNAPSHOT
+        exclude:
+            - org.codehaus.mojo -> *
     - fengfei.forest -> forest-database 1.2-SNAPSHOT   
     - fengfei.forest -> forest-dbutils 1.1-SNAPSHOT
     - fengfei.berain -> berain-client 1.0
