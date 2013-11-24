@@ -1,12 +1,24 @@
 //version: 0.9.35
 package japidviews._tags;
-
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import static cn.bran.play.JapidPlayAdapter.getMessage;
-import static cn.bran.play.JapidPlayAdapter.i18n;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import java.util.*;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_tags/PhotoNav.html
 // Change to this file will be lost next time the template file is compiled.
@@ -145,7 +157,7 @@ qString="?"+qs;// line 9, japidviews\_tags\PhotoNav.html
 "\n" + 
 "	</div>\n" + 
 "	<div class=\"col col_3 col_right\">\n" + 
-"		<div class=\"row-fluid\">\n" + 
+"		<div class=\"row\">\n" + 
 "			");// line 29, japidviews\_tags\PhotoNav.html
 		Map kv1=fengfei.spruce.cache.SimpleCache.categories;// line 36, japidviews\_tags\PhotoNav.html
 
@@ -162,8 +174,8 @@ qString="?"+qs;// line 9, japidviews\_tags\PhotoNav.html
 			Object value=kv.get(key);// line 42, japidviews\_tags\PhotoNav.html
 
 			if(fengfei.spruce.utils.Browser.isIE67(request)){// line 43, japidviews\_tags\PhotoNav.html
-		p("			<div class=\" span12\" >\n" + 
-"				<select name=\"category\" id=\"onlyCategoryIe\" class=\"span12\">\n" + 
+		p("			<div class=\" col-md-12\" >\n" + 
+"				<select name=\"category\" id=\"onlyCategoryIe\" class=\"col-md-12\">\n" + 
 "					<option value=\"");// line 43, japidviews\_tags\PhotoNav.html
 		p(key);// line 46, japidviews\_tags\PhotoNav.html
 		p("\">");// line 46, japidviews\_tags\PhotoNav.html
@@ -178,8 +190,8 @@ qString="?"+qs;// line 9, japidviews\_tags\PhotoNav.html
 		}else{// line 50, japidviews\_tags\PhotoNav.html
 		p("\n" + 
 "\n" + 
-"			<div class=\"btn-group bootstrap-select span12\" >\n" + 
-"				<button type=\"button\" class=\"btn dropdown-toggle btn-inverse span12\" data-toggle=\"dropdown\" data-id=\"onlyCategory1\">\n" + 
+"			<div class=\"btn-group bootstrap-select col-md-12\" >\n" + 
+"				<button type=\"button\" class=\"btn dropdown-toggle btn-inverse col-md-12\" data-toggle=\"dropdown\" data-id=\"onlyCategory1\">\n" + 
 "					<div class=\"filter-option pull-left\">\n" + 
 "						");// line 50, japidviews\_tags\PhotoNav.html
 		p(value);// line 55, japidviews\_tags\PhotoNav.html

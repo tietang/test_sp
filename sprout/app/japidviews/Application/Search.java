@@ -1,12 +1,25 @@
 //version: 0.9.35
 package japidviews.Application;
-
-import fengfei.fir.model.PhotoShow;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
 import fengfei.ucm.entity.profile.User;
-import japidviews._tags.CategorySelectOptions;
-import japidviews._tags.UsersCard;
-
-import java.util.List;
+import fengfei.fir.model.PhotoShow;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/Search.html
 // Change to this file will be lost next time the template file is compiled.
@@ -92,7 +105,7 @@ p("	\n" +
 "	<div class=\"col col_16\">\n" + 
 "		<form accept-charset=\"UTF-8\" action=\"/search\" method=\"get\" class=\"form-inline\">\n" + 
 "\n" + 
-"			<select class=\"selectpicker input-small span1\" id=\"type\" name=\"t\" >\n" + 
+"			<select class=\"selectpicker input-sm col-md-1\" id=\"type\" name=\"t\" >\n" + 
 "				<option value=\"photos\">Photos</option>\n" + 
 "				<option value=\"photo_tags\" class=\"suboption\">Photo Tags</option>\n" + 
 "				<!--\n" + 
@@ -109,13 +122,13 @@ p("	\n" +
 			if(skey!=null) {key=Byte.parseByte(skey);}// line 31, japidviews\Application\Search.html
 		p("\n" + 
 "\n" + 
-"			<select class=\"selectpicker  span2\" id=\"category\" name=\"c\" onchange=\"form.submit();\">\n" + 
+"			<select class=\"selectpicker  col-md-2\" id=\"category\" name=\"c\" onchange=\"form.submit();\">\n" + 
 "				");// line 31, japidviews\Application\Search.html
 		final CategorySelectOptions _CategorySelectOptions2 = new CategorySelectOptions(getOut()); _CategorySelectOptions2.setActionRunners(getActionRunners()).setOut(getOut()); _CategorySelectOptions2.render(fengfei.spruce.cache.SimpleCache.categories,key); // line 34, japidviews\Application\Search.html// line 34, japidviews\Application\Search.html
 		p("\n" + 
 "			</select>\n" + 
 "\n" + 
-"			<select  class=\"selectpicker  span2\"  id=\"photos_sort\" name=\"o\" onchange=\"form.submit();\">\n" + 
+"			<select  class=\"selectpicker  col-md-2\"  id=\"photos_sort\" name=\"o\" onchange=\"form.submit();\">\n" + 
 "				<option value=\"votes\" selected=\"selected\">Sort by Votes</option>\n" + 
 "				<option value=\"date\">Sort by Date</option>\n" + 
 "				<option value=\"name\">Sort by Name</option>\n" + 
@@ -143,13 +156,13 @@ p("	\n" +
 "					\n" + 
 "				})\n" + 
 "			</script>\n" + 
-"			<div class=\"input-append pull-right\">\n" + 
+"			<div class=\"input-group pull-right\">\n" + 
 "				<input class=\"input-xxlarge\"   autofocus=\"autofocus\" id=\"search-box\" name=\"q\" placeholder=\"Search for people, photos or tags...\" type=\"text\" value=\"");// line 43, japidviews\Application\Search.html
 		p(params.get("q"));// line 64, japidviews\Application\Search.html
 		p("\" />\n" + 
 "\n" + 
 "				<button class=\"btn\" type=\"submit\">\n" + 
-"					<i class=\"icon-search\"></i>\n" + 
+"					<i class=\"glyphicon glyphicon-search\"></i>\n" + 
 "				</button>\n" + 
 "			</div>\n" + 
 "		</form>\n" + 

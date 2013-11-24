@@ -26,7 +26,7 @@
 
             </div>
             </p>
-            <div class="alert alert-error" id="uploadError" style="display: none">
+            <div class="alert alert-danger" id="uploadError" style="display: none">
                 <button type="button" class="close" data-dismiss="alert">
                     &times;
                 </button>
@@ -125,8 +125,8 @@
     </td>
     <td class="col_4">
         <div class=" magin_left">
-            <div class="inline input-prepend">
-                <span class="add-on"><span class="icon-head left">&{photo.camera}</span></span>
+            <div class="inline input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-head left">&{photo.camera}</span></span>
                 <input type="text" placeholder="&{photo.camera}" value=""
                        class="Camera" id="camera1" name="camera">
                 <input
@@ -134,38 +134,38 @@
                         id="make1" name="make">
 
             </div>
-            <div class="inline input-prepend">
-                <span class="add-on"><span class="icon-head left">&{photo.lens}</span> </span>
+            <div class="inline input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-head left">&{photo.lens}</span> </span>
                 <input type="text" placeholder="&{photo.lens}" value="" class="lens"
                        id="lens1" name="lens">
             </div>
-            <div class="inline input-prepend">
-                <span class="add-on"><span class="icon-head left">&{photo.focus} </span></span>
+            <div class="inline input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-head left">&{photo.focus} </span></span>
                 <input type="text" placeholder="&{photo.focus.alt}" value=""
                        class="focal-length" id="focus1" name="focus">
             </div>
-            <div class="inline input-prepend">
-                <span class="add-on "><span class="icon-head left">&{photo.shutter} </span></span>
+            <div class="inline input-group">
+                <span class="input-group-addon "><span class="glyphicon glyphicon-head left">&{photo.shutter} </span></span>
                 <input type="text" placeholder="&{photo.shutter.alt}" value=""
                        class="shutter-speed" id="shutter1" name="shutter">
             </div>
-            <div class="inline input-prepend">
-                <span class="add-on"><span class="icon-head left">&{photo.aperture}</span></span>
+            <div class="inline input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-head left">&{photo.aperture}</span></span>
                 <input type="text" placeholder="&{photo.aperture}" value=""
                        class="aperture" id="aperture1" name="aperture">
             </div>
-            <div class="inline input-prepend last">
-                <span class="add-on"><span class="icon-head left">&{photo.iso} </span></span>
+            <div class="inline input-group last">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-head left">&{photo.iso} </span></span>
                 <input type="text" placeholder="&{photo.iso.alt}" value="" class="iso"
                        id="iso1" name="iso">
             </div>
-            <div class="inline input-prepend last">
-                <span class="add-on"><span class="icon-head left">&{photo.ev}</span></span>
+            <div class="inline input-group last">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-head left">&{photo.ev}</span></span>
                 <input type="text" placeholder="&{photo.ev.alt}" value=""
                        class="iso" id="ev1" name="ev">
             </div>
-            <div class="inline input-prepend">
-                <span class="add-on"><span class="icon-head left"> &{photo.taken} </span></span>
+            <div class="inline input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-head left"> &{photo.taken} </span></span>
                 <input type="hidden" value="" id="taken_at1"
                        name="taken_at">
                 <input type="text"

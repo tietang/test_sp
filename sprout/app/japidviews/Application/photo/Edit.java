@@ -1,15 +1,24 @@
 //version: 0.9.35
 package japidviews.Application.photo;
-
-import fengfei.fir.utils.Path;
-import fengfei.ucm.entity.photo.Photo;
-import fengfei.ucm.entity.photo.Rank;
-
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.ucm.entity.photo.*;import fengfei.fir.utils.Path;import java.util.*;import java.util.Map.Entry;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/Edit.html
 // Change to this file will be lost next time the template file is compiled.
@@ -89,9 +98,9 @@ p("\n" +
 		try { p(photo.title); } catch (NullPointerException npe) {}// line 27, japidviews\Application\photo\Edit.html
 		p("</h4>\n" + 
 "</div>\n" + 
-"<div class=\"row-fluid\">\n" + 
+"<div class=\"row\">\n" + 
 "\n" + 
-"    <div class=\"span9 \">\n" + 
+"    <div class=\"col-md-9 \">\n" + 
 "\n" + 
 "        <div>\n" + 
 "\n" + 
@@ -100,13 +109,13 @@ p("\n" +
 		p("\" class=\"img-rounded0\" alt=\"\">\n" + 
 "        </div>\n" + 
 "        <div class=\"line6\"></div>\n" + 
-"        <div class=\"row-fluid \">\n" + 
-"            <div class=\"span7\">\n" + 
-"                <button class=\"btn btn-mini\" type=\"button\">\n" + 
+"        <div class=\"row \">\n" + 
+"            <div class=\"col-md-7\">\n" + 
+"                <button class=\"btn btn-xs\" type=\"button\">\n" + 
 "                    Edit\n" + 
 "                </button>\n" + 
 "            </div>\n" + 
-"            <div class=\"span5\">\n" + 
+"            <div class=\"col-md-5\">\n" + 
 "                <!-- JiaThis Button BEGIN\n" + 
 "                <div class=\"jiathis_style\">\n" + 
 "                <a class=\"jiathis_button_qzone\"></a> <a class=\"jiathis_button_tsina\"></a> <a\n" + 
@@ -136,15 +145,15 @@ p("\n" +
 "\n" + 
 "    </div>\n" + 
 "    <!-- user info -->\n" + 
-"    <div class=\"span3 \">\n" + 
-"        <div class=\"row-fluid stat \">\n" + 
-"            <div class=\"span6\">\n" + 
+"    <div class=\"col-md-3 \">\n" + 
+"        <div class=\"row stat \">\n" + 
+"            <div class=\"col-md-6\">\n" + 
 "                <img width=\"90\" height=\"90\" class=\"img-rounded\"\n" + 
 "                     src=\"");// line 62, japidviews\Application\photo\Edit.html
 		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(photo.idUser)); } catch (NullPointerException npe) {}// line 76, japidviews\Application\photo\Edit.html
 		p("\">\n" + 
 "            </div>\n" + 
-"            <div class=\"span6\">\n" + 
+"            <div class=\"col-md-6\">\n" + 
 "                <p>\n" + 
 "                    ");// line 76, japidviews\Application\photo\Edit.html
 		try { p(photo.user.niceName); } catch (NullPointerException npe) {}// line 80, japidviews\Application\photo\Edit.html
@@ -152,7 +161,7 @@ p("\n" +
 "                </p>\n" + 
 "\n" + 
 "                <p>\n" + 
-"                    <a href=\"/settings/profile\" class=\"btn btn-small\">Edit profile</a>\n" +
+"                    <a href=\"/settings/profile\" class=\"btn btn-sm\">Edit Profile</a>\n" + 
 "                </p>\n" + 
 "            </div>\n" + 
 "        </div>\n" + 
@@ -163,23 +172,23 @@ p("\n" +
 "        <div class=\"line6\"></div>\n" + 
 "\n" + 
 "        <div class=\"line6\"></div>\n" + 
-"        <div class=\"row-fluid border-bottom  \">\n" + 
-"            <div class=\"span12\">\n" + 
+"        <div class=\"row border-bottom  \">\n" + 
+"            <div class=\"col-md-12\">\n" + 
 "                <div id=\"description\" class=\"photo_stats border-bottom\">\n" + 
 "                    ");// line 89, japidviews\Application\photo\Edit.html
 		try { p(photo.description); } catch (NullPointerException npe) {}// line 96, japidviews\Application\photo\Edit.html
 		p("\n" + 
 "                </div>\n" + 
 "            </div>\n" + 
-"            <div class=\"span12\">\n" + 
+"            <div class=\"col-md-12\">\n" + 
 "                <div id=\"tags\" class=\"photo_stats border-bottom\">\n" + 
 "                    <span>");// line 96, japidviews\Application\photo\Edit.html
 		try { p(photo.tags); } catch (NullPointerException npe) {}// line 101, japidviews\Application\photo\Edit.html
-		p("<i class=\" icon-tags\"></i>tags1 </span><span><i\n" + 
-"                        class=\" icon-tags\"></i>tags2</span><span><i class=\" icon-tags\"></i>tags3</span>\n" + 
+		p("<i class=\" glyphicon glyphicon-tags\"></i>tags1 </span><span><i\n" + 
+"                        class=\" glyphicon glyphicon-tags\"></i>tags2</span><span><i class=\" glyphicon glyphicon-tags\"></i>tags3</span>\n" + 
 "                </div>\n" + 
 "            </div>\n" + 
-"            <div class=\"span12\">\n" + 
+"            <div class=\"col-md-12\">\n" + 
 "                <div id=\"exif\" class=\" photo_stats \">\n" + 
 "                    <ul class=\"stats exif\">\n" + 
 "\n" + 

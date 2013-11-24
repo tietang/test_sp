@@ -17,7 +17,7 @@
 	<div class="col col_16">
 		<form accept-charset="UTF-8" action="/search" method="get" class="form-inline">
 
-			<select class="selectpicker input-small span1" id="type" name="t" >
+			<select class="selectpicker input-sm col-md-1" id="type" name="t" >
 				<option value="photos">Photos</option>
 				<option value="photo_tags" class="suboption">Photo Tags</option>
 				<!--
@@ -30,11 +30,11 @@
 			`Byte key=(byte)0;`
 			`if(skey!=null) {key=Byte.parseByte(skey);}`
 
-			<select class="selectpicker  span2" id="category" name="c" onchange="form.submit();">
+			<select class="selectpicker  col-md-2" id="category" name="c" onchange="form.submit();">
 				`tag CategorySelectOptions fengfei.spruce.cache.SimpleCache.categories,key`
 			</select>
 
-			<select  class="selectpicker  span2"  id="photos_sort" name="o" onchange="form.submit();">
+			<select  class="selectpicker  col-md-2"  id="photos_sort" name="o" onchange="form.submit();">
 				<option value="votes" selected="selected">Sort by Votes</option>
 				<option value="date">Sort by Date</option>
 				<option value="name">Sort by Name</option>
@@ -60,11 +60,11 @@
 					
 				})
 			</script>
-			<div class="input-append pull-right">
+			<div class="input-group pull-right">
 				<input class="input-xxlarge"   autofocus="autofocus" id="search-box" name="q" placeholder="Search for people, photos or tags..." type="text" value="${params.get("q")}" />
 
 				<button class="btn" type="submit">
-					<i class="icon-search"></i>
+					<i class="glyphicon glyphicon-search"></i>
 				</button>
 			</div>
 		</form>

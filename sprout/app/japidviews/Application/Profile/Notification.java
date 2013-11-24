@@ -1,11 +1,23 @@
 //version: 0.9.35
 package japidviews.Application.profile;
-
-import japidviews._tags.SettingsMenu;
-
-import static cn.bran.play.JapidPlayAdapter.getMessage;
-import static cn.bran.play.JapidPlayAdapter.i18n;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/Notification.html
 // Change to this file will be lost next time the template file is compiled.
@@ -85,11 +97,11 @@ p("\n" +
 "    </div>\n" + 
 "    <div class=\"col col_13 \">\n" + 
 "        <div class=\"row-fluid well profile_right\">\n" + 
-"            <div class=\"span8  \">\n" + 
+"            <div class=\"col-md-8  \">\n" + 
 "\n" + 
 "                <form id=\"notifyForm\" class=\"form-horizontal\" action=\"/settings/notification/done\" method=\"post\">\n" + 
 "\n" + 
-"                    <div class=\"checkbox control-group\">\n" + 
+"                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"commented_on_your_wall\">\n" + 
 "                            <input  id=\"commented_on_your_wall\"\n" + 
 "                                    name=\"notify1\" type=\"checkbox\" value=\"1\"  />\n" + 
@@ -97,7 +109,7 @@ p("\n" +
 		;p(getMessage("notify.comment.wall"));// line 24, japidviews\Application\profile\Notification.html
 		p(" </label>\n" + 
 "                    </div>\n" + 
-"                    <div class=\"checkbox control-group\">\n" + 
+"                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"commented_on_your_photo\">\n" + 
 "                            <input\n" + 
 "                                     id=\"commented_on_your_photo\"\n" + 
@@ -107,7 +119,7 @@ p("\n" +
 		p(" </label>\n" + 
 "                    </div>\n" + 
 "\n" + 
-"                    <div class=\"checkbox control-group\">\n" + 
+"                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"commented_on_your_story\">\n" + 
 "                            <input\n" + 
 "                                     id=\"commented_on_your_story\"\n" + 
@@ -117,7 +129,7 @@ p("\n" +
 		p(" </label>\n" + 
 "                    </div>\n" + 
 "\n" + 
-"                    <div class=\"checkbox control-group\">\n" + 
+"                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"added_to_favorites\">\n" + 
 "                            <input \n" + 
 "                                   id=\"added_to_favorites\" name=\"notify4\"\n" + 
@@ -127,7 +139,7 @@ p("\n" +
 		p(" </label>\n" + 
 "                    </div>\n" + 
 "\n" + 
-"                    <div class=\"checkbox control-group\">\n" + 
+"                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"selected_by_editor\">\n" + 
 "                            <input \n" + 
 "                                   id=\"selected_by_editor\" name=\"notify5\"\n" + 
@@ -137,7 +149,7 @@ p("\n" +
 		p("</label>\n" + 
 "                    </div>\n" + 
 "\n" + 
-"                    <div class=\"checkbox control-group\">\n" + 
+"                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"reached_up_or_pop\">\n" + 
 "                            <input \n" + 
 "                                   id=\"reached_up_or_pop\" name=\"notify6\" type=\"checkbox\"\n" + 
@@ -147,7 +159,7 @@ p("\n" +
 		p("</label>\n" + 
 "                    </div>\n" + 
 "\n" + 
-"                    <div class=\"checkbox control-group\">\n" + 
+"                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"you_are_followed\">\n" + 
 "                            <input \n" + 
 "                                   id=\"you_are_followed\" name=\"notify7\" type=\"checkbox\"\n" + 
@@ -157,7 +169,7 @@ p("\n" +
 		p(" </label>\n" + 
 "                    </div>\n" + 
 "\n" + 
-"                    <div class=\"checkbox control-group\">\n" + 
+"                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"got_comments_reply\">\n" + 
 "                            <input\n" + 
 "                                    id=\"got_comments_reply\" name=\"notify8\"\n" + 
@@ -167,7 +179,7 @@ p("\n" +
 		p("</label>\n" + 
 "                    </div>\n" + 
 "\n" + 
-"                    <div class=\"checkbox control-group\">\n" + 
+"                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"buys_my_photo\">\n" + 
 "                            <input \n" + 
 "                                   id=\"buys_my_photo\" name=\"notify9\" type=\"checkbox\"\n" + 
@@ -177,7 +189,7 @@ p("\n" +
 		p(" </label>\n" + 
 "                    </div>\n" + 
 "\n" + 
-"                    <div class=\"checkbox control-group\">\n" + 
+"                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"newsletters\">\n" + 
 "                            <input \n" + 
 "                                   id=\"newsletters\" name=\"notify10\" type=\"checkbox\" value=\"10\"/>\n" + 
@@ -186,7 +198,7 @@ p("\n" +
 		p("</label>\n" + 
 "                    </div>\n" + 
 "\n" + 
-"                    <div class=\"checkbox control-group\">\n" + 
+"                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"account_updates\">\n" + 
 "                            <input \n" + 
 "                                   id=\"account_updates\" name=\"notify11\" type=\"checkbox\"\n" + 
@@ -196,7 +208,7 @@ p("\n" +
 		p("</label>\n" + 
 "                    </div>\n" + 
 "\n" + 
-"                    <div class=\"control-group\">\n" + 
+"                    <div class=\"form-group\">\n" + 
 "                        <div class=\"controls\">\n" + 
 "                            <button type=\"submit\" class=\"btn\">\n" + 
 "                                ");// line 102, japidviews\Application\profile\Notification.html

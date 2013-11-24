@@ -1,16 +1,24 @@
 //version: 0.9.35
 package japidviews.Application.photo;
-
-import controllers.Admin;
-import fengfei.fir.utils.Path;
-import fengfei.ucm.entity.photo.Photo;
-import fengfei.ucm.entity.photo.Rank;
-
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.ucm.entity.photo.*;import fengfei.fir.utils.Path;import java.util.*;import java.util.Map.Entry;
+import static play.templates.JavaExtensions.*;
 import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/Show.html
 // Change to this file will be lost next time the template file is compiled.
@@ -107,15 +115,15 @@ p("\n" +
 		p("\" class=\"rounded3 img_shadow\" alt=\"\">\n" + 
 "        </div>\n" + 
 "        <div class=\"line6\"></div>\n" + 
-"        <div class=\"row-fluid \">\n" + 
-"            <div class=\"span7\">\n" + 
-"                <button class=\"btn btn-mini\" type=\"button\">\n" + 
+"        <div class=\"row \">\n" + 
+"            <div class=\"col-md-7\">\n" + 
+"                <button class=\"btn btn-xs\" type=\"button\">\n" + 
 "                    &nbsp;&nbsp; ");// line 41, japidviews\Application\photo\Show.html
 		;p(getMessage("i.wanna.buy.photo"));// line 47, japidviews\Application\photo\Show.html
 		p("&nbsp;&nbsp;\n" + 
 "                </button>\n" + 
 "            </div>\n" + 
-"            <div class=\"span5\">\n" + 
+"            <div class=\"col-md-5\">\n" + 
 "                <!-- Baidu Button BEGIN -->\n" + 
 "                <div id=\"bdshare\" class=\"bdshare_t bds_tools get-codes-bdshare\">\n" + 
 "                    <a class=\"bds_tsina\"></a>\n" + 
@@ -168,7 +176,7 @@ p("\n" +
 "                ");// line 90, japidviews\Application\photo\Show.html
 		//if(!String.valueOf(photo.idUser).equals(session.get(Admin.SESSION_USER_ID_KEY))){// line 92, japidviews\Application\photo\Show.html
 		p("\n" + 
-"                <button type=\"button\" id=\"comment_btn\" class=\"btn btn-info  btn-mini\">\n" + 
+"                <button type=\"button\" id=\"comment_btn\" class=\"btn btn-info  btn-xs\">\n" + 
 "                    ");// line 92, japidviews\Application\photo\Show.html
 		;p(getMessage("comment"));// line 94, japidviews\Application\photo\Show.html
 		p("\n" + 
@@ -211,14 +219,14 @@ p("\n" +
 "    </div>\n" + 
 "    <!-- user info -->\n" + 
 "    <div class=\"col col_4 \">\n" + 
-"        <div class=\"row-fluid stat left_rounded6 shadow \">\n" + 
-"            <div class=\"span6\">\n" + 
+"        <div class=\"row stat left_rounded6 shadow \">\n" + 
+"            <div class=\"col-md-6\">\n" + 
 "                <img width=\"90\" height=\"90\" class=\"img-rounded\"\n" + 
 "                     src=\"");// line 106, japidviews\Application\photo\Show.html
 		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(photo.idUser)); } catch (NullPointerException npe) {}// line 121, japidviews\Application\photo\Show.html
 		p("\">\n" + 
 "            </div>\n" + 
-"            <div class=\"span6\">\n" + 
+"            <div class=\"col-md-6\">\n" + 
 "                <p>\n" + 
 "                    ");// line 121, japidviews\Application\photo\Show.html
 		try { p(photo.user.niceName); } catch (NullPointerException npe) {}// line 125, japidviews\Application\photo\Show.html
@@ -233,7 +241,7 @@ p("\n" +
 		}else{// line 130, japidviews\Application\photo\Show.html
 		p("btn-info");// line 130, japidviews\Application\photo\Show.html
 		}// line 130, japidviews\Application\photo\Show.html
-		p(" btn-mini  \"\n" + 
+		p(" btn-xs  \"\n" + 
 "                            type=\"button\" id=\"follow\" toid=\"");// line 130, japidviews\Application\photo\Show.html
 		try { p(photo.idUser); } catch (NullPointerException npe) {}// line 131, japidviews\Application\photo\Show.html
 		p("\" isfollow=\"");// line 131, japidviews\Application\photo\Show.html
@@ -252,8 +260,8 @@ p("\n" +
 		p("\n" + 
 "        <div class=\"line6\"></div>\n" + 
 "\n" + 
-"        <div class=\"row-fluid  \">\n" + 
-"            <div class=\"btn-group span12\">\n" + 
+"        <div class=\"row  \">\n" + 
+"            <div class=\"btn-group col-md-12\">\n" + 
 "                <button id=\"vote_btn\"\n" + 
 "                        class=\"btn ");// line 138, japidviews\Application\photo\Show.html
 		if(isVote){// line 144, japidviews\Application\photo\Show.html
@@ -261,7 +269,7 @@ p("\n" +
 		}else{// line 144, japidviews\Application\photo\Show.html
 		p(" btn-success ");// line 144, japidviews\Application\photo\Show.html
 		}// line 144, japidviews\Application\photo\Show.html
-		p("  btn-mini  span10 pull-left\"\n" + 
+		p("  btn-xs  col-md-10 pull-left\"\n" + 
 "                        type=\"button\"\n" + 
 "                        isvote=\"");// line 144, japidviews\Application\photo\Show.html
 		try { p(isVote); } catch (NullPointerException npe) {}// line 146, japidviews\Application\photo\Show.html
@@ -295,7 +303,7 @@ p("\n" +
 		}else{// line 150, japidviews\Application\photo\Show.html
 		p("unfavorited");// line 150, japidviews\Application\photo\Show.html
 		}// line 150, japidviews\Application\photo\Show.html
-		p(" ico_favorite btn-mini span2\n" + 
+		p(" ico_favorite btn-xs col-md-2\n" + 
 "                pull-right\" type=\"button\"\n" + 
 "                        isfavorite=\"");// line 150, japidviews\Application\photo\Show.html
 		try { p(isFavorite); } catch (NullPointerException npe) {}// line 152, japidviews\Application\photo\Show.html
@@ -304,11 +312,11 @@ p("\n" +
 "            </div>\n" + 
 "        </div>\n" + 
 "        <div class=\"line6\"></div>\n" + 
-"        <div class=\"row-fluid border-bottom shadow rounded6\">\n" + 
+"        <div class=\"row border-bottom shadow rounded6\">\n" + 
 "            ");// line 152, japidviews\Application\photo\Show.html
 		if(photo.description!=null && !"".equals(photo.description)){// line 158, japidviews\Application\photo\Show.html
 		p("\n" + 
-"            <div class=\"span12\">\n" + 
+"            <div class=\"col-md-12\">\n" + 
 "                <div id=\"description\" class=\"photo_stats border-bottom\">\n" + 
 "                    ");// line 158, japidviews\Application\photo\Show.html
 		try { p(photo.description); } catch (NullPointerException npe) {}// line 161, japidviews\Application\photo\Show.html
@@ -323,7 +331,7 @@ p("\n" +
 "            ");// line 165, japidviews\Application\photo\Show.html
 		if(photo.tagList!=null){// line 167, japidviews\Application\photo\Show.html
 		p("\n" + 
-"            <div class=\"span12\">\n" + 
+"            <div class=\"col-md-12\">\n" + 
 "                <div id=\"tags\" class=\"photo_stats border-bottom\">\n" + 
 "                    ");// line 167, japidviews\Application\photo\Show.html
 		for(String tag:photo.tagList){// line 170, japidviews\Application\photo\Show.html
@@ -341,7 +349,7 @@ p("\n" +
 		}// line 176, japidviews\Application\photo\Show.html
 		p("\n" + 
 "\n" + 
-"            <div class=\"span12\">\n" + 
+"            <div class=\"col-md-12\">\n" + 
 "                <div id=\"exif\" class=\"exif_info \">\n" + 
 "                    <ul>\n" + 
 "                        ");// line 176, japidviews\Application\photo\Show.html
@@ -371,9 +379,9 @@ p("\n" +
 "            </div>\n" + 
 "        </div>\n" + 
 "\n" + 
-"        <div class=\"row-fluid border-bottom show_map\">\n" + 
+"        <div class=\"row border-bottom show_map\">\n" + 
 "\n" + 
-"            <div class=\"span12\">\n" + 
+"            <div class=\"col-md-12\">\n" + 
 "                <div id=\"map_show_canvas\" lat=\"");// line 190, japidviews\Application\photo\Show.html
 		try { p(photo.GPSLatitude); } catch (NullPointerException npe) {}// line 199, japidviews\Application\photo\Show.html
 		p("\" lng=\"");// line 199, japidviews\Application\photo\Show.html
@@ -382,7 +390,7 @@ p("\n" +
 "                     class=\"show_map_canvas shadow rounded6\"></div>\n" + 
 "            </div>\n" + 
 "\n" + 
-"            <div class=\"span12\">\n" + 
+"            <div class=\"col-md-12\">\n" + 
 "                <div id=\"address\">\n" + 
 "\n" + 
 "                </div>\n" + 

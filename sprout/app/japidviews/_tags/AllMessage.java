@@ -1,7 +1,24 @@
 //version: 0.9.35
 package japidviews._tags;
-
-import static cn.bran.play.JapidPlayAdapter.flash;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import java.util.*;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_tags/AllMessage.html
 // Change to this file will be lost next time the template file is compiled.
@@ -71,7 +88,7 @@ public class AllMessage extends cn.bran.play.JapidTemplateBase
 		if(asBoolean(asBoolean(flash.get("error")))) {// line 4, japidviews\_tags\AllMessage.html
 		p("\n" + 
 "\n" + 
-"<div class=\"alert alert-error\">\n" + 
+"<div class=\"alert alert-danger\">\n" + 
 "    <button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 
 "        &times;\n" + 
 "    </button>\n" + 

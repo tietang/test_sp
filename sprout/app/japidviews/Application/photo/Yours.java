@@ -1,14 +1,25 @@
 //version: 0.9.35
 package japidviews.Application.photo;
-
-import fengfei.fir.model.PhotoShow;
-import fengfei.fir.utils.Path;
-import fengfei.ucm.entity.photo.Rank;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
 import fengfei.ucm.entity.profile.User;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Set;import fengfei.ucm.entity.photo.*;import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/Yours.html
 // Change to this file will be lost next time the template file is compiled.
@@ -104,14 +115,14 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "\n" + 
 "<div class=\"grid_row yours\">\n" + 
 "	<div class=\"col col_4\">\n" + 
-"		<div class=\"row-fluid card \"  >\n" + 
-"			<div class=\"span6 first\">\n" + 
+"		<div class=\"row card \"  >\n" + 
+"			<div class=\"col-md-6 first\">\n" + 
 "				<img width=\"95\" height=\"95\" class=\"img-rounded\"\n" + 
 "				src=\"");// line 12, japidviews\Application\photo\Yours.html
 		p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(user.idUser));// line 24, japidviews\Application\photo\Yours.html
 		p("\">\n" + 
 "			</div>\n" + 
-"			<div class=\"span6\">\n" + 
+"			<div class=\"col-md-6\">\n" + 
 "				<div class=\" \">\n" + 
 "					<div>\n" + 
 "						<strong>");// line 24, japidviews\Application\photo\Yours.html
@@ -119,19 +130,19 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 		p("</strong>\n" + 
 "					</div>\n" + 
 "					<div>\n" + 
-"						<a href=\"/settings/profile\" class=\"btn btn-small\">Edit profile</a>\n" +
+"						<a href=\"/settings/profile\" class=\"btn btn-sm\">Edit Profile</a>\n" + 
 "					</div>\n" + 
 "				</div>\n" + 
 "			</div>\n" + 
-"			<div class=\"span12 first\" >\n" + 
+"			<div class=\"col-md-12 first\" >\n" + 
 "				<div class=\"line10 hr1\"></div>\n" + 
 "				<div class=\"line10\"></div>\n" + 
 "				个人介绍\n" + 
 "			</div>\n" + 
 "		</div>\n" + 
 "\n" + 
-"		<div class=\"row-fluid card \">\n" + 
-"			<div class=\"span6 affection\">\n" + 
+"		<div class=\"row card \">\n" + 
+"			<div class=\"col-md-6 affection\">\n" + 
 "				<div>\n" + 
 "					<strong>");// line 29, japidviews\Application\photo\Yours.html
 		p(rank.affection);// line 46, japidviews\Application\photo\Yours.html
@@ -141,7 +152,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "					Affection\n" + 
 "				</div>\n" + 
 "			</div>\n" + 
-"			<div class=\"span6 photo_stats\">\n" + 
+"			<div class=\"col-md-6 photo_stats\">\n" + 
 "				<ul >\n" + 
 "\n" + 
 "					<li title=\"Views\">\n" + 

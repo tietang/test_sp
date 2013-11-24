@@ -1,7 +1,23 @@
 //version: 0.9.35
 package japidviews._layouts;
-
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_layouts/Layout3.html
 // Change to this file will be lost next time the template file is compiled.
@@ -96,7 +112,7 @@ public abstract class Layout3 extends cn.bran.play.JapidTemplateBase
 "			<div class=\"navbar-inner\">\n" + 
 "				<div class=\"row \">\n" + 
 "					<div class=\"col  col_16\">\n" + 
-"						<a class=\"brand\" href=\"#\">时间</a>\n" + 
+"						<a class=\"navbar-brand\" href=\"#\">时间</a>\n" + 
 "						<div class=\"nav-collapse collapse navbar-inverse-collapse\">\n" + 
 "							<ul class=\"nav\">\n" + 
 "								<li class=\"active\">\n" + 
@@ -160,20 +176,20 @@ public abstract class Layout3 extends cn.bran.play.JapidTemplateBase
 "							</div>\n" + 
 "\n" + 
 "							<div class=\"right\">\n" + 
-"								<button href=\"#\" class=\"btn btn-small btn-info\">\n" + 
+"								<button href=\"#\" class=\"btn btn-sm btn-info\">\n" + 
 "									Link\n" + 
 "								</button>\n" + 
 "							</div>\n" + 
 "							<div class=\"right\">\n" + 
 "								<form class=\"navbar-search pull-right\" action=\"\">\n" + 
-"									<input type=\"text\" class=\"search-query span2\" placeholder=\"Search\">\n" + 
+"									<input type=\"text\" class=\"search-query col-md-2\" placeholder=\"Search\">\n" + 
 "								</form>\n" + 
 "							</div>\n" + 
 "						</div>\n" + 
 "					</div>\n" + 
 "				</div>\n" + 
 "			</div><!-- /navbar-inner -->\n" + 
-"		</div><!-- /navbar -->\n" + 
+"		</div><!-- /navprogress-bar -->\n" + 
 "		<div class=\"row container\">\n" + 
 "			<div class=\"col col_16 nav_title\">\n" + 
 "				<ul class=\"nav nav-pills\">\n" + 

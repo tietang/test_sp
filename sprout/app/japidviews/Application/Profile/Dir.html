@@ -8,7 +8,7 @@
 <div class="row-fluid " >
 	<div>
 		<form class="form-inline">
-			<input name="set" id="set1"  type="text" placeholder="Set Name" class="span9"/>
+			<input name="set" id="set1"  type="text" placeholder="Set Name" class="col-md-9"/>
 
 			<input name="idSet" id="idSet1"  type="hidden" placeholder="Set Name"  />
 
@@ -38,10 +38,10 @@
 				<tr>
 					<td  id="edit_td${index}" onclick="setPhotoSetValue(this)" id_set="${set.idSet}" name_set="${set.name}">${set.name}</td>
 					<td>
-					<button type="button" onclick="setPhotoSetValue(document.getElementById('edit_td${index}'))" class="btn btn-primary btn-small">
+					<button type="button" onclick="setPhotoSetValue(document.getElementById('edit_td${index}'))" class="btn btn-primary btn-sm">
 						Edit
 					</button>
-					<button type="button" onclick="onDeletePhotoSet('${set.name}',${set.idSet})" class="btn btn-danger btn-small">
+					<button type="button" onclick="onDeletePhotoSet('${set.name}',${set.idSet})" class="btn btn-danger btn-sm">
 						Delete
 					</button></td>
 				</tr>

@@ -324,7 +324,7 @@ input.error {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#444444', endColorstr='#000000', GradientType=0);
 }
 
-.navbar .brand {
+.navbar .navbar-brand {
     padding-left: 0px;
     padding-top: 20px;
     margin-left: 0px;
@@ -334,7 +334,7 @@ input.error {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, .5);
 }
 
-.nav, .navbar {
+.nav, .navbar ,navbar-nav{
     margin-bottom: 15px;
 }
 

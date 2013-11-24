@@ -115,14 +115,14 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "\n" + 
 "<div class=\"grid_row users\">\n" + 
 "	<div class=\"col col_12\">\n" + 
-"		<div class=\"row-fluid card \"  >\n" + 
-"			<div class=\"span2\">\n" + 
+"		<div class=\"row card \"  >\n" + 
+"			<div class=\"col-md-2\">\n" + 
 "				<img  class=\"img-rounded\"\n" + 
 "				src=\"");// line 11, japidviews\Application\photo\UserViews.html
 		p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(user.idUser));// line 20, japidviews\Application\photo\UserViews.html
 		p("\">\n" + 
 "			</div>\n" + 
-"			<div class=\"span10\">\n" + 
+"			<div class=\"col-md-10\">\n" + 
 "				<div class=\" \">\n" + 
 "					<div class=\"username txt_left\">\n" + 
 "						<strong>");// line 20, japidviews\Application\photo\UserViews.html
@@ -140,7 +140,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 		}else{// line 32, japidviews\Application\photo\UserViews.html
 		p("btn-info");// line 32, japidviews\Application\photo\UserViews.html
 		}// line 32, japidviews\Application\photo\UserViews.html
-		p(" btn-mini  \"\n" + 
+		p(" btn-xs  \"\n" + 
 "                                type=\"button\" id=\"follow\" toid=\"");// line 32, japidviews\Application\photo\UserViews.html
 		p(user.idUser);// line 33, japidviews\Application\photo\UserViews.html
 		p("\" isfollow=\"");// line 33, japidviews\Application\photo\UserViews.html
@@ -167,8 +167,8 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "	</div>\n" + 
 "	<div class=\"col col_4\">\n" + 
 "\n" + 
-"		<div class=\"row-fluid card \">\n" + 
-"			<div class=\"span6 affection\">\n" + 
+"		<div class=\"row card \">\n" + 
+"			<div class=\"col-md-6 affection\">\n" + 
 "				<div>\n" + 
 "					<strong>");// line 34, japidviews\Application\photo\UserViews.html
 		p(rank.affection);// line 56, japidviews\Application\photo\UserViews.html
@@ -178,7 +178,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "					Affection\n" + 
 "				</div>\n" + 
 "			</div>\n" + 
-"			<div class=\"span6 photo_stats\">\n" + 
+"			<div class=\"col-md-6 photo_stats\">\n" + 
 "				<ul class=\"stats\">\n" + 
 "\n" + 
 "					<li title=\"Views\">\n" + 

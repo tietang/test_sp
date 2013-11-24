@@ -13,17 +13,17 @@
     </div>
     <div class="col col_13 ">
         <div class="row-fluid well profile_right">
-            <div class="span8  ">
+            <div class="col-md-8  ">
 
                 <form id="notifyForm" class="form-horizontal" action="/settings/notification/done" method="post">
 
-                    <div class="checkbox control-group">
+                    <div class="checkbox form-group">
                         <label for="commented_on_your_wall">
                             <input  id="commented_on_your_wall"
                                     name="notify1" type="checkbox" value="1"  />
                             &{notify.comment.wall} </label>
                     </div>
-                    <div class="checkbox control-group">
+                    <div class="checkbox form-group">
                         <label for="commented_on_your_photo">
                             <input
                                      id="commented_on_your_photo"
@@ -31,7 +31,7 @@
                             &{notify.comment.photo} </label>
                     </div>
 
-                    <div class="checkbox control-group">
+                    <div class="checkbox form-group">
                         <label for="commented_on_your_story">
                             <input
                                      id="commented_on_your_story"
@@ -39,7 +39,7 @@
                             &{notify.comment.story} </label>
                     </div>
 
-                    <div class="checkbox control-group">
+                    <div class="checkbox form-group">
                         <label for="added_to_favorites">
                             <input 
                                    id="added_to_favorites" name="notify4"
@@ -47,7 +47,7 @@
                             &{notify.favorite.photo} </label>
                     </div>
 
-                    <div class="checkbox control-group">
+                    <div class="checkbox form-group">
                         <label for="selected_by_editor">
                             <input 
                                    id="selected_by_editor" name="notify5"
@@ -55,7 +55,7 @@
                             &{notify.choice.photo}</label>
                     </div>
 
-                    <div class="checkbox control-group">
+                    <div class="checkbox form-group">
                         <label for="reached_up_or_pop">
                             <input 
                                    id="reached_up_or_pop" name="notify6" type="checkbox"
@@ -63,7 +63,7 @@
                             &{notify.score.up}</label>
                     </div>
 
-                    <div class="checkbox control-group">
+                    <div class="checkbox form-group">
                         <label for="you_are_followed">
                             <input 
                                    id="you_are_followed" name="notify7" type="checkbox"
@@ -71,7 +71,7 @@
                             &{notify.follow.me} </label>
                     </div>
 
-                    <div class="checkbox control-group">
+                    <div class="checkbox form-group">
                         <label for="got_comments_reply">
                             <input
                                     id="got_comments_reply" name="notify8"
@@ -79,7 +79,7 @@
                             &{notify.subscribed}</label>
                     </div>
 
-                    <div class="checkbox control-group">
+                    <div class="checkbox form-group">
                         <label for="buys_my_photo">
                             <input 
                                    id="buys_my_photo" name="notify9" type="checkbox"
@@ -87,14 +87,14 @@
                             &{notify.buy.photo} </label>
                     </div>
 
-                    <div class="checkbox control-group">
+                    <div class="checkbox form-group">
                         <label for="newsletters">
                             <input 
                                    id="newsletters" name="notify10" type="checkbox" value="10"/>
                             &{notify.news}</label>
                     </div>
 
-                    <div class="checkbox control-group">
+                    <div class="checkbox form-group">
                         <label for="account_updates">
                             <input 
                                    id="account_updates" name="notify11" type="checkbox"
@@ -102,7 +102,7 @@
                             &{notify.account.change}</label>
                     </div>
 
-                    <div class="control-group">
+                    <div class="form-group">
                         <div class="controls">
                             <button type="submit" class="btn">
                                 &{save.change}

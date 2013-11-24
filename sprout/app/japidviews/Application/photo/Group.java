@@ -1,6 +1,25 @@
 //version: 0.9.35
 package japidviews.Application.photo;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.ucm.entity.profile.User;
+import java.util.Set;import fengfei.ucm.entity.photo.*;import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/Group.html
 // Change to this file will be lost next time the template file is compiled.
@@ -74,10 +93,10 @@ p("\n" +
 "\n" + 
 "<div class=\"grid_row yours\">\n" + 
 "	<div class=\"col col_4\">\n" + 
-"		<div class=\"row-fluid card \"  >\n" + 
-"			<div class=\"span6 first\">\n" + 
+"		<div class=\"row card \"  >\n" + 
+"			<div class=\"col-md-6 first\">\n" + 
 "			</div>\n" + 
-"			<div class=\"span6\">\n" + 
+"			<div class=\"col-md-6\">\n" + 
 "				<div class=\" \">\n" + 
 "					<div>\n" + 
 "					</div>\n" + 
@@ -85,7 +104,7 @@ p("\n" +
 "					</div>\n" + 
 "				</div>\n" + 
 "			</div>\n" + 
-"			<div class=\"span12 first\" >\n" + 
+"			<div class=\"col-md-12 first\" >\n" + 
 "				<div class=\"line10 hr1\"></div>\n" + 
 "				<div class=\"line10\"></div>\n" + 
 "				个人介绍\n" + 

@@ -1,11 +1,23 @@
 //version: 0.9.35
 package japidviews.Application.profile;
-
-import japidviews._tags.AllMessage;
-import japidviews._tags.SettingsMenu;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
 import static cn.bran.play.JapidPlayAdapter.*;
-
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/License.html
 // Change to this file will be lost next time the template file is compiled.
@@ -85,7 +97,7 @@ public class License extends japidviews._layouts.Layout
 "    </div>\n" + 
 "    <div class=\"col col_13 \">\n" + 
 "        <div class=\"row-fluid \">\n" + 
-"            <div class=\"span12 well\">\n" + 
+"            <div class=\"col-md-12 well\">\n" + 
 "                <input type=\"hidden\" value=\"");// line 14, japidviews\Application\profile\License.html
 		p(value);// line 20, japidviews\Application\profile\License.html
 		p("\" id=\"licenseLastValue\"/>\n" + 
@@ -100,7 +112,7 @@ public class License extends japidviews._layouts.Layout
 "                    <div class=\"subtitle\">");// line 24, japidviews\Application\profile\License.html
 		;p(getMessage("license.content"));// line 27, japidviews\Application\profile\License.html
 		p("</div>\n" + 
-"                    <div class=\"control-group  \">\n" + 
+"                    <div class=\"form-group  \">\n" + 
 "                        <h4>");// line 27, japidviews\Application\profile\License.html
 		;p(getMessage("license.by"));// line 29, japidviews\Application\profile\License.html
 		p("</h4>\n" + 
@@ -124,7 +136,7 @@ public class License extends japidviews._layouts.Layout
 "                        </label>\n" + 
 "\n" + 
 "                    </div>\n" + 
-"                    <div class=\"control-group  \">\n" + 
+"                    <div class=\"form-group  \">\n" + 
 "                        <h4>");// line 40, japidviews\Application\profile\License.html
 		;p(getMessage("license.commercial"));// line 45, japidviews\Application\profile\License.html
 		p("</h4>\n" + 
@@ -147,7 +159,7 @@ public class License extends japidviews._layouts.Layout
 "                    </div>\n" + 
 "\n" + 
 "\n" + 
-"                    <div class=\"control-group\">\n" + 
+"                    <div class=\"form-group\">\n" + 
 "\n" + 
 "                        <button type=\"submit\" class=\"btn\">\n" + 
 "                            ");// line 54, japidviews\Application\profile\License.html
@@ -180,7 +192,7 @@ public class License extends japidviews._layouts.Layout
 "    <div class=\"col col_13\">\n" + 
 "        <div class=\"row-fluid  \">\n" + 
 "\n" + 
-"            <div class=\"span12 well\">\n" + 
+"            <div class=\"col-md-12 well\">\n" + 
 "                <h3>知识共享协议 3.0 (Creative Commons 3.0)</h3>\n" + 
 "\n" + 
 "                <P>\n" + 

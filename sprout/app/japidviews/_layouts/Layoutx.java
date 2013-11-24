@@ -1,9 +1,23 @@
 //version: 0.9.35
 package japidviews._layouts;
-
-import controllers.Admin;
-
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_layouts/Layoutx.html
 // Change to this file will be lost next time the template file is compiled.
@@ -135,22 +149,22 @@ public abstract class Layoutx extends cn.bran.play.JapidTemplateBase
 		p("\n" + 
 "\n" + 
 "							<div class=\"nav right\">\n" + 
-"								<a class=\"btn btn-small btn-primary\" href=\"/login\">Login</a>\n" + 
+"								<a class=\"btn btn-sm btn-primary\" href=\"/login\">Login</a>\n" + 
 "							</div>	\n" + 
 "							<div class=\"nav right\">\n" + 
-"								<a class=\"btn btn-small btn-success\" href=\"/signup\">Sign Up</a>\n" + 
+"								<a class=\"btn btn-sm btn-success\" href=\"/signup\">Sign Up</a>\n" + 
 "							</div>\n" + 
 "							");// line 59, japidviews\_layouts\Layoutx.html
 		}else{// line 67, japidviews\_layouts\Layoutx.html
 		p("\n" + 
 "							<div class=\"nav right\" >\n" + 
-"								<a class=\"btn btn-primary btn-small\" href=\"/yours\"> ");// line 67, japidviews\_layouts\Layoutx.html
+"								<a class=\"btn btn-primary btn-sm\" href=\"/yours\"> ");// line 67, japidviews\_layouts\Layoutx.html
 		try { p(session.get(Admin.SESSION_USER_NAME_KEY)); } catch (NullPointerException npe) {}// line 69, japidviews\_layouts\Layoutx.html
 		p("</a>\n" + 
 "\n" + 
 "							</div>\n" + 
 "							<div class=\"nav right\">\n" + 
-"								<a class=\"btn btn-success btn-small\" href=\"#\">Add</a>\n" + 
+"								<a class=\"btn btn-success btn-sm\" href=\"#\">Add</a>\n" + 
 "							</div>\n" + 
 "\n" + 
 "							");// line 69, japidviews\_layouts\Layoutx.html

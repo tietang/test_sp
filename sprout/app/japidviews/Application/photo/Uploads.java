@@ -1,7 +1,23 @@
 //version: 0.9.35
 package japidviews.Application.photo;
-
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/Uploads.html
 // Change to this file will be lost next time the template file is compiled.
@@ -193,16 +209,16 @@ p("<!DOCTYPE HTML>\n" +
 "		<!-- The file upload form used as target for the file upload widget -->\n" + 
 "		<form id=\"fileupload\" action=\"/upload/done\" method=\"POST\" enctype=\"multipart/form-data\">\n" + 
 "			<!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->\n" + 
-"			<div class=\"row fileupload-buttonbar\">\n" + 
+"			<div class=\"row fileupload-buttonprogress-bar\">\n" + 
 "				<div class=\"span7\">\n" + 
 "					<!-- The fileinput-button span is used to style the file input field as button -->\n" + 
-"					<span class=\"btn btn-success fileinput-button\"> <i class=\"icon-plus icon-white\"></i> <span>Add files...</span> <input type=\"file\" name=\"files[]\" multiple>\n" + 
+"					<span class=\"btn btn-success fileinput-button\"> <i class=\"glyphicon glyphicon-plus glyphicon glyphicon-white\"></i> <span>Add files...</span> <input type=\"file\" name=\"files[]\" multiple>\n" + 
 "					</span>\n" + 
 "					<button type=\"submit\" class=\"btn btn-primary start\">\n" + 
-"						<i class=\"icon-upload icon-white\"></i> <span>Start upload</span>\n" + 
+"						<i class=\"glyphicon glyphicon-upload glyphicon glyphicon-white\"></i> <span>Start upload</span>\n" + 
 "					</button>\n" + 
 "					<button type=\"reset\" class=\"btn btn-warning cancel\">\n" + 
-"						<i class=\"icon-ban-circle icon-white\"></i> <span>Cancel upload</span>\n" + 
+"						<i class=\"glyphicon glyphicon-ban-circle glyphicon glyphicon-white\"></i> <span>Cancel upload</span>\n" + 
 "					</button>\n" + 
 "\n" + 
 "\n" + 
@@ -211,7 +227,7 @@ p("<!DOCTYPE HTML>\n" +
 "				<div class=\"span5 fileupload-progress \">\n" + 
 "					<!-- The global progress bar -->\n" + 
 "					<div class=\"progress progress-success   progress-striped \" >\n" + 
-"						<div class=\"bar\"  ></div>\n" + 
+"						<div class=\"progress-bar\"  ></div>\n" + 
 "					</div>\n" + 
 "					<!-- The extended global progress information -->\n" + 
 "					<div class=\"progress-extended\">&nbsp;</div>\n" + 
@@ -257,7 +273,7 @@ p("<!DOCTYPE HTML>\n" +
 "            <td class=\"error\" colspan=\"2\"><span class=\"label label-important\">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>\n" + 
 "        {% } else if (o.files.valid && !i) { %}\n" + 
 "            <td>\n" + 
-"                <div class=\"progress progress-info  progress-striped\"  ><div class=\"bar\" ></div></div>\n" + 
+"                <div class=\"progress progress-info  progress-striped\"  ><div class=\"progress-bar\" ></div></div>\n" + 
 "            </td>  \n" + 
 "            <td class=\"name\"><span>{%=file.name%}</span></td>\n" + 
 " 			<td class=\"size\"><span>{%=o.formatFileSize(file.size)%}</span></td>\n" + 
@@ -265,7 +281,7 @@ p("<!DOCTYPE HTML>\n" +
 "				<span class=\"start\">\n" + 
 "				{% if (!o.options.autoUpload) { %}\n" + 
 "                <button class=\"btn btn-primary\">\n" + 
-"                    <i class=\"icon-upload icon-white\"></i>\n" + 
+"                    <i class=\"glyphicon glyphicon-upload glyphicon glyphicon-white\"></i>\n" + 
 "                    <span>{%=locale.fileupload.start%}</span>\n" + 
 "                </button>\n" + 
 "            {% } %} \n" + 
@@ -274,7 +290,7 @@ p("<!DOCTYPE HTML>\n" +
 "				<span class=\"cancel\">\n" + 
 "			{% if (!i) { %}\n" + 
 "            <button class=\"btn btn-warning\">\n" + 
-"                <i class=\"icon-ban-circle icon-white\"></i>\n" + 
+"                <i class=\"glyphicon glyphicon-ban-circle glyphicon glyphicon-white\"></i>\n" + 
 "                <span>{%=locale.fileupload.cancel%}</span>\n" + 
 "            </button>\n" + 
 "        	{% } %}\n" + 
@@ -333,33 +349,33 @@ p("<!DOCTYPE HTML>\n" +
 "				<label for=\"nsfw{%=maxImageIndex%}\"><input type=\"checkbox\" name=\"nsfw\" id=\"nsfw{%=maxImageIndex%}\" value=\"1\" />  Safe for work?</label>\n" + 
 "			</div>\n" + 
 "\n" + 
-"			<div class=\"inline input-prepend\">\n" + 
-"				<span class=\"add-on\"><i class=\"icon-tag\"></i></span> <input type=\"text\" name=\"tags\" class=\"tags\" value=\"\" placeholder=\"Tags (divide by comma)\" />\n" + 
+"			<div class=\"inline input-group\">\n" + 
+"				<span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-tag\"></i></span> <input type=\"text\" name=\"tags\" class=\"tags\" value=\"\" placeholder=\"Tags (divide by comma)\" />\n" + 
 "			</div>\n" + 
-"			<div class=\"inline input-prepend\">\n" + 
-"				<span class=\"add-on\"><i class=\"icon-time\"></i></span> <input type=\"hidden\" name=\"taken_at\" id=\"taken_at{%=maxImageIndex%}\" value=\"\" /> <input type=\"text\"\n" + 
+"			<div class=\"inline input-group\">\n" + 
+"				<span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-time\"></i></span> <input type=\"hidden\" name=\"taken_at\" id=\"taken_at{%=maxImageIndex%}\" value=\"\" /> <input type=\"text\"\n" + 
 "					id=\"taken_at_display{%=maxImageIndex%}\" class=\"date\" value=\"\" placeholder=\"Date Taken\" />\n" + 
 "			</div>\n" + 
-"			<div class=\"inline input-prepend\">\n" + 
-"				<span class=\"add-on\"><i class=\"icon-camera\"></i></span> <input type=\"text\" name=\"camera\" id=\"camera{%=maxImageIndex%}\" class=\"camera\" value=\"\" placeholder=\"Camera\" />\n" + 
+"			<div class=\"inline input-group\">\n" + 
+"				<span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-camera\"></i></span> <input type=\"text\" name=\"camera\" id=\"camera{%=maxImageIndex%}\" class=\"camera\" value=\"\" placeholder=\"Camera\" />\n" + 
 "			</div>\n" + 
-"			<div class=\"inline input-prepend\">\n" + 
-"				<span class=\"add-on\"><i class=\"icon-envelope\"></i></span> <input type=\"text\" name=\"lens\" id=\"lens{%=maxImageIndex%}\" class=\"lens\" value=\"\" placeholder=\"Lens\" />\n" + 
+"			<div class=\"inline input-group\">\n" + 
+"				<span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-envelope\"></i></span> <input type=\"text\" name=\"lens\" id=\"lens{%=maxImageIndex%}\" class=\"lens\" value=\"\" placeholder=\"Lens\" />\n" + 
 "			</div>\n" + 
-"			<div class=\"inline input-prepend\">\n" + 
-"				<span class=\"add-on\"><i class=\"icon-envelope\"></i></span> <input type=\"text\" name=\"focus\" id=\"focus{%=maxImageIndex%}\" class=\"focal-length\" value=\"\"\n" + 
+"			<div class=\"inline input-group\">\n" + 
+"				<span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-envelope\"></i></span> <input type=\"text\" name=\"focus\" id=\"focus{%=maxImageIndex%}\" class=\"focal-length\" value=\"\"\n" + 
 "					placeholder=\"Focal Length\" />\n" + 
 "			</div>\n" + 
-"			<div class=\"inline input-prepend\">\n" + 
-"				<span class=\"add-on\"><i class=\"icon-envelope\"></i></span> <input type=\"text\" name=\"shutter\" id=\"shutter{%=maxImageIndex%}\" class=\"shutter-speed\" value=\"\"\n" + 
+"			<div class=\"inline input-group\">\n" + 
+"				<span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-envelope\"></i></span> <input type=\"text\" name=\"shutter\" id=\"shutter{%=maxImageIndex%}\" class=\"shutter-speed\" value=\"\"\n" + 
 "					placeholder=\"Shutter Speed\" />\n" + 
 "			</div>\n" + 
-"			<div class=\"inline input-prepend\">\n" + 
-"				<span class=\"add-on\"><i class=\"icon-eye-open\"></i></span> <input type=\"text\" name=\"aperture\" id=\"aperture{%=maxImageIndex%}\" class=\"aperture\" value=\"\"\n" + 
+"			<div class=\"inline input-group\">\n" + 
+"				<span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-eye-open\"></i></span> <input type=\"text\" name=\"aperture\" id=\"aperture{%=maxImageIndex%}\" class=\"aperture\" value=\"\"\n" + 
 "					placeholder=\"Aperture\" />\n" + 
 "			</div>\n" + 
-"			<div class=\"inline input-prepend last\">\n" + 
-"				<span class=\"add-on\"><i class=\"icon-envelope\"></i></span> <input type=\"text\" name=\"iso\" id=\"iso{%=maxImageIndex%}\" class=\"iso\" value=\"\" placeholder=\"ISO/Film\" />\n" + 
+"			<div class=\"inline input-group last\">\n" + 
+"				<span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-envelope\"></i></span> <input type=\"text\" name=\"iso\" id=\"iso{%=maxImageIndex%}\" class=\"iso\" value=\"\" placeholder=\"ISO/Film\" />\n" + 
 "			</div>\n" + 
 "  	</div>\n" + 
 "		</td>   \n" + 
@@ -389,7 +405,7 @@ p("<!DOCTYPE HTML>\n" +
 "        {% } %}\n" + 
 "        <td class=\"delete\">\n" + 
 "            <button class=\"btn btn-danger\" data-type=\"{%=file.delete_type%}\" data-url=\"{%=file.delete_url%}\">\n" + 
-"                <i class=\"icon-trash icon-white\"></i>\n" + 
+"                <i class=\"glyphicon glyphicon-trash glyphicon glyphicon-white\"></i>\n" + 
 "                <span>{%=locale.fileupload.destroy%}</span>\n" + 
 "            </button>\n" + 
 "            <input type=\"checkbox\" name=\"delete\" value=\"1\">\n" + 

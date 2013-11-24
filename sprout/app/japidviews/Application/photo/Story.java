@@ -1,9 +1,25 @@
 //version: 0.9.35
 package japidviews.Application.photo;
-
-import japidviews._tags.AddNav;
-
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.ucm.entity.profile.User;
+import java.util.Set;import fengfei.ucm.entity.photo.Refresh;import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/Story.html
 // Change to this file will be lost next time the template file is compiled.
@@ -115,19 +131,19 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Sto
 "		</div>\n" + 
 "\n" + 
 "		<div class=\"col col_16  \"  >\n" + 
-"			<div class=\"well fileupload-buttonbar shadow\">\n" + 
+"			<div class=\"well fileupload-buttonprogress-bar shadow\">\n" + 
 "\n" + 
 "				<div class=\"\">\n" + 
 "					<!-- The fileinput-button span is used to style the file input field as button -->\n" + 
-"					<span class=\"btn btn-success fileinput-button\"> <i class=\"icon-plus icon-white\"></i> <span>Add files...</span>\n" + 
+"					<span class=\"btn btn-success fileinput-button\"> <i class=\"glyphicon glyphicon-plus glyphicon glyphicon-white\"></i> <span>Add files...</span>\n" + 
 "						<input type=\"file\" name=\"files[]\" multiple>\n" + 
 "					</span>\n" + 
 "					<button type=\"submit\" class=\"btn btn-primary start\">\n" + 
-"						<i class=\"icon-upload icon-white\"></i>\n" + 
+"						<i class=\"glyphicon glyphicon-upload glyphicon glyphicon-white\"></i>\n" + 
 "						<span>Start All</span>\n" + 
 "					</button>\n" + 
 "					<button type=\"reset\" class=\"btn btn-warning cancel\">\n" + 
-"						<i class=\"icon-ban-circle icon-white\"></i>\n" + 
+"						<i class=\"glyphicon glyphicon-ban-circle glyphicon glyphicon-white\"></i>\n" + 
 "						<span>Cancel All</span>\n" + 
 "					</button>\n" + 
 "					<!-- The loading indicator is shown during file processing -->\n" + 
@@ -135,9 +151,9 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Sto
 "				</div>\n" + 
 "				<!-- The global progress information -->\n" + 
 "				<div class=\" fileupload-progress fade\">\n" + 
-"					<!-- The global progress bar -->\n" + 
-"					<div class=\"progress progress-success progress-striped active\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">\n" + 
-"						<div class=\"bar\" style=\"width:0%;\"></div>\n" + 
+"					<!-- The global progress progress-bar -->\n" + 
+"					<div class=\"progress progress-success progress-striped active\" role=\"progressprogress-bar\" aria-valuemin=\"0\" aria-valuemax=\"100\">\n" + 
+"						<div class=\"progress-bar\" style=\"width:0%;\"></div>\n" + 
 "					</div>\n" + 
 "					<!-- The extended global progress information -->\n" + 
 "					<div class=\"progress-extended\">\n" + 
@@ -160,17 +176,17 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Sto
 "	<tr>\n" + 
 "	<td colspan=\"2\" class=\"non-border \">\n" + 
 "	<div class=\"progress_per progress progress-info progress-striped\" >\n" + 
-"	<div class=\"bar\"></div>\n" + 
+"	<div class=\"progress-bar\"></div>\n" + 
 "	</div></td>\n" + 
 "	<td> {% if (!o.files.error && !i && !o.options.autoUpload) { %}\n" + 
 "	{% if (!o.options.autoUpload) { %}\n" + 
 "	<button class=\"btn btn-primary start\">\n" + 
-"	<i class=\"icon-upload icon-white\"></i>\n" + 
+"	<i class=\"glyphicon glyphicon-upload glyphicon glyphicon-white\"></i>\n" + 
 "	<span>{%=locale.fileupload.start%}</span>\n" + 
 "	</button> {% } %}  {% } %}\n" + 
 "	{% if (!i) { %}\n" + 
 "	<button class=\"btn btn-warning cancel\">\n" + 
-"	<i class=\"icon-ban-circle icon-white\"></i>\n" + 
+"	<i class=\"glyphicon glyphicon-ban-circle glyphicon glyphicon-white\"></i>\n" + 
 "	<span>{%=locale.fileupload.cancel%}</span>\n" + 
 "	</button> {% } %} </td>\n" + 
 "	</tr>\n" + 
@@ -209,11 +225,11 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Sto
 "	</div>\n" + 
 "	<div class=\"block\">\n" + 
 "	<label for=\"description{%=imgIndex%}\">Description</label>\n" + 
-"	<textarea class=\" span4 \" id=\"description{%=imgIndex%}\" rows=\"6\"	placeholder=\"Description\" name=\"description\"></textarea>\n" + 
+"	<textarea class=\" col-md-4 \" id=\"description{%=imgIndex%}\" rows=\"6\"	placeholder=\"Description\" name=\"description\"></textarea>\n" + 
 "	</div>\n" + 
 "	<div class=\"block\">\n" + 
 "	<select name=\"category\" id=\"category{%=imgIndex%}\"\n" + 
-"	class=\"category span4\">\n" + 
+"	class=\"category col-md-4\">\n" + 
 "	<optgroup label=\"Category\"></optgroup>\n" + 
 "	<option value=\"10\">Abstract</option>\n" + 
 "	<option value=\"11\">Animals</option>\n" + 
@@ -248,14 +264,14 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Sto
 "	<div class=\"block\">\n" + 
 "	<label for=\"tags{%=imgIndex%}\">Tags</label>\n" + 
 "	<textarea   placeholder=\"Tags (divide by comma)\" rows=\"6\"\n" + 
-"	class=\"span4\" name=\"tags\" id=\"tags{%=imgIndex%}\"></textarea>\n" + 
+"	class=\"col-md-4\" name=\"tags\" id=\"tags{%=imgIndex%}\"></textarea>\n" + 
 "	</div>\n" + 
 "\n" + 
 "	</div></td>\n" + 
 "	<td class=\"col_4\">\n" + 
 "	<div class=\" magin_left\">\n" + 
-"	<div class=\"inline input-prepend\">\n" + 
-"	<span class=\"add-on\"><span class=\"icon-head left\">Camera</span></span>\n" + 
+"	<div class=\"inline input-group\">\n" + 
+"	<span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-head left\">Camera</span></span>\n" + 
 "	<input type=\"text\" placeholder=\"Camera\" value=\"\"\n" + 
 "	class=\"Camera\" id=\"camera{%=imgIndex%}\" name=\"camera\">\n" + 
 "	<input\n" + 
@@ -268,38 +284,38 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Sto
 "	<input type=\"hidden\"  value=\"\" id=\"MeteringMode{%=imgIndex%}\" name=\"MeteringMode\">\n" + 
 "\n" + 
 "	</div>\n" + 
-"	<div class=\"inline input-prepend\">\n" + 
-"	<span class=\"add-on\"><span class=\"icon-head left\">Lens</span> </span>\n" + 
+"	<div class=\"inline input-group\">\n" + 
+"	<span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-head left\">Lens</span> </span>\n" + 
 "	<input type=\"text\" placeholder=\"Lens\" value=\"\" class=\"lens\"\n" + 
 "	id=\"lens{%=imgIndex%}\" name=\"lens\">\n" + 
 "	</div>\n" + 
-"	<div class=\"inline input-prepend\">\n" + 
-"	<span class=\"add-on\"><span class=\"icon-head left\">Focus </span></span>\n" + 
+"	<div class=\"inline input-group\">\n" + 
+"	<span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-head left\">Focus </span></span>\n" + 
 "	<input type=\"text\" placeholder=\"Focal Length\" value=\"\"\n" + 
 "	class=\"focal-length\" id=\"focus{%=imgIndex%}\" name=\"focus\">\n" + 
 "	</div>\n" + 
-"	<div class=\"inline input-prepend\">\n" + 
-"	<span class=\"add-on \"><span class=\"icon-head left\">Shutter </span></span>\n" + 
+"	<div class=\"inline input-group\">\n" + 
+"	<span class=\"input-group-addon \"><span class=\"glyphicon glyphicon-head left\">Shutter </span></span>\n" + 
 "	<input type=\"text\" placeholder=\"Shutter Speed\" value=\"\"\n" + 
 "	class=\"shutter-speed\" id=\"shutter{%=imgIndex%}\" name=\"shutter\">\n" + 
 "	</div>\n" + 
-"	<div class=\"inline input-prepend\">\n" + 
-"	<span class=\"add-on\"><span class=\"icon-head left\">Aperture</span></span>\n" + 
+"	<div class=\"inline input-group\">\n" + 
+"	<span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-head left\">Aperture</span></span>\n" + 
 "	<input type=\"text\" placeholder=\"Aperture\" value=\"\"\n" + 
 "	class=\"aperture\" id=\"aperture{%=imgIndex%}\" name=\"aperture\">\n" + 
 "	</div>\n" + 
-"	<div class=\"inline input-prepend last\">\n" + 
-"	<span class=\"add-on\"><span class=\"icon-head left\">ISO </span></span>\n" + 
+"	<div class=\"inline input-group last\">\n" + 
+"	<span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-head left\">ISO </span></span>\n" + 
 "	<input type=\"text\" placeholder=\"ISO/Film\" value=\"\" class=\"iso\"\n" + 
 "	id=\"iso{%=imgIndex%}\" name=\"iso\">\n" + 
 "	</div>\n" + 
-"	<div class=\"inline input-prepend last\">\n" + 
-"	<span class=\"add-on\"><span class=\"icon-head left\">EV</span></span>\n" + 
+"	<div class=\"inline input-group last\">\n" + 
+"	<span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-head left\">EV</span></span>\n" + 
 "	<input type=\"text\" placeholder=\"Exposure Compensation\" value=\"\"\n" + 
 "	class=\"iso\" id=\"ev{%=imgIndex%}\" name=\"ev\">\n" + 
 "	</div>\n" + 
-"	<div class=\"inline input-prepend\">\n" + 
-"	<span class=\"add-on\"><span class=\"icon-head left\"> Taken </span></span>\n" + 
+"	<div class=\"inline input-group\">\n" + 
+"	<span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-head left\"> Taken </span></span>\n" + 
 "	<input type=\"hidden\" value=\"\" id=\"taken_at{%=imgIndex%}\"\n" + 
 "	name=\"taken_at\">\n" + 
 "	<input type=\"text\"\n" + 
@@ -449,7 +465,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Sto
 "		width: 240px;\n" + 
 "		max-width: 240px;\n" + 
 "	}\n" + 
-"	.story .icon-head {\n" + 
+"	.story .glyphicon glyphicon-head {\n" + 
 "		width: 60px;\n" + 
 "		max-width: 60px;\n" + 
 "		overflow: hidden;\n" + 

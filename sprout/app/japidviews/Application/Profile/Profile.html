@@ -45,14 +45,14 @@
 
     <div class="col col_13 ">
         <div class="row-fluid well profile_right">
-            <div class="span12  ">
+            <div class="col-md-12  ">
                 `tag ErrorMessage`
 
                 <form class="" action="/settings/profile/done" method="post">
                     <div class="row-fluid">
-                        <div class="span6">
+                        <div class="col-md-6">
 
-                            <div class="control-group ">
+                            <div class="form-group ">
                                 <div class="controls inline">
                                     <div class="head_img">
                                         <img id="head_img"
@@ -67,7 +67,7 @@
                                         id="upload_message"></span>
                                 </div>
                             </div>
-                            <div class="control-group ">
+                            <div class="form-group ">
                                 <label class="control-label" for="gender0">&{user.gender}</label>
 
                                 <div class="controls ">
@@ -86,90 +86,90 @@
                                 </div>
                             </div>
 
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label class="control-label" for="username">&{user.username}</label>
 
                                 <div class="controls">
                                     <input type="text" id="username1" name="username1"
-                                           class="span11" placeholder="&{user.userName}"
+                                           class="col-md-11" placeholder="&{user.userName}"
                                            value="${user.userName}" readonly="readonly">
                                     <input
-                                            type="hidden" id="username" name="username" class="span11"
+                                            type="hidden" id="username" name="username" class="col-md-11"
                                             value="${user.userName}">
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label class="control-label" for="email">&{user.email}</label>
 
                                 <div class="controls">
-                                    <input type="text" id="email1" name="email1" class="span11"
+                                    <input type="text" id="email1" name="email1" class="col-md-11"
                                            placeholder="&{user.email}" value="${user.email}" readonly="readonly">
-                                    <input type="hidden" id="email" name="email" class="span11"
+                                    <input type="hidden" id="email" name="email" class="col-md-11"
                                            placeholder="&{user.email}" value="${user.email}">
                                 </div>
                             </div>
 
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label class="control-label">&{user.location}</label>
 
                                 <div class="controls">
-                                    <input id="city" name="city" class="span11" placeholder="&{user.city}"
+                                    <input id="city" name="city" class="col-md-11" placeholder="&{user.city}"
                                            type="text" value="${user.city}"/>
-                                    <input class="span11"
+                                    <input class="col-md-11"
                                            id="state" name="state" placeholder="&{user.state}" type="text"
                                            value="${user.state}"/>
                                     <input id="country" name="country"
-                                           class="span11" placeholder="&{user.country}" type="text"
+                                           class="col-md-11" placeholder="&{user.country}" type="text"
                                            value="${user.country}"/>
                                 </div>
                             </div>
 
                         </div>
 
-                        <div class="span6  ">
+                        <div class="col-md-6  ">
 
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label class="control-label" for="nicename">&{user.nice.name}</label>
 
                                 <div class="controls">
                                     <input type="text" id="nicename" name="nicename"
-                                           class="span11" placeholder="&{user.nice.name}"
+                                           class="col-md-11" placeholder="&{user.nice.name}"
                                            value="${user.niceName}">
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label class="control-label" for="birthday">&{user.birthday}</label>
 
                                 <div class="controls">
                                     <input type="text" id="birthday" name="birthday" data-date="1980-02-02"
-                                           class="span11" placeholder="&{user.birthday}"
+                                           class="col-md-11" placeholder="&{user.birthday}"
                                            value="${user.birthday}">
                                 </div>
                             </div>
 
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label class="control-label" for="phone">&{user.phone}</label>
 
                                 <div class="controls">
-                                    <input type="text" id="phone" name="phone" class="span11"
+                                    <input type="text" id="phone" name="phone" class="col-md-11"
                                            placeholder="&{user.phone}" value="${user.phoneNum}">
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label class="control-label" for="realName">&{user.real.name}</label>
 
                                 <div class="controls">
                                     <input type="text" id="realName" name="realName"
-                                           class="span11" placeholder="&{user.real.name}"
+                                           class="col-md-11" placeholder="&{user.real.name}"
                                            value="${user.realName}">
                                 </div>
                             </div>
 
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label class="control-label" for="about">&{user.about}</label>
 
                                 <div class="controls">
-                                    <textarea id="about" name="about" class="span11" rows="6"
+                                    <textarea id="about" name="about" class="col-md-11" rows="6"
                                               placeholder="&{user.about}">${user.about}</textarea>
                                 </div>
                             </div>
@@ -177,7 +177,7 @@
 
                     </div>
 
-                    <div class="control-group">
+                    <div class="form-group">
                         <div class="controls">
                             <button type="submit" class="btn">
                                 Save change
@@ -188,7 +188,7 @@
                 </form>
 
             </div>
-            <div class="span5"></div>
+            <div class="col-md-5"></div>
         </div>
 
     </div>
@@ -214,22 +214,22 @@
         <form id="cropForm" method="post" class="form-inline">
             <label>X1
                 <input type="text" size="4" id="x1" name="x1"
-                       class="span1"/>
+                       class="col-md-1"/>
             </label><label>Y1
             <input type="text" size="4"
-                   id="y1" name="y1" class="span1"/>
+                   id="y1" name="y1" class="col-md-1"/>
         </label><label>X2
             <input type="text" size="4" id="x2" name="x2"
-                   class="span1"/>
+                   class="col-md-1"/>
         </label><label>Y2
             <input type="text" size="4"
-                   id="y2" name="y2" class="span1"/>
+                   id="y2" name="y2" class="col-md-1"/>
         </label><label>W
             <input
-                    type="text" size="4" id="w" name="w" class="span1"/>
+                    type="text" size="4" id="w" name="w" class="col-md-1"/>
         </label><label>H
             <input type="text" size="4" id="h" name="h"
-                   class="span1"/>
+                   class="col-md-1"/>
         </label>
 
             <button class="btn" data-dismiss="modal" aria-hidden="true">

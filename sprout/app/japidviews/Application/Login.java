@@ -1,10 +1,24 @@
 //version: 0.9.35
 package japidviews.Application;
-
-import japidviews._tags.ErrorMessage;
-
-import static cn.bran.play.JapidPlayAdapter.flash;
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.ucm.entity.profile.UserPwd;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/Login.html
 // Change to this file will be lost next time the template file is compiled.
@@ -86,25 +100,25 @@ public class Login extends japidviews._layouts.Layout
 "				<form class=\"form-horizontal\"  method=\"post\" action=\"/login");// line 13, japidviews\Application\Login.html
 		p(flash.get("cpage"));// line 27, japidviews\Application\Login.html
 		p("\">\n" + 
-"					<div class=\"control-group\">\n" + 
+"					<div class=\"form-group\">\n" + 
 "						No account yet? <a href=\"/signup\">Sign up</a>\n" + 
 "					</div>\n" + 
 "					");// line 27, japidviews\Application\Login.html
 		final ErrorMessage _ErrorMessage3 = new ErrorMessage(getOut()); _ErrorMessage3.setActionRunners(getActionRunners()).setOut(getOut()); _ErrorMessage3.render(); // line 31, japidviews\Application\Login.html// line 31, japidviews\Application\Login.html
 		p("\n" + 
-"					<p class=\"control-group \">\n" + 
+"					<p class=\"form-group \">\n" + 
 "						<label for=\"email\">	Login with your username or email:</label>\n" + 
 "						<input type=\"text\" name=\"email\" id=\"inputEmail\" placeholder=\"Email or Username\" value=\"");// line 31, japidviews\Application\Login.html
 		p(flash.get("email"));// line 34, japidviews\Application\Login.html
 		p("\" class=\"input\"/>\n" + 
 "					</p>\n" + 
-"					<p class=\"control-group \">\n" + 
+"					<p class=\"form-group \">\n" + 
 "						<label for=\"password\">Input your password:</label>\n" + 
 "						<input type=\"password\" name=\"password\" id=\"inputPassword\" placeholder=\"Password\" class=\"input\" alt=\"\"/>\n" + 
 "					</p>\n" + 
 "					<div class=\"input_control_group\">\n" + 
 "						<small class=\"left terms\"><a href=\"/recover\" target=\"_\">Can't access your account?</a></small>\n" + 
-"						<button type=\"submit\" class=\"btn btn-large\">\n" + 
+"						<button type=\"submit\" class=\"btn btn-lg\">\n" + 
 "							Login\n" + 
 "						</button>\n" + 
 "					</div>\n" + 

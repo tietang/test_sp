@@ -1,7 +1,23 @@
 //version: 0.9.35
 package japidviews.Application;
-
-import static cn.bran.play.JapidPlayAdapter.flash;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/Login1.html
 // Change to this file will be lost next time the template file is compiled.
@@ -69,11 +85,11 @@ public class Login1 extends japidviews._layouts.Layout
 		p("<div id=\"login\" class=\"grid_row login\">\n" + 
 "	<div class=\"col col_16\">\n" + 
 "\n" + 
-"		<div class=\"row-fluid\">\n" + 
+"		<div class=\"row\">\n" + 
 "\n" + 
-"			<div class=\"span6\">\n" + 
+"			<div class=\"col-md-6\">\n" + 
 "				<h3>Login to your account</h3>\n" + 
-"				<div class=\"control-group\">\n" + 
+"				<div class=\"form-group\">\n" + 
 "					<div class=\"controls\">\n" + 
 "						<div id=\"wb_connect_btn\" class=\"btn\"></div>\n" + 
 "						<script type=\"text/javascript\">\n" + 
@@ -95,19 +111,19 @@ public class Login1 extends japidviews._layouts.Layout
 "					</div>\n" + 
 "				</div>\n" + 
 "			</div>\n" + 
-"			<div class=\"span6\">\n" + 
+"			<div class=\"col-md-6\">\n" + 
 "\n" + 
 "				<form class=\"form-horizontal\"  method=\"post\" action=\"/login");// line 9, japidviews\Application\Login1.html
 		p(flash.get("cpage"));// line 41, japidviews\Application\Login1.html
 		p("\">\n" + 
-"					<div class=\"control-group\">\n" + 
+"					<div class=\"form-group\">\n" + 
 "						No account yet? <a href=\"/signup\">Sign up</a>\n" + 
 "					</div>\n" + 
 "					");// line 41, japidviews\Application\Login1.html
 		if(asBoolean(asBoolean(flash.get("error")))) {// line 45, japidviews\Application\Login1.html
 		p("\n" + 
 "\n" + 
-"					<div class=\"alert alert-error control-group\">\n" + 
+"					<div class=\"alert alert-danger form-group\">\n" + 
 "						<button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 
 "							&times;\n" + 
 "						</button>\n" + 

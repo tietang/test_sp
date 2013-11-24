@@ -1,13 +1,25 @@
 //version: 0.9.35
 package japidviews.Application.photo;
-
-import fengfei.ucm.entity.photo.PhotoSet;
-import japidviews._tags.AddNav;
-
-import java.util.List;
-
-import static cn.bran.play.JapidPlayAdapter.getMessage;
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import java.util.*;import fengfei.ucm.entity.photo.*;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/UploadPS.html
 // Change to this file will be lost next time the template file is compiled.
@@ -91,7 +103,7 @@ final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActio
 "                    <h5>");// line 52, japidviews\Application\photo\UploadPS.html
 		;p(getMessage("upload.add.before"));// line 53, japidviews\Application\photo\UploadPS.html
 		p("<span class=\"btn btn-success fileinput-button\"> <i\n" + 
-"                            class=\"icon-plus icon-white\"></i> <span>");// line 53, japidviews\Application\photo\UploadPS.html
+"                            class=\"glyphicon glyphicon-plus glyphicon glyphicon-white\"></i> <span>");// line 53, japidviews\Application\photo\UploadPS.html
 		;p(getMessage("upload.add.button"));// line 54, japidviews\Application\photo\UploadPS.html
 		p("</span>\n" + 
 "						<input id=\"fileupload\" type=\"file\" name=\"files\">\n" + 
@@ -107,7 +119,7 @@ final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActio
 "                    <tr>\n" + 
 "                        <td colspan=\"3\">\n" + 
 "                            <div id=\"progress\" class=\"progress_per progress progress-success progress-striped\">\n" + 
-"                                <div class=\"bar\"></div>\n" + 
+"                                <div class=\"progress-bar\"></div>\n" + 
 "                            </div>\n" + 
 "                        </td>\n" + 
 "                    </tr>\n" + 

@@ -1,8 +1,24 @@
 //version: 0.9.35
 package japidviews._tags;
-
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import java.util.*;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_tags/HomeNav.html
 // Change to this file will be lost next time the template file is compiled.
@@ -115,7 +131,7 @@ qString="?"+qs;// line 8, japidviews\_tags\HomeNav.html
 "\n" + 
 "	</div>\n" + 
 "	<div class=\"col col_3 col_right\">\n" + 
-"		<div class=\"row-fluid\">\n" + 
+"		<div class=\"row\">\n" + 
 "			\n" + 
 "		</div>\n" + 
 "\n" + 

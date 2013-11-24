@@ -32,7 +32,7 @@
 
 	</div>
 	<div class="col col_3 col_right">
-		<div class="row-fluid">
+		<div class="row">
 			`Map kv1=fengfei.spruce.cache.SimpleCache.categories;`
 			`Map kv= new LinkedHashMap();kv.put((Byte)null,i18n("all"));`
 			`kv.putAll(kv1);`
@@ -41,16 +41,16 @@
 			`if(skey!=null) {key=Byte.parseByte(skey);}`
 			`Object value=kv.get(key);`
 			`if(fengfei.spruce.utils.Browser.isIE67(request)){
-			<div class=" span12" >
-				<select name="category" id="onlyCategoryIe" class="span12">
+			<div class=" col-md-12" >
+				<select name="category" id="onlyCategoryIe" class="col-md-12">
 					<option value="${key}">${value}</option>
 					`tag CategorySelectOptions fengfei.spruce.cache.SimpleCache.categories,key`
 				</select>
 			</div>
 			`}else{`
 
-			<div class="btn-group bootstrap-select span12" >
-				<button type="button" class="btn dropdown-toggle btn-inverse span12" data-toggle="dropdown" data-id="onlyCategory1">
+			<div class="btn-group bootstrap-select col-md-12" >
+				<button type="button" class="btn dropdown-toggle btn-inverse col-md-12" data-toggle="dropdown" data-id="onlyCategory1">
 					<div class="filter-option pull-left">
 						${value}
 					</div>

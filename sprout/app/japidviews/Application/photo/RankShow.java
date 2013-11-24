@@ -1,9 +1,24 @@
 //version: 0.9.35
 package japidviews.Application.photo;
-
-import fengfei.ucm.entity.photo.Rank;
-
-import static cn.bran.play.JapidPlayAdapter.getMessage;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.ucm.entity.photo.*;import fengfei.fir.utils.Path;import java.util.*;import java.util.Map.Entry;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/RankShow.html
 // Change to this file will be lost next time the template file is compiled.
@@ -73,8 +88,8 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Ran
 p(" \n" + 
 "</pre>\n" + 
 "<div id=\"rankShow\">\n" + 
-"	<div class=\"row-fluid stat  border-bottom\">\n" + 
-"		<div class=\"span5 \" title=\"");// line 4, japidviews\Application\photo\RankShow.html
+"	<div class=\"row stat  border-bottom\">\n" + 
+"		<div class=\"col-md-5 \" title=\"");// line 4, japidviews\Application\photo\RankShow.html
 		;p(getMessage("pluse.alt"));// line 8, japidviews\Application\photo\RankShow.html
 		p("\">\n" + 
 "\n" + 
@@ -84,7 +99,7 @@ p(" \n" +
 		p("</strong>\n" + 
 "			</div>\n" + 
 "		</div>\n" + 
-"		<div class=\"span7 \">\n" + 
+"		<div class=\"col-md-7 \">\n" + 
 "			<div class=\"photo_stats border-left\">\n" + 
 "				<ul>\n" + 
 "\n" + 
@@ -125,15 +140,15 @@ p(" \n" +
 "		</div>\n" + 
 "\n" + 
 "	</div>\n" + 
-"	<div class=\"row-fluid stat shadow\">\n" + 
-"		<div class=\"span5\">\n" + 
+"	<div class=\"row stat shadow\">\n" + 
+"		<div class=\"col-md-5\">\n" + 
 "			<div class=\"photo_max_stats\">\n" + 
 "				<strong>");// line 29, japidviews\Application\photo\RankShow.html
 		try { p(rank.sMaxScore); } catch (NullPointerException npe) {}// line 40, japidviews\Application\photo\RankShow.html
 		p("</strong>\n" + 
 "			</div>\n" + 
 "		</div>\n" + 
-"		<div class=\"span7 \">\n" + 
+"		<div class=\"col-md-7 \">\n" + 
 "			<div class=\"photo_stats  border-left\">\n" + 
 "				<ul class=\"stats\">\n" + 
 "					<li>\n" + 

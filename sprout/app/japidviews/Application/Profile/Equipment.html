@@ -23,33 +23,33 @@
     </div>
     <div class="col col_13 ">
         <div class="row-fluid well profile_right">
-            <div class="span11  ">
+            <div class="col-md-11  ">
 
 
                 <form class="form-horizontal" method="post" id="equipmentForm"
                       action="/settings/camera/done">
 
-                    <div class="control-group">
-                        <button class="btn btn-mini" type="button" id="camera">
+                    <div class="form-group">
+                        <button class="btn btn-xs" type="button" id="camera">
                             &{camera.add.camera}
                         </button>
-                        <button class="btn btn-mini" type="button" id="lens">
+                        <button class="btn btn-xs" type="button" id="lens">
                             &{camera.add.lens}
                         </button>
-                        <button class="btn btn-mini" type="button" id="tripod">
+                        <button class="btn btn-xs" type="button" id="tripod">
                             &{camera.add.tripod}
                         </button>
-                        <button class="btn btn-mini" type="button" id="filter">
+                        <button class="btn btn-xs" type="button" id="filter">
                             &{camera.add.filter}
                         </button>
                     </div>
-                    <div class="control-group" id="equipmentForms">
+                    <div class="form-group" id="equipmentForms">
                         `for(Camera c : cameras){`
                         <div>
-                            <div class="input-prepend input-append span11">
-                                <span class="add-on"><i class="icon-${c.type}"></i></span>
+                            <div class="input-group col-md-11">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-${c.type}"></i></span>
                                 <input
-                                        class=" span11" name="_${c.type}" id="_${c.type}" type="text"
+                                        class=" col-md-11" name="_${c.type}" id="_${c.type}" type="text"
                                         value="${c.equipment}">
                                 <button class="btn" type="button">
                                     &{delete}
@@ -59,36 +59,36 @@
                         </div>
                         `}` `if(cameras.size()==0){`
                         <div>
-                            <div class="input-prepend span11">
-                                <span class="add-on"><i class="icon-camera"></i></span>
+                            <div class="input-group col-md-11">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
                                 <input
-                                        class=" span11" name="camera" id="camera" type="text"
+                                        class=" col-md-11" name="camera" id="camera" type="text"
                                         placeholder="&{camera.camera}">
                             </div>
 
                         </div>
                         <div>
-                            <div class="input-prepend span11">
+                            <div class="input-group col-md-11">
 
-                                <span class="add-on"><i class="icon-eye-open"></i></span>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-eye-open"></i></span>
                                 <input
-                                        class="span11" name="lens" id="lens" type="text"
+                                        class="col-md-11" name="lens" id="lens" type="text"
                                         placeholder="&{camera.lens}">
                             </div>
                         </div>
                         <div>
-                            <div class="input-prepend span11">
-                                <span class="add-on"><i class="icon-glass"></i></span>
+                            <div class="input-group col-md-11">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-glass"></i></span>
                                 <input
-                                        class="span11 " name="tripod" id="tripod" type="text"
+                                        class="col-md-11 " name="tripod" id="tripod" type="text"
                                         placeholder="&{camera.tripod}">
                             </div>
                         </div>
                         <div>
-                            <div class="input-prepend span11">
-                                <span class="add-on"><i class="icon-filter"></i></span>
+                            <div class="input-group col-md-11">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-filter"></i></span>
                                 <input
-                                        class="span11 " name="filter" id="filter" type="text"
+                                        class="col-md-11 " name="filter" id="filter" type="text"
                                         placeholder="&{camera.filter}">
                             </div>
                         </div>
@@ -96,7 +96,7 @@
 
                     </div>
 
-                    <div class="control-group">
+                    <div class="form-group">
                         <div class="controls">
                             <button type="submit" class="btn">
                                 &{save.change}
@@ -107,7 +107,7 @@
                 </form>
 
             </div>
-            <div class="span5"></div>
+            <div class="col-md-5"></div>
         </div>
 
     </div>
@@ -116,8 +116,8 @@
 <script id="camera_tml" type="text/x-tmpl">
 
     <div>
-        <div class="input-prepend span11">
-            <span class="add-on"><i class="icon-camera"></i></span> <input class=" span11" name="camera" id="camera"
+        <div class="input-group col-md-11">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span> <input class=" span11" name="camera" id="camera"
                                                                            type="text" placeholder="&{camera.camera}">
         </div>
     </div>
@@ -126,9 +126,9 @@
 <script id="lens_tml" type="text/x-tmpl">
 
     <div>
-        <div class="input-prepend span11">
+        <div class="input-group col-md-11">
 
-            <span class="add-on"><i class="icon-eye-open"></i></span> <input class="span11" name="lens" id="lens"
+            <span class="input-group-addon"><i class="glyphicon glyphicon-eye-open"></i></span> <input class="span11" name="lens" id="lens"
                                                                              type="text" placeholder="&{camera.lens}">
         </div>
     </div>
@@ -138,8 +138,8 @@
 <script id="tripod_tml" type="text/x-tmpl">
 
     <div>
-        <div class="input-prepend span11">
-            <span class="add-on"><i class="icon-glass"></i></span> <input class="span11 " name="tripod" id="tripod"
+        <div class="input-group col-md-11">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-glass"></i></span> <input class="span11 " name="tripod" id="tripod"
                                                                           type="text" placeholder="&{camera.tripod}">
         </div>
     </div>
@@ -149,8 +149,8 @@
 <script id="filter_tml" type="text/x-tmpl">
 
     <div>
-        <div class="input-prepend span11">
-            <span class="add-on"><i class="icon-filter"></i></span> <input class="span11 " name="filter" id="filter"
+        <div class="input-group col-md-11">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-filter"></i></span> <input class="span11 " name="filter" id="filter"
                                                                            type="text" placeholder="&{camera.filter}">
         </div>
     </div>

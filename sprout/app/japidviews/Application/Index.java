@@ -1,6 +1,23 @@
 //version: 0.9.35
 package japidviews.Application;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/Index.html
 // Change to this file will be lost next time the template file is compiled.
@@ -71,37 +88,37 @@ p("\n" +
 "	<strong>Warning!</strong> Best check yo self, you're not looking too\n" + 
 "	good.\n" + 
 "</div>\n" + 
-"<div class=\"row-fluid\">\n" + 
+"<div class=\"row\">\n" + 
 "	<ul class=\"thumbnails\">\n" + 
-"		<li class=\"span3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
-"		<li class=\"span3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
-"		<li class=\"span3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
-"		<li class=\"span3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
-"		<li class=\"span3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
-"		<li class=\"span3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
-"		<li class=\"span3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
-"		<li class=\"span3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
 "	</ul>\n" + 
 "</div>\n" + 
-"<div class=\"row-fluid\">\n" + 
+"<div class=\"row\">\n" + 
 "	<ul class=\"thumbnails\">\n" + 
-"		<li class=\"span3\">\n" + 
+"		<li class=\"col-md-3\">\n" + 
 "			<div class=\"thumbnail\">\n" + 
 "				<img class=\"img-rounded\" src=\"/images/1.JPG\" alt=\"\">\n" + 
 "				<div class=\"caption\">\n" + 
@@ -111,7 +128,7 @@ p("\n" +
 "				</div>\n" + 
 "			</div>\n" + 
 "		</li>\n" + 
-"		<li class=\"span3\">\n" + 
+"		<li class=\"col-md-3\">\n" + 
 "			<div class=\"thumbnail\">\n" + 
 "				<img class=\"img-rounded\" src=\"/images/2.JPG\" alt=\"\">\n" + 
 "				<div class=\"caption\">\n" + 
@@ -121,7 +138,7 @@ p("\n" +
 "				</div>\n" + 
 "			</div>\n" + 
 "		</li>\n" + 
-"		<li class=\"span3\">\n" + 
+"		<li class=\"col-md-3\">\n" + 
 "			<div class=\"thumbnail\">\n" + 
 "				<img class=\"img-rounded\" src=\"/images/3.JPG\" alt=\"\">\n" + 
 "				<div class=\"caption\">\n" + 
@@ -131,7 +148,7 @@ p("\n" +
 "				</div>\n" + 
 "			</div>\n" + 
 "		</li>\n" + 
-"		<li class=\"span3\">\n" + 
+"		<li class=\"col-md-3\">\n" + 
 "			<div class=\"thumbnail\">\n" + 
 "				<img class=\"img-rounded\" src=\"/images/3.JPG\" alt=\"\">\n" + 
 "				<div class=\"caption\">\n" + 
@@ -145,31 +162,31 @@ p("\n" +
 "</div>\n" + 
 "\n" + 
 "<ul class=\"thumbnails\">\n" + 
-"	<li class=\"span4\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-md-4\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/360x270\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"span2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"span2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"span2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"span2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"span2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"span2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"span2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"span2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
 "</ul>\n" + 

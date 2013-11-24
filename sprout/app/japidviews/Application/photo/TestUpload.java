@@ -1,9 +1,23 @@
 //version: 0.9.35
 package japidviews.Application.photo;
-
-import java.util.List;
-
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/TestUpload.html
 // Change to this file will be lost next time the template file is compiled.
@@ -75,7 +89,7 @@ public class TestUpload extends japidviews._layouts.EmptyLayout
 "	<div class=\"col col_16\">\n" + 
 "		<form id=\"multipleDemo\" enctype=\"multipart/form-data\">\n" + 
 "			<div id=\"multiple\"></div>\n" + 
-"			<button type=\"button\" onClick=\"document.getElementById('agileUploaderSWF').submit();\" class=\"btn btn-small btn-info\">\n" + 
+"			<button type=\"button\" onClick=\"document.getElementById('agileUploaderSWF').submit();\" class=\"btn btn-sm btn-info\">\n" + 
 "				Submit\n" + 
 "			</button>\n" + 
 "	\n" + 
@@ -84,17 +98,17 @@ public class TestUpload extends japidviews._layouts.EmptyLayout
 "			style=\"display: \">\n" + 
 "				<thead>\n" + 
 "					<tr>\n" + 
-"						<td colspan=\"3\" class=\"non-border span12\">\n" + 
+"						<td colspan=\"3\" class=\"non-border col-md-12\">\n" + 
 "						<div id=\"progress\"\n" + 
 "						class=\"progress progress-success progress-striped\">\n" + 
-"							<div class=\"bar\"></div>\n" + 
+"							<div class=\"progress-bar\"></div>\n" + 
 "						</div></td>\n" + 
 "					</tr>\n" + 
 "				</thead>\n" + 
 "				<tbody data-target=\"#modal-gallery\" data-toggle=\"modal-gallery\"\n" + 
 "				class=\"files\">\n" + 
 "					<tr>\n" + 
-"						<td class=\"right_line span6\">\n" + 
+"						<td class=\"right_line col-md-6\">\n" + 
 "						<div class=\" magin_left\">\n" + 
 "							<div id=\"preview\"></div>\n" + 
 "							<br />\n" + 
@@ -105,7 +119,7 @@ public class TestUpload extends japidviews._layouts.EmptyLayout
 "								source size: <span id=\"size\"></span>\n" + 
 "							</p>\n" + 
 "						</div></td>\n" + 
-"						<td class=\"right_line span3\">\n" + 
+"						<td class=\"right_line col-md-3\">\n" + 
 "						<div class=\" magin_left\">\n" + 
 "							<div class=\"block\">\n" + 
 "								<label for=\"title1\">Title</label>\n" + 
@@ -174,48 +188,48 @@ public class TestUpload extends japidviews._layouts.EmptyLayout
 "									the copyright?</label>\n" + 
 "							</div>\n" + 
 "						</div></td>\n" + 
-"						<td class=\"span3\">\n" + 
+"						<td class=\"col-md-3\">\n" + 
 "						<div class=\" magin_left\">\n" + 
-"							<div class=\"inline input-prepend\">\n" + 
-"								<span class=\"add-on\"><span class=\" span1 left\">Camera </span></span>\n" + 
+"							<div class=\"inline input-group\">\n" + 
+"								<span class=\"input-group-addon\"><span class=\" span1 left\">Camera </span></span>\n" + 
 "								<input type=\"text\" placeholder=\"Camera\" value=\"\"\n" + 
 "								class=\"Camera\" id=\"camera1\" name=\"camera\">\n" + 
 "								<input\n" + 
 "								type=\"hidden\" placeholder=\"Make\" value=\"\" class=\"make\"\n" + 
 "								id=\"make1\" name=\"make\">\n" + 
 "							</div>\n" + 
-"							<div class=\"inline input-prepend\">\n" + 
-"								<span class=\"add-on\"><span class=\" span1 left\">Lens</span> </span>\n" + 
+"							<div class=\"inline input-group\">\n" + 
+"								<span class=\"input-group-addon\"><span class=\" span1 left\">Lens</span> </span>\n" + 
 "								<input type=\"text\" placeholder=\"Lens\" value=\"\" class=\"lens\"\n" + 
 "								id=\"lens1\" name=\"lens\">\n" + 
 "							</div>\n" + 
-"							<div class=\"inline input-prepend\">\n" + 
-"								<span class=\"add-on\"><span class=\" span1 left\">Focus </span></span>\n" + 
+"							<div class=\"inline input-group\">\n" + 
+"								<span class=\"input-group-addon\"><span class=\" span1 left\">Focus </span></span>\n" + 
 "								<input type=\"text\" placeholder=\"Focal Length\" value=\"\"\n" + 
 "								class=\"focal-length\" id=\"focus1\" name=\"focus\">\n" + 
 "							</div>\n" + 
-"							<div class=\"inline input-prepend\">\n" + 
-"								<span class=\"add-on \"><span class=\" span1 left\">Shutter </span></span>\n" + 
+"							<div class=\"inline input-group\">\n" + 
+"								<span class=\"input-group-addon \"><span class=\" span1 left\">Shutter </span></span>\n" + 
 "								<input type=\"text\" placeholder=\"Shutter Speed\" value=\"\"\n" + 
 "								class=\"shutter-speed\" id=\"shutter1\" name=\"shutter\">\n" + 
 "							</div>\n" + 
-"							<div class=\"inline input-prepend\">\n" + 
-"								<span class=\"add-on\"><span class=\" span1 left\">Aperture</span></span>\n" + 
+"							<div class=\"inline input-group\">\n" + 
+"								<span class=\"input-group-addon\"><span class=\" span1 left\">Aperture</span></span>\n" + 
 "								<input type=\"text\" placeholder=\"Aperture\" value=\"\"\n" + 
 "								class=\"aperture\" id=\"aperture1\" name=\"aperture\">\n" + 
 "							</div>\n" + 
-"							<div class=\"inline input-prepend last\">\n" + 
-"								<span class=\"add-on\"><span class=\" span1 left\">ISO </span></span>\n" + 
+"							<div class=\"inline input-group last\">\n" + 
+"								<span class=\"input-group-addon\"><span class=\" span1 left\">ISO </span></span>\n" + 
 "								<input type=\"text\" placeholder=\"ISO/Film\" value=\"\" class=\"iso\"\n" + 
 "								id=\"iso1\" name=\"iso\">\n" + 
 "							</div>\n" + 
-"							<div class=\"inline input-prepend last\">\n" + 
-"								<span class=\"add-on\"><span class=\" span1 left\">EV</span></span>\n" + 
+"							<div class=\"inline input-group last\">\n" + 
+"								<span class=\"input-group-addon\"><span class=\" span1 left\">EV</span></span>\n" + 
 "								<input type=\"text\" placeholder=\"Exposure Compensation\" value=\"\"\n" + 
 "								class=\"iso\" id=\"ev1\" name=\"ev\">\n" + 
 "							</div>\n" + 
-"							<div class=\"inline input-prepend\">\n" + 
-"								<span class=\"add-on\"><span class=\" span1 left\"> Taken </span></span>\n" + 
+"							<div class=\"inline input-group\">\n" + 
+"								<span class=\"input-group-addon\"><span class=\" span1 left\"> Taken </span></span>\n" + 
 "								<input type=\"hidden\" value=\"\" id=\"taken_at1\"\n" + 
 "								name=\"taken_at\">\n" + 
 "								<input type=\"text\"\n" + 
@@ -229,7 +243,7 @@ public class TestUpload extends japidviews._layouts.EmptyLayout
 "						<td><span class=\"start\" id=\"start\"> </span><!-- 			 <span class=\"cancel\" id=\"Cancel\">\n" + 
 "\n" + 
 "						<button class=\"btn btn-warning\">\n" + 
-"						<i class=\"icon-ban-circle icon-white\"></i> <span>Cancel</span>\n" + 
+"						<i class=\"glyphicon glyphicon-ban-circle glyphicon glyphicon-white\"></i> <span>Cancel</span>\n" + 
 "						</button>\n" + 
 "\n" + 
 "						</span> --></td>\n" + 

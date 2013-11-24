@@ -1,15 +1,25 @@
 //version: 0.9.35
 package japidviews.Application.profile;
-
-import fengfei.ucm.entity.photo.Photo;
-import fengfei.ucm.entity.photo.PhotoSet;
-import japidviews.Application.photo.UploadForm;
-
-import java.util.List;
-
-import static cn.bran.play.JapidPlayAdapter.flash;
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import java.util.*;import fengfei.ucm.entity.photo.*;import japidviews.Application.photo.*;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/PhotoEdit.html
 // Change to this file will be lost next time the template file is compiled.
@@ -103,7 +113,7 @@ p("<pre style=\"display: none\">\n" +
 		if("success".equals(msg)){// line 31, japidviews\Application\profile\PhotoEdit.html
 		p("alert-success");// line 31, japidviews\Application\profile\PhotoEdit.html
 		}else{// line 31, japidviews\Application\profile\PhotoEdit.html
-		p("alert-error");// line 31, japidviews\Application\profile\PhotoEdit.html
+		p("alert-danger");// line 31, japidviews\Application\profile\PhotoEdit.html
 		}// line 31, japidviews\Application\profile\PhotoEdit.html
 		p("\">\n" + 
 "								<button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 

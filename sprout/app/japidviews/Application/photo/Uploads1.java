@@ -1,7 +1,23 @@
 //version: 0.9.35
 package japidviews.Application.photo;
-
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/Uploads1.html
 // Change to this file will be lost next time the template file is compiled.
@@ -179,27 +195,27 @@ p("<!DOCTYPE HTML>\n" +
 "		<form id=\"fileupload\" action=\"/upload/done\" method=\"POST\" enctype=\"multipart/form-data\">\n" + 
 "			<!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->\n" + 
 "			<div class=\"row fileupload-buttonbar\">\n" + 
-"				<div class=\"span7\">\n" + 
-"					<!-- The fileinput-button span is used to style the file input field as button -->\n" + 
-"					<span class=\"btn btn-success fileinput-button\"> <i class=\"icon-plus icon-white\"></i> <span>Add files...</span> <input type=\"file\" id=\"files\" name=\"files[]\"\n" + 
+"				<div class=\"col-md-7\">\n" + 
+"					<!-- The fileinput-button col-md- is used to style the file input field as button -->\n" + 
+"					<span class=\"btn btn-success fileinput-button\"> <i class=\"glyphicon glyphicon-plus glyphicon glyphicon-white\"></i> <span>Add files...</span> <input type=\"file\" id=\"files\" name=\"files[]\"\n" + 
 "						multiple>\n" + 
 "					</span>\n" + 
 "					<button type=\"button\" class=\"btn btn-primary start\" id=\"upload_btn\">\n" + 
-"						<i class=\"icon-upload icon-white\"></i> <span>Start upload</span>\n" + 
+"						<i class=\"glyphicon glyphicon-upload glyphicon glyphicon-white\"></i> <span>Start upload</span>\n" + 
 "					</button>\n" + 
 "					<button type=\"reset\" class=\"btn btn-warning cancel\">\n" + 
-"						<i class=\"icon-ban-circle icon-white\"></i> <span>Cancel upload</span>\n" + 
+"						<i class=\"glyphicon glyphicon-ban-circle glyphicon glyphicon-white\"></i> <span>Cancel upload</span>\n" + 
 "					</button>\n" + 
 "					<button type=\"button\" class=\"btn btn-danger delete\">\n" + 
-"						<i class=\"icon-trash icon-white\"></i> <span>Delete</span>\n" + 
+"						<i class=\"glyphicon glyphicon-trash glyphicon glyphicon-white\"></i> <span>Delete</span>\n" + 
 "					</button>\n" + 
 "					<input type=\"checkbox\" class=\"toggle\">\n" + 
 "				</div>\n" + 
 "				\n" + 
-"				<div class=\"span5 fileupload-progress \"><span id=\"percentage\"></span>\n" + 
+"				<div class=\"col-md-5 fileupload-progress \"><span id=\"percentage\"></span>\n" + 
 "					<!-- The global progress bar -->\n" + 
-"					<div id=\"progress\" class=\"progress progress-success  active\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">\n" + 
-"						<div class=\"bar\" style=\"width: 0%;\"></div>\n" + 
+"					<div id=\"progress\" class=\"progress progress-success  active\" role=\"progressprogress-bar\" aria-valuemin=\"0\" aria-valuemax=\"100\">\n" + 
+"						<div class=\"progress-bar\" style=\"width: 0%;\"></div>\n" + 
 "					</div>\n" + 
 "					<!-- The extended global progress information -->\n" + 
 "					<div class=\"progress-extended\">&nbsp;</div>\n" + 

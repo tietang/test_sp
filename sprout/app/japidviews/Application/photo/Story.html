@@ -92,7 +92,7 @@
 		width: 240px;
 		max-width: 240px;
 	}
-	.story .icon-head {
+	.story .glyphicon glyphicon-head {
 		width: 60px;
 		max-width: 60px;
 		overflow: hidden;
@@ -144,19 +144,19 @@
 		</div>
 
 		<div class="col col_16  "  >
-			<div class="well fileupload-buttonbar shadow">
+			<div class="well fileupload-buttonprogress-bar shadow">
 
 				<div class="">
 					<!-- The fileinput-button span is used to style the file input field as button -->
-					<span class="btn btn-success fileinput-button"> <i class="icon-plus icon-white"></i> <span>Add files...</span>
+					<span class="btn btn-success fileinput-button"> <i class="glyphicon glyphicon-plus glyphicon glyphicon-white"></i> <span>Add files...</span>
 						<input type="file" name="files[]" multiple>
 					</span>
 					<button type="submit" class="btn btn-primary start">
-						<i class="icon-upload icon-white"></i>
+						<i class="glyphicon glyphicon-upload glyphicon glyphicon-white"></i>
 						<span>Start All</span>
 					</button>
 					<button type="reset" class="btn btn-warning cancel">
-						<i class="icon-ban-circle icon-white"></i>
+						<i class="glyphicon glyphicon-ban-circle glyphicon glyphicon-white"></i>
 						<span>Cancel All</span>
 					</button>
 					<!-- The loading indicator is shown during file processing -->
@@ -164,9 +164,9 @@
 				</div>
 				<!-- The global progress information -->
 				<div class=" fileupload-progress fade">
-					<!-- The global progress bar -->
-					<div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-						<div class="bar" style="width:0%;"></div>
+					<!-- The global progress progress-bar -->
+					<div class="progress progress-success progress-striped active" role="progressprogress-bar" aria-valuemin="0" aria-valuemax="100">
+						<div class="progress-bar" style="width:0%;"></div>
 					</div>
 					<!-- The extended global progress information -->
 					<div class="progress-extended">
@@ -189,17 +189,17 @@
 	<tr>
 	<td colspan="2" class="non-border ">
 	<div class="progress_per progress progress-info progress-striped" >
-	<div class="bar"></div>
+	<div class="progress-bar"></div>
 	</div></td>
 	<td> {~% if (!o.files.error && !i && !o.options.autoUpload) { %}
 	{~% if (!o.options.autoUpload) { %}
 	<button class="btn btn-primary start">
-	<i class="icon-upload icon-white"></i>
+	<i class="glyphicon glyphicon-upload glyphicon glyphicon-white"></i>
 	<span>{~%=locale.fileupload.start%}</span>
 	</button> {~% } %}  {~% } %}
 	{~% if (!i) { %}
 	<button class="btn btn-warning cancel">
-	<i class="icon-ban-circle icon-white"></i>
+	<i class="glyphicon glyphicon-ban-circle glyphicon glyphicon-white"></i>
 	<span>{~%=locale.fileupload.cancel%}</span>
 	</button> {~% } %} </td>
 	</tr>
@@ -238,11 +238,11 @@
 	</div>
 	<div class="block">
 	<label for="description{~%=imgIndex%}">Description</label>
-	<textarea class=" span4 " id="description{~%=imgIndex%}" rows="6"	placeholder="Description" name="description"></textarea>
+	<textarea class=" col-md-4 " id="description{~%=imgIndex%}" rows="6"	placeholder="Description" name="description"></textarea>
 	</div>
 	<div class="block">
 	<select name="category" id="category{~%=imgIndex%}"
-	class="category span4">
+	class="category col-md-4">
 	<optgroup label="Category"></optgroup>
 	<option value="10">Abstract</option>
 	<option value="11">Animals</option>
@@ -277,14 +277,14 @@
 	<div class="block">
 	<label for="tags{~%=imgIndex%}">Tags</label>
 	<textarea   placeholder="Tags (divide by comma)" rows="6"
-	class="span4" name="tags" id="tags{~%=imgIndex%}"></textarea>
+	class="col-md-4" name="tags" id="tags{~%=imgIndex%}"></textarea>
 	</div>
 
 	</div></td>
 	<td class="col_4">
 	<div class=" magin_left">
-	<div class="inline input-prepend">
-	<span class="add-on"><span class="icon-head left">Camera</span></span>
+	<div class="inline input-group">
+	<span class="input-group-addon"><span class="glyphicon glyphicon-head left">Camera</span></span>
 	<input type="text" placeholder="Camera" value=""
 	class="Camera" id="camera{~%=imgIndex%}" name="camera">
 	<input
@@ -297,38 +297,38 @@
 	<input type="hidden"  value="" id="MeteringMode{~%=imgIndex%}" name="MeteringMode">
 
 	</div>
-	<div class="inline input-prepend">
-	<span class="add-on"><span class="icon-head left">Lens</span> </span>
+	<div class="inline input-group">
+	<span class="input-group-addon"><span class="glyphicon glyphicon-head left">Lens</span> </span>
 	<input type="text" placeholder="Lens" value="" class="lens"
 	id="lens{~%=imgIndex%}" name="lens">
 	</div>
-	<div class="inline input-prepend">
-	<span class="add-on"><span class="icon-head left">Focus </span></span>
+	<div class="inline input-group">
+	<span class="input-group-addon"><span class="glyphicon glyphicon-head left">Focus </span></span>
 	<input type="text" placeholder="Focal Length" value=""
 	class="focal-length" id="focus{~%=imgIndex%}" name="focus">
 	</div>
-	<div class="inline input-prepend">
-	<span class="add-on "><span class="icon-head left">Shutter </span></span>
+	<div class="inline input-group">
+	<span class="input-group-addon "><span class="glyphicon glyphicon-head left">Shutter </span></span>
 	<input type="text" placeholder="Shutter Speed" value=""
 	class="shutter-speed" id="shutter{~%=imgIndex%}" name="shutter">
 	</div>
-	<div class="inline input-prepend">
-	<span class="add-on"><span class="icon-head left">Aperture</span></span>
+	<div class="inline input-group">
+	<span class="input-group-addon"><span class="glyphicon glyphicon-head left">Aperture</span></span>
 	<input type="text" placeholder="Aperture" value=""
 	class="aperture" id="aperture{~%=imgIndex%}" name="aperture">
 	</div>
-	<div class="inline input-prepend last">
-	<span class="add-on"><span class="icon-head left">ISO </span></span>
+	<div class="inline input-group last">
+	<span class="input-group-addon"><span class="glyphicon glyphicon-head left">ISO </span></span>
 	<input type="text" placeholder="ISO/Film" value="" class="iso"
 	id="iso{~%=imgIndex%}" name="iso">
 	</div>
-	<div class="inline input-prepend last">
-	<span class="add-on"><span class="icon-head left">EV</span></span>
+	<div class="inline input-group last">
+	<span class="input-group-addon"><span class="glyphicon glyphicon-head left">EV</span></span>
 	<input type="text" placeholder="Exposure Compensation" value=""
 	class="iso" id="ev{~%=imgIndex%}" name="ev">
 	</div>
-	<div class="inline input-prepend">
-	<span class="add-on"><span class="icon-head left"> Taken </span></span>
+	<div class="inline input-group">
+	<span class="input-group-addon"><span class="glyphicon glyphicon-head left"> Taken </span></span>
 	<input type="hidden" value="" id="taken_at{~%=imgIndex%}"
 	name="taken_at">
 	<input type="text"

@@ -1,11 +1,25 @@
 //version: 0.9.35
 package japidviews.Application.profile;
-
-import fengfei.ucm.entity.photo.PhotoSet;
-import japidviews._tags.ErrorMessage;
-
-import java.util.List;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import java.util.*;import fengfei.ucm.entity.photo.*;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/Dir.html
 // Change to this file will be lost next time the template file is compiled.
@@ -79,7 +93,7 @@ p("\n" +
 "<div class=\"row-fluid \" >\n" + 
 "	<div>\n" + 
 "		<form class=\"form-inline\">\n" + 
-"			<input name=\"set\" id=\"set1\"  type=\"text\" placeholder=\"Set Name\" class=\"span9\"/>\n" + 
+"			<input name=\"set\" id=\"set1\"  type=\"text\" placeholder=\"Set Name\" class=\"col-md-9\"/>\n" + 
 "\n" + 
 "			<input name=\"idSet\" id=\"idSet1\"  type=\"hidden\" placeholder=\"Set Name\"  />\n" + 
 "\n" + 
@@ -124,14 +138,14 @@ p("\n" +
 "					<td>\n" + 
 "					<button type=\"button\" onclick=\"setPhotoSetValue(document.getElementById('edit_td");// line 39, japidviews\Application\profile\Dir.html
 		p(index);// line 41, japidviews\Application\profile\Dir.html
-		p("'))\" class=\"btn btn-primary btn-small\">\n" + 
+		p("'))\" class=\"btn btn-primary btn-sm\">\n" + 
 "						Edit\n" + 
 "					</button>\n" + 
 "					<button type=\"button\" onclick=\"onDeletePhotoSet('");// line 41, japidviews\Application\profile\Dir.html
 		p(set.name);// line 44, japidviews\Application\profile\Dir.html
 		p("',");// line 44, japidviews\Application\profile\Dir.html
 		p(set.idSet);// line 44, japidviews\Application\profile\Dir.html
-		p(")\" class=\"btn btn-danger btn-small\">\n" + 
+		p(")\" class=\"btn btn-danger btn-sm\">\n" + 
 "						Delete\n" + 
 "					</button></td>\n" + 
 "				</tr>\n" + 

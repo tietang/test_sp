@@ -1,15 +1,25 @@
 //version: 0.9.35
 package japidviews.Application.photo;
-
-import fengfei.fir.utils.Path;
-import fengfei.ucm.entity.photo.Photo;
-import fengfei.ucm.entity.photo.PhotoSet;
-import japidviews._tags.CategorySelectOptions;
-import japidviews._tags.LicenseSelectOptions;
-
-import java.util.List;
-
-import static cn.bran.play.JapidPlayAdapter.getMessage;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import java.util.*;import fengfei.ucm.entity.photo.*;import fengfei.fir.utils.Path;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/UploadForm.html
 // Change to this file will be lost next time the template file is compiled.
@@ -117,7 +127,7 @@ p("\n" +
 "\n" + 
 "            </div>\n" + 
 "            </p>\n" + 
-"            <div class=\"alert alert-error\" id=\"uploadError\" style=\"display: none\">\n" + 
+"            <div class=\"alert alert-danger\" id=\"uploadError\" style=\"display: none\">\n" + 
 "                <button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 
 "                    &times;\n" + 
 "                </button>\n" + 
@@ -250,8 +260,8 @@ p("\n" +
 "    </td>\n" + 
 "    <td class=\"col_4\">\n" + 
 "        <div class=\" magin_left\">\n" + 
-"            <div class=\"inline input-prepend\">\n" + 
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 109, japidviews\Application\photo\UploadForm.html
+"            <div class=\"inline input-group\">\n" + 
+"                <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-head left\">");// line 109, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("photo.camera"));// line 129, japidviews\Application\photo\UploadForm.html
 		p("</span></span>\n" + 
 "                <input type=\"text\" placeholder=\"");// line 129, japidviews\Application\photo\UploadForm.html
@@ -265,8 +275,8 @@ p("\n" +
 "                        id=\"make1\" name=\"make\">\n" + 
 "\n" + 
 "            </div>\n" + 
-"            <div class=\"inline input-prepend\">\n" + 
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 133, japidviews\Application\photo\UploadForm.html
+"            <div class=\"inline input-group\">\n" + 
+"                <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-head left\">");// line 133, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("photo.lens"));// line 138, japidviews\Application\photo\UploadForm.html
 		p("</span> </span>\n" + 
 "                <input type=\"text\" placeholder=\"");// line 138, japidviews\Application\photo\UploadForm.html
@@ -274,8 +284,8 @@ p("\n" +
 		p("\" value=\"\" class=\"lens\"\n" + 
 "                       id=\"lens1\" name=\"lens\">\n" + 
 "            </div>\n" + 
-"            <div class=\"inline input-prepend\">\n" + 
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 139, japidviews\Application\photo\UploadForm.html
+"            <div class=\"inline input-group\">\n" + 
+"                <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-head left\">");// line 139, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("photo.focus"));// line 143, japidviews\Application\photo\UploadForm.html
 		p(" </span></span>\n" + 
 "                <input type=\"text\" placeholder=\"");// line 143, japidviews\Application\photo\UploadForm.html
@@ -283,8 +293,8 @@ p("\n" +
 		p("\" value=\"\"\n" + 
 "                       class=\"focal-length\" id=\"focus1\" name=\"focus\">\n" + 
 "            </div>\n" + 
-"            <div class=\"inline input-prepend\">\n" + 
-"                <span class=\"add-on \"><span class=\"icon-head left\">");// line 144, japidviews\Application\photo\UploadForm.html
+"            <div class=\"inline input-group\">\n" + 
+"                <span class=\"input-group-addon \"><span class=\"glyphicon glyphicon-head left\">");// line 144, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("photo.shutter"));// line 148, japidviews\Application\photo\UploadForm.html
 		p(" </span></span>\n" + 
 "                <input type=\"text\" placeholder=\"");// line 148, japidviews\Application\photo\UploadForm.html
@@ -292,8 +302,8 @@ p("\n" +
 		p("\" value=\"\"\n" + 
 "                       class=\"shutter-speed\" id=\"shutter1\" name=\"shutter\">\n" + 
 "            </div>\n" + 
-"            <div class=\"inline input-prepend\">\n" + 
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 149, japidviews\Application\photo\UploadForm.html
+"            <div class=\"inline input-group\">\n" + 
+"                <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-head left\">");// line 149, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("photo.aperture"));// line 153, japidviews\Application\photo\UploadForm.html
 		p("</span></span>\n" + 
 "                <input type=\"text\" placeholder=\"");// line 153, japidviews\Application\photo\UploadForm.html
@@ -301,8 +311,8 @@ p("\n" +
 		p("\" value=\"\"\n" + 
 "                       class=\"aperture\" id=\"aperture1\" name=\"aperture\">\n" + 
 "            </div>\n" + 
-"            <div class=\"inline input-prepend last\">\n" + 
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 154, japidviews\Application\photo\UploadForm.html
+"            <div class=\"inline input-group last\">\n" + 
+"                <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-head left\">");// line 154, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("photo.iso"));// line 158, japidviews\Application\photo\UploadForm.html
 		p(" </span></span>\n" + 
 "                <input type=\"text\" placeholder=\"");// line 158, japidviews\Application\photo\UploadForm.html
@@ -310,8 +320,8 @@ p("\n" +
 		p("\" value=\"\" class=\"iso\"\n" + 
 "                       id=\"iso1\" name=\"iso\">\n" + 
 "            </div>\n" + 
-"            <div class=\"inline input-prepend last\">\n" + 
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 159, japidviews\Application\photo\UploadForm.html
+"            <div class=\"inline input-group last\">\n" + 
+"                <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-head left\">");// line 159, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("photo.ev"));// line 163, japidviews\Application\photo\UploadForm.html
 		p("</span></span>\n" + 
 "                <input type=\"text\" placeholder=\"");// line 163, japidviews\Application\photo\UploadForm.html
@@ -319,8 +329,8 @@ p("\n" +
 		p("\" value=\"\"\n" + 
 "                       class=\"iso\" id=\"ev1\" name=\"ev\">\n" + 
 "            </div>\n" + 
-"            <div class=\"inline input-prepend\">\n" + 
-"                <span class=\"add-on\"><span class=\"icon-head left\"> ");// line 164, japidviews\Application\photo\UploadForm.html
+"            <div class=\"inline input-group\">\n" + 
+"                <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-head left\"> ");// line 164, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("photo.taken"));// line 168, japidviews\Application\photo\UploadForm.html
 		p(" </span></span>\n" + 
 "                <input type=\"hidden\" value=\"\" id=\"taken_at1\"\n" + 

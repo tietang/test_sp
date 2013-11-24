@@ -25,21 +25,21 @@
 		<div id="login"   class=" 	cardx">
 			<div class="col left_form rigth_line" >
 				<form class="form-horizontal"  method="post" action="/login${flash.get("cpage")}">
-					<div class="control-group">
+					<div class="form-group">
 						No account yet? <a href="/signup">Sign up</a>
 					</div>
 					`tag ErrorMessage`
-					<p class="control-group ">
+					<p class="form-group ">
 						<label for="email">	Login with your username or email:</label>
 						<input type="text" name="email" id="inputEmail" placeholder="Email or Username" value="${flash.get("email")}" class="input"/>
 					</p>
-					<p class="control-group ">
+					<p class="form-group ">
 						<label for="password">Input your password:</label>
 						<input type="password" name="password" id="inputPassword" placeholder="Password" class="input" alt=""/>
 					</p>
 					<div class="input_control_group">
 						<small class="left terms"><a href="/recover" target="_">Can't access your account?</a></small>
-						<button type="submit" class="btn btn-large">
+						<button type="submit" class="btn btn-lg">
 							Login
 						</button>
 					</div>

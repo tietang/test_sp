@@ -1,10 +1,24 @@
 //version: 0.9.35
 package japidviews.Application;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
 import fengfei.ucm.entity.profile.UserPwd;
-
-import static cn.bran.play.JapidPlayAdapter.flash;
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/Signup.html
 // Change to this file will be lost next time the template file is compiled.
@@ -90,7 +104,7 @@ public class Signup extends japidviews._layouts.Layout
 		if(asBoolean(asBoolean(flash.get("error")))) {// line 31, japidviews\Application\Signup.html
 		p("\n" + 
 "\n" + 
-"					<div class=\"alert alert-error\">\n" + 
+"					<div class=\"alert alert-danger\">\n" + 
 "						<button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 
 "							&times;\n" + 
 "						</button>\n" + 
@@ -102,28 +116,28 @@ public class Signup extends japidviews._layouts.Layout
 "					");// line 37, japidviews\Application\Signup.html
 		}// line 40, japidviews\Application\Signup.html
 		p("\n" + 
-"					<p class=\"control-group \">\n" + 
+"					<p class=\"form-group \">\n" + 
 "						<label for=\"username\">User Name</label>\n" + 
 "						<input id=\"username\" name=\"username\" type=\"text\" placeholder=\"User Name\" value=\"");// line 40, japidviews\Application\Signup.html
 		p(up.userName);// line 43, japidviews\Application\Signup.html
 		p("\" class=\"input\"/>\n" + 
 "					</p>\n" + 
-"					<p class=\"control-group \">\n" + 
+"					<p class=\"form-group \">\n" + 
 "						<label for=\"email\">Email</label>\n" + 
 "						<input id=\"email\" name=\"email\" type=\"email\" placeholder=\"Email\" value=\"");// line 43, japidviews\Application\Signup.html
 		p(up.email);// line 47, japidviews\Application\Signup.html
 		p("\" class=\"input\"/>\n" + 
 "					</p>\n" + 
-"					<p class=\"control-group \">\n" + 
+"					<p class=\"form-group \">\n" + 
 "						<label for=\"password\">Password</label>\n" + 
 "						<input id=\"password\" name=\"password\" type=\"password\" placeholder=\"Password\"  class=\"input\"/>\n" + 
 "					</p>\n" + 
-"					<p class=\"control-group \">\n" + 
+"					<p class=\"form-group \">\n" + 
 "						<label for=\"confirm_password\">Confirm Password</label>\n" + 
 "						<input id=\"confirm_password\" name=\"confirm_password\" type=\"password\" placeholder=\"Confirm Password\"  class=\"input\"/>\n" + 
 "					</p>\n" + 
 "\n" + 
-"					<p class=\"control-group \">\n" + 
+"					<p class=\"form-group \">\n" + 
 "\n" + 
 "						<label for=\"agree\" class=\"checkbox inline\">\n" + 
 "							<input type=\"checkbox\" class=\"checkbox\" id=\"agree\" name=\"agree\" checked=\"checked\" />\n" + 
@@ -132,7 +146,7 @@ public class Signup extends japidviews._layouts.Layout
 "					</p>\n" + 
 "\n" + 
 "					<p>\n" + 
-"						<button type=\"submit\"  class=\"btn  btn-large \" >\n" + 
+"						<button type=\"submit\"  class=\"btn  btn-lg \" >\n" + 
 "							Submit\n" + 
 "						</button>\n" + 
 "					</p>\n" + 

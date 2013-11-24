@@ -1,8 +1,23 @@
 //version: 0.9.35
 package japidviews.Application.profile;
-
-import japidviews._tags.SettingsMenu;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/Account.html
 // Change to this file will be lost next time the template file is compiled.
@@ -83,7 +98,7 @@ public class Account extends japidviews._layouts.Layout
 "	</div>\n" + 
 "	<div class=\"col col_13 \">\n" + 
 "		<div class=\"row-fluid well profile_right\">\n" + 
-"			<div class=\"span8  \">\n" + 
+"			<div class=\"col-md-8  \">\n" + 
 "\n" + 
 "				<form class=\"form-horizontal\">\n" + 
 "					<span id=\"qqLoginBtn\"></span>\n" + 
@@ -111,7 +126,7 @@ public class Account extends japidviews._layouts.Layout
 "						});\n" + 
 "					</script>\n" + 
 "\n" + 
-"					<div class=\"control-group\">\n" + 
+"					<div class=\"form-group\">\n" + 
 "						<div class=\"controls\">\n" + 
 "							<button type=\"submit\" class=\"btn\">\n" + 
 "								Save change\n" + 
@@ -122,7 +137,7 @@ public class Account extends japidviews._layouts.Layout
 "				</form>\n" + 
 "\n" + 
 "			</div>\n" + 
-"			<div class=\"span5\"></div>\n" + 
+"			<div class=\"col-md-5\"></div>\n" + 
 "		</div>\n" + 
 "\n" + 
 "	</div>\n" + 

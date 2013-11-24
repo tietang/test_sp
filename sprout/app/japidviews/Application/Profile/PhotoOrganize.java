@@ -1,12 +1,25 @@
 //version: 0.9.35
 package japidviews.Application.profile;
-
-import fengfei.ucm.entity.photo.PhotoSet;
-
-import java.util.List;
-
-import static cn.bran.play.JapidPlayAdapter.flash;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import java.util.*;import fengfei.ucm.entity.photo.*;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/PhotoOrganize.html
 // Change to this file will be lost next time the template file is compiled.
@@ -80,7 +93,7 @@ p("\n" +
 "<div class=\"row-fluid \" >\n" + 
 "	<div>\n" + 
 "		<form class=\"form-inline\">\n" + 
-"			<input name=\"set\" id=\"set1\"  type=\"text\" placeholder=\"Set Name\" class=\"span10\"/>\n" + 
+"			<input name=\"set\" id=\"set1\"  type=\"text\" placeholder=\"Set Name\" class=\"col-md-10\"/>\n" + 
 "			<input name=\"idSet\" id=\"idSet1\"  type=\"hidden\" placeholder=\"Set Name\"  />\n" + 
 "			<button type=\"button\" class=\"btn\"   onclick=\"addPhotoSetEvent();\">\n" + 
 "				Save\n" + 

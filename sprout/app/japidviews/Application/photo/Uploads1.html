@@ -82,27 +82,27 @@ table thead th {
 		<form id="fileupload" action="/upload/done" method="POST" enctype="multipart/form-data">
 			<!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
 			<div class="row fileupload-buttonbar">
-				<div class="span7">
-					<!-- The fileinput-button span is used to style the file input field as button -->
-					<span class="btn btn-success fileinput-button"> <i class="icon-plus icon-white"></i> <span>Add files...</span> <input type="file" id="files" name="files[]"
+				<div class="col-md-7">
+					<!-- The fileinput-button col-md- is used to style the file input field as button -->
+					<span class="btn btn-success fileinput-button"> <i class="glyphicon glyphicon-plus glyphicon glyphicon-white"></i> <span>Add files...</span> <input type="file" id="files" name="files[]"
 						multiple>
 					</span>
 					<button type="button" class="btn btn-primary start" id="upload_btn">
-						<i class="icon-upload icon-white"></i> <span>Start upload</span>
+						<i class="glyphicon glyphicon-upload glyphicon glyphicon-white"></i> <span>Start upload</span>
 					</button>
 					<button type="reset" class="btn btn-warning cancel">
-						<i class="icon-ban-circle icon-white"></i> <span>Cancel upload</span>
+						<i class="glyphicon glyphicon-ban-circle glyphicon glyphicon-white"></i> <span>Cancel upload</span>
 					</button>
 					<button type="button" class="btn btn-danger delete">
-						<i class="icon-trash icon-white"></i> <span>Delete</span>
+						<i class="glyphicon glyphicon-trash glyphicon glyphicon-white"></i> <span>Delete</span>
 					</button>
 					<input type="checkbox" class="toggle">
 				</div>
 				
-				<div class="span5 fileupload-progress "><span id="percentage"></span>
+				<div class="col-md-5 fileupload-progress "><span id="percentage"></span>
 					<!-- The global progress bar -->
-					<div id="progress" class="progress progress-success  active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-						<div class="bar" style="width: 0%;"></div>
+					<div id="progress" class="progress progress-success  active" role="progressprogress-bar" aria-valuemin="0" aria-valuemax="100">
+						<div class="progress-bar" style="width: 0%;"></div>
 					</div>
 					<!-- The extended global progress information -->
 					<div class="progress-extended">&nbsp;</div>
