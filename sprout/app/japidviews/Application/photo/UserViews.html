@@ -13,25 +13,28 @@
 
 
 <div class="grid_row users">
-	<div class="col col_4">
+	<div class="col col_12">
 		<div class="row-fluid card "  >
-			<div class="span6">
+			<div class="span2">
 				<img  class="img-rounded"
 				src="${fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(user.idUser)}">
 			</div>
-			<div class="span6">
+			<div class="span10">
 				<div class=" ">
-					<div>
+					<div class="username txt_left">
 						<strong>${user.niceName}</strong>
 					</div>
-					<div>
-						<button
-						class="follow_btn btn `if(isFollow){` btn-success`}else{`btn-info`}` btn-mini  "
-						type="button" id="follow" toid="${user.idUser}" isfollow="${isFollow}">
-							${isFollow?"Following":"Follow"}
-						</button>
-						<!--<a href="/settings/profile" class="btn btn-small">Edit profile</a>-->
+					<div class="introduction txt_left">
+
 					</div>
+                    <div class="follow_btn txt_left">
+                        <button
+                                class="follow_btn btn `if(isFollow){` btn-success`}else{`btn-info`}` btn-mini  "
+                                type="button" id="follow" toid="${user.idUser}" isfollow="${isFollow}">
+                            ${isFollow?"Following":"Follow"}
+                        </button>
+                    </div>
+
 				</div>
 			</div>
 

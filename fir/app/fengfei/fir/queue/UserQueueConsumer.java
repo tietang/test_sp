@@ -7,7 +7,6 @@ import fengfei.ucm.entity.profile.UserPwd;
 /**
  */
 public class UserQueueConsumer extends BaseConsumer implements Runnable {
-    public QueueService queueService;
     private UserIndexCreator creator;
 
     public UserQueueConsumer(QueueService queueService,

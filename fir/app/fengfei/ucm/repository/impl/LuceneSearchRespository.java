@@ -2,23 +2,13 @@ package fengfei.ucm.repository.impl;
 
 import fengfei.fir.search.lucene.PhotoFields;
 import fengfei.fir.search.lucene.Searcher;
-import fengfei.fir.utils.Hash;
-import fengfei.forest.database.dbutils.ForestGrower;
-import fengfei.forest.slice.SliceResource.Function;
-import fengfei.forest.slice.database.utils.Transactions;
-import fengfei.forest.slice.database.utils.Transactions.TaCallback;
-import fengfei.ucm.dao.PhotoTagDao;
-import fengfei.ucm.dao.RankDao;
-import fengfei.ucm.dao.UserDao;
 import fengfei.ucm.entity.photo.Rank;
 import fengfei.ucm.entity.profile.User;
-import fengfei.ucm.repository.SearchRespository;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 

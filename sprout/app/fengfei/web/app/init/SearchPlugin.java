@@ -6,10 +6,12 @@ import fengfei.fir.search.lucene.PhotoIndexCreator;
 import fengfei.fir.search.lucene.Searcher;
 import fengfei.fir.search.lucene.UserIndexCreator;
 import fengfei.fir.utils.PausableLock;
+import org.slf4j.LoggerFactory;
 import play.Logger;
 import play.Play;
 import play.PlayPlugin;
 
+import java.io.File;
 import java.util.Properties;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -17,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SearchPlugin extends PlayPlugin {
 
+    static org.slf4j.Logger logger = LoggerFactory.getLogger(SearchPlugin.class);
 
     @Override
     public void onApplicationStart() {
@@ -44,12 +47,20 @@ public class SearchPlugin extends PlayPlugin {
 
         String photoQueueName = "queue_photo";
         QueueService photoQueueService = new QueueServiceFQueueImpl(photoQueueName, photoQueuePath);
+        try {
+            photoQueueService.start();
+        } catch (Exception e) {
+            logger.error("Photo queue service start error.", e);
+
+        }
         PausableLock photoPausableLock = new PausableLock();
         PhotoQueue.queueProducer = new QueueProducer(photoQueueService, photoPausableLock);
         //lucene
         LuceneFactory photoLuceneFactory = LuceneFactory.get(lucenePhotoPath);
         PhotoIndexCreator photoIndexCreator = new PhotoIndexCreator(photoLuceneFactory);
-        PhotoQueueConsumer photoQueueConsumer = new PhotoQueueConsumer(photoQueueService, photoPausableLock, photoIndexCreator);
+        PhotoQueueConsumer photoQueueConsumer = new PhotoQueueConsumer(photoQueueService,
+                                                                       photoPausableLock,
+                                                                       photoIndexCreator);
         Logger.info("starting photoQueueConsumer.");
         for (int i = 0; i < photoConsumerSize; i++) {
             poolExecutor.execute(photoQueueConsumer);
@@ -60,12 +71,20 @@ public class SearchPlugin extends PlayPlugin {
 
         String userQueueName = "queue_user";
         QueueService userQueueService = new QueueServiceFQueueImpl(userQueueName, userQueuePath);
+        try {
+            userQueueService.start();
+        } catch (Exception e) {
+            logger.error("User queue service start error.", e);
+
+        }
         PausableLock userPausableLock = new PausableLock();
         UserQueue.queueProducer = new QueueProducer(userQueueService, userPausableLock);
         //lucene
         LuceneFactory userLuceneFactory = LuceneFactory.get(luceneUserPath);
         UserIndexCreator userIndexCreator = new UserIndexCreator(userLuceneFactory);
-        UserQueueConsumer userQueueConsumer = new UserQueueConsumer(userQueueService, userPausableLock, userIndexCreator);
+        UserQueueConsumer userQueueConsumer = new UserQueueConsumer(userQueueService,
+                                                                    userPausableLock,
+                                                                    userIndexCreator);
         Logger.info("starting photoQueueConsumer.");
         for (int i = 0; i < userConsumerSize; i++) {
             poolExecutor.execute(userQueueConsumer);

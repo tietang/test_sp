@@ -2,16 +2,16 @@
 <root>
     <resources>
         <res01>
-            <url>jdbc:mysql://127.0.0.1:4000/spruce?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true
+            <url>jdbc:mysql://my:4000/spruce?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true
             </url>
             <username>root</username>
-            <password></password>
+            <password>root123</password>
             <wight>1</wight>
         </res01>
         <res02>
-            <url>jdbc:mysql://192.168.1.11:4000/relation</url>
+            <url>jdbc:mysql://my:4000/relation</url>
             <username>root</username>
-            <password></password>
+            <password>root123</password>
             <wight>1</wight>
         </res02>
 

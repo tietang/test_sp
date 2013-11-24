@@ -1,16 +1,14 @@
 package fengfei.fir.service.impl;
 
-import java.util.Map;
-
-import org.apache.commons.io.FilenameUtils;
-
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.WriteResult;
-
 import fengfei.fir.service.JpegExifWriter;
 import fengfei.fir.service.SpruceConstants;
+import org.apache.commons.io.FilenameUtils;
+
+import java.util.Map;
 
 public class MongoJpegExifWriter implements JpegExifWriter {
 

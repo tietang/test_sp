@@ -229,6 +229,17 @@ a:hover {
     width: 100%;
 }
 
+.txt_left {
+    text-align: left;
+}
+
+.txt_right {
+    text-align: right;
+}
+.txt_center{
+    text-align: center;
+}
+
 /*Form*/
 input.error {
     border: 1px solid red;
@@ -1014,7 +1025,7 @@ a.tag:focus {
     border: 2px solid #ffffff;
 }
 
-section ul.tag_selector,section ul.tag_selector li {
+section ul.tag_selector, section ul.tag_selector li {
     list-style: none;
     float: left;
     padding: 4px;

@@ -5,16 +5,10 @@ import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.forest.database.dbutils.LongTransducer;
 import fengfei.forest.database.dbutils.impl.ForestRunner;
 import fengfei.ucm.dao.transducer.PhotoSearchTransducer;
-import fengfei.ucm.dao.transducer.TagTransducer;
 import fengfei.ucm.entity.photo.PhotoSearch;
-import fengfei.ucm.entity.photo.Tag;
-import fengfei.ucm.entity.photo.Tag.TagType;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 public class PhotoSearchDao {
 

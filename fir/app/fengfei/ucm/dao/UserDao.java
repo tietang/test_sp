@@ -1,11 +1,5 @@
 package fengfei.ucm.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import fengfei.fir.utils.AppUtils;
 import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.forest.database.dbutils.KeyValueTransducer;
@@ -16,6 +10,12 @@ import fengfei.ucm.dao.transducer.UserPwdTransducer;
 import fengfei.ucm.dao.transducer.UserTransducer;
 import fengfei.ucm.entity.profile.User;
 import fengfei.ucm.entity.profile.UserPwd;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 public class UserDao {
 

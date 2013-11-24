@@ -1,6 +1,6 @@
 package fengfei.fir.rank;
 
-import fengfei.shard.redis.RedisComand;
+import fengfei.shard.redis.RedisCommand;
 import redis.clients.jedis.Transaction;
 import redis.clients.util.SafeEncoder;
 
@@ -19,8 +19,8 @@ public class TagsQuery {
     private String key = MainKey;
     final static int T2013Minute;
     final static int WeekMinute = 7 * 24 * 60;
-    public static RedisComand read;
-    public static RedisComand write;
+    public static RedisCommand read;
+    public static RedisCommand write;
 
     static {
         Calendar c = Calendar.getInstance();

@@ -1,10 +1,10 @@
 package fengfei.ucm.dao.transducer;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import fengfei.forest.database.dbutils.Transducer;
 import fengfei.ucm.entity.photo.Popular;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class PopularTransducer implements Transducer<Popular> {
 

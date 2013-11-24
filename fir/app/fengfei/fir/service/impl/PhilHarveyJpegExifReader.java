@@ -1,18 +1,17 @@
 package fengfei.fir.service.impl;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
+import fengfei.fir.service.ExifException;
+import fengfei.fir.service.JpegExifReader;
 import org.im4java.core.ETOperation;
 import org.im4java.core.ExiftoolCmd;
 import org.im4java.core.IM4JavaException;
 import org.im4java.process.ArrayListOutputConsumer;
 
-import fengfei.fir.service.ExifException;
-import fengfei.fir.service.JpegExifReader;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <pre>

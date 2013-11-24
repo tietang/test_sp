@@ -1,12 +1,12 @@
 package fengfei.sprucy;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import fengfei.fir.service.JpegProcess;
 import fengfei.fir.service.LorryStorage;
 import fengfei.fir.service.impl.DefaultJpegProcess;
 import fengfei.fir.service.impl.DiskLorryStorage;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Spruce {
 

@@ -1,14 +1,10 @@
 package fengfei.fir.utils;
 
+import org.apache.commons.codec.binary.Base64;
+
 import java.net.NetworkInterface;
 import java.security.SecureRandom;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import org.apache.commons.codec.binary.Base64;
+import java.util.*;
 
 /**
  * 

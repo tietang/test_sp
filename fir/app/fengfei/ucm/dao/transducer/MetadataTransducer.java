@@ -1,10 +1,10 @@
 package fengfei.ucm.dao.transducer;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import fengfei.forest.database.dbutils.Transducer;
 import fengfei.ucm.entity.relation.Metadata;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class MetadataTransducer implements Transducer<Metadata> {
 

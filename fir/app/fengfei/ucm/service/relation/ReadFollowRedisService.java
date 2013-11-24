@@ -3,7 +3,6 @@ package fengfei.ucm.service.relation;
 import fengfei.shard.redis.RedisCommand;
 import fengfei.ucm.entity.relation.State;
 import fengfei.ucm.service.ReadFollowService;
-import redis.clients.jedis.Jedis;
 import redis.clients.util.SafeEncoder;
 
 import java.util.ArrayList;
@@ -11,8 +10,6 @@ import java.util.List;
 import java.util.Set;
 
 import static fengfei.ucm.service.relation.KeyGenerator.*;
-import static fengfei.ucm.service.relation.KeyGenerator.genAttachedFollowingKey;
-import static fengfei.ucm.service.relation.KeyGenerator.getAttachedPrefix;
 
 public class ReadFollowRedisService implements ReadFollowService {
     private RedisCommand reader;

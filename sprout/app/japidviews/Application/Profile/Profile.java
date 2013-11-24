@@ -1,10 +1,11 @@
 //version: 0.9.35
 package japidviews.Application.profile;
+
 import fengfei.ucm.entity.profile.User;
+import japidviews._tags.ErrorMessage;
+import japidviews._tags.SettingsMenu;
 
 import static cn.bran.play.JapidPlayAdapter.*;
-
-import japidviews._tags.*;
 
 //
 // NOTE: This file was generated from: japidviews/Application/profile/profile.html

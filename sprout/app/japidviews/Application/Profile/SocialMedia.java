@@ -1,10 +1,11 @@
 //version: 0.9.35
 package japidviews.Application.profile;
+
 import fengfei.ucm.entity.profile.UserSocial;
+import japidviews._tags.SettingsMenu;
 
-import static cn.bran.play.JapidPlayAdapter.*;
-
-import japidviews._tags.*;
+import static cn.bran.play.JapidPlayAdapter.getMessage;
+import static cn.bran.play.JapidPlayAdapter.i18n;
 
 //
 // NOTE: This file was generated from: japidviews/Application/profile/SocialMedia.html

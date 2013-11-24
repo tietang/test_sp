@@ -1,10 +1,10 @@
 package fengfei.ucm.dao.transducer;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import fengfei.forest.database.dbutils.Transducer;
 import fengfei.ucm.entity.photo.Refresh;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class RefreshTransducer implements Transducer<Refresh> {
 

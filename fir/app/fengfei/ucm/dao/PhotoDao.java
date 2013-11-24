@@ -1,10 +1,5 @@
 package fengfei.ucm.dao;
 
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-
 import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.forest.database.dbutils.StringTransducer;
 import fengfei.forest.database.dbutils.impl.ForestRunner.InsertResultSet;
@@ -14,6 +9,11 @@ import fengfei.ucm.entity.photo.Photo;
 import fengfei.ucm.entity.photo.Rank;
 import fengfei.ucm.entity.photo.Refresh;
 import fengfei.ucm.entity.photo.YourPhoto;
+
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PhotoDao {
 

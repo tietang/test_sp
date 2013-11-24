@@ -1,10 +1,14 @@
 //version: 0.9.35
 package japidviews.Application.profile;
-import java.util.*;
 
-import fengfei.ucm.entity.photo.*;import japidviews.Application.photo.*;
+import fengfei.ucm.entity.photo.Photo;
+import fengfei.ucm.entity.photo.PhotoSet;
+import japidviews.Application.photo.UploadForm;
 
-import static cn.bran.play.JapidPlayAdapter.*;
+import java.util.List;
+
+import static cn.bran.play.JapidPlayAdapter.flash;
+import static cn.bran.play.JapidPlayAdapter.lookupStatic;
 
 //
 // NOTE: This file was generated from: japidviews/Application/profile/PhotoEdit.html

@@ -2,6 +2,7 @@ package fengfei.ucm.service.relation;
 
 import fengfei.shard.redis.RedisCommand;
 import fengfei.ucm.service.WriteFollowService;
+import redis.clients.jedis.Response;
 import redis.clients.jedis.Transaction;
 
 import java.util.ArrayList;
@@ -10,12 +11,12 @@ import java.util.List;
 import static fengfei.ucm.service.relation.KeyGenerator.*;
 
 
-public class WriteFollowRedisService implements WriteFollowService {
+public class WriteFollowRedisSortedSetService implements WriteFollowService {
 
 
     private RedisCommand writer;
 
-    public WriteFollowRedisService(RedisCommand writer) {
+    public WriteFollowRedisSortedSetService(RedisCommand writer) {
         this.writer = writer;
     }
 
@@ -74,6 +75,8 @@ public class WriteFollowRedisService implements WriteFollowService {
                 String fkey = genFollowing(sourceId, type);
                 String fvalue = String.valueOf(targetId);
                 transaction.srem(fkey, fvalue);
+              Response<Long> ct= transaction.zcard(fkey);
+                ct .get();
                 //
                 String bkey = genFollowed(targetId, type);
                 String bvalue = String.valueOf(sourceId);

@@ -1,10 +1,7 @@
 package fengfei.fir.service.impl;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
+import fengfei.fir.service.ExifException;
+import fengfei.fir.service.JpegExifReader;
 import org.apache.sanselan.ImageReadException;
 import org.apache.sanselan.Sanselan;
 import org.apache.sanselan.common.IImageMetadata;
@@ -13,8 +10,10 @@ import org.apache.sanselan.formats.tiff.TiffField;
 import org.apache.sanselan.formats.tiff.constants.ExifTagConstants;
 import org.apache.sanselan.formats.tiff.constants.TagInfo;
 
-import fengfei.fir.service.ExifException;
-import fengfei.fir.service.JpegExifReader;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SanselanJpegExifReader implements JpegExifReader, SanselanExifTagConstants {
 

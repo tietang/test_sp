@@ -1,7 +1,6 @@
 package fengfei.fir.mongo;
 
 import com.google.code.fqueue.FQueue;
-import com.google.code.fqueue.FSQueue;
 
 /**
  */

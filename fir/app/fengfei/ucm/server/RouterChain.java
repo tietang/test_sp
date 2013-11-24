@@ -1,14 +1,13 @@
 package fengfei.ucm.server;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import fengfei.forest.slice.config.Config;
 import fengfei.forest.slice.config.SliceConfigReader;
 import fengfei.forest.slice.config.xml.XmlSliceConfigReader;
 import fengfei.forest.slice.database.DatabaseRouterFactory;
 import fengfei.forest.slice.database.utils.Transactions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class RouterChain implements ServerChain {
 

@@ -1,9 +1,10 @@
 //version: 0.9.35
 package japidviews.Application.profile;
-import java.util.*;
 
-import fengfei.ucm.entity.photo.*;
-import japidviews._tags.*;
+import fengfei.ucm.entity.photo.PhotoSet;
+import japidviews._tags.ErrorMessage;
+
+import java.util.List;
 
 //
 // NOTE: This file was generated from: japidviews/Application/profile/Dir.html

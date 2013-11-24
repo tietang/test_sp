@@ -1,11 +1,11 @@
 package fengfei.ucm.dao.transducer;
 
+import fengfei.forest.database.dbutils.Transducer;
+import fengfei.ucm.entity.photo.Rank;
+
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import fengfei.forest.database.dbutils.Transducer;
-import fengfei.ucm.entity.photo.Rank;
 
 public class RanksTransducer implements Transducer<Rank> {
 

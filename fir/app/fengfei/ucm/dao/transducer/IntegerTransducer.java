@@ -1,9 +1,9 @@
 package fengfei.ucm.dao.transducer;
 
+import fengfei.forest.database.dbutils.Transducer;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import fengfei.forest.database.dbutils.Transducer;
 
 public class IntegerTransducer implements Transducer<Integer> {
 

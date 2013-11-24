@@ -1,11 +1,5 @@
 package fengfei.fir.service.impl;
 
-import java.sql.Timestamp;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.io.FilenameUtils;
-
 import fengfei.fir.service.JpegExifWriter;
 import fengfei.fir.utils.AppUtils;
 import fengfei.fir.utils.MapUtils;
@@ -14,6 +8,11 @@ import fengfei.sprucy.AppConstants;
 import fengfei.ucm.entity.photo.Photo;
 import fengfei.ucm.repository.PhotoRepository;
 import fengfei.ucm.repository.impl.SqlPhotoRepository;
+import org.apache.commons.io.FilenameUtils;
+
+import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SqlJpegExifWriter implements JpegExifWriter {
 

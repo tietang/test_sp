@@ -1,23 +1,14 @@
 package fengfei.ucm.dao;
 
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Collection;
-import java.util.List;
-
-import fengfei.fir.rank.RankUtils;
 import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.forest.database.dbutils.LongTransducer;
-import fengfei.forest.database.dbutils.Transducer;
 import fengfei.ucm.dao.transducer.PhotoAccessTransducer;
-import fengfei.ucm.dao.transducer.RankTransducer;
-import fengfei.ucm.dao.transducer.RanksTransducer;
-import fengfei.ucm.dao.transducer.UserRankTransducer;
 import fengfei.ucm.entity.photo.Canceled;
 import fengfei.ucm.entity.photo.PhotoAccess;
 import fengfei.ucm.entity.photo.PhotoAccess.AccessType;
-import fengfei.ucm.entity.photo.Rank;
+
+import java.sql.SQLException;
+import java.util.List;
 
 public class PhotoAccessDao {
 

@@ -1,6 +1,5 @@
 package fengfei.ucm.repository.impl;
 
-import fengfei.fir.search.lucene.Searcher;
 import fengfei.fir.utils.Hash;
 import fengfei.forest.database.dbutils.ForestGrower;
 import fengfei.forest.slice.SliceResource.Function;

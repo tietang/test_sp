@@ -1,11 +1,11 @@
 package fengfei.ucm.dao.transducer;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import fengfei.forest.database.dbutils.Transducer;
 import fengfei.ucm.entity.photo.Tag;
 import fengfei.ucm.entity.photo.Tag.TagType;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class TagTransducer implements Transducer<Tag> {
 

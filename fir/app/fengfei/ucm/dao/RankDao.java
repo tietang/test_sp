@@ -1,12 +1,5 @@
 package fengfei.ucm.dao;
 
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import fengfei.fir.rank.RankUtils;
 import fengfei.fir.utils.AppUtils;
 import fengfei.forest.database.dbutils.ForestGrower;
@@ -16,6 +9,13 @@ import fengfei.ucm.dao.transducer.RanksTransducer;
 import fengfei.ucm.dao.transducer.UserRankTransducer;
 import fengfei.ucm.entity.photo.PhotoAccess.AccessType;
 import fengfei.ucm.entity.photo.Rank;
+
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class RankDao {
 
