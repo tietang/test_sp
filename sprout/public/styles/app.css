@@ -236,7 +236,8 @@ a:hover {
 .txt_right {
     text-align: right;
 }
-.txt_center{
+
+.txt_center {
     text-align: center;
 }
 
@@ -292,26 +293,21 @@ input.error {
 
 .navbar .navbar-inner {
     border: 0;
-    background: #000000;
-    z-index: 1030;
+    background: #3B3B3B;
+    text-align: left;
+    vertical-align: middle;
     color: #FFFFFF;
     width: auto;
     min-width: 1200px;
     margin: 0 auto;
-    z-index: -1000;
     margin-left: 0px;
     margin-right: 0px;
     padding-left: 0px;
     padding-right: 0px;
     *zoom: 1;
-    height: 60px;
-    min-height: 60px;
     -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
     -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
-    background: #3B3B3B;
-    text-align: left;
-    vertical-align: middle;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
@@ -326,7 +322,6 @@ input.error {
 
 .navbar .navbar-brand {
     padding-left: 0px;
-    padding-top: 20px;
     margin-left: 0px;
     font-size: 26px;
     font-weight: bold;
@@ -334,9 +329,6 @@ input.error {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, .5);
 }
 
-.nav, .navbar ,navbar-nav{
-    margin-bottom: 15px;
-}
 
 .nav-pills a {
     font-size: 18px;
@@ -347,13 +339,6 @@ input.error {
     background-color: #CCCCCC;
 }
 
-.navbar .nav {
-    padding-top: 10px;
-}
-
-.navbar .nav > li > a {
-    padding-bottom: 15px;
-}
 
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
     width: 1200px;
@@ -411,6 +396,7 @@ input.error {
 }
 
 .photo_nav .hr {
+    margin-top: 19px;
     border-bottom: 1px solid #CCCCCC;
     margin-bottom: 19px;
 }

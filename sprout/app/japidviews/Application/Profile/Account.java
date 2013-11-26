@@ -104,7 +104,7 @@ public class Account extends japidviews._layouts.Layout
 "					<span id=\"qqLoginBtn\"></span>\n" + 
 "					<script type=\"text/javascript\">\n" + 
 "						QC.Login({\n" + 
-"							btnId : \"qqLoginBtn\" //���밴ť�Ľڵ�id\n" + 
+"							btnId : \"qqLoginBtn\"\n" + 
 "						});\n" + 
 "					</script>\n" + 
 "\n" + 
@@ -128,7 +128,7 @@ public class Account extends japidviews._layouts.Layout
 "\n" + 
 "					<div class=\"form-group\">\n" + 
 "						<div class=\"controls\">\n" + 
-"							<button type=\"submit\" class=\"btn\">\n" + 
+"							<button type=\"submit\" class=\"btn btn-default\">\n" + 
 "								Save change\n" + 
 "							</button>\n" + 
 "						</div>\n" + 

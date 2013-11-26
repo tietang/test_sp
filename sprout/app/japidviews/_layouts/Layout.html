@@ -60,47 +60,8 @@
 </head>
 
 <body>
-<!-- Static navbar -->
-<div class="navbar navbar-inverse navbar-static-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Spruce</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="../navbar/">Default</a></li>
-                <li class="active"><a href="./">Static top</a></li>
-                <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-            </ul>
-        </div>
-        <!--/.nav-collapse -->
-    </div>
-</div>
 
-<div class="navbar navbar-inverse navbar-static-top">
+<div class="navbar navbar-inverse navbar-static-top" role="navigation">
     <div class="navbar-inner">
         <div class="grid_row">
             <div class="col col_16 ">
@@ -169,112 +130,109 @@
                         </li>
 
                     </ul>
-                    <div class="nav">
 
-                        <form class="navbar-form navbar-left  col-md-2" role="search" action="/search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search">
+
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <form class="navbar-form navbar-left  col-md-2" role="search" action="/search">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search"/>
+                                </div>
+                            </form>
+                        </li>
+                        `if (session.get(Admin.SESSION_LOGIN_KEY) == null) {`
+
+                        <li>
+                            <div class="btn-group">
+                                <a class="btn btn-primary btn-sm navbar-btn" href="/login"><span
+                                        class="glyphicon glyphicon-user glyphicon-white"></span>&ensp;Login</a>
                             </div>
-                        </form>
-                    </div>
+                            <div class="btn-group">
+                                <a href="/signup" class="btn btn-success btn-sm navbar-btn "><span
+                                        class="glyphicon glyphicon-arrow-up glyphicon-white"></span>&ensp;Signup</a>
+                            </div>
+                        </li>
 
-                    `if (session.get(Admin.SESSION_LOGIN_KEY) == null) {`
+                        `}else{`
 
-                    <div class="nav navbar-right">
-                        <div class="btn btn-default-group">
-                            <a href="/signup" class="btn btn-default btn btn-default-success btn btn-default-small"><i
-                                    class="glyphicon glyphicon-arrow-up glyphicon glyphicon-white"></i>&ensp;Signup</a>
-                        </div>
-                    </div>
-                    <div class="nav navbar-right">
-                        <div class="btn btn-default-group">
-                            <a class="btn btn-default btn btn-default-primary btn btn-default-small" href="/login"><i
-                                    class="glyphicon glyphicon-user glyphicon glyphicon-white"></i>&ensp;Login</a>
-                        </div>
-                        &ensp;
-                    </div>
-
-                    `}else{`
-
-                    <div class="nav pull-right">
-
-                        <div class="btn btn-default-group">
-                            <a class="btn btn-default btn btn-default-primary btn btn-default-small" href="/yours">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 `String idUserStr=session.get(Admin.SESSION_USER_ID_KEY);`
                                 `Integer idUser=Integer.parseInt(idUserStr);`
                                 <img class="image_18 round3"
-                                     src="${fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)}">
-
-                                ${session.get(Admin.SESSION_USER_NAME_KEY)}</a><a
-                                class="btn btn-default btn btn-default-primary btn btn-default-small dropdown-toggle"
-                                data-toggle="dropdown" href="#"><span class="caret"></span></a>
-
+                                     src="${fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)}"/>
+                                ${session.get(Admin.SESSION_USER_NAME_KEY)} <b
+                                    class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="/yours">
-                                        <img class="img_shadow image_64"
-                                             src="${fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)}"/>
+                                        <spanmg class="img_shadow image_64"
+                                                src="${fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)}"/>
                                     </a>
 
 
                                 </li>
 
                                 <li>
-                                    <a href="/settings/profile"><i class="glyphicon glyphicon-pencil"></i>
+                                    <a href="/settings/profile"><span class="glyphicon glyphicon-pencil"></span>
                                         &{settings}</a>
                                 </li>
                                 <li>
-                                    <a href="/account"><i class="glyphicon glyphicon-trash"></i> &{account}</a>
+                                    <a href="/account"><span class="glyphicon glyphicon-trash"></span> &{account}</a>
                                 </li>
                                 <li>
-                                    <a href="/settings/profile"><i class="glyphicon glyphicon-ban-circle"></i>
+                                    <a href="/settings/profile"><span class="glyphicon glyphicon-ban-circle"></span>
                                         &{profile}</a>
                                 </li>
-                                <li><a href="/settings/password"><i class="glyphicon glyphicon-ban-circle"></i>&{profile.menu.password}</a>
+                                <li><a href="/settings/password"><span class="glyphicon glyphicon-ban-circle"></span>&{profile.menu.password}</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="/logout"><i class="i"></i> &{logout}</a>
+                                    <a href="/logout"><span class="i"></span> &{logout}</a>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
+                        </li>
 
-                    <div class="nav pull-right">
-
-                        <div class="btn btn-default-group">
-                            <a class="btn btn-default btn btn-default-success btn btn-default-small" href="/add"><i
-                                    class=" glyphicon glyphicon-share glyphicon glyphicon-white"></i> &{add}</a><a
-                                class="btn btn-default btn btn-default-success btn btn-default-small dropdown-toggle"
-                                data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                        <li>
+                            <a class="dropdown-toggle"
+                               data-toggle="dropdown">
+                                <span class=" glyphicon glyphicon-share glyphicon-white"></span>
+                                &{add} <span class="caret"></span>
+                            </a>
 
                             <ul class="dropdown-menu">
+                                <li><a href="/add"><span class="glyphicon glyphicon-share"></span>&{add}</a></li>
                                 <li>
-                                    <a href="/upload"><i class="glyphicon glyphicon-picture"></i> &{add.photo}</a>
+                                    <a href="/upload"><span class="glyphicon glyphicon-picture"></span> &{add.photo}</a>
                                 </li>
                                 <li>
-                                    <a href="/ps/upload"><i class=" glyphicon glyphicon-leaf"></i> &{add.ps} </a>
+                                    <a href="/ps/upload"><span class=" glyphicon glyphicon-leaf"></span> &{add.ps}
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="/story"><i class="glyphicon glyphicon-th-large"></i> &{add.story}</a>
+                                    <a href="/story"><span class="glyphicon glyphicon-th-large"></span> &{add.story}</a>
                                 </li>
                                 <li>
-                                    <a href="/blink"><i class="glyphicon glyphicon-eye-open"></i> &{add.blink}</a>
+                                    <a href="/blink"><span class="glyphicon glyphicon-eye-open"></span> &{add.blink}</a>
                                 </li>
 
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="/photo/manage"> <i class="glyphicon glyphicon-edit"></i> &{manage} </a>
+                                    <a href="/photo/manage"> <span class="glyphicon glyphicon-edit"></span>
+                                        &{manage} </a>
                                 </li>
                                 <li>
-                                    <a href="/photo/manage/set/all"> <i class="glyphicon glyphicon-tasks"></i> &{sets}
+                                    <a href="/photo/manage/set/all"> <span class="glyphicon glyphicon-tasks"></span>
+                                        &{sets}
                                     </a>
                                 </li>
 
                             </ul>
-                        </div>
-                    </div>
-                    `}`
+                        </li>
+                        `}`
+                    </ul>
+
                 </div>
             </div>
         </div>

@@ -169,7 +169,7 @@ p("\n" +
 "\n" + 
 "                                <div class=\"controls\">\n" + 
 "                                    <input type=\"text\" id=\"username1\" name=\"username1\"\n" + 
-"                                           class=\"col-md-11\" placeholder=\"");// line 90, japidviews\Application\profile\Profile.html
+"                                           class=\"form-control col-md-11\" placeholder=\"");// line 90, japidviews\Application\profile\Profile.html
 		;p(getMessage("user.userName"));// line 94, japidviews\Application\profile\Profile.html
 		p("\"\n" + 
 "                                           value=\"");// line 94, japidviews\Application\profile\Profile.html
@@ -188,13 +188,13 @@ p("\n" +
 		p("</label>\n" + 
 "\n" + 
 "                                <div class=\"controls\">\n" + 
-"                                    <input type=\"text\" id=\"email1\" name=\"email1\" class=\"col-md-11\"\n" + 
+"                                    <input type=\"text\" id=\"email1\" name=\"email1\" class=\"form-control col-md-11\"\n" + 
 "                                           placeholder=\"");// line 102, japidviews\Application\profile\Profile.html
 		;p(getMessage("user.email"));// line 106, japidviews\Application\profile\Profile.html
 		p("\" value=\"");// line 106, japidviews\Application\profile\Profile.html
 		p(user.email);// line 106, japidviews\Application\profile\Profile.html
 		p("\" readonly=\"readonly\">\n" + 
-"                                    <input type=\"hidden\" id=\"email\" name=\"email\" class=\"col-md-11\"\n" + 
+"                                    <input type=\"hidden\" id=\"email\" name=\"email\" class=\"form-control col-md-11\"\n" + 
 "                                           placeholder=\"");// line 106, japidviews\Application\profile\Profile.html
 		;p(getMessage("user.email"));// line 108, japidviews\Application\profile\Profile.html
 		p("\" value=\"");// line 108, japidviews\Application\profile\Profile.html
@@ -209,13 +209,13 @@ p("\n" +
 		p("</label>\n" + 
 "\n" + 
 "                                <div class=\"controls\">\n" + 
-"                                    <input id=\"city\" name=\"city\" class=\"col-md-11\" placeholder=\"");// line 113, japidviews\Application\profile\Profile.html
+"                                    <input id=\"city\" name=\"city\" class=\"form-control col-md-11\" placeholder=\"");// line 113, japidviews\Application\profile\Profile.html
 		;p(getMessage("user.city"));// line 116, japidviews\Application\profile\Profile.html
 		p("\"\n" + 
 "                                           type=\"text\" value=\"");// line 116, japidviews\Application\profile\Profile.html
 		p(user.city);// line 117, japidviews\Application\profile\Profile.html
 		p("\"/>\n" + 
-"                                    <input class=\"col-md-11\"\n" + 
+"                                    <input class=\"form-control col-md-11\"\n" + 
 "                                           id=\"state\" name=\"state\" placeholder=\"");// line 117, japidviews\Application\profile\Profile.html
 		;p(getMessage("user.state"));// line 119, japidviews\Application\profile\Profile.html
 		p("\" type=\"text\"\n" + 
@@ -223,7 +223,7 @@ p("\n" +
 		p(user.state);// line 120, japidviews\Application\profile\Profile.html
 		p("\"/>\n" + 
 "                                    <input id=\"country\" name=\"country\"\n" + 
-"                                           class=\"col-md-11\" placeholder=\"");// line 120, japidviews\Application\profile\Profile.html
+"                                           class=\"form-control col-md-11\" placeholder=\"");// line 120, japidviews\Application\profile\Profile.html
 		;p(getMessage("user.country"));// line 122, japidviews\Application\profile\Profile.html
 		p("\" type=\"text\"\n" + 
 "                                           value=\"");// line 122, japidviews\Application\profile\Profile.html
