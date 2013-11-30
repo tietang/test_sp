@@ -1,9 +1,23 @@
 //version: 0.9.35
 package japidviews._layouts;
-
-import controllers.Admin;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
 import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_layouts/Layout.html
 // Change to this file will be lost next time the template file is compiled.
@@ -231,6 +245,7 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "                        </li>\n" + 
 "\n" + 
 "                    </ul>\n" + 
+"\n" + 
 "                    <div class=\"nav\">\n" + 
 "                        <form class=\"navbar-search span2\" action=\"/search\">\n" + 
 "                            <input type=\"text\" class=\"search-query input-medium\" name=\"q\"\n" + 
@@ -239,7 +254,7 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "                    </div>\n" + 
 "\n" + 
 "                    ");// line 76, japidviews\_layouts\Layout.html
-		if (session.get(Admin.SESSION_LOGIN_KEY) == null) {// line 131, japidviews\_layouts\Layout.html
+		if (session.get(Admin.SESSION_LOGIN_KEY) == null) {// line 132, japidviews\_layouts\Layout.html
 		p("\n" + 
 "                    <div class=\"nav pull-right\">\n" + 
 "                        <div class=\"btn-group\">\n" + 
@@ -254,26 +269,26 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "                        &ensp;\n" + 
 "                    </div>\n" + 
 "\n" + 
-"                    ");// line 131, japidviews\_layouts\Layout.html
-		}else{// line 145, japidviews\_layouts\Layout.html
+"                    ");// line 132, japidviews\_layouts\Layout.html
+		}else{// line 146, japidviews\_layouts\Layout.html
 		p("\n" + 
 "\n" + 
 "                    <div class=\"nav pull-right\">\n" + 
 "\n" + 
 "                        <div class=\"btn-group\">\n" + 
 "                            <a class=\"btn btn-primary btn-small\" href=\"/yours\">\n" + 
-"                                ");// line 145, japidviews\_layouts\Layout.html
-		String idUserStr=session.get(Admin.SESSION_USER_ID_KEY);// line 151, japidviews\_layouts\Layout.html
+"                                ");// line 146, japidviews\_layouts\Layout.html
+		String idUserStr=session.get(Admin.SESSION_USER_ID_KEY);// line 152, japidviews\_layouts\Layout.html
 
-                                Integer idUser=Integer.parseInt(idUserStr);// line 152, japidviews\_layouts\Layout.html
+                                Integer idUser=Integer.parseInt(idUserStr);// line 153, japidviews\_layouts\Layout.html
 		p("\n" + 
 "                                <img class=\"image_18 round3\"\n" + 
-"                                     src=\"");// line 152, japidviews\_layouts\Layout.html
-		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)); } catch (NullPointerException npe) {}// line 154, japidviews\_layouts\Layout.html
+"                                     src=\"");// line 153, japidviews\_layouts\Layout.html
+		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)); } catch (NullPointerException npe) {}// line 155, japidviews\_layouts\Layout.html
 		p("\">\n" + 
 "\n" + 
-"                                ");// line 154, japidviews\_layouts\Layout.html
-		try { p(session.get(Admin.SESSION_USER_NAME_KEY)); } catch (NullPointerException npe) {}// line 156, japidviews\_layouts\Layout.html
+"                                ");// line 155, japidviews\_layouts\Layout.html
+		try { p(session.get(Admin.SESSION_USER_NAME_KEY)); } catch (NullPointerException npe) {}// line 157, japidviews\_layouts\Layout.html
 		p("</a><a\n" + 
 "                                class=\"btn btn-primary btn-small dropdown-toggle\"\n" + 
 "                                data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
@@ -282,37 +297,35 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "                                <li>\n" + 
 "                                    <a href=\"/yours\">\n" + 
 "                                        <img class=\"img_shadow image_64\"\n" + 
-"                                             src=\"");// line 156, japidviews\_layouts\Layout.html
-		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)); } catch (NullPointerException npe) {}// line 164, japidviews\_layouts\Layout.html
+"                                             src=\"");// line 157, japidviews\_layouts\Layout.html
+		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)); } catch (NullPointerException npe) {}// line 165, japidviews\_layouts\Layout.html
 		p("\"/>\n" + 
 "                                    </a>\n" + 
-"\n" + 
-"\n" + 
 "                                </li>\n" + 
 "\n" + 
 "                                <li>\n" + 
-"                                    <a href=\"/settings/profile\"><i class=\"icon-pencil\"></i> ");// line 164, japidviews\_layouts\Layout.html
-		;p(getMessage("settings"));// line 171, japidviews\_layouts\Layout.html
+"                                    <a href=\"/settings/profile\"><i class=\"icon-pencil\"></i> ");// line 165, japidviews\_layouts\Layout.html
+		;p(getMessage("settings"));// line 170, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                                </li>\n" + 
 "                                <li>\n" + 
-"                                    <a href=\"/account\"><i class=\"icon-trash\"></i> ");// line 171, japidviews\_layouts\Layout.html
-		;p(getMessage("account"));// line 174, japidviews\_layouts\Layout.html
+"                                    <a href=\"/account\"><i class=\"icon-trash\"></i> ");// line 170, japidviews\_layouts\Layout.html
+		;p(getMessage("account"));// line 173, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                                </li>\n" + 
 "                                <li>\n" + 
-"                                    <a href=\"/settings/profile\"><i class=\"icon-ban-circle\"></i> ");// line 174, japidviews\_layouts\Layout.html
-		;p(getMessage("profile"));// line 177, japidviews\_layouts\Layout.html
+"                                    <a href=\"/settings/profile\"><i class=\"icon-ban-circle\"></i> ");// line 173, japidviews\_layouts\Layout.html
+		;p(getMessage("profile"));// line 176, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                                </li>\n" + 
-"                                <li><a href=\"/settings/password\"><i class=\"icon-ban-circle\"></i>");// line 177, japidviews\_layouts\Layout.html
-		;p(getMessage("profile.menu.password"));// line 179, japidviews\_layouts\Layout.html
+"                                <li><a href=\"/settings/password\"><i class=\"icon-ban-circle\"></i>");// line 176, japidviews\_layouts\Layout.html
+		;p(getMessage("profile.menu.password"));// line 178, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                                </li>\n" + 
 "                                <li class=\"divider\"></li>\n" + 
 "                                <li>\n" + 
-"                                    <a href=\"/logout\"><i class=\"i\"></i> ");// line 179, japidviews\_layouts\Layout.html
-		;p(getMessage("logout"));// line 183, japidviews\_layouts\Layout.html
+"                                    <a href=\"/logout\"><i class=\"i\"></i> ");// line 178, japidviews\_layouts\Layout.html
+		;p(getMessage("logout"));// line 182, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                                </li>\n" + 
 "                            </ul>\n" + 
@@ -323,51 +336,51 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "\n" + 
 "                        <div class=\"btn-group\">\n" + 
 "                            <a class=\"btn btn-success btn-small\" href=\"/add\"><i\n" + 
-"                                    class=\" icon-share icon-white\"></i> ");// line 183, japidviews\_layouts\Layout.html
-		;p(getMessage("add"));// line 193, japidviews\_layouts\Layout.html
+"                                    class=\" icon-share icon-white\"></i> ");// line 182, japidviews\_layouts\Layout.html
+		;p(getMessage("add"));// line 192, japidviews\_layouts\Layout.html
 		p("</a><a\n" + 
 "                                class=\"btn btn-success btn-small dropdown-toggle\"\n" + 
 "                                data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
 "\n" + 
 "                            <ul class=\"dropdown-menu\">\n" + 
 "                                <li>\n" + 
-"                                    <a href=\"/upload\"><i class=\"icon-picture\"></i> ");// line 193, japidviews\_layouts\Layout.html
-		;p(getMessage("add.photo"));// line 199, japidviews\_layouts\Layout.html
+"                                    <a href=\"/upload\"><i class=\"icon-picture\"></i> ");// line 192, japidviews\_layouts\Layout.html
+		;p(getMessage("add.photo"));// line 198, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                                </li>\n" + 
 "                                <li>\n" + 
-"                                    <a href=\"/ps/upload\"><i class=\" icon-leaf\"></i> ");// line 199, japidviews\_layouts\Layout.html
-		;p(getMessage("add.ps"));// line 202, japidviews\_layouts\Layout.html
+"                                    <a href=\"/ps/upload\"><i class=\" icon-leaf\"></i> ");// line 198, japidviews\_layouts\Layout.html
+		;p(getMessage("add.ps"));// line 201, japidviews\_layouts\Layout.html
 		p(" </a>\n" + 
 "                                </li>\n" + 
 "                                <li>\n" + 
-"                                    <a href=\"/story\"><i class=\"icon-th-large\"></i> ");// line 202, japidviews\_layouts\Layout.html
-		;p(getMessage("add.story"));// line 205, japidviews\_layouts\Layout.html
+"                                    <a href=\"/story\"><i class=\"icon-th-large\"></i> ");// line 201, japidviews\_layouts\Layout.html
+		;p(getMessage("add.story"));// line 204, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                                </li>\n" + 
 "                                <li>\n" + 
-"                                    <a href=\"/blink\"><i class=\"icon-eye-open\"></i> ");// line 205, japidviews\_layouts\Layout.html
-		;p(getMessage("add.blink"));// line 208, japidviews\_layouts\Layout.html
+"                                    <a href=\"/blink\"><i class=\"icon-eye-open\"></i> ");// line 204, japidviews\_layouts\Layout.html
+		;p(getMessage("add.blink"));// line 207, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                                </li>\n" + 
 "\n" + 
 "                                <li class=\"divider\"></li>\n" + 
 "                                <li>\n" + 
-"                                    <a href=\"/photo/manage\"> <i class=\"icon-edit\"></i> ");// line 208, japidviews\_layouts\Layout.html
-		;p(getMessage("manage"));// line 213, japidviews\_layouts\Layout.html
+"                                    <a href=\"/photo/manage\"> <i class=\"icon-edit\"></i> ");// line 207, japidviews\_layouts\Layout.html
+		;p(getMessage("manage"));// line 212, japidviews\_layouts\Layout.html
 		p(" </a>\n" + 
 "                                </li>\n" + 
 "                                <li>\n" + 
-"                                    <a href=\"/photo/manage/set/all\"> <i class=\"icon-tasks\"></i> ");// line 213, japidviews\_layouts\Layout.html
-		;p(getMessage("sets"));// line 216, japidviews\_layouts\Layout.html
+"                                    <a href=\"/photo/manage/set/all\"> <i class=\"icon-tasks\"></i> ");// line 212, japidviews\_layouts\Layout.html
+		;p(getMessage("sets"));// line 215, japidviews\_layouts\Layout.html
 		p(" </a>\n" + 
 "                                </li>\n" + 
 "\n" + 
 "                            </ul>\n" + 
 "                        </div>\n" + 
 "                    </div>\n" + 
-"                    ");// line 216, japidviews\_layouts\Layout.html
-		}// line 222, japidviews\_layouts\Layout.html
+"                    ");// line 215, japidviews\_layouts\Layout.html
+		}// line 221, japidviews\_layouts\Layout.html
 		p("\n" + 
 "                </div>\n" + 
 "            </div>\n" + 
@@ -377,12 +390,12 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "\n" + 
 "<!--\n" + 
 "<div class=\"page-header\">\n" + 
-"<h3>");// line 222, japidviews\_layouts\Layout.html
+"<h3>");// line 221, japidviews\_layouts\Layout.html
 		header();p("</h3>\n" + 
 "</div> -->\n" + 
 "<div class=\"content_container\">\n" + 
-"    ");// line 231, japidviews\_layouts\Layout.html
-		doLayout();// line 234, japidviews\_layouts\Layout.html
+"    ");// line 230, japidviews\_layouts\Layout.html
+		doLayout();// line 233, japidviews\_layouts\Layout.html
 		p("\n" + 
 "</div>\n" + 
 "\n" + 
@@ -396,7 +409,7 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "    </div>\n" + 
 "</footer>\n" + 
 "</body>\n" + 
-"</html>");// line 234, japidviews\_layouts\Layout.html
+"</html>");// line 233, japidviews\_layouts\Layout.html
 				endDoLayout(sourceTemplate);	}
 	 protected void title() {};
 	 protected void keywords() {};
