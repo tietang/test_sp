@@ -63,7 +63,7 @@ public class RelationDao {
             throws SQLException {
 
         Metadata metadata = grower.selectOne(
-                "SELECT source_id,target_id,type,state,created_at,updated_at,attachment_id FROM metadata_" + suffix
+                "SELECT source_id,target_id,type,state,created_at,updated_at,attachment_id FROM metadata" + suffix
                         + " WHERE source_id = ? AND type= ?  ",
                 new MetadataTransducer(),
                 sourceId,
@@ -74,7 +74,7 @@ public class RelationDao {
 
     public int updateCount(ForestGrower grower, String suffix, long sourceId, int rows)
             throws SQLException {
-        String sql = "UPDATE metadata_" + suffix + " SET count = count + ?  WHERE source_id = ?";
+        String sql = "UPDATE metadata" + suffix + " SET count = count + ?  WHERE source_id = ?";
         int updated = grower.update(sql, rows, sourceId);
         return updated;
     }
@@ -189,7 +189,7 @@ public class RelationDao {
             int rows,
             Metadata oldMetadata) throws SQLException {
         int count = 0;
-        String sql = "UPDATE metadata_" + suffix
+        String sql = "UPDATE metadata" + suffix
                 + " SET count = GREATEST(count + ?, 0), updated_at=?, state=? "
                 + "WHERE source_id = ? AND type = ?";
 
@@ -215,7 +215,7 @@ public class RelationDao {
         if (rows < 0) {
             rows = 0;
         }
-        String sql = "INSERT INTO metadata_" + suffix + " (source_id, count, type, state, "
+        String sql = "INSERT INTO metadata" + suffix + " (source_id, count, type, state, "
                 + "updated_at,created_at) VALUES (?, ?, ?, ?, ?, ?)";
         count = grower.update(
                 sql,

@@ -30,16 +30,16 @@
 					</div>
 					`tag ErrorMessage`
 					<p class="form-group ">
-						<label for="email">	Login with your username or email:</label>
-						<input type="text" name="email" id="inputEmail" placeholder="Email or Username" value="${flash.get("email")}" class="input"/>
+						<label for="inputEmail">	Login with your username or email:</label>
+						<input type="text" name="email" id="inputEmail" placeholder="Email or Username" value="${flash.get("email")}" class="input form-control"/>
 					</p>
 					<p class="form-group ">
-						<label for="password">Input your password:</label>
-						<input type="password" name="password" id="inputPassword" placeholder="Password" class="input" alt=""/>
+						<label for="inputPassword">Input your password:</label>
+						<input type="password" name="password" id="inputPassword" placeholder="Password" class="input form-control" alt=""/>
 					</p>
 					<div class="input_control_group">
 						<small class="left terms"><a href="/recover" target="_">Can't access your account?</a></small>
-						<button type="submit" class="btn btn-lg">
+						<button type="submit" class="btn btn-primary">
 							Login
 						</button>
 					</div>

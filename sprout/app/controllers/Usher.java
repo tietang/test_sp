@@ -3,7 +3,9 @@ package controllers;
 import cn.bran.play.JapidResult;
 import fengfei.ucm.repository.ShowRepository;
 import fengfei.ucm.repository.impl.SqlShowRepository;
-import japidviews.Application.photo.Test;
+import japidviews.Application.Theme;
+import japidviews.Application.Theme2;
+import japidviews.Application.photo.*;
 import japidviews.Application.photo.TestUpload;
 import org.apache.commons.io.FileUtils;
 import play.data.Upload;
@@ -29,7 +31,7 @@ public class Usher extends Admin {
         redirect("/pop");
     }
 
-    @Gets({ @Get("/?"), @Get("/{<[0-9]+>pageNum}/?") })
+    @Gets({@Get("/?"), @Get("/{<[0-9]+>pageNum}/?")})
     @Any("/{<[0-9]+>pageNum}/?")
     public static void home(int pageNum) {
         // redirect("/pop");
@@ -44,6 +46,18 @@ public class Usher extends Admin {
     public static void test() {
 
         throw new JapidResult(new Test().render());
+    }
+
+    @Any("/theme")
+    public static void theme() {
+
+        throw new JapidResult(new Theme().render());
+    }
+
+    @Any("/theme2")
+    public static void theme2() {
+
+        throw new JapidResult(new Theme2().render());
     }
 
     @Post("/agile/upload/done/?")
@@ -62,7 +76,7 @@ public class Usher extends Admin {
                     try {
                         FileUtils.moveFile(file, destFile);
                         System.out.println(file.getAbsolutePath() + "  \n"
-                                + destFile.getAbsolutePath());
+                                                   + destFile.getAbsolutePath());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

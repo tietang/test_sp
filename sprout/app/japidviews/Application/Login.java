@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews.Application;
 import java.util.*;
 import java.io.*;
@@ -70,7 +69,7 @@ public class Login extends japidviews._layouts.Layout
 
 	public cn.bran.japid.template.RenderResult render() {
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/Login.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 0, japidviews/Application/Login.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -82,10 +81,8 @@ public class Login extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\Login.html
-
 // line 5, japidviews\Application\Login.html
-		p("\n" + 
-"<div class=\"grid_row signupx\">\n" + 
+		p("<div class=\"grid_row signupx\">\n" + 
 "\n" + 
 "	<div class=\"col col_16\" >\n" + 
 "		<p>\n" + 
@@ -105,20 +102,19 @@ public class Login extends japidviews._layouts.Layout
 "					</div>\n" + 
 "					");// line 27, japidviews\Application\Login.html
 		final ErrorMessage _ErrorMessage3 = new ErrorMessage(getOut()); _ErrorMessage3.setActionRunners(getActionRunners()).setOut(getOut()); _ErrorMessage3.render(); // line 31, japidviews\Application\Login.html// line 31, japidviews\Application\Login.html
-		p("\n" + 
-"					<p class=\"form-group \">\n" + 
-"						<label for=\"email\">	Login with your username or email:</label>\n" + 
+		p("					<p class=\"form-group \">\n" + 
+"						<label for=\"inputEmail\">	Login with your username or email:</label>\n" + 
 "						<input type=\"text\" name=\"email\" id=\"inputEmail\" placeholder=\"Email or Username\" value=\"");// line 31, japidviews\Application\Login.html
 		p(flash.get("email"));// line 34, japidviews\Application\Login.html
-		p("\" class=\"input\"/>\n" + 
+		p("\" class=\"input form-control\"/>\n" + 
 "					</p>\n" + 
 "					<p class=\"form-group \">\n" + 
-"						<label for=\"password\">Input your password:</label>\n" + 
-"						<input type=\"password\" name=\"password\" id=\"inputPassword\" placeholder=\"Password\" class=\"input\" alt=\"\"/>\n" + 
+"						<label for=\"inputPassword\">Input your password:</label>\n" + 
+"						<input type=\"password\" name=\"password\" id=\"inputPassword\" placeholder=\"Password\" class=\"input form-control\" alt=\"\"/>\n" + 
 "					</p>\n" + 
 "					<div class=\"input_control_group\">\n" + 
 "						<small class=\"left terms\"><a href=\"/recover\" target=\"_\">Can't access your account?</a></small>\n" + 
-"						<button type=\"submit\" class=\"btn btn-lg\">\n" + 
+"						<button type=\"submit\" class=\"btn btn-primary\">\n" + 
 "							Login\n" + 
 "						</button>\n" + 
 "					</div>\n" + 
@@ -175,8 +171,7 @@ public class Login extends japidviews._layouts.Layout
 	}
 	@Override protected void css() {
 		// line 5, japidviews\Application\Login.html
-		p("\n" + 
-"<script src=\"");// line 5, japidviews\Application\Login.html
+		p("<script src=\"");// line 5, japidviews\Application\Login.html
 		p(lookupStatic("/public/js/jquery.validate.js"));// line 7, japidviews\Application\Login.html
 		p("\" type=\"text/javascript\"></script>\n" + 
 "<script src=\"");// line 7, japidviews\Application\Login.html
