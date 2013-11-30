@@ -1,15 +1,24 @@
-//version: 0.9.35
 package japidviews.Application.photo;
-
-import fengfei.fir.utils.Path;
-import fengfei.ucm.entity.photo.Photo;
-import fengfei.ucm.entity.photo.PhotoSet;
-import japidviews._tags.CategorySelectOptions;
-import japidviews._tags.LicenseSelectOptions;
-
-import java.util.List;
-
-import static cn.bran.play.JapidPlayAdapter.getMessage;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import java.util.*;import fengfei.ucm.entity.photo.*;import fengfei.fir.utils.Path;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/UploadForm.html
 // Change to this file will be lost next time the template file is compiled.
@@ -65,7 +74,7 @@ public class UploadForm extends cn.bran.play.JapidTemplateBase
 		this.photo = photo;
 		this.photoSets = photoSets;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 4, japidviews/Application/photo/UploadForm.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 4, japidviews/Application/photo/UploadForm.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -77,9 +86,7 @@ public class UploadForm extends cn.bran.play.JapidTemplateBase
 		beginDoLayout(sourceTemplate);
 //------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\UploadForm.html
-
-p("\n" + 
-"</pre>\n" + 
+p("</pre>\n" + 
 "\n" + 
 "\n" + 
 "<tr>\n" + 
@@ -88,14 +95,12 @@ p("\n" +
 "            <div id=\"preview\" class=\"preview img_shadow\">\n" + 
 "                ");// line 4, japidviews\Application\photo\UploadForm.html
 		if(photo!=null){// line 12, japidviews\Application\photo\UploadForm.html
-		p("\n" + 
-"                <img src=\"");// line 12, japidviews\Application\photo\UploadForm.html
+		p("                <img src=\"");// line 12, japidviews\Application\photo\UploadForm.html
 		p(Path.getJpegDownloadPath(photo.idPhoto,0));// line 13, japidviews\Application\photo\UploadForm.html
 		p("\" class=\"rounded3 img_shadow\" alt=\"\">\n" + 
 "                ");// line 13, japidviews\Application\photo\UploadForm.html
 		}// line 14, japidviews\Application\photo\UploadForm.html
 		p("\n" + 
-"\n" + 
 "            </div>\n" + 
 "            <p>\n" + 
 "\n" + 
@@ -123,8 +128,7 @@ p("\n" +
 "                </button>\n" + 
 "                ");// line 24, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("upload.error"));// line 33, japidviews\Application\photo\UploadForm.html
-		p("\n" + 
-"            </div>\n" + 
+		p("            </div>\n" + 
 "\n" + 
 "        </div>\n" + 
 "    </td>\n" + 
@@ -159,10 +163,8 @@ p("\n" +
 		p("</option>\n" + 
 "                    ");// line 56, japidviews\Application\photo\UploadForm.html
 		if(photoSets!=null){// line 57, japidviews\Application\photo\UploadForm.html
-
                     for(PhotoSet set:photoSets){// line 58, japidviews\Application\photo\UploadForm.html
-		p("\n" + 
-"                    <option value=\"");// line 58, japidviews\Application\photo\UploadForm.html
+		p("                    <option value=\"");// line 58, japidviews\Application\photo\UploadForm.html
 		p(set.idSet);// line 59, japidviews\Application\photo\UploadForm.html
 		p("\">");// line 59, japidviews\Application\photo\UploadForm.html
 		p(set.name);// line 59, japidviews\Application\photo\UploadForm.html
@@ -170,10 +172,8 @@ p("\n" +
 "\n" + 
 "                    ");// line 59, japidviews\Application\photo\UploadForm.html
 		}// line 61, japidviews\Application\photo\UploadForm.html
-
                     }// line 62, japidviews\Application\photo\UploadForm.html
-		p("\n" + 
-"                </select>\n" + 
+		p("                </select>\n" + 
 "            </div>\n" + 
 "\n" + 
 "            <div class=\"block\">\n" + 
@@ -181,31 +181,18 @@ p("\n" +
 "                        class=\"selectpicker category span4\">\n" + 
 "                    ");// line 62, japidviews\Application\photo\UploadForm.html
 		final CategorySelectOptions _CategorySelectOptions0 = new CategorySelectOptions(getOut()); _CategorySelectOptions0.setActionRunners(getActionRunners()).setOut(getOut()); _CategorySelectOptions0.render(fengfei.spruce.cache.SimpleCache.categories,(byte) 0); // line 69, japidviews\Application\photo\UploadForm.html// line 69, japidviews\Application\photo\UploadForm.html
-<<<<<<< HEAD
 		p("                </select>\n" + 
 "                ");// line 69, japidviews\Application\photo\UploadForm.html
 		Map kv=new HashMap();kv.put("分类",fengfei.spruce.cache.SimpleCache.categories);// line 71, japidviews\Application\photo\UploadForm.html
                 final CategorySelector _CategorySelector1 = new CategorySelector(getOut()); _CategorySelector1.setActionRunners(getActionRunners()).setOut(getOut()); _CategorySelector1.render(kv,(byte) 0); // line 72, japidviews\Application\photo\UploadForm.html// line 72, japidviews\Application\photo\UploadForm.html
 		p("            </div>\n" + 
-"            <div class=\"block\">\n" + 
-"                <select name=\"license\" id=\"license1\" data-style=\" \"\n" + 
-"                        class=\"selectpicker license span4\">\n" + 
-"                    ");// line 72, japidviews\Application\photo\UploadForm.html
-		final LicenseSelectOptions _LicenseSelectOptions2 = new LicenseSelectOptions(getOut()); _LicenseSelectOptions2.setActionRunners(getActionRunners()).setOut(getOut()); _LicenseSelectOptions2.render(fengfei.spruce.cache.SimpleCache.licenses,"by"); // line 77, japidviews\Application\photo\UploadForm.html// line 77, japidviews\Application\photo\UploadForm.html
-		p("                </select>\n" + 
-=======
-		p("\n" + 
-"                </select>\n" + 
-"            </div>\n" + 
 "\n" + 
 "            <div class=\"block\">\n" + 
 "                <select name=\"license\" id=\"license1\" data-style=\" \"\n" + 
 "                        class=\"selectpicker license span4\">\n" + 
-"                    ");// line 69, japidviews\Application\photo\UploadForm.html
-		final LicenseSelectOptions _LicenseSelectOptions1 = new LicenseSelectOptions(getOut()); _LicenseSelectOptions1.setActionRunners(getActionRunners()).setOut(getOut()); _LicenseSelectOptions1.render(fengfei.spruce.cache.SimpleCache.licenses,"by"); // line 76, japidviews\Application\photo\UploadForm.html// line 76, japidviews\Application\photo\UploadForm.html
-		p("\n" + 
-"                </select>\n" + 
->>>>>>> bf74bca2001c5bd88d8127752e884d2b052596ea
+"                    ");// line 72, japidviews\Application\photo\UploadForm.html
+		final LicenseSelectOptions _LicenseSelectOptions2 = new LicenseSelectOptions(getOut()); _LicenseSelectOptions2.setActionRunners(getActionRunners()).setOut(getOut()); _LicenseSelectOptions2.render(fengfei.spruce.cache.SimpleCache.licenses,"by"); // line 78, japidviews\Application\photo\UploadForm.html// line 78, japidviews\Application\photo\UploadForm.html
+		p("                </select>\n" + 
 "\n" + 
 "                <p style=\"text-align: right\">\n" + 
 "                    <a href=\"#\">About License</a>\n" + 
@@ -218,13 +205,8 @@ p("\n" +
 "\n" + 
 "            </div>\n" + 
 "            <div class=\"block\">\n" + 
-<<<<<<< HEAD
-"                <input type=\"text\" placeholder=\"");// line 77, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.tags"));// line 91, japidviews\Application\photo\UploadForm.html
-=======
-"                <input type=\"text\" placeholder=\"");// line 76, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.tags"));// line 90, japidviews\Application\photo\UploadForm.html
->>>>>>> bf74bca2001c5bd88d8127752e884d2b052596ea
+"                <input type=\"text\" placeholder=\"");// line 78, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.tags"));// line 92, japidviews\Application\photo\UploadForm.html
 		p(" \" rows=\"6\" data-provide=\"tag\" data-caseInsensitive=\"true\"\n" + 
 "                       class=\"span4  \" name=\"tags\" id=\"tags1\"/>\n" + 
 "            </div>\n" + 
@@ -232,39 +214,24 @@ p("\n" +
 "                <label for=\"adult1\">\n" + 
 "                    <input type=\"checkbox\" value=\"1\"\n" + 
 "                           id=\"adult1\" name=\"adult\">\n" + 
-<<<<<<< HEAD
-"                    ");// line 91, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.adult"));// line 98, japidviews\Application\photo\UploadForm.html
-=======
-"                    ");// line 90, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.adult"));// line 97, japidviews\Application\photo\UploadForm.html
->>>>>>> bf74bca2001c5bd88d8127752e884d2b052596ea
+"                    ");// line 92, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.adult"));// line 99, japidviews\Application\photo\UploadForm.html
 		p("</label>\n" + 
 "            </div>\n" + 
 "            <div class=\"checkbox\">\n" + 
 "                <label for=\"copyright1\">\n" + 
 "                    <input type=\"checkbox\"\n" + 
 "                           value=\"1\" id=\"copyright1\" name=\"copyright\" checked=\"checked\">\n" + 
-<<<<<<< HEAD
-"                    ");// line 98, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.copyright"));// line 104, japidviews\Application\photo\UploadForm.html
-=======
-"                    ");// line 97, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.copyright"));// line 103, japidviews\Application\photo\UploadForm.html
->>>>>>> bf74bca2001c5bd88d8127752e884d2b052596ea
+"                    ");// line 99, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.copyright"));// line 105, japidviews\Application\photo\UploadForm.html
 		p("</label>\n" + 
 "            </div>\n" + 
 "            <div class=\"checkbox\">\n" + 
 "                <label for=\"can_ps1\">\n" + 
 "                    <input type=\"checkbox\"\n" + 
 "                           value=\"1\" id=\"can_ps1\" name=\"can_ps\" checked=\"checked\">\n" + 
-<<<<<<< HEAD
-"                    ");// line 104, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.can.ps"));// line 110, japidviews\Application\photo\UploadForm.html
-=======
-"                    ");// line 103, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.can.ps"));// line 109, japidviews\Application\photo\UploadForm.html
->>>>>>> bf74bca2001c5bd88d8127752e884d2b052596ea
+"                    ");// line 105, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.can.ps"));// line 111, japidviews\Application\photo\UploadForm.html
 		p("</label>\n" + 
 "            </div>\n" + 
 "\n" + 
@@ -285,154 +252,83 @@ p("\n" +
 "    <td class=\"col_4\">\n" + 
 "        <div class=\" magin_left\">\n" + 
 "            <div class=\"inline input-prepend\">\n" + 
-<<<<<<< HEAD
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 110, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.camera"));// line 130, japidviews\Application\photo\UploadForm.html
-		p("</span></span>\n" + 
-"                <input type=\"text\" placeholder=\"");// line 130, japidviews\Application\photo\UploadForm.html
+"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 111, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("photo.camera"));// line 131, japidviews\Application\photo\UploadForm.html
-		p("\" value=\"\"\n" + 
-"                       class=\"Camera\" id=\"camera1\" name=\"camera\">\n" + 
-"                <input\n" + 
-"                        type=\"hidden\" placeholder=\"");// line 131, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.make"));// line 134, japidviews\Application\photo\UploadForm.html
-=======
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 109, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.camera"));// line 129, japidviews\Application\photo\UploadForm.html
 		p("</span></span>\n" + 
-"                <input type=\"text\" placeholder=\"");// line 129, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.camera"));// line 130, japidviews\Application\photo\UploadForm.html
+"                <input type=\"text\" placeholder=\"");// line 131, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.camera"));// line 132, japidviews\Application\photo\UploadForm.html
 		p("\" value=\"\"\n" + 
 "                       class=\"Camera\" id=\"camera1\" name=\"camera\">\n" + 
 "                <input\n" + 
-"                        type=\"hidden\" placeholder=\"");// line 130, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.make"));// line 133, japidviews\Application\photo\UploadForm.html
->>>>>>> bf74bca2001c5bd88d8127752e884d2b052596ea
+"                        type=\"hidden\" placeholder=\"");// line 132, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.make"));// line 135, japidviews\Application\photo\UploadForm.html
 		p("\" value=\"\" class=\"make\"\n" + 
 "                        id=\"make1\" name=\"make\">\n" + 
 "\n" + 
 "            </div>\n" + 
 "            <div class=\"inline input-prepend\">\n" + 
-<<<<<<< HEAD
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 134, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.lens"));// line 139, japidviews\Application\photo\UploadForm.html
-		p("</span> </span>\n" + 
-"                <input type=\"text\" placeholder=\"");// line 139, japidviews\Application\photo\UploadForm.html
+"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 135, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("photo.lens"));// line 140, japidviews\Application\photo\UploadForm.html
-=======
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 133, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.lens"));// line 138, japidviews\Application\photo\UploadForm.html
 		p("</span> </span>\n" + 
-"                <input type=\"text\" placeholder=\"");// line 138, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.lens"));// line 139, japidviews\Application\photo\UploadForm.html
->>>>>>> bf74bca2001c5bd88d8127752e884d2b052596ea
+"                <input type=\"text\" placeholder=\"");// line 140, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.lens"));// line 141, japidviews\Application\photo\UploadForm.html
 		p("\" value=\"\" class=\"lens\"\n" + 
 "                       id=\"lens1\" name=\"lens\">\n" + 
 "            </div>\n" + 
 "            <div class=\"inline input-prepend\">\n" + 
-<<<<<<< HEAD
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 140, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.focus"));// line 144, japidviews\Application\photo\UploadForm.html
+"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 141, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.focus"));// line 145, japidviews\Application\photo\UploadForm.html
 		p(" </span></span>\n" + 
-"                <input type=\"text\" placeholder=\"");// line 144, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.focus.alt"));// line 145, japidviews\Application\photo\UploadForm.html
-=======
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 139, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.focus"));// line 143, japidviews\Application\photo\UploadForm.html
-		p(" </span></span>\n" + 
-"                <input type=\"text\" placeholder=\"");// line 143, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.focus.alt"));// line 144, japidviews\Application\photo\UploadForm.html
->>>>>>> bf74bca2001c5bd88d8127752e884d2b052596ea
+"                <input type=\"text\" placeholder=\"");// line 145, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.focus.alt"));// line 146, japidviews\Application\photo\UploadForm.html
 		p("\" value=\"\"\n" + 
 "                       class=\"focal-length\" id=\"focus1\" name=\"focus\">\n" + 
 "            </div>\n" + 
 "            <div class=\"inline input-prepend\">\n" + 
-<<<<<<< HEAD
-"                <span class=\"add-on \"><span class=\"icon-head left\">");// line 145, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.shutter"));// line 149, japidviews\Application\photo\UploadForm.html
+"                <span class=\"add-on \"><span class=\"icon-head left\">");// line 146, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.shutter"));// line 150, japidviews\Application\photo\UploadForm.html
 		p(" </span></span>\n" + 
-"                <input type=\"text\" placeholder=\"");// line 149, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.shutter.alt"));// line 150, japidviews\Application\photo\UploadForm.html
-=======
-"                <span class=\"add-on \"><span class=\"icon-head left\">");// line 144, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.shutter"));// line 148, japidviews\Application\photo\UploadForm.html
-		p(" </span></span>\n" + 
-"                <input type=\"text\" placeholder=\"");// line 148, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.shutter.alt"));// line 149, japidviews\Application\photo\UploadForm.html
->>>>>>> bf74bca2001c5bd88d8127752e884d2b052596ea
+"                <input type=\"text\" placeholder=\"");// line 150, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.shutter.alt"));// line 151, japidviews\Application\photo\UploadForm.html
 		p("\" value=\"\"\n" + 
 "                       class=\"shutter-speed\" id=\"shutter1\" name=\"shutter\">\n" + 
 "            </div>\n" + 
 "            <div class=\"inline input-prepend\">\n" + 
-<<<<<<< HEAD
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 150, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.aperture"));// line 154, japidviews\Application\photo\UploadForm.html
-		p("</span></span>\n" + 
-"                <input type=\"text\" placeholder=\"");// line 154, japidviews\Application\photo\UploadForm.html
+"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 151, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("photo.aperture"));// line 155, japidviews\Application\photo\UploadForm.html
-=======
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 149, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.aperture"));// line 153, japidviews\Application\photo\UploadForm.html
 		p("</span></span>\n" + 
-"                <input type=\"text\" placeholder=\"");// line 153, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.aperture"));// line 154, japidviews\Application\photo\UploadForm.html
->>>>>>> bf74bca2001c5bd88d8127752e884d2b052596ea
+"                <input type=\"text\" placeholder=\"");// line 155, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.aperture"));// line 156, japidviews\Application\photo\UploadForm.html
 		p("\" value=\"\"\n" + 
 "                       class=\"aperture\" id=\"aperture1\" name=\"aperture\">\n" + 
 "            </div>\n" + 
 "            <div class=\"inline input-prepend last\">\n" + 
-<<<<<<< HEAD
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 155, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.iso"));// line 159, japidviews\Application\photo\UploadForm.html
+"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 156, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.iso"));// line 160, japidviews\Application\photo\UploadForm.html
 		p(" </span></span>\n" + 
-"                <input type=\"text\" placeholder=\"");// line 159, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.iso.alt"));// line 160, japidviews\Application\photo\UploadForm.html
-=======
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 154, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.iso"));// line 158, japidviews\Application\photo\UploadForm.html
-		p(" </span></span>\n" + 
-"                <input type=\"text\" placeholder=\"");// line 158, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.iso.alt"));// line 159, japidviews\Application\photo\UploadForm.html
->>>>>>> bf74bca2001c5bd88d8127752e884d2b052596ea
+"                <input type=\"text\" placeholder=\"");// line 160, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.iso.alt"));// line 161, japidviews\Application\photo\UploadForm.html
 		p("\" value=\"\" class=\"iso\"\n" + 
 "                       id=\"iso1\" name=\"iso\">\n" + 
 "            </div>\n" + 
 "            <div class=\"inline input-prepend last\">\n" + 
-<<<<<<< HEAD
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 160, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.ev"));// line 164, japidviews\Application\photo\UploadForm.html
+"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 161, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.ev"));// line 165, japidviews\Application\photo\UploadForm.html
 		p("</span></span>\n" + 
-"                <input type=\"text\" placeholder=\"");// line 164, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.ev.alt"));// line 165, japidviews\Application\photo\UploadForm.html
-=======
-"                <span class=\"add-on\"><span class=\"icon-head left\">");// line 159, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.ev"));// line 163, japidviews\Application\photo\UploadForm.html
-		p("</span></span>\n" + 
-"                <input type=\"text\" placeholder=\"");// line 163, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.ev.alt"));// line 164, japidviews\Application\photo\UploadForm.html
->>>>>>> bf74bca2001c5bd88d8127752e884d2b052596ea
+"                <input type=\"text\" placeholder=\"");// line 165, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.ev.alt"));// line 166, japidviews\Application\photo\UploadForm.html
 		p("\" value=\"\"\n" + 
 "                       class=\"iso\" id=\"ev1\" name=\"ev\">\n" + 
 "            </div>\n" + 
 "            <div class=\"inline input-prepend\">\n" + 
-<<<<<<< HEAD
-"                <span class=\"add-on\"><span class=\"icon-head left\"> ");// line 165, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.taken"));// line 169, japidviews\Application\photo\UploadForm.html
-=======
-"                <span class=\"add-on\"><span class=\"icon-head left\"> ");// line 164, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.taken"));// line 168, japidviews\Application\photo\UploadForm.html
->>>>>>> bf74bca2001c5bd88d8127752e884d2b052596ea
+"                <span class=\"add-on\"><span class=\"icon-head left\"> ");// line 166, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.taken"));// line 170, japidviews\Application\photo\UploadForm.html
 		p(" </span></span>\n" + 
 "                <input type=\"hidden\" value=\"\" id=\"taken_at1\"\n" + 
 "                       name=\"taken_at\">\n" + 
 "                <input type=\"text\"\n" + 
-<<<<<<< HEAD
-"                       placeholder=\"");// line 169, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.taken.alt"));// line 173, japidviews\Application\photo\UploadForm.html
-=======
-"                       placeholder=\"");// line 168, japidviews\Application\photo\UploadForm.html
-		;p(getMessage("photo.taken.alt"));// line 172, japidviews\Application\photo\UploadForm.html
->>>>>>> bf74bca2001c5bd88d8127752e884d2b052596ea
+"                       placeholder=\"");// line 170, japidviews\Application\photo\UploadForm.html
+		;p(getMessage("photo.taken.alt"));// line 174, japidviews\Application\photo\UploadForm.html
 		p("\" value=\"\" class=\"date\"\n" + 
 "                       id=\"taken_at_display1\">\n" + 
 "            </div>\n" + 
@@ -441,12 +337,7 @@ p("\n" +
 "        <div class=\"line4\"></div>\n" + 
 "        <div id=\"map_canvas\" class=\"map_canvas img_shadow\"></div>\n" + 
 "    </td>\n" + 
-<<<<<<< HEAD
-"</tr>\n" + 
-"\n");// line 173, japidviews\Application\photo\UploadForm.html
-=======
-"</tr>\n");// line 172, japidviews\Application\photo\UploadForm.html
->>>>>>> bf74bca2001c5bd88d8127752e884d2b052596ea
+"</tr>\n");// line 174, japidviews\Application\photo\UploadForm.html
 		
 		endDoLayout(sourceTemplate);
 	}

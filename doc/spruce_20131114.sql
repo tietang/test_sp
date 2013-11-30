@@ -485,7 +485,7 @@ CREATE TABLE `rs_1_followed` (
   `state` tinyint(4) unsigned NOT NULL,
   `created_at` int(10) unsigned NOT NULL,
   `updated_at` bigint(20) unsigned NOT NULL,
-  `content_id` bigint(20) DEFAULT '-1',
+  `attachment_id` bigint(20) DEFAULT '-1',
   PRIMARY KEY (`source_id`,`target_id`,`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='negative direction';
 
@@ -500,7 +500,7 @@ CREATE TABLE `rs_1_following` (
   `state` tinyint(4) unsigned NOT NULL,
   `created_at` int(10) unsigned NOT NULL,
   `updated_at` bigint(20) unsigned NOT NULL,
-  `content_id` bigint(20) DEFAULT '-1',
+  `attachment_id` bigint(20) DEFAULT '-1',
   PRIMARY KEY (`source_id`,`target_id`,`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='positive direction';
 
@@ -515,7 +515,7 @@ CREATE TABLE `rs_2_followed` (
   `state` tinyint(4) NOT NULL,
   `created_at` int(10) unsigned NOT NULL,
   `updated_at` bigint(20) unsigned NOT NULL,
-  `content_id` bigint(20) DEFAULT '-1',
+  `attachment_id` bigint(20) DEFAULT '-1',
   PRIMARY KEY (`source_id`,`target_id`,`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='negative direction';
 
@@ -530,13 +530,14 @@ CREATE TABLE `rs_2_following` (
   `state` tinyint(4) NOT NULL,
   `created_at` int(10) unsigned NOT NULL,
   `updated_at` bigint(20) unsigned NOT NULL,
-  `content_id` bigint(20) DEFAULT '-1',
+  `attachment_id` bigint(20) DEFAULT '-1',
   PRIMARY KEY (`source_id`,`target_id`,`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='negative direction';
 
 -- ----------------------------
 -- Table structure for system_config
 -- ----------------------------
+
 DROP TABLE IF EXISTS `system_config`;
 CREATE TABLE `system_config` (
   `code` int(10) unsigned DEFAULT NULL,
