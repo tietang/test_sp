@@ -4,6 +4,7 @@ import fengfei.fir.service.JpegExifWriter;
 import fengfei.fir.utils.AppUtils;
 import fengfei.fir.utils.MapUtils;
 import fengfei.forest.database.dbutils.impl.ForestRunner.InsertResultSet;
+import fengfei.spruce.utils.WebUtils;
 import fengfei.sprucy.AppConstants;
 import fengfei.ucm.entity.photo.Photo;
 import fengfei.ucm.repository.PhotoRepository;
@@ -67,7 +68,7 @@ public class SqlJpegExifWriter implements JpegExifWriter {
         // System.out.println(contents);
         long idPhoto = MapUtils.getIntValue(contents, KeyIdPhoto);
         int idUser = MapUtils.getIntValue(contents, KeyIdUser);
-        String title = MapUtils.getString(contents, "title");
+        String title = MapUtils.getString(contents, "title", WebUtils.i18n("Untitled"));
         String description = MapUtils.getString(contents, "desc");
         byte category = MapUtils.getByteValue(contents, "category");
         String tags = MapUtils.getString(contents, "tags");

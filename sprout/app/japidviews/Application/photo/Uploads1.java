@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -69,7 +68,7 @@ public class Uploads1 extends cn.bran.play.JapidTemplateBase
 
 	public cn.bran.japid.template.RenderResult render() {
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/photo/Uploads1.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 0, japidviews/Application/photo/Uploads1.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -195,8 +194,8 @@ p("<!DOCTYPE HTML>\n" +
 "		<form id=\"fileupload\" action=\"/upload/done\" method=\"POST\" enctype=\"multipart/form-data\">\n" + 
 "			<!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->\n" + 
 "			<div class=\"row fileupload-buttonbar\">\n" + 
-"				<div class=\"col-md-7\">\n" + 
-"					<!-- The fileinput-button col-md- is used to style the file input field as button -->\n" + 
+"				<div class=\"col-lg-7\">\n" + 
+"					<!-- The fileinput-button col-lg- is used to style the file input field as button -->\n" + 
 "					<span class=\"btn btn-success fileinput-button\"> <i class=\"glyphicon glyphicon-plus glyphicon glyphicon-white\"></i> <span>Add files...</span> <input type=\"file\" id=\"files\" name=\"files[]\"\n" + 
 "						multiple>\n" + 
 "					</span>\n" + 
@@ -212,7 +211,7 @@ p("<!DOCTYPE HTML>\n" +
 "					<input type=\"checkbox\" class=\"toggle\">\n" + 
 "				</div>\n" + 
 "				\n" + 
-"				<div class=\"col-md-5 fileupload-progress \"><span id=\"percentage\"></span>\n" + 
+"				<div class=\"col-lg-5 fileupload-progress \"><span id=\"percentage\"></span>\n" + 
 "					<!-- The global progress bar -->\n" + 
 "					<div id=\"progress\" class=\"progress progress-success  active\" role=\"progressprogress-bar\" aria-valuemin=\"0\" aria-valuemax=\"100\">\n" + 
 "						<div class=\"progress-bar\" style=\"width: 0%;\"></div>\n" + 

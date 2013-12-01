@@ -99,13 +99,13 @@ public class Show extends japidviews._layouts.Layout
 "\n" + 
 "<div class=\"col col_16  \">\n" + 
 "    <div class=\"row       \">\n" + 
-"        <div class=\"col-md-1\">\n" + 
+"        <div class=\"col-lg-1\">\n" + 
 "            <img class=\"img-rounded image_64\"\n" + 
 "                 src=\"");// line 30, japidviews\Application\photo\Show.html
 		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(photo.idUser)); } catch (NullPointerException npe) {}// line 37, japidviews\Application\photo\Show.html
 		p("\">\n" + 
 "        </div>\n" + 
-"        <div class=\"col-md-2\">\n" + 
+"        <div class=\"col-lg-2\">\n" + 
 "            <p>\n" + 
 "                ");// line 37, japidviews\Application\photo\Show.html
 		try { p(photo.user.niceName); } catch (NullPointerException npe) {}// line 41, japidviews\Application\photo\Show.html
@@ -130,12 +130,12 @@ public class Show extends japidviews._layouts.Layout
 		p("                </button>\n" + 
 "            </p>\n" + 
 "        </div>\n" + 
-"        <div class=\"col-md-3\">\n" + 
+"        <div class=\"col-lg-3\">\n" + 
 "            <h4>");// line 48, japidviews\Application\photo\Show.html
 		try { p((photo.title==null || "".equals(photo.title.trim()))?"Untitled":photo.title); } catch (NullPointerException npe) {}// line 53, japidviews\Application\photo\Show.html
 		p("</h4>\n" + 
 "        </div>\n" + 
-"        <div class=\"col-md-6\">\n" + 
+"        <div class=\"col-lg-6\">\n" + 
 "        </div>\n" + 
 "    </div>\n" + 
 "\n" + 
@@ -154,14 +154,14 @@ public class Show extends japidviews._layouts.Layout
 "\n" + 
 "    <div class=\"line6\"></div>\n" + 
 "    <div class=\"row \">\n" + 
-"        <div class=\"col-md-7\">\n" + 
+"        <div class=\"col-lg-7\">\n" + 
 "            <button class=\"btn btn-default btn-xs\" type=\"button\">\n" + 
 "                &nbsp;&nbsp; ");// line 63, japidviews\Application\photo\Show.html
 		;p(getMessage("i.wanna.buy.photo"));// line 74, japidviews\Application\photo\Show.html
 		p("&nbsp;&nbsp;\n" + 
 "            </button>\n" + 
 "        </div>\n" + 
-"        <div class=\"col-md-5\">\n" + 
+"        <div class=\"col-lg-5\">\n" + 
 "            <!-- Baidu Button BEGIN -->\n" + 
 "            <div id=\"bdshare\" class=\"bdshare_t bds_tools get-codes-bdshare\">\n" + 
 "                <a class=\"bds_tsina\"></a>\n" + 
@@ -251,13 +251,13 @@ public class Show extends japidviews._layouts.Layout
 "<!-- user info -->\n" + 
 "<div class=\"col col_4 \">\n" + 
 "    <div class=\"row stat left_rounded6 shadow \">\n" + 
-"        <div class=\"col-md-6\">\n" + 
+"        <div class=\"col-lg-6\">\n" + 
 "            <img width=\"90\" height=\"90\" class=\"img-rounded\"\n" + 
 "                 src=\"");// line 133, japidviews\Application\photo\Show.html
 		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(photo.idUser)); } catch (NullPointerException npe) {}// line 148, japidviews\Application\photo\Show.html
 		p("\">\n" + 
 "        </div>\n" + 
-"        <div class=\"col-md-6\">\n" + 
+"        <div class=\"col-lg-6\">\n" + 
 "            <p>\n" + 
 "                ");// line 148, japidviews\Application\photo\Show.html
 		try { p(photo.user.niceName); } catch (NullPointerException npe) {}// line 152, japidviews\Application\photo\Show.html
@@ -289,9 +289,9 @@ public class Show extends japidviews._layouts.Layout
 		p("    <div class=\"line6\"></div>\n" + 
 "\n" + 
 "    <div class=\"row  \">\n" + 
-"        <div class=\"btn-group  col-md-12\" >\n" + 
+"        <div class=\"btn-group  col-lg-12\" >\n" + 
 "            <button id=\"vote_btn\"\n" + 
-"                    class=\"btn btn-default  btn-sm  col-md-10 pull-left ");// line 165, japidviews\Application\photo\Show.html
+"                    class=\"btn btn-default  btn-sm  col-lg-10 pull-left ");// line 165, japidviews\Application\photo\Show.html
 		if(isVote){// line 171, japidviews\Application\photo\Show.html
 		p("disabled");// line 171, japidviews\Application\photo\Show.html
 		}else{// line 171, japidviews\Application\photo\Show.html
@@ -324,7 +324,7 @@ public class Show extends japidviews._layouts.Layout
 		;// line 176, japidviews\Application\photo\Show.html
 		}// line 176, japidviews\Application\photo\Show.html
 		p("\"\n" + 
-"                    class=\"btn btn-default  btn-sm  col-md-2   pull-right  favorite ");// line 176, japidviews\Application\photo\Show.html
+"                    class=\"btn btn-default  btn-sm  col-lg-2   pull-right  favorite ");// line 176, japidviews\Application\photo\Show.html
 		if(isFavorite){// line 177, japidviews\Application\photo\Show.html
 		p("favorited");// line 177, japidviews\Application\photo\Show.html
 		}else{// line 177, japidviews\Application\photo\Show.html
@@ -341,7 +341,7 @@ public class Show extends japidviews._layouts.Layout
 "    <div class=\"row border-bottom shadow rounded6\">\n" + 
 "        ");// line 178, japidviews\Application\photo\Show.html
 		if(photo.description!=null && !"".equals(photo.description)){// line 184, japidviews\Application\photo\Show.html
-		p("        <div class=\"col-md-12\">\n" + 
+		p("        <div class=\"col-lg-12\">\n" + 
 "            <div id=\"description\" class=\"photo_stats border-bottom\">\n" + 
 "                ");// line 184, japidviews\Application\photo\Show.html
 		try { p(photo.description); } catch (NullPointerException npe) {}// line 187, japidviews\Application\photo\Show.html
@@ -352,7 +352,7 @@ public class Show extends japidviews._layouts.Layout
 		}// line 191, japidviews\Application\photo\Show.html
 
         if(photo.tagList!=null){// line 193, japidviews\Application\photo\Show.html
-		p("        <div class=\"col-md-12\">\n" + 
+		p("        <div class=\"col-lg-12\">\n" + 
 "            <div id=\"tags\" class=\"photo_stats border-bottom\">\n" + 
 "                ");// line 193, japidviews\Application\photo\Show.html
 		for(String tag:photo.tagList){// line 196, japidviews\Application\photo\Show.html
@@ -367,7 +367,7 @@ public class Show extends japidviews._layouts.Layout
 "        ");// line 198, japidviews\Application\photo\Show.html
 		}// line 202, japidviews\Application\photo\Show.html
 		p("\n" + 
-"        <div class=\"col-md-12\">\n" + 
+"        <div class=\"col-lg-12\">\n" + 
 "            <div id=\"exif\" class=\"exif_info \">\n" + 
 "                <ul>\n" + 
 "                    ");// line 202, japidviews\Application\photo\Show.html
@@ -393,7 +393,7 @@ public class Show extends japidviews._layouts.Layout
 "\n" + 
 "    <div class=\"row border-bottom show_map\">\n" + 
 "\n" + 
-"        <div class=\"col-md-12\">\n" + 
+"        <div class=\"col-lg-12\">\n" + 
 "            <div id=\"map_show_canvas\" lat=\"");// line 216, japidviews\Application\photo\Show.html
 		try { p(photo.GPSLatitude); } catch (NullPointerException npe) {}// line 225, japidviews\Application\photo\Show.html
 		p("\" lng=\"");// line 225, japidviews\Application\photo\Show.html
@@ -402,7 +402,7 @@ public class Show extends japidviews._layouts.Layout
 "                 class=\"show_map_canvas shadow rounded6\"></div>\n" + 
 "        </div>\n" + 
 "\n" + 
-"        <div class=\"col-md-12\">\n" + 
+"        <div class=\"col-lg-12\">\n" + 
 "            <div id=\"address\">\n" + 
 "\n" + 
 "            </div>\n" + 

@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -76,7 +75,7 @@ public class Edit extends japidviews._layouts.Layout
 		this.rank = rank;
 		this.exif = exif;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 5, japidviews/Application/photo/Edit.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 5, japidviews/Application/photo/Edit.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -89,8 +88,7 @@ public class Edit extends japidviews._layouts.Layout
 //------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Edit.html
  
-p("\n" + 
-"</pre>\n");// line 7, japidviews\Application\photo\Edit.html
+p("</pre>\n");// line 7, japidviews\Application\photo\Edit.html
 		// line 9, japidviews\Application\photo\Edit.html
 		p("<div class=\"page-header\">\n" + 
 "\n" + 
@@ -100,7 +98,7 @@ p("\n" +
 "</div>\n" + 
 "<div class=\"row\">\n" + 
 "\n" + 
-"    <div class=\"col-md-9 \">\n" + 
+"    <div class=\"col-lg-9 \">\n" + 
 "\n" + 
 "        <div>\n" + 
 "\n" + 
@@ -110,12 +108,12 @@ p("\n" +
 "        </div>\n" + 
 "        <div class=\"line6\"></div>\n" + 
 "        <div class=\"row \">\n" + 
-"            <div class=\"col-md-7\">\n" + 
+"            <div class=\"col-lg-7\">\n" + 
 "                <button class=\"btn btn-xs\" type=\"button\">\n" + 
 "                    Edit\n" + 
 "                </button>\n" + 
 "            </div>\n" + 
-"            <div class=\"col-md-5\">\n" + 
+"            <div class=\"col-lg-5\">\n" + 
 "                <!-- JiaThis Button BEGIN\n" + 
 "                <div class=\"jiathis_style\">\n" + 
 "                <a class=\"jiathis_button_qzone\"></a> <a class=\"jiathis_button_tsina\"></a> <a\n" + 
@@ -145,20 +143,19 @@ p("\n" +
 "\n" + 
 "    </div>\n" + 
 "    <!-- user info -->\n" + 
-"    <div class=\"col-md-3 \">\n" + 
+"    <div class=\"col-lg-3 \">\n" + 
 "        <div class=\"row stat \">\n" + 
-"            <div class=\"col-md-6\">\n" + 
+"            <div class=\"col-lg-6\">\n" + 
 "                <img width=\"90\" height=\"90\" class=\"img-rounded\"\n" + 
 "                     src=\"");// line 62, japidviews\Application\photo\Edit.html
 		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(photo.idUser)); } catch (NullPointerException npe) {}// line 76, japidviews\Application\photo\Edit.html
 		p("\">\n" + 
 "            </div>\n" + 
-"            <div class=\"col-md-6\">\n" + 
+"            <div class=\"col-lg-6\">\n" + 
 "                <p>\n" + 
 "                    ");// line 76, japidviews\Application\photo\Edit.html
 		try { p(photo.user.niceName); } catch (NullPointerException npe) {}// line 80, japidviews\Application\photo\Edit.html
-		p("\n" + 
-"                </p>\n" + 
+		p("                </p>\n" + 
 "\n" + 
 "                <p>\n" + 
 "                    <a href=\"/settings/profile\" class=\"btn btn-sm\">Edit Profile</a>\n" + 
@@ -168,19 +165,17 @@ p("\n" +
 "        <div class=\"line6\"></div>\n" + 
 "        ");// line 80, japidviews\Application\photo\Edit.html
 		final RankShow _RankShow3 = new RankShow(getOut()); _RankShow3.setActionRunners(getActionRunners()).setOut(getOut()); _RankShow3.render(rank); // line 89, japidviews\Application\photo\Edit.html// line 89, japidviews\Application\photo\Edit.html
-		p("\n" + 
-"        <div class=\"line6\"></div>\n" + 
+		p("        <div class=\"line6\"></div>\n" + 
 "\n" + 
 "        <div class=\"line6\"></div>\n" + 
 "        <div class=\"row border-bottom  \">\n" + 
-"            <div class=\"col-md-12\">\n" + 
+"            <div class=\"col-lg-12\">\n" + 
 "                <div id=\"description\" class=\"photo_stats border-bottom\">\n" + 
 "                    ");// line 89, japidviews\Application\photo\Edit.html
 		try { p(photo.description); } catch (NullPointerException npe) {}// line 96, japidviews\Application\photo\Edit.html
-		p("\n" + 
-"                </div>\n" + 
+		p("                </div>\n" + 
 "            </div>\n" + 
-"            <div class=\"col-md-12\">\n" + 
+"            <div class=\"col-lg-12\">\n" + 
 "                <div id=\"tags\" class=\"photo_stats border-bottom\">\n" + 
 "                    <span>");// line 96, japidviews\Application\photo\Edit.html
 		try { p(photo.tags); } catch (NullPointerException npe) {}// line 101, japidviews\Application\photo\Edit.html
@@ -188,7 +183,7 @@ p("\n" +
 "                        class=\" glyphicon glyphicon-tags\"></i>tags2</span><span><i class=\" glyphicon glyphicon-tags\"></i>tags3</span>\n" + 
 "                </div>\n" + 
 "            </div>\n" + 
-"            <div class=\"col-md-12\">\n" + 
+"            <div class=\"col-lg-12\">\n" + 
 "                <div id=\"exif\" class=\" photo_stats \">\n" + 
 "                    <ul class=\"stats exif\">\n" + 
 "\n" + 
@@ -199,10 +194,8 @@ Entry>// line 109, japidviews\Application\photo\Edit.html
  sets = exif.entrySet();// line 109, japidviews\Application\photo\Edit.html
  for (Object obj : sets) {// line 109, japidviews\Application\photo\Edit.html
  Entry// line 109, japidviews\Application\photo\Edit.html
-
                         entry=(Entry)obj;// line 110, japidviews\Application\photo\Edit.html
-		p("\n" + 
-"                        <li>\n" + 
+		p("                        <li>\n" + 
 "                            <small>");// line 110, japidviews\Application\photo\Edit.html
 		try { p(entry.getKey()); } catch (NullPointerException npe) {}// line 112, japidviews\Application\photo\Edit.html
 		p("</small>\n" + 
@@ -212,8 +205,7 @@ Entry>// line 109, japidviews\Application\photo\Edit.html
 "                        </li>\n" + 
 "                        ");// line 113, japidviews\Application\photo\Edit.html
 		}// line 115, japidviews\Application\photo\Edit.html
-		p("\n" + 
-"                    </ul>\n" + 
+		p("                    </ul>\n" + 
 "                </div>\n" + 
 "            </div>\n" + 
 "        </div>\n" + 

@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews.Application;
 import java.util.*;
 import java.io.*;
@@ -79,7 +78,7 @@ public class Search extends japidviews._layouts.Layout
 		this.rs = rs;
 		this.pageNum = pageNum;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 5, japidviews/Application/Search.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 5, japidviews/Application/Search.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -91,7 +90,6 @@ public class Search extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\Search.html
-
 p("	\n" + 
 "</pre>\n" + 
 "\n" + 
@@ -105,7 +103,7 @@ p("	\n" +
 "	<div class=\"col col_16\">\n" + 
 "		<form accept-charset=\"UTF-8\" action=\"/search\" method=\"get\" class=\"form-inline\">\n" + 
 "\n" + 
-"			<select class=\"selectpicker input-sm col-md-1\" id=\"type\" name=\"t\" >\n" + 
+"			<select class=\"selectpicker input-sm col-lg-1\" id=\"type\" name=\"t\" >\n" + 
 "				<option value=\"photos\">Photos</option>\n" + 
 "				<option value=\"photo_tags\" class=\"suboption\">Photo Tags</option>\n" + 
 "				<!--\n" + 
@@ -116,19 +114,15 @@ p("	\n" +
 "\n" + 
 "			");// line 7, japidviews\Application\Search.html
 		String skey=params.get("c");// line 29, japidviews\Application\Search.html
-
 			Byte key=(byte)0;// line 30, japidviews\Application\Search.html
-
 			if(skey!=null) {key=Byte.parseByte(skey);}// line 31, japidviews\Application\Search.html
 		p("\n" + 
-"\n" + 
-"			<select class=\"selectpicker  col-md-2\" id=\"category\" name=\"c\" onchange=\"form.submit();\">\n" + 
+"			<select class=\"selectpicker  col-lg-2\" id=\"category\" name=\"c\" onchange=\"form.submit();\">\n" + 
 "				");// line 31, japidviews\Application\Search.html
 		final CategorySelectOptions _CategorySelectOptions2 = new CategorySelectOptions(getOut()); _CategorySelectOptions2.setActionRunners(getActionRunners()).setOut(getOut()); _CategorySelectOptions2.render(fengfei.spruce.cache.SimpleCache.categories,key); // line 34, japidviews\Application\Search.html// line 34, japidviews\Application\Search.html
-		p("\n" + 
-"			</select>\n" + 
+		p("			</select>\n" + 
 "\n" + 
-"			<select  class=\"selectpicker  col-md-2\"  id=\"photos_sort\" name=\"o\" onchange=\"form.submit();\">\n" + 
+"			<select  class=\"selectpicker  col-lg-2\"  id=\"photos_sort\" name=\"o\" onchange=\"form.submit();\">\n" + 
 "				<option value=\"votes\" selected=\"selected\">Sort by Votes</option>\n" + 
 "				<option value=\"date\">Sort by Date</option>\n" + 
 "				<option value=\"name\">Sort by Name</option>\n" + 
@@ -172,20 +166,14 @@ p("	\n" +
 "</div>\n" + 
 "\n");// line 64, japidviews\Application\Search.html
 		if(type==0){// line 76, japidviews\Application\Search.html
-
 	List<PhotoShow>	photos=(List<PhotoShow>)rs;// line 77, japidviews\Application\Search.html
-
 		final japidviews.Application.photo.PhotoView _japidviews_Application_photo_PhotoView3 = new japidviews.Application.photo.PhotoView(getOut()); _japidviews_Application_photo_PhotoView3.setActionRunners(getActionRunners()).setOut(getOut()); _japidviews_Application_photo_PhotoView3.render(pagePath,photos,pageNum); // line 78, japidviews\Application\Search.html// line 78, japidviews\Application\Search.html
-
 }else{// line 79, japidviews\Application\Search.html
-
 	List<User>	users=(List<User>)rs;// line 80, japidviews\Application\Search.html
-
 	final UsersCard _UsersCard4 = new UsersCard(getOut()); _UsersCard4.setActionRunners(getActionRunners()).setOut(getOut()); _UsersCard4.render(pagePath,users,pageNum); // line 81, japidviews\Application\Search.html// line 81, japidviews\Application\Search.html
-		p("\n" + 
-"\n");// line 81, japidviews\Application\Search.html
-		}// line 83, japidviews\Application\Search.html
-		p("\n");// line 83, japidviews\Application\Search.html
+
+}// line 83, japidviews\Application\Search.html
+		;// line 83, japidviews\Application\Search.html
 		
 		endDoLayout(sourceTemplate);
 	}

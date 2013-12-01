@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -96,7 +95,7 @@ public class UserViews extends japidviews._layouts.Layout
 		this.isFollow = isFollow;
 		this.action = action;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 6, japidviews/Application/photo/UserViews.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 6, japidviews/Application/photo/UserViews.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -108,7 +107,6 @@ public class UserViews extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\UserViews.html
-
 // line 9, japidviews\Application\photo\UserViews.html
 		p("</pre>\n" + 
 "\n" + 
@@ -116,13 +114,13 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "<div class=\"grid_row users\">\n" + 
 "	<div class=\"col col_12\">\n" + 
 "		<div class=\"row card \"  >\n" + 
-"			<div class=\"col-md-2\">\n" + 
+"			<div class=\"col-lg-2\">\n" + 
 "				<img  class=\"img-rounded\"\n" + 
 "				src=\"");// line 11, japidviews\Application\photo\UserViews.html
 		p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(user.idUser));// line 20, japidviews\Application\photo\UserViews.html
 		p("\">\n" + 
 "			</div>\n" + 
-"			<div class=\"col-md-10\">\n" + 
+"			<div class=\"col-lg-10\">\n" + 
 "				<div class=\" \">\n" + 
 "					<div class=\"username txt_left\">\n" + 
 "						<strong>");// line 20, japidviews\Application\photo\UserViews.html
@@ -148,8 +146,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 		p("\">\n" + 
 "                            ");// line 33, japidviews\Application\photo\UserViews.html
 		p(isFollow?"Following":"Follow");// line 34, japidviews\Application\photo\UserViews.html
-		p("\n" + 
-"                        </button>\n" + 
+		p("                        </button>\n" + 
 "                    </div>\n" + 
 "\n" + 
 "				</div>\n" + 
@@ -168,7 +165,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "	<div class=\"col col_4\">\n" + 
 "\n" + 
 "		<div class=\"row card \">\n" + 
-"			<div class=\"col-md-6 affection\">\n" + 
+"			<div class=\"col-lg-6 affection\">\n" + 
 "				<div>\n" + 
 "					<strong>");// line 34, japidviews\Application\photo\UserViews.html
 		p(rank.affection);// line 56, japidviews\Application\photo\UserViews.html
@@ -178,7 +175,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "					Affection\n" + 
 "				</div>\n" + 
 "			</div>\n" + 
-"			<div class=\"col-md-6 photo_stats\">\n" + 
+"			<div class=\"col-lg-6 photo_stats\">\n" + 
 "				<ul class=\"stats\">\n" + 
 "\n" + 
 "					<li title=\"Views\">\n" + 
@@ -210,8 +207,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "		<div class=\" card map \"  >\n" + 
 "			");// line 75, japidviews\Application\photo\UserViews.html
 		String location=user.toLocation();if(location.length()<=6) location="chengdu, China";// line 84, japidviews\Application\photo\UserViews.html
-		p("\n" + 
-"			<a href=\"http://maps.google.com/maps?spn=0.1,0.1&t=m&z=10&q=");// line 84, japidviews\Application\photo\UserViews.html
+		p("			<a href=\"http://maps.google.com/maps?spn=0.1,0.1&t=m&z=10&q=");// line 84, japidviews\Application\photo\UserViews.html
 		p(location);// line 85, japidviews\Application\photo\UserViews.html
 		p("\" target=\"_blank\"> <img alt=\"Staticmap?size=280x100&amp;sensor=false&amp;zoom=6&amp;markers");// line 85, japidviews\Application\photo\UserViews.html
 		p(location);// line 85, japidviews\Application\photo\UserViews.html
@@ -232,10 +228,8 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "				<div class=\"onerow\">\n" + 
 "					");// line 93, japidviews\Application\photo\UserViews.html
 		if(targets!=null){// line 96, japidviews\Application\photo\UserViews.html
-
 					for(long id: targets){// line 97, japidviews\Application\photo\UserViews.html
-		p("\n" + 
-"					<div class=\"col3\"><img class=\"img-rounded\"\n" + 
+		p("					<div class=\"col3\"><img class=\"img-rounded\"\n" + 
 "						src=\"");// line 97, japidviews\Application\photo\UserViews.html
 		p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(id));// line 99, japidviews\Application\photo\UserViews.html
 		p("\">\n" + 
@@ -243,10 +237,8 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "\n" + 
 "					");// line 99, japidviews\Application\photo\UserViews.html
 		}// line 102, japidviews\Application\photo\UserViews.html
-
 					}// line 103, japidviews\Application\photo\UserViews.html
 		p("\n" + 
-"\n" + 
 "				</div>\n" + 
 "			</div>\n" + 
 "		</div>\n" + 
@@ -263,10 +255,8 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "				<div class=\"onerow\">\n" + 
 "					");// line 114, japidviews\Application\photo\UserViews.html
 		if(sources!=null){// line 117, japidviews\Application\photo\UserViews.html
-
 					for(Long id: sources){// line 118, japidviews\Application\photo\UserViews.html
-		p("\n" + 
-"					<div class=\"col3\"><img class=\"img-rounded\"\n" + 
+		p("					<div class=\"col3\"><img class=\"img-rounded\"\n" + 
 "						src=\"");// line 118, japidviews\Application\photo\UserViews.html
 		p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(id));// line 120, japidviews\Application\photo\UserViews.html
 		p("\">\n" + 
@@ -274,10 +264,8 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "\n" + 
 "					");// line 120, japidviews\Application\photo\UserViews.html
 		}// line 123, japidviews\Application\photo\UserViews.html
-
 					}// line 124, japidviews\Application\photo\UserViews.html
 		p("\n" + 
-"\n" + 
 "				</div>\n" + 
 "			</div>\n" + 
 "		</div>\n" + 
@@ -288,30 +276,18 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "				");// line 124, japidviews\Application\photo\UserViews.html
 		 if(cameras!=null){// line 133, japidviews\Application\photo\UserViews.html
 				Set	keys = cameras.keySet();// line 134, japidviews\Application\photo\UserViews.html
-
 				for (Object key : keys) {// line 135, japidviews\Application\photo\UserViews.html
-
 					Collection	cs = cameras.get(key.toString());// line 136, japidviews\Application\photo\UserViews.html
-
 					String value = null;// line 137, japidviews\Application\photo\UserViews.html
-
 					for (Object obj : cs) {// line 138, japidviews\Application\photo\UserViews.html
-
 						Camera camera=(Camera)obj;// line 139, japidviews\Application\photo\UserViews.html
-
 				if (value == null) {// line 140, japidviews\Application\photo\UserViews.html
-
 							value = camera.equipment;// line 141, japidviews\Application\photo\UserViews.html
-
 						} else {// line 142, japidviews\Application\photo\UserViews.html
-
 							value += ", " + camera.equipment;// line 143, japidviews\Application\photo\UserViews.html
-
 						}// line 144, japidviews\Application\photo\UserViews.html
-
 					}// line 145, japidviews\Application\photo\UserViews.html
 		p("\n" + 
-"\n" + 
 "				<li>\n" + 
 "					<small class=\"key\">");// line 145, japidviews\Application\photo\UserViews.html
 		p(key);// line 148, japidviews\Application\photo\UserViews.html
@@ -355,10 +331,8 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "	</div>\n" + 
 "	");// line 167, japidviews\Application\photo\UserViews.html
 		Map actions=new HashMap();// line 177, japidviews\Application\photo\UserViews.html
-
 	actions.put(action,"class=\"active\"");// line 178, japidviews\Application\photo\UserViews.html
-		p("\n" + 
-"	<div class=\"col col_16 \">\n" + 
+		p("	<div class=\"col col_16 \">\n" + 
 "		<div class=\"onerow\" >\n" + 
 "			<div class=\"col10 nav_title  \" >\n" + 
 "				<ul class=\"nav nav-pills \">\n" + 
@@ -405,14 +379,11 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "	</div>\n" + 
 "	");// line 196, japidviews\Application\photo\UserViews.html
 		String path=request.url;// line 204, japidviews\Application\photo\UserViews.html
-
 	path=path.substring(path.lastIndexOf("/")+1);// line 205, japidviews\Application\photo\UserViews.html
-		p("\n" + 
-"	<div class=\"  previews\">\n" + 
+		p("	<div class=\"  previews\">\n" + 
 "		");// line 205, japidviews\Application\photo\UserViews.html
 		for(PhotoShow photo : photos){// line 207, japidviews\Application\photo\UserViews.html
-		p("\n" + 
-"		<div class=\"col photo_col width_4\">\n" + 
+		p("		<div class=\"col photo_col width_4\">\n" + 
 "			<div class=\"photo_preview photo_preview_4\" >\n" + 
 "				<a href=\"/show/");// line 207, japidviews\Application\photo\UserViews.html
 		p(photo.idPhoto);// line 210, japidviews\Application\photo\UserViews.html
@@ -438,8 +409,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "					<div class=\"score\">\n" + 
 "						");// line 213, japidviews\Application\photo\UserViews.html
 		p(photo.sscore);// line 216, japidviews\Application\photo\UserViews.html
-		p("\n" + 
-"					</div>\n" + 
+		p("					</div>\n" + 
 "				</div>\n" + 
 "\n" + 
 "			</div>\n" + 
@@ -447,7 +417,6 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "		");// line 216, japidviews\Application\photo\UserViews.html
 		}// line 222, japidviews\Application\photo\UserViews.html
 		p("\n" + 
-"\n" + 
 "	</div>\n" + 
 "	<div class=\" paging\">\n" + 
 "		<div class=\"col col_16 pager pagination-right\">\n" + 
@@ -461,15 +430,13 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "				</li>\n" + 
 "				");// line 229, japidviews\Application\photo\UserViews.html
 		if(pageNum>=2){// line 231, japidviews\Application\photo\UserViews.html
-		p("\n" + 
-"				<li >\n" + 
+		p("				<li >\n" + 
 "					<a href=\"");// line 231, japidviews\Application\photo\UserViews.html
 		p(pagePath);// line 233, japidviews\Application\photo\UserViews.html
 		p("/1\">First</a>\n" + 
 "				</li>");// line 233, japidviews\Application\photo\UserViews.html
 		}// line 234, japidviews\Application\photo\UserViews.html
 		p("\n" + 
-"\n" + 
 "				<!--	<li class=\"disabled\"><a href=\"#\">1</a></li>\n" + 
 "				<li><a href=\"#\">2</a></li>\n" + 
 "				<li><a href=\"#\">3</a></li>\n" + 
@@ -477,8 +444,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "				<li><a href=\"#\">5</a></li>-->\n" + 
 "				");// line 234, japidviews\Application\photo\UserViews.html
 		if(photos.size()>=20){// line 241, japidviews\Application\photo\UserViews.html
-		p("\n" + 
-"				<li>\n" + 
+		p("				<li>\n" + 
 "					<a href=\"");// line 241, japidviews\Application\photo\UserViews.html
 		p(pagePath);// line 243, japidviews\Application\photo\UserViews.html
 		p("/");// line 243, japidviews\Application\photo\UserViews.html
@@ -487,7 +453,6 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Use
 "				</li>");// line 243, japidviews\Application\photo\UserViews.html
 		}// line 244, japidviews\Application\photo\UserViews.html
 		p("\n" + 
-"\n" + 
 "			</ul>\n" + 
 "		</div>\n" + 
 "	</div>\n" + 

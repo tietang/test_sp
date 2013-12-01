@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews.Application.profile;
 import java.util.*;
 import java.io.*;
@@ -72,7 +71,7 @@ public class SocialMedia extends japidviews._layouts.Layout
 	public cn.bran.japid.template.RenderResult render(UserSocial m) {
 		this.m = m;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 3, japidviews/Application/profile/SocialMedia.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 3, japidviews/Application/profile/SocialMedia.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -84,21 +83,18 @@ public class SocialMedia extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\profile\SocialMedia.html
-
 p("\n" + 
-"\n" + 
 "<div class=\"grid_row\">\n" + 
 "\n" + 
 "    <div class=\"col col_3 \">\n" + 
 "        <div class=\"sidebar-nav \">\n" + 
 "            ");// line 5, japidviews\Application\profile\SocialMedia.html
 		final SettingsMenu _SettingsMenu2 = new SettingsMenu(getOut()); _SettingsMenu2.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu2.render("SocialMedia"); // line 11, japidviews\Application\profile\SocialMedia.html// line 11, japidviews\Application\profile\SocialMedia.html
-		p("\n" + 
-"        </div>\n" + 
+		p("        </div>\n" + 
 "    </div>\n" + 
 "    <div class=\"col col_13 \">\n" + 
 "        <div class=\"row-fluid well profile_right\">\n" + 
-"            <div class=\"col-md-8  \">\n" + 
+"            <div class=\"col-lg-8  \">\n" + 
 "\n" + 
 "                <form id=\"socialMediaForm\" class=\"\" action=\"/settings/socialmedia/done\" method=\"post\">\n" + 
 "\n" + 
@@ -108,7 +104,7 @@ p("\n" +
 		p("</label>\n" + 
 "\n" + 
 "                        <div class=\"controls\">\n" + 
-"                            <input type=\"text\" id=\"website\" name=\"website\" class=\"input col-md-9\"\n" + 
+"                            <input type=\"text\" id=\"website\" name=\"website\" class=\"input col-lg-9\"\n" + 
 "                                   placeholder=\"");// line 21, japidviews\Application\profile\SocialMedia.html
 		;p(getMessage("social.website"));// line 25, japidviews\Application\profile\SocialMedia.html
 		p("\" value=\"");// line 25, japidviews\Application\profile\SocialMedia.html
@@ -122,7 +118,7 @@ p("\n" +
 		p("</label>\n" + 
 "\n" + 
 "                        <div class=\"controls\">\n" + 
-"                            <input type=\"text\" id=\"qq\" name=\"qq\" class=\"input col-md-9\"\n" + 
+"                            <input type=\"text\" id=\"qq\" name=\"qq\" class=\"input col-lg-9\"\n" + 
 "                                   placeholder=\"");// line 29, japidviews\Application\profile\SocialMedia.html
 		;p(getMessage("social.qq"));// line 33, japidviews\Application\profile\SocialMedia.html
 		p("\" value=\"");// line 33, japidviews\Application\profile\SocialMedia.html
@@ -137,9 +133,9 @@ p("\n" +
 "\n" + 
 "\n" + 
 "                        <div class=\"controls input-group\">\n" + 
-"                            <div class=\"input-group col-md-12\">\n" + 
+"                            <div class=\"input-group col-lg-12\">\n" + 
 "                                <span class=\"input-group-addon\">@</span>\n" + 
-"                                <input type=\"text\" id=\"qq_weibo\" name=\"qq_weibo\" class=\"input input-block-level col-md-12\"\n" + 
+"                                <input type=\"text\" id=\"qq_weibo\" name=\"qq_weibo\" class=\"input input-block-level col-lg-12\"\n" + 
 "                                       placeholder=\"");// line 37, japidviews\Application\profile\SocialMedia.html
 		;p(getMessage("social.qq.weibo"));// line 44, japidviews\Application\profile\SocialMedia.html
 		p("\" value=\"");// line 44, japidviews\Application\profile\SocialMedia.html
@@ -155,7 +151,7 @@ p("\n" +
 		p("</label>\n" + 
 "\n" + 
 "                        <div class=\"controls\">\n" + 
-"                            <input type=\"text\" id=\"weibo\" name=\"weibo\" class=\"input col-md-9\"\n" + 
+"                            <input type=\"text\" id=\"weibo\" name=\"weibo\" class=\"input col-lg-9\"\n" + 
 "                                   placeholder=\"");// line 50, japidviews\Application\profile\SocialMedia.html
 		;p(getMessage("social.weibo"));// line 54, japidviews\Application\profile\SocialMedia.html
 		p("\" value=\"");// line 54, japidviews\Application\profile\SocialMedia.html
@@ -171,7 +167,7 @@ p("\n" +
 		p("</label>\n" + 
 "\n" + 
 "                        <div class=\"controls\">\n" + 
-"                            <input type=\"text\" id=\"twitter\" name=\"twitter\" class=\"input col-md-9\"\n" + 
+"                            <input type=\"text\" id=\"twitter\" name=\"twitter\" class=\"input col-lg-9\"\n" + 
 "                                   placeholder=\"");// line 60, japidviews\Application\profile\SocialMedia.html
 		;p(getMessage("social.twitter"));// line 64, japidviews\Application\profile\SocialMedia.html
 		p("\" value=\"");// line 64, japidviews\Application\profile\SocialMedia.html
@@ -185,7 +181,7 @@ p("\n" +
 		p("</label>\n" + 
 "\n" + 
 "                        <div class=\"controls\">\n" + 
-"                            <input type=\"text\" id=\"facebook\" name=\"facebook\" class=\"input col-md-9\"\n" + 
+"                            <input type=\"text\" id=\"facebook\" name=\"facebook\" class=\"input col-lg-9\"\n" + 
 "                                   placeholder=\"");// line 68, japidviews\Application\profile\SocialMedia.html
 		;p(getMessage("social.facebook"));// line 72, japidviews\Application\profile\SocialMedia.html
 		p("\" value=\"");// line 72, japidviews\Application\profile\SocialMedia.html
@@ -199,7 +195,7 @@ p("\n" +
 		p("</label>\n" + 
 "\n" + 
 "                        <div class=\"controls\">\n" + 
-"                            <input type=\"text\" id=\"flickr\" name=\"flickr\" class=\"input col-md-9\"\n" + 
+"                            <input type=\"text\" id=\"flickr\" name=\"flickr\" class=\"input col-lg-9\"\n" + 
 "                                   placeholder=\"");// line 76, japidviews\Application\profile\SocialMedia.html
 		;p(getMessage("social.flickr"));// line 80, japidviews\Application\profile\SocialMedia.html
 		p("\" value=\"");// line 80, japidviews\Application\profile\SocialMedia.html
@@ -213,7 +209,7 @@ p("\n" +
 		p("</label>\n" + 
 "\n" + 
 "                        <div class=\"controls\">\n" + 
-"                            <input type=\"text\" id=\"fengniao\" name=\"fengniao\" class=\"input col-md-9\"\n" + 
+"                            <input type=\"text\" id=\"fengniao\" name=\"fengniao\" class=\"input col-lg-9\"\n" + 
 "                                   placeholder=\"");// line 84, japidviews\Application\profile\SocialMedia.html
 		;p(getMessage("social.fengniao"));// line 88, japidviews\Application\profile\SocialMedia.html
 		p("\" value=\"");// line 88, japidviews\Application\profile\SocialMedia.html
@@ -227,7 +223,7 @@ p("\n" +
 		p("</label>\n" + 
 "\n" + 
 "                              <div class=\"controls\">\n" + 
-"                                  <input type=\"text\" id=\"renren\" name=\"renren\" class=\"input col-md-9\"\n" + 
+"                                  <input type=\"text\" id=\"renren\" name=\"renren\" class=\"input col-lg-9\"\n" + 
 "                                         placeholder=\"");// line 92, japidviews\Application\profile\SocialMedia.html
 		;p(getMessage("social.renren"));// line 96, japidviews\Application\profile\SocialMedia.html
 		p("\" value=\"");// line 96, japidviews\Application\profile\SocialMedia.html
@@ -241,7 +237,7 @@ p("\n" +
 		p("</label>\n" + 
 "\n" + 
 "                        <div class=\"controls\">\n" + 
-"                            <input type=\"text\" id=\"douban\" name=\"douban\" class=\"input col-md-9\"\n" + 
+"                            <input type=\"text\" id=\"douban\" name=\"douban\" class=\"input col-lg-9\"\n" + 
 "                                   placeholder=\"");// line 100, japidviews\Application\profile\SocialMedia.html
 		;p(getMessage("social.douban"));// line 104, japidviews\Application\profile\SocialMedia.html
 		p("\" value=\"");// line 104, japidviews\Application\profile\SocialMedia.html
@@ -254,8 +250,7 @@ p("\n" +
 "                            <button type=\"submit\" class=\"btn\">\n" + 
 "                                ");// line 104, japidviews\Application\profile\SocialMedia.html
 		;p(getMessage("save.change"));// line 110, japidviews\Application\profile\SocialMedia.html
-		p("\n" + 
-"                            </button>\n" + 
+		p("                            </button>\n" + 
 "                        </div>\n" + 
 "                    </div>\n" + 
 "\n" + 

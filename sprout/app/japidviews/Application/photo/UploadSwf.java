@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -69,7 +68,7 @@ public class UploadSwf extends japidviews._layouts.Layout
 
 	public cn.bran.japid.template.RenderResult render() {
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/photo/UploadSwf.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 0, japidviews/Application/photo/UploadSwf.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -81,7 +80,6 @@ public class UploadSwf extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\photo\UploadSwf.html
-
 // line 2, japidviews\Application\photo\UploadSwf.html
 		p("<div class=\"grid_row\">\n" + 
 "\n" + 
@@ -94,7 +92,7 @@ public class UploadSwf extends japidviews._layouts.Layout
 "			style=\"display: none\">\n" + 
 "				<thead>\n" + 
 "					<tr>\n" + 
-"						<td colcol-md-=\"3\" class=\"non-border col-md-12\">\n" + 
+"						<td colcol-lg-=\"3\" class=\"non-border col-lg-12\">\n" + 
 "						<div id=\"progress\"\n" + 
 "						class=\"progress progress-success progress-striped\">\n" + 
 "							<div class=\"progress-bar\"></div>\n" + 
@@ -104,7 +102,7 @@ public class UploadSwf extends japidviews._layouts.Layout
 "				<tbody data-target=\"#modal-gallery\" data-toggle=\"modal-gallery\"\n" + 
 "				class=\"files\">\n" + 
 "					<tr>\n" + 
-"						<td class=\"right_line col-md-6\">\n" + 
+"						<td class=\"right_line col-lg-6\">\n" + 
 "						<div class=\" magin_left\">\n" + 
 "							<div id=\"preview\"></div>\n" + 
 "							<br />\n" + 
@@ -115,7 +113,7 @@ public class UploadSwf extends japidviews._layouts.Layout
 "								source size: <span id=\"size\"></span>\n" + 
 "							</p>\n" + 
 "						</div></td>\n" + 
-"						<td class=\"right_line col-md-3\">\n" + 
+"						<td class=\"right_line col-lg-3\">\n" + 
 "						<div class=\" magin_left\">\n" + 
 "							<div class=\"block\">\n" + 
 "								<label for=\"title1\">Title</label>\n" + 
@@ -184,7 +182,7 @@ public class UploadSwf extends japidviews._layouts.Layout
 "									the copyright?</label>\n" + 
 "							</div>\n" + 
 "						</div></td>\n" + 
-"						<td class=\"col-md-3\">\n" + 
+"						<td class=\"col-lg-3\">\n" + 
 "						<div class=\" magin_left\">\n" + 
 "							<div class=\"inline input-group\">\n" + 
 "								<span class=\"input-group-addon\"><span class=\" span1 left\">Camera </span></span>\n" + 

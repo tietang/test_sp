@@ -365,7 +365,7 @@ input.error {
 }
 
 .photo_nav .hr {
-    margin-top: 9px;
+    margin-top: 10px;
     border-bottom: 1px solid #CCCCCC;
     margin-bottom: 19px;
 }
@@ -720,7 +720,7 @@ ul li a {
     top: -70px;
 }
 
-.upload .icon-head {
+.upload .glyphicon-head{
     width: 60px;
     max-width: 60px;
     text-align: right;

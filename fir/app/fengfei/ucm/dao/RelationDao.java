@@ -58,12 +58,11 @@ public class RelationDao {
         return oldRelation;
     }
 
-    public Metadata
-    atomicallyMetadata(ForestGrower grower, String suffix, long sourceId, byte type)
+    public Metadata   atomicallyMetadata(ForestGrower grower, String suffix, long sourceId, byte type)
             throws SQLException {
 
         Metadata metadata = grower.selectOne(
-                "SELECT source_id,target_id,type,state,created_at,updated_at,attachment_id FROM metadata" + suffix
+                "SELECT source_id,`count`,type,state,created_at,updated_at   FROM metadata" + suffix
                         + " WHERE source_id = ? AND type= ?  ",
                 new MetadataTransducer(),
                 sourceId,

@@ -36,23 +36,23 @@
         </div>
     </td>
     <td class="right_line col_4">
-        <div class=" magin_left">
+        <div class="  magin_left">
             <div class="block">
                 <label for="title1">&{photo.title}</label>
                 <input type="text"
                        placeholder="&{photo.title}" maxlength="100" id="title1" value=""
-                       name="title" class=" span4 ">
+                       name="title" class="form-control col-lg-4 ">
                 <input type="hidden" placeholder="ID" maxlength="100" id="id1" value="" name="id">
                 <input type="hidden" placeholder="ID" maxlength="100" id="id_photo1" value="" name="id_photo">
             </div>
             <div class="block">
                 <label for="desc1">&{photo.description}</label>
-                <textarea class=" span4 " id="desc1" rows="8" placeholder="&{photo.description}"
+                <textarea class="form-control col-lg-4 " id="desc1" rows="8" placeholder="&{photo.description}"
                           name="description"></textarea>
             </div>
             <div class="block">
-                <select name="dir" id="dir1" data-style=" "
-                        class="selectpicker category span4">
+                <select name="dir" id="dir1" data-style=" btn-default "
+                        class="selectpicker category col-lg-12">
                     <option value="0">&{photo.dir.no}</option>
                     `if(photoSets!=null){`
                     `for(PhotoSet set:photoSets){`
@@ -64,15 +64,15 @@
             </div>
 
             <div class="block">
-                <select name="category" id="category1" data-style=" "
-                        class="selectpicker category span4">
+                <select name="category" id="category1" data-style="btn-default "
+                        class="selectpicker category col-lg-12">
                     `tag CategorySelectOptions fengfei.spruce.cache.SimpleCache.categories,(byte)0`
                 </select>
             </div>
 
             <div class="block">
-                <select name="license" id="license1" data-style=" "
-                        class="selectpicker license span4">
+                <select name="license" id="license1" data-style="btn-default  "
+                        class="selectpicker license col-lg-12">
                     `tag LicenseSelectOptions fengfei.spruce.cache.SimpleCache.licenses,"by"`
                 </select>
 
@@ -88,7 +88,7 @@
             </div>
             <div class="block">
                 <input type="text" placeholder="&{photo.tags} " rows="6" data-provide="tag" data-caseInsensitive="true"
-                       class="span4  " name="tags" id="tags1"/>
+                       class="form-control col-lg-4  " name="tags" id="tags1"/>
             </div>
             <div class="checkbox">
                 <label for="adult1">
@@ -128,48 +128,48 @@
             <div class="inline input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-head left">&{photo.camera}</span></span>
                 <input type="text" placeholder="&{photo.camera}" value=""
-                       class="Camera" id="camera1" name="camera">
+                       class="form-control Camera" id="camera1" name="camera">
                 <input
-                        type="hidden" placeholder="&{photo.make}" value="" class="make"
+                        type="hidden" placeholder="&{photo.make}" value="" class="form-control make"
                         id="make1" name="make">
 
             </div>
             <div class="inline input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-head left">&{photo.lens}</span> </span>
-                <input type="text" placeholder="&{photo.lens}" value="" class="lens"
+                <input type="text" placeholder="&{photo.lens}" value="" class="form-control lens"
                        id="lens1" name="lens">
             </div>
             <div class="inline input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-head left">&{photo.focus} </span></span>
                 <input type="text" placeholder="&{photo.focus.alt}" value=""
-                       class="focal-length" id="focus1" name="focus">
+                       class="form-control focal-length" id="focus1" name="focus">
             </div>
             <div class="inline input-group">
                 <span class="input-group-addon "><span class="glyphicon glyphicon-head left">&{photo.shutter} </span></span>
                 <input type="text" placeholder="&{photo.shutter.alt}" value=""
-                       class="shutter-speed" id="shutter1" name="shutter">
+                       class="form-control shutter-speed" id="shutter1" name="shutter">
             </div>
             <div class="inline input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-head left">&{photo.aperture}</span></span>
                 <input type="text" placeholder="&{photo.aperture}" value=""
-                       class="aperture" id="aperture1" name="aperture">
+                       class="form-control aperture" id="aperture1" name="aperture">
             </div>
             <div class="inline input-group last">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-head left">&{photo.iso} </span></span>
-                <input type="text" placeholder="&{photo.iso.alt}" value="" class="iso"
+                <input type="text" placeholder="&{photo.iso.alt}" value="" class="form-control iso"
                        id="iso1" name="iso">
             </div>
             <div class="inline input-group last">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-head left">&{photo.ev}</span></span>
                 <input type="text" placeholder="&{photo.ev.alt}" value=""
-                       class="iso" id="ev1" name="ev">
+                       class="form-control iso" id="ev1" name="ev">
             </div>
             <div class="inline input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-head left"> &{photo.taken} </span></span>
                 <input type="hidden" value="" id="taken_at1"
                        name="taken_at">
                 <input type="text"
-                       placeholder="&{photo.taken.alt}" value="" class="date"
+                       placeholder="&{photo.taken.alt}" value="" class="form-control date"
                        id="taken_at_display1">
             </div>
 

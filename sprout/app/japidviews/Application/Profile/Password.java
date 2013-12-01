@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews.Application.profile;
 import java.util.*;
 import java.io.*;
@@ -69,7 +68,7 @@ public class Password extends japidviews._layouts.Layout
 
 	public cn.bran.japid.template.RenderResult render() {
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/profile/Password.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 0, japidviews/Application/profile/Password.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -81,35 +80,31 @@ public class Password extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\profile\Password.html
-
 p("\n" + 
-"\n" + 
 "<div class=\"grid_row\">\n" + 
 "\n" + 
 "    <div class=\"col col_3 \">\n" + 
 "        <div class=\"sidebar-nav \">\n" + 
 "            ");// line 3, japidviews\Application\profile\Password.html
 		final SettingsMenu _SettingsMenu2 = new SettingsMenu(getOut()); _SettingsMenu2.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu2.render("Password"); // line 9, japidviews\Application\profile\Password.html// line 9, japidviews\Application\profile\Password.html
-		p("\n" + 
-"        </div>\n" + 
+		p("        </div>\n" + 
 "    </div>\n" + 
 "    <div class=\"col col_13 \">\n" + 
 "        <div class=\"row-fluid well profile_right\">\n" + 
-"            <div class=\"col-md-10 \">\n" + 
+"            <div class=\"col-lg-10 \">\n" + 
 "\n" + 
 "                <form class=\"form-horizontal\" action=\"/settings/password/done\"\n" + 
 "                      method=\"post\">\n" + 
 "                    ");// line 9, japidviews\Application\profile\Password.html
 		final AllMessage _AllMessage3 = new AllMessage(getOut()); _AllMessage3.setActionRunners(getActionRunners()).setOut(getOut()); _AllMessage3.render(); // line 18, japidviews\Application\profile\Password.html// line 18, japidviews\Application\profile\Password.html
-		p("\n" + 
-"                    <div class=\"form-group\">\n" + 
+		p("                    <div class=\"form-group\">\n" + 
 "                        <label class=\"control-label\" for=\"oldPassword\">");// line 18, japidviews\Application\profile\Password.html
 		;p(getMessage("password.old"));// line 20, japidviews\Application\profile\Password.html
 		p("</label>\n" + 
 "\n" + 
 "                        <div class=\"controls\">\n" + 
 "                            <input type=\"password\" id=\"oldPassword\" name=\"oldPassword\"\n" + 
-"                                   class=\"col-md-10\" placeholder=\"");// line 20, japidviews\Application\profile\Password.html
+"                                   class=\"col-lg-10\" placeholder=\"");// line 20, japidviews\Application\profile\Password.html
 		;p(getMessage("password.old"));// line 24, japidviews\Application\profile\Password.html
 		p("\">\n" + 
 "                        </div>\n" + 
@@ -117,12 +112,11 @@ p("\n" +
 "                    <div class=\"form-group\">\n" + 
 "                        <label class=\"control-label\" for=\"newPassword\">");// line 24, japidviews\Application\profile\Password.html
 		;p(getMessage("password.again"));// line 28, japidviews\Application\profile\Password.html
-		p("\n" + 
-"                            </label>\n" + 
+		p("                            </label>\n" + 
 "\n" + 
 "                        <div class=\"controls\">\n" + 
 "                            <input type=\"password\" id=\"newPassword\" name=\"newPassword\"\n" + 
-"                                   class=\"col-md-10\" placeholder=\"");// line 28, japidviews\Application\profile\Password.html
+"                                   class=\"col-lg-10\" placeholder=\"");// line 28, japidviews\Application\profile\Password.html
 		;p(getMessage("password.again"));// line 33, japidviews\Application\profile\Password.html
 		p("\">\n" + 
 "                        </div>\n" + 
@@ -130,12 +124,11 @@ p("\n" +
 "                    <div class=\"form-group\">\n" + 
 "                        <label class=\"control-label\" for=\"reNewPassword\">");// line 33, japidviews\Application\profile\Password.html
 		;p(getMessage("password.again.repeat"));// line 37, japidviews\Application\profile\Password.html
-		p("\n" + 
-"                            </label>\n" + 
+		p("                            </label>\n" + 
 "\n" + 
 "                        <div class=\"controls\">\n" + 
 "                            <input type=\"password\" id=\"reNewPassword\" name=\"reNewPassword\"\n" + 
-"                                   class=\"col-md-10\" placeholder=\"");// line 37, japidviews\Application\profile\Password.html
+"                                   class=\"col-lg-10\" placeholder=\"");// line 37, japidviews\Application\profile\Password.html
 		;p(getMessage("password.again.repeat"));// line 42, japidviews\Application\profile\Password.html
 		p("\">\n" + 
 "                        </div>\n" + 
@@ -146,8 +139,7 @@ p("\n" +
 "                            <button type=\"submit\" class=\"btn\">\n" + 
 "                                ");// line 42, japidviews\Application\profile\Password.html
 		;p(getMessage("save.change"));// line 49, japidviews\Application\profile\Password.html
-		p("\n" + 
-"                            </button>\n" + 
+		p("                            </button>\n" + 
 "                        </div>\n" + 
 "                    </div>\n" + 
 "\n" + 

@@ -23,7 +23,7 @@
     </div>
     <div class="col col_13 ">
         <div class="row-fluid well profile_right">
-            <div class="col-md-11  ">
+            <div class="col-lg-11  ">
 
 
                 <form class="form-horizontal" method="post" id="equipmentForm"
@@ -46,10 +46,10 @@
                     <div class="form-group" id="equipmentForms">
                         `for(Camera c : cameras){`
                         <div>
-                            <div class="input-group col-md-11">
+                            <div class="input-group col-lg-11">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-${c.type}"></i></span>
                                 <input
-                                        class=" col-md-11" name="_${c.type}" id="_${c.type}" type="text"
+                                        class=" col-lg-11" name="_${c.type}" id="_${c.type}" type="text"
                                         value="${c.equipment}">
                                 <button class="btn" type="button">
                                     &{delete}
@@ -59,36 +59,36 @@
                         </div>
                         `}` `if(cameras.size()==0){`
                         <div>
-                            <div class="input-group col-md-11">
+                            <div class="input-group col-lg-11">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
                                 <input
-                                        class=" col-md-11" name="camera" id="camera" type="text"
+                                        class=" col-lg-11" name="camera" id="camera" type="text"
                                         placeholder="&{camera.camera}">
                             </div>
 
                         </div>
                         <div>
-                            <div class="input-group col-md-11">
+                            <div class="input-group col-lg-11">
 
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-eye-open"></i></span>
                                 <input
-                                        class="col-md-11" name="lens" id="lens" type="text"
+                                        class="col-lg-11" name="lens" id="lens" type="text"
                                         placeholder="&{camera.lens}">
                             </div>
                         </div>
                         <div>
-                            <div class="input-group col-md-11">
+                            <div class="input-group col-lg-11">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-glass"></i></span>
                                 <input
-                                        class="col-md-11 " name="tripod" id="tripod" type="text"
+                                        class="col-lg-11 " name="tripod" id="tripod" type="text"
                                         placeholder="&{camera.tripod}">
                             </div>
                         </div>
                         <div>
-                            <div class="input-group col-md-11">
+                            <div class="input-group col-lg-11">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-filter"></i></span>
                                 <input
-                                        class="col-md-11 " name="filter" id="filter" type="text"
+                                        class="col-lg-11 " name="filter" id="filter" type="text"
                                         placeholder="&{camera.filter}">
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                 </form>
 
             </div>
-            <div class="col-md-5"></div>
+            <div class="col-lg-5"></div>
         </div>
 
     </div>
@@ -116,7 +116,7 @@
 <script id="camera_tml" type="text/x-tmpl">
 
     <div>
-        <div class="input-group col-md-11">
+        <div class="input-group col-lg-11">
             <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span> <input class=" span11" name="camera" id="camera"
                                                                            type="text" placeholder="&{camera.camera}">
         </div>
@@ -126,7 +126,7 @@
 <script id="lens_tml" type="text/x-tmpl">
 
     <div>
-        <div class="input-group col-md-11">
+        <div class="input-group col-lg-11">
 
             <span class="input-group-addon"><i class="glyphicon glyphicon-eye-open"></i></span> <input class="span11" name="lens" id="lens"
                                                                              type="text" placeholder="&{camera.lens}">
@@ -138,7 +138,7 @@
 <script id="tripod_tml" type="text/x-tmpl">
 
     <div>
-        <div class="input-group col-md-11">
+        <div class="input-group col-lg-11">
             <span class="input-group-addon"><i class="glyphicon glyphicon-glass"></i></span> <input class="span11 " name="tripod" id="tripod"
                                                                           type="text" placeholder="&{camera.tripod}">
         </div>
@@ -149,7 +149,7 @@
 <script id="filter_tml" type="text/x-tmpl">
 
     <div>
-        <div class="input-group col-md-11">
+        <div class="input-group col-lg-11">
             <span class="input-group-addon"><i class="glyphicon glyphicon-filter"></i></span> <input class="span11 " name="filter" id="filter"
                                                                            type="text" placeholder="&{camera.filter}">
         </div>

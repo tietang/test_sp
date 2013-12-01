@@ -38,13 +38,13 @@
         </div>
         <div class="line6"></div>
         <div class="row ">
-            <div class="col-md-7">
+            <div class="col-lg-7">
                 <button class="btn btn-xs" type="button">
                     &nbsp;&nbsp; I want to buy this
                     photo! &nbsp;&nbsp;
                 </button>
             </div>
-            <div class="col-md-5">
+            <div class="col-lg-5">
                 <!-- JiaThis Button BEGIN
                 <div class="jiathis_style">
                 <a class="jiathis_button_qzone"></a> <a class="jiathis_button_tsina"></a> <a
@@ -103,11 +103,11 @@
     <!-- user info -->
     <div class="col col_4 ">
         <div class="row stat left_rounded6 shadow ">
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <img width="90" height="90" class="img-rounded"
                      src="${fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(photo.idUser)}">
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <p>
                     ${photo.user.niceName}
                 </p>
@@ -127,13 +127,13 @@
 
         <div class="row  ">
             <button id="vote_btn"
-                    class="btn `if(isVote){`disabled`}else{` btn-success `}` col-md-10  btn-xs " type="button"
+                    class="btn `if(isVote){`disabled`}else{` btn-success `}` col-lg-10  btn-xs " type="button"
                     isvote="${isVote}">
                 `if(isVote){`Thank you for voting!`}else{`Like`}`
             </button>
 
             <button id="favorite_btn" title="`if(isFavorite){`Cancel favorite?`}else{`Favorite`}`"
-                    class="btn favorite `if(isFavorite){`favorited`}else{`unfavorited`}` col-md-2 btn-xs" type="button"
+                    class="btn favorite `if(isFavorite){`favorited`}else{`unfavorited`}` col-lg-2 btn-xs" type="button"
                     isfavorite="${isFavorite}">
                 &#10084;
             </button>
@@ -141,18 +141,18 @@
         </div>
         <div class="line6"></div>
         <div class="row border-bottom shadow rounded6">
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <div id="description" class="photo_stats border-bottom">
                     ${photo.description}
                 </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <div id="tags" class="photo_stats border-bottom">
                     <span>${photo.tags}<i class=" glyphicon glyphicon-tags"></i>tags1 </span><span><i
                         class=" glyphicon glyphicon-tags"></i>tags2</span><span><i class=" glyphicon glyphicon-tags"></i>tags3</span>
                 </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <div id="exif" class="exif_info ">
                     <ul>
                         `Set sets = exif.entrySet();`
@@ -168,12 +168,12 @@
             </div>
         </div>
         <div class="row border-bottom shadow rounded6 show_map">
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <div id="address">
 
                 </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <div id="map_show_canvas" lat="${photo.GPSLatitude}" lng="${photo.GPSLongitude}" class="show_map">
 
                 </div>

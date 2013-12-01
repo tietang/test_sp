@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews.Application;
 import java.util.*;
 import java.io.*;
@@ -69,7 +68,7 @@ public class Login1 extends japidviews._layouts.Layout
 
 	public cn.bran.japid.template.RenderResult render() {
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/Login1.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 0, japidviews/Application/Login1.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -87,7 +86,7 @@ public class Login1 extends japidviews._layouts.Layout
 "\n" + 
 "		<div class=\"row\">\n" + 
 "\n" + 
-"			<div class=\"col-md-6\">\n" + 
+"			<div class=\"col-lg-6\">\n" + 
 "				<h3>Login to your account</h3>\n" + 
 "				<div class=\"form-group\">\n" + 
 "					<div class=\"controls\">\n" + 
@@ -111,7 +110,7 @@ public class Login1 extends japidviews._layouts.Layout
 "					</div>\n" + 
 "				</div>\n" + 
 "			</div>\n" + 
-"			<div class=\"col-md-6\">\n" + 
+"			<div class=\"col-lg-6\">\n" + 
 "\n" + 
 "				<form class=\"form-horizontal\"  method=\"post\" action=\"/login");// line 9, japidviews\Application\Login1.html
 		p(flash.get("cpage"));// line 41, japidviews\Application\Login1.html
@@ -122,20 +121,17 @@ public class Login1 extends japidviews._layouts.Layout
 "					");// line 41, japidviews\Application\Login1.html
 		if(asBoolean(asBoolean(flash.get("error")))) {// line 45, japidviews\Application\Login1.html
 		p("\n" + 
-"\n" + 
 "					<div class=\"alert alert-danger form-group\">\n" + 
 "						<button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 
 "							&times;\n" + 
 "						</button>\n" + 
 "						");// line 45, japidviews\Application\Login1.html
 		p(flash.get("error"));// line 51, japidviews\Application\Login1.html
-		p("\n" + 
-"					</div>\n" + 
+		p("					</div>\n" + 
 "\n" + 
 "					");// line 51, japidviews\Application\Login1.html
 		}// line 54, japidviews\Application\Login1.html
-		p("\n" + 
-"					<div class=\"input_control_group\">\n" + 
+		p("					<div class=\"input_control_group\">\n" + 
 "						Login with your username or email\n" + 
 "					</div>\n" + 
 "					<div class=\"input_control_group\">\n" + 

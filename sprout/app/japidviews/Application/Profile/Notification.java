@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews.Application.profile;
 import java.util.*;
 import java.io.*;
@@ -71,7 +70,7 @@ public class Notification extends japidviews._layouts.Layout
 	public cn.bran.japid.template.RenderResult render(String checks) {
 		this.checks = checks;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 3, japidviews/Application/profile/Notification.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 3, japidviews/Application/profile/Notification.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -83,21 +82,18 @@ public class Notification extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 p("\n");// line 1, japidviews\Application\profile\Notification.html
-
 p("\n" + 
-"\n" + 
 "<div class=\"grid_row\">\n" + 
 "\n" + 
 "    <div class=\"col col_3 \">\n" + 
 "        <div class=\"sidebar-nav \">\n" + 
 "            ");// line 5, japidviews\Application\profile\Notification.html
 		final SettingsMenu _SettingsMenu2 = new SettingsMenu(getOut()); _SettingsMenu2.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu2.render("Notifications"); // line 11, japidviews\Application\profile\Notification.html// line 11, japidviews\Application\profile\Notification.html
-		p("\n" + 
-"        </div>\n" + 
+		p("        </div>\n" + 
 "    </div>\n" + 
 "    <div class=\"col col_13 \">\n" + 
 "        <div class=\"row-fluid well profile_right\">\n" + 
-"            <div class=\"col-md-8  \">\n" + 
+"            <div class=\"col-lg-8  \">\n" + 
 "\n" + 
 "                <form id=\"notifyForm\" class=\"form-horizontal\" action=\"/settings/notification/done\" method=\"post\">\n" + 
 "\n" + 
@@ -213,8 +209,7 @@ p("\n" +
 "                            <button type=\"submit\" class=\"btn\">\n" + 
 "                                ");// line 102, japidviews\Application\profile\Notification.html
 		;p(getMessage("save.change"));// line 108, japidviews\Application\profile\Notification.html
-		p("\n" + 
-"                            </button>\n" + 
+		p("                            </button>\n" + 
 "                        </div>\n" + 
 "                    </div>\n" + 
 "\n" + 

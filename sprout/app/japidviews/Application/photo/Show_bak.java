@@ -113,14 +113,14 @@ public class Show_bak extends japidviews._layouts.Layout
 "        </div>\n" + 
 "        <div class=\"line6\"></div>\n" + 
 "        <div class=\"row \">\n" + 
-"            <div class=\"col-md-7\">\n" + 
+"            <div class=\"col-lg-7\">\n" + 
 "                <button class=\"btn btn-xs\" type=\"button\">\n" + 
 "                    &nbsp;&nbsp; ");// line 41, japidviews\Application\photo\Show_bak.html
 		;p(getMessage("i.wanna.buy.photo"));// line 47, japidviews\Application\photo\Show_bak.html
 		p("&nbsp;&nbsp;\n" + 
 "                </button>\n" + 
 "            </div>\n" + 
-"            <div class=\"col-md-5\">\n" + 
+"            <div class=\"col-lg-5\">\n" + 
 "                <!-- Baidu Button BEGIN -->\n" + 
 "                <div id=\"bdshare\" class=\"bdshare_t bds_tools get-codes-bdshare\">\n" + 
 "                    <a class=\"bds_tsina\"></a>\n" + 
@@ -210,13 +210,13 @@ public class Show_bak extends japidviews._layouts.Layout
 "    <!-- user info -->\n" + 
 "    <div class=\"col col_4 \">\n" + 
 "        <div class=\"row stat left_rounded6 shadow \">\n" + 
-"            <div class=\"col-md-6\">\n" + 
+"            <div class=\"col-lg-6\">\n" + 
 "                <img width=\"90\" height=\"90\" class=\"img-rounded\"\n" + 
 "                     src=\"");// line 106, japidviews\Application\photo\Show_bak.html
 		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(photo.idUser)); } catch (NullPointerException npe) {}// line 121, japidviews\Application\photo\Show_bak.html
 		p("\">\n" + 
 "            </div>\n" + 
-"            <div class=\"col-md-6\">\n" + 
+"            <div class=\"col-lg-6\">\n" + 
 "                <p>\n" + 
 "                    ");// line 121, japidviews\Application\photo\Show_bak.html
 		try { p(photo.user.niceName); } catch (NullPointerException npe) {}// line 125, japidviews\Application\photo\Show_bak.html
@@ -248,7 +248,7 @@ public class Show_bak extends japidviews._layouts.Layout
 		p("        <div class=\"line6\"></div>\n" + 
 "\n" + 
 "        <div class=\"row  \">\n" + 
-"            <div class=\"btn-group col-md-12\">\n" + 
+"            <div class=\"btn-group col-lg-12\">\n" + 
 "                <button id=\"vote_btn\"\n" + 
 "                        class=\"btn ");// line 138, japidviews\Application\photo\Show_bak.html
 		if(isVote){// line 144, japidviews\Application\photo\Show_bak.html
@@ -256,7 +256,7 @@ public class Show_bak extends japidviews._layouts.Layout
 		}else{// line 144, japidviews\Application\photo\Show_bak.html
 		p(" btn-success ");// line 144, japidviews\Application\photo\Show_bak.html
 		}// line 144, japidviews\Application\photo\Show_bak.html
-		p("  btn-xs  col-md-10 pull-left\"\n" + 
+		p("  btn-xs  col-lg-10 pull-left\"\n" + 
 "                        type=\"button\"\n" + 
 "                        isvote=\"");// line 144, japidviews\Application\photo\Show_bak.html
 		try { p(isVote); } catch (NullPointerException npe) {}// line 146, japidviews\Application\photo\Show_bak.html
@@ -289,7 +289,7 @@ public class Show_bak extends japidviews._layouts.Layout
 		}else{// line 150, japidviews\Application\photo\Show_bak.html
 		p("unfavorited");// line 150, japidviews\Application\photo\Show_bak.html
 		}// line 150, japidviews\Application\photo\Show_bak.html
-		p(" ico_favorite btn-xs col-md-2\n" + 
+		p(" ico_favorite btn-xs col-lg-2\n" + 
 "                pull-right\" type=\"button\"\n" + 
 "                        isfavorite=\"");// line 150, japidviews\Application\photo\Show_bak.html
 		try { p(isFavorite); } catch (NullPointerException npe) {}// line 152, japidviews\Application\photo\Show_bak.html
@@ -301,7 +301,7 @@ public class Show_bak extends japidviews._layouts.Layout
 "        <div class=\"row border-bottom shadow rounded6\">\n" + 
 "            ");// line 152, japidviews\Application\photo\Show_bak.html
 		if(photo.description!=null && !"".equals(photo.description)){// line 158, japidviews\Application\photo\Show_bak.html
-		p("            <div class=\"col-md-12\">\n" + 
+		p("            <div class=\"col-lg-12\">\n" + 
 "                <div id=\"description\" class=\"photo_stats border-bottom\">\n" + 
 "                    ");// line 158, japidviews\Application\photo\Show_bak.html
 		try { p(photo.description); } catch (NullPointerException npe) {}// line 161, japidviews\Application\photo\Show_bak.html
@@ -312,7 +312,7 @@ public class Show_bak extends japidviews._layouts.Layout
 		}// line 165, japidviews\Application\photo\Show_bak.html
 
             if(photo.tagList!=null){// line 167, japidviews\Application\photo\Show_bak.html
-		p("            <div class=\"col-md-12\">\n" + 
+		p("            <div class=\"col-lg-12\">\n" + 
 "                <div id=\"tags\" class=\"photo_stats border-bottom\">\n" + 
 "                    ");// line 167, japidviews\Application\photo\Show_bak.html
 		for(String tag:photo.tagList){// line 170, japidviews\Application\photo\Show_bak.html
@@ -327,7 +327,7 @@ public class Show_bak extends japidviews._layouts.Layout
 "            ");// line 172, japidviews\Application\photo\Show_bak.html
 		}// line 176, japidviews\Application\photo\Show_bak.html
 		p("\n" + 
-"            <div class=\"col-md-12\">\n" + 
+"            <div class=\"col-lg-12\">\n" + 
 "                <div id=\"exif\" class=\"exif_info \">\n" + 
 "                    <ul>\n" + 
 "                        ");// line 176, japidviews\Application\photo\Show_bak.html
@@ -353,7 +353,7 @@ public class Show_bak extends japidviews._layouts.Layout
 "\n" + 
 "        <div class=\"row border-bottom show_map\">\n" + 
 "\n" + 
-"            <div class=\"col-md-12\">\n" + 
+"            <div class=\"col-lg-12\">\n" + 
 "                <div id=\"map_show_canvas\" lat=\"");// line 190, japidviews\Application\photo\Show_bak.html
 		try { p(photo.GPSLatitude); } catch (NullPointerException npe) {}// line 199, japidviews\Application\photo\Show_bak.html
 		p("\" lng=\"");// line 199, japidviews\Application\photo\Show_bak.html
@@ -362,7 +362,7 @@ public class Show_bak extends japidviews._layouts.Layout
 "                     class=\"show_map_canvas shadow rounded6\"></div>\n" + 
 "            </div>\n" + 
 "\n" + 
-"            <div class=\"col-md-12\">\n" + 
+"            <div class=\"col-lg-12\">\n" + 
 "                <div id=\"address\">\n" + 
 "\n" + 
 "                </div>\n" + 

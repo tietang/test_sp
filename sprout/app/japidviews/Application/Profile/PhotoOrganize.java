@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews.Application.profile;
 import java.util.*;
 import java.io.*;
@@ -73,7 +72,7 @@ public class PhotoOrganize extends cn.bran.play.JapidTemplateBase
 	public cn.bran.japid.template.RenderResult render(List<PhotoSet> photoSets) {
 		this.photoSets = photoSets;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 5, japidviews/Application/profile/PhotoOrganize.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 5, japidviews/Application/profile/PhotoOrganize.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -86,14 +85,12 @@ public class PhotoOrganize extends cn.bran.play.JapidTemplateBase
 //------
 p("<pre style=\"display: none\">\n" + 
 "	\n");// line 1, japidviews\Application\profile\PhotoOrganize.html
-
 p("\n" + 
-"\n" + 
 "</pre>\n" + 
 "<div class=\"row-fluid \" >\n" + 
 "	<div>\n" + 
 "		<form class=\"form-inline\">\n" + 
-"			<input name=\"set\" id=\"set1\"  type=\"text\" placeholder=\"Set Name\" class=\"col-md-10\"/>\n" + 
+"			<input name=\"set\" id=\"set1\"  type=\"text\" placeholder=\"Set Name\" class=\"col-lg-10\"/>\n" + 
 "			<input name=\"idSet\" id=\"idSet1\"  type=\"hidden\" placeholder=\"Set Name\"  />\n" + 
 "			<button type=\"button\" class=\"btn\"   onclick=\"addPhotoSetEvent();\">\n" + 
 "				Save\n" + 
@@ -107,8 +104,7 @@ p("\n" +
 "		<div>\n" + 
 "			");// line 5, japidviews\Application\profile\PhotoOrganize.html
 		p(flash.get("error"));// line 23, japidviews\Application\profile\PhotoOrganize.html
-		p("\n" + 
-"		</div>\n" + 
+		p("		</div>\n" + 
 "		<table class=\"table table-hover\" >\n" + 
 "			<thead>\n" + 
 "				<tr>\n" + 
@@ -118,10 +114,8 @@ p("\n" +
 "			<tbody>\n" + 
 "				");// line 23, japidviews\Application\profile\PhotoOrganize.html
 		if(photoSets!=null){// line 32, japidviews\Application\profile\PhotoOrganize.html
-
 				for(PhotoSet set:photoSets){// line 33, japidviews\Application\profile\PhotoOrganize.html
-		p("\n" + 
-"				<tr>\n" + 
+		p("				<tr>\n" + 
 "					<td onclick=\"setPhotoSetValue(this)\" id_set=\"");// line 33, japidviews\Application\profile\PhotoOrganize.html
 		p(set.idSet);// line 35, japidviews\Application\profile\PhotoOrganize.html
 		p("\" name_set=\"");// line 35, japidviews\Application\profile\PhotoOrganize.html
@@ -133,10 +127,8 @@ p("\n" +
 "\n" + 
 "				");// line 35, japidviews\Application\profile\PhotoOrganize.html
 		}// line 38, japidviews\Application\profile\PhotoOrganize.html
-
 				}// line 39, japidviews\Application\profile\PhotoOrganize.html
-		p("\n" + 
-"			</tbody>\n" + 
+		p("			</tbody>\n" + 
 "		</table>\n" + 
 "\n" + 
 "	</div>\n" + 

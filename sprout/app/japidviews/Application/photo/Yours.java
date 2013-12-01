@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -89,7 +88,7 @@ public class Yours extends japidviews._layouts.Layout
 		this.sourceCount = sourceCount;
 		this.rank = rank;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 5, japidviews/Application/photo/Yours.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 5, japidviews/Application/photo/Yours.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -101,7 +100,6 @@ public class Yours extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Yours.html
-
 // line 8, japidviews\Application\photo\Yours.html
 		p("</pre>\n" + 
 "\n");// line 9, japidviews\Application\photo\Yours.html
@@ -112,17 +110,16 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "\n" + 
 "\n" + 
 "\n" + 
-"\n" + 
 "<div class=\"grid_row yours\">\n" + 
 "	<div class=\"col col_4\">\n" + 
 "		<div class=\"row card \"  >\n" + 
-"			<div class=\"col-md-6 first\">\n" + 
+"			<div class=\"col-lg-6 first\">\n" + 
 "				<img width=\"95\" height=\"95\" class=\"img-rounded\"\n" + 
 "				src=\"");// line 12, japidviews\Application\photo\Yours.html
 		p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(user.idUser));// line 24, japidviews\Application\photo\Yours.html
 		p("\">\n" + 
 "			</div>\n" + 
-"			<div class=\"col-md-6\">\n" + 
+"			<div class=\"col-lg-6\">\n" + 
 "				<div class=\" \">\n" + 
 "					<div>\n" + 
 "						<strong>");// line 24, japidviews\Application\photo\Yours.html
@@ -134,7 +131,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "					</div>\n" + 
 "				</div>\n" + 
 "			</div>\n" + 
-"			<div class=\"col-md-12 first\" >\n" + 
+"			<div class=\"col-lg-12 first\" >\n" + 
 "				<div class=\"line10 hr1\"></div>\n" + 
 "				<div class=\"line10\"></div>\n" + 
 "				个人介绍\n" + 
@@ -142,7 +139,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "		</div>\n" + 
 "\n" + 
 "		<div class=\"row card \">\n" + 
-"			<div class=\"col-md-6 affection\">\n" + 
+"			<div class=\"col-lg-6 affection\">\n" + 
 "				<div>\n" + 
 "					<strong>");// line 29, japidviews\Application\photo\Yours.html
 		p(rank.affection);// line 46, japidviews\Application\photo\Yours.html
@@ -152,7 +149,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "					Affection\n" + 
 "				</div>\n" + 
 "			</div>\n" + 
-"			<div class=\"col-md-6 photo_stats\">\n" + 
+"			<div class=\"col-lg-6 photo_stats\">\n" + 
 "				<ul >\n" + 
 "\n" + 
 "					<li title=\"Views\">\n" + 
@@ -182,8 +179,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "		<div class=\" card map \"  >\n" + 
 "			");// line 65, japidviews\Application\photo\Yours.html
 		String location=user.toLocation();if(location.length()<=6) location="chengdu, China";// line 72, japidviews\Application\photo\Yours.html
-		p("\n" + 
-"			<a href=\"http://maps.google.com/maps?spn=0.1,0.1&t=m&z=10&q=");// line 72, japidviews\Application\photo\Yours.html
+		p("			<a href=\"http://maps.google.com/maps?spn=0.1,0.1&t=m&z=10&q=");// line 72, japidviews\Application\photo\Yours.html
 		p(location);// line 73, japidviews\Application\photo\Yours.html
 		p("\" target=\"_blank\"> <img alt=\"Staticmap?size=280x100&amp;sensor=false&amp;zoom=6&amp;markers");// line 73, japidviews\Application\photo\Yours.html
 		p(location);// line 73, japidviews\Application\photo\Yours.html
@@ -199,10 +195,8 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "			<div class=\"onerow\">\n" + 
 "				");// line 77, japidviews\Application\photo\Yours.html
 		if(targets!=null){// line 79, japidviews\Application\photo\Yours.html
-
 				for(long id: targets){// line 80, japidviews\Application\photo\Yours.html
-		p("\n" + 
-"				<div class=\"col3\"><img class=\"img-rounded\"\n" + 
+		p("				<div class=\"col3\"><img class=\"img-rounded\"\n" + 
 "					src=\"");// line 80, japidviews\Application\photo\Yours.html
 		p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(id));// line 82, japidviews\Application\photo\Yours.html
 		p("\">\n" + 
@@ -210,10 +204,8 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "\n" + 
 "				");// line 82, japidviews\Application\photo\Yours.html
 		}// line 85, japidviews\Application\photo\Yours.html
-
 				}// line 86, japidviews\Application\photo\Yours.html
 		p("\n" + 
-"\n" + 
 "			</div>\n" + 
 "		</div>\n" + 
 "		<div class=\"card \">\n" + 
@@ -223,10 +215,8 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "			<div class=\"onerow\">\n" + 
 "				");// line 91, japidviews\Application\photo\Yours.html
 		if(sources!=null){// line 93, japidviews\Application\photo\Yours.html
-
 				for(Long id: sources){// line 94, japidviews\Application\photo\Yours.html
-		p("\n" + 
-"				<div class=\"col3\"><img class=\"img-rounded\"\n" + 
+		p("				<div class=\"col3\"><img class=\"img-rounded\"\n" + 
 "					src=\"");// line 94, japidviews\Application\photo\Yours.html
 		p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(id));// line 96, japidviews\Application\photo\Yours.html
 		p("\">\n" + 
@@ -234,10 +224,8 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "\n" + 
 "				");// line 96, japidviews\Application\photo\Yours.html
 		}// line 99, japidviews\Application\photo\Yours.html
-
 				}// line 100, japidviews\Application\photo\Yours.html
 		p("\n" + 
-"\n" + 
 "			</div>\n" + 
 "		</div>\n" + 
 "		<div class=\"card \">\n" + 
@@ -263,12 +251,9 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "	</div>\n" + 
 "	");// line 114, japidviews\Application\photo\Yours.html
 		String action=fengfei.spruce.utils.WebUtils.getLastUrlWord(request.url);// line 119, japidviews\Application\photo\Yours.html
-
 	Map actions=new HashMap();// line 120, japidviews\Application\photo\Yours.html
-
 	actions.put(action,"class=\"active\"");// line 121, japidviews\Application\photo\Yours.html
-		p("\n" + 
-"	<div class=\"col col_12 yours\">\n" + 
+		p("	<div class=\"col col_12 yours\">\n" + 
 "		<div class=\"onerow\" >\n" + 
 "			<div class=\"col20 nav_title  \" >\n" + 
 "				<ul class=\"nav nav-pills \">\n" + 
@@ -306,8 +291,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "		<div class=\"grid_row  previews\">\n" + 
 "			");// line 138, japidviews\Application\photo\Yours.html
 		for(PhotoShow photo : photos){// line 148, japidviews\Application\photo\Yours.html
-		p("\n" + 
-"			<div class=\"col photo_col width_3\">\n" + 
+		p("			<div class=\"col photo_col width_3\">\n" + 
 "				<div class=\"photo_preview photo_preview_3\" >\n" + 
 "					<a href=\"/show/");// line 148, japidviews\Application\photo\Yours.html
 		p(photo.idPhoto);// line 151, japidviews\Application\photo\Yours.html
@@ -333,8 +317,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "						<div class=\"score\">\n" + 
 "							");// line 154, japidviews\Application\photo\Yours.html
 		p(photo.sscore);// line 157, japidviews\Application\photo\Yours.html
-		p("\n" + 
-"						</div>\n" + 
+		p("						</div>\n" + 
 "					</div>\n" + 
 "\n" + 
 "				</div>\n" + 
@@ -342,7 +325,6 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "			");// line 157, japidviews\Application\photo\Yours.html
 		}// line 163, japidviews\Application\photo\Yours.html
 		p("\n" + 
-"\n" + 
 "		</div>\n" + 
 "		<div class=\" container\">\n" + 
 "			<div class=\"col col_16 pager pagination-right\">\n" + 
@@ -356,15 +338,13 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "					</li>\n" + 
 "					");// line 170, japidviews\Application\photo\Yours.html
 		if(pageNum>=2){// line 172, japidviews\Application\photo\Yours.html
-		p("\n" + 
-"					<li >\n" + 
+		p("					<li >\n" + 
 "						<a href=\"");// line 172, japidviews\Application\photo\Yours.html
 		p(pagePath);// line 174, japidviews\Application\photo\Yours.html
 		p("/1\">First</a>\n" + 
 "					</li>");// line 174, japidviews\Application\photo\Yours.html
 		}// line 175, japidviews\Application\photo\Yours.html
 		p("\n" + 
-"\n" + 
 "					<!--	<li class=\"disabled\"><a href=\"#\">1</a></li>\n" + 
 "					<li><a href=\"#\">2</a></li>\n" + 
 "					<li><a href=\"#\">3</a></li>\n" + 
@@ -372,8 +352,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "					<li><a href=\"#\">5</a></li>-->\n" + 
 "					");// line 175, japidviews\Application\photo\Yours.html
 		if(photos.size()>=20){// line 182, japidviews\Application\photo\Yours.html
-		p("\n" + 
-"					<li>\n" + 
+		p("					<li>\n" + 
 "						<a href=\"");// line 182, japidviews\Application\photo\Yours.html
 		p(pagePath);// line 184, japidviews\Application\photo\Yours.html
 		p("/");// line 184, japidviews\Application\photo\Yours.html
@@ -382,7 +361,6 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\You
 "					</li>");// line 184, japidviews\Application\photo\Yours.html
 		}// line 185, japidviews\Application\photo\Yours.html
 		p("\n" + 
-"\n" + 
 "				</ul>\n" + 
 "			</div>\n" + 
 "		</div>\n" + 

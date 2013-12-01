@@ -41,23 +41,24 @@
 			`if(skey!=null) {key=Byte.parseByte(skey);}`
 			`Object value=kv.get(key);`
 			`if(fengfei.spruce.utils.Browser.isIE67(request)){
-			<div class=" col-md-12" >
-				<select name="category" id="onlyCategoryIe" class="col-md-12">
+			<div class=" col-lg-12" >
+				<select name="category" id="onlyCategoryIe" class="col-lg-12">
 					<option value="${key}">${value}</option>
 					`tag CategorySelectOptions fengfei.spruce.cache.SimpleCache.categories,key`
 				</select>
 			</div>
 			`}else{`
 
-			<div class="btn-group bootstrap-select col-md-12" >
-				<button type="button" class="btn dropdown-toggle btn-inverse col-md-12" data-toggle="dropdown" data-id="onlyCategory1">
+			<div class=" bootstrap-select btn-group col-lg-12" >
+
+
+				<button type="button" class="btn btn-default dropdown-toggle  col-lg-12" data-toggle="dropdown" data-id="onlyCategory1">
 					<div class="filter-option pull-left">
 						${value}
-					</div>
-					&nbsp;<div class="caret"></div>
+					</div>&nbsp;<div class="caret"></div>
 				</button>
 				<div class="dropdown-menu open" style="max-height: 537px; overflow: hidden; min-height: 92px;">
-					<ul class="dropdown-menu inner" role="menu" style="max-height: 525px; overflow-y: auto;">
+					<ul class="dropdown-menu inner"  role="menu" style="max-height: 525px; overflow-y: auto;">
 						`tag CategoryMenus kv,key`
 					</ul>
 				</div>

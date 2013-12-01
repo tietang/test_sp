@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews.Application.profile;
 import java.util.*;
 import java.io.*;
@@ -73,7 +72,7 @@ public class Equipment extends japidviews._layouts.Layout
 	public cn.bran.japid.template.RenderResult render(List<Camera> cameras) {
 		this.cameras = cameras;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 5, japidviews/Application/profile/Equipment.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 5, japidviews/Application/profile/Equipment.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -85,25 +84,21 @@ public class Equipment extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\Equipment.html
-
     p("\n" + 
-"\n" + 
 "\n" + 
 "</pre>\n");// line 7, japidviews\Application\profile\Equipment.html
 		// line 11, japidviews\Application\profile\Equipment.html
-		p("\n" + 
-"<div class=\"grid_row\">\n" + 
+		p("<div class=\"grid_row\">\n" + 
 "\n" + 
 "    <div class=\"col col_3 \">\n" + 
 "        <div class=\"sidebar-nav \">\n" + 
 "            ");// line 15, japidviews\Application\profile\Equipment.html
 		final SettingsMenu _SettingsMenu3 = new SettingsMenu(getOut()); _SettingsMenu3.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu3.render("Camera"); // line 21, japidviews\Application\profile\Equipment.html// line 21, japidviews\Application\profile\Equipment.html
-		p("\n" + 
-"        </div>\n" + 
+		p("        </div>\n" + 
 "    </div>\n" + 
 "    <div class=\"col col_13 \">\n" + 
 "        <div class=\"row-fluid well profile_right\">\n" + 
-"            <div class=\"col-md-11  \">\n" + 
+"            <div class=\"col-lg-11  \">\n" + 
 "\n" + 
 "\n" + 
 "                <form class=\"form-horizontal\" method=\"post\" id=\"equipmentForm\"\n" + 
@@ -113,35 +108,30 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\E
 "                        <button class=\"btn btn-xs\" type=\"button\" id=\"camera\">\n" + 
 "                            ");// line 21, japidviews\Application\profile\Equipment.html
 		;p(getMessage("camera.add.camera"));// line 34, japidviews\Application\profile\Equipment.html
-		p("\n" + 
-"                        </button>\n" + 
+		p("                        </button>\n" + 
 "                        <button class=\"btn btn-xs\" type=\"button\" id=\"lens\">\n" + 
 "                            ");// line 34, japidviews\Application\profile\Equipment.html
 		;p(getMessage("camera.add.lens"));// line 37, japidviews\Application\profile\Equipment.html
-		p("\n" + 
-"                        </button>\n" + 
+		p("                        </button>\n" + 
 "                        <button class=\"btn btn-xs\" type=\"button\" id=\"tripod\">\n" + 
 "                            ");// line 37, japidviews\Application\profile\Equipment.html
 		;p(getMessage("camera.add.tripod"));// line 40, japidviews\Application\profile\Equipment.html
-		p("\n" + 
-"                        </button>\n" + 
+		p("                        </button>\n" + 
 "                        <button class=\"btn btn-xs\" type=\"button\" id=\"filter\">\n" + 
 "                            ");// line 40, japidviews\Application\profile\Equipment.html
 		;p(getMessage("camera.add.filter"));// line 43, japidviews\Application\profile\Equipment.html
-		p("\n" + 
-"                        </button>\n" + 
+		p("                        </button>\n" + 
 "                    </div>\n" + 
 "                    <div class=\"form-group\" id=\"equipmentForms\">\n" + 
 "                        ");// line 43, japidviews\Application\profile\Equipment.html
 		for(Camera c : cameras){// line 47, japidviews\Application\profile\Equipment.html
-		p("\n" + 
-"                        <div>\n" + 
-"                            <div class=\"input-group col-md-11\">\n" + 
+		p("                        <div>\n" + 
+"                            <div class=\"input-group col-lg-11\">\n" + 
 "                                <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-");// line 47, japidviews\Application\profile\Equipment.html
 		p(c.type);// line 50, japidviews\Application\profile\Equipment.html
 		p("\"></i></span>\n" + 
 "                                <input\n" + 
-"                                        class=\" col-md-11\" name=\"_");// line 50, japidviews\Application\profile\Equipment.html
+"                                        class=\" col-lg-11\" name=\"_");// line 50, japidviews\Application\profile\Equipment.html
 		p(c.type);// line 52, japidviews\Application\profile\Equipment.html
 		p("\" id=\"_");// line 52, japidviews\Application\profile\Equipment.html
 		p(c.type);// line 52, japidviews\Application\profile\Equipment.html
@@ -152,20 +142,18 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\E
 "                                <button class=\"btn\" type=\"button\">\n" + 
 "                                    ");// line 53, japidviews\Application\profile\Equipment.html
 		;p(getMessage("delete"));// line 55, japidviews\Application\profile\Equipment.html
-		p("\n" + 
-"                                </button>\n" + 
+		p("                                </button>\n" + 
 "                            </div>\n" + 
 "\n" + 
 "                        </div>\n" + 
 "                        ");// line 55, japidviews\Application\profile\Equipment.html
 		}// line 60, japidviews\Application\profile\Equipment.html
  if(cameras.size()==0){// line 60, japidviews\Application\profile\Equipment.html
-		p("\n" + 
-"                        <div>\n" + 
-"                            <div class=\"input-group col-md-11\">\n" + 
+		p("                        <div>\n" + 
+"                            <div class=\"input-group col-lg-11\">\n" + 
 "                                <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-camera\"></i></span>\n" + 
 "                                <input\n" + 
-"                                        class=\" col-md-11\" name=\"camera\" id=\"camera\" type=\"text\"\n" + 
+"                                        class=\" col-lg-11\" name=\"camera\" id=\"camera\" type=\"text\"\n" + 
 "                                        placeholder=\"");// line 60, japidviews\Application\profile\Equipment.html
 		;p(getMessage("camera.camera"));// line 66, japidviews\Application\profile\Equipment.html
 		p("\">\n" + 
@@ -173,31 +161,31 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\E
 "\n" + 
 "                        </div>\n" + 
 "                        <div>\n" + 
-"                            <div class=\"input-group col-md-11\">\n" + 
+"                            <div class=\"input-group col-lg-11\">\n" + 
 "\n" + 
 "                                <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-eye-open\"></i></span>\n" + 
 "                                <input\n" + 
-"                                        class=\"col-md-11\" name=\"lens\" id=\"lens\" type=\"text\"\n" + 
+"                                        class=\"col-lg-11\" name=\"lens\" id=\"lens\" type=\"text\"\n" + 
 "                                        placeholder=\"");// line 66, japidviews\Application\profile\Equipment.html
 		;p(getMessage("camera.lens"));// line 76, japidviews\Application\profile\Equipment.html
 		p("\">\n" + 
 "                            </div>\n" + 
 "                        </div>\n" + 
 "                        <div>\n" + 
-"                            <div class=\"input-group col-md-11\">\n" + 
+"                            <div class=\"input-group col-lg-11\">\n" + 
 "                                <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-glass\"></i></span>\n" + 
 "                                <input\n" + 
-"                                        class=\"col-md-11 \" name=\"tripod\" id=\"tripod\" type=\"text\"\n" + 
+"                                        class=\"col-lg-11 \" name=\"tripod\" id=\"tripod\" type=\"text\"\n" + 
 "                                        placeholder=\"");// line 76, japidviews\Application\profile\Equipment.html
 		;p(getMessage("camera.tripod"));// line 84, japidviews\Application\profile\Equipment.html
 		p("\">\n" + 
 "                            </div>\n" + 
 "                        </div>\n" + 
 "                        <div>\n" + 
-"                            <div class=\"input-group col-md-11\">\n" + 
+"                            <div class=\"input-group col-lg-11\">\n" + 
 "                                <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-filter\"></i></span>\n" + 
 "                                <input\n" + 
-"                                        class=\"col-md-11 \" name=\"filter\" id=\"filter\" type=\"text\"\n" + 
+"                                        class=\"col-lg-11 \" name=\"filter\" id=\"filter\" type=\"text\"\n" + 
 "                                        placeholder=\"");// line 84, japidviews\Application\profile\Equipment.html
 		;p(getMessage("camera.filter"));// line 92, japidviews\Application\profile\Equipment.html
 		p("\">\n" + 
@@ -206,7 +194,6 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\E
 "                        ");// line 92, japidviews\Application\profile\Equipment.html
 		}// line 95, japidviews\Application\profile\Equipment.html
 		p("\n" + 
-"\n" + 
 "                    </div>\n" + 
 "\n" + 
 "                    <div class=\"form-group\">\n" + 
@@ -214,15 +201,14 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\E
 "                            <button type=\"submit\" class=\"btn\">\n" + 
 "                                ");// line 95, japidviews\Application\profile\Equipment.html
 		;p(getMessage("save.change"));// line 102, japidviews\Application\profile\Equipment.html
-		p("\n" + 
-"                            </button>\n" + 
+		p("                            </button>\n" + 
 "                        </div>\n" + 
 "                    </div>\n" + 
 "\n" + 
 "                </form>\n" + 
 "\n" + 
 "            </div>\n" + 
-"            <div class=\"col-md-5\"></div>\n" + 
+"            <div class=\"col-lg-5\"></div>\n" + 
 "        </div>\n" + 
 "\n" + 
 "    </div>\n" + 
@@ -231,7 +217,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\E
 "<script id=\"camera_tml\" type=\"text/x-tmpl\">\n" + 
 "\n" + 
 "    <div>\n" + 
-"        <div class=\"input-group col-md-11\">\n" + 
+"        <div class=\"input-group col-lg-11\">\n" + 
 "            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-camera\"></i></span> <input class=\" span11\" name=\"camera\" id=\"camera\"\n" + 
 "                                                                           type=\"text\" placeholder=\"");// line 102, japidviews\Application\profile\Equipment.html
 		;p(getMessage("camera.camera"));// line 121, japidviews\Application\profile\Equipment.html
@@ -243,7 +229,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\E
 "<script id=\"lens_tml\" type=\"text/x-tmpl\">\n" + 
 "\n" + 
 "    <div>\n" + 
-"        <div class=\"input-group col-md-11\">\n" + 
+"        <div class=\"input-group col-lg-11\">\n" + 
 "\n" + 
 "            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-eye-open\"></i></span> <input class=\"span11\" name=\"lens\" id=\"lens\"\n" + 
 "                                                                             type=\"text\" placeholder=\"");// line 121, japidviews\Application\profile\Equipment.html
@@ -257,7 +243,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\E
 "<script id=\"tripod_tml\" type=\"text/x-tmpl\">\n" + 
 "\n" + 
 "    <div>\n" + 
-"        <div class=\"input-group col-md-11\">\n" + 
+"        <div class=\"input-group col-lg-11\">\n" + 
 "            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-glass\"></i></span> <input class=\"span11 \" name=\"tripod\" id=\"tripod\"\n" + 
 "                                                                          type=\"text\" placeholder=\"");// line 132, japidviews\Application\profile\Equipment.html
 		;p(getMessage("camera.tripod"));// line 143, japidviews\Application\profile\Equipment.html
@@ -270,7 +256,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\E
 "<script id=\"filter_tml\" type=\"text/x-tmpl\">\n" + 
 "\n" + 
 "    <div>\n" + 
-"        <div class=\"input-group col-md-11\">\n" + 
+"        <div class=\"input-group col-lg-11\">\n" + 
 "            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-filter\"></i></span> <input class=\"span11 \" name=\"filter\" id=\"filter\"\n" + 
 "                                                                           type=\"text\" placeholder=\"");// line 143, japidviews\Application\profile\Equipment.html
 		;p(getMessage("camera.filter"));// line 154, japidviews\Application\profile\Equipment.html

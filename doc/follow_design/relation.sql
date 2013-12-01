@@ -16,10 +16,38 @@ Date: 2013-05-09 10:23:58
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `metadata_1_followed`
+-- Table structure for metadata_1_followed
 -- ----------------------------
 DROP TABLE IF EXISTS `metadata_1_followed`;
 CREATE TABLE `metadata_1_followed` (
+  `source_id` int(10) unsigned NOT NULL,
+  `type` tinyint(4) NOT NULL,
+  `count` int(10) unsigned NOT NULL,
+  `state` tinyint(4) unsigned NOT NULL,
+  `updated_at` bigint(20) unsigned NOT NULL,
+  `created_at` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`source_id`,`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='negative direction';
+
+-- ----------------------------
+-- Table structure for metadata_1_following
+-- ----------------------------
+DROP TABLE IF EXISTS `metadata_1_following`;
+CREATE TABLE `metadata_1_following` (
+  `source_id` int(10) unsigned NOT NULL,
+  `type` tinyint(4) NOT NULL,
+  `count` int(10) unsigned NOT NULL,
+  `state` tinyint(4) unsigned NOT NULL,
+  `updated_at` bigint(20) unsigned NOT NULL,
+  `created_at` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`source_id`,`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='positive direction';
+
+-- ----------------------------
+-- Table structure for metadata_2_followed
+-- ----------------------------
+DROP TABLE IF EXISTS `metadata_2_followed`;
+CREATE TABLE `metadata_2_followed` (
   `source_id` int(10) unsigned NOT NULL,
   `type` tinyint(4) NOT NULL,
   `count` int(10) unsigned NOT NULL,
@@ -30,14 +58,10 @@ CREATE TABLE `metadata_1_followed` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='negative direction';
 
 -- ----------------------------
--- Records of metadata_1_followed
+-- Table structure for metadata_2_following
 -- ----------------------------
-
--- ----------------------------
--- Table structure for `metadata_1_following`
--- ----------------------------
-DROP TABLE IF EXISTS `metadata_1_following`;
-CREATE TABLE `metadata_1_following` (
+DROP TABLE IF EXISTS `metadata_2_following`;
+CREATE TABLE `metadata_2_following` (
   `source_id` int(10) unsigned NOT NULL,
   `type` tinyint(4) NOT NULL,
   `count` int(10) unsigned NOT NULL,
@@ -45,7 +69,7 @@ CREATE TABLE `metadata_1_following` (
   `updated_at` bigint(20) unsigned NOT NULL,
   `created_at` int(10) unsigned NOT NULL,
   PRIMARY KEY (`source_id`,`type`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='positive direction';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='negative direction';
 
 -- ----------------------------
 -- Records of metadata_1_following
@@ -62,7 +86,7 @@ CREATE TABLE `rs_1_followed` (
   `state` tinyint(4) unsigned NOT NULL,
   `created_at` int(10) unsigned NOT NULL,
   `updated_at` bigint(20) unsigned NOT NULL,
-  `content_id` bigint(20) DEFAULT '-1',
+  `attachment_id` bigint(20) DEFAULT '-1',
   PRIMARY KEY (`source_id`,`target_id`,`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='negative direction';
 
@@ -76,7 +100,37 @@ CREATE TABLE `rs_1_following` (
   `type` tinyint(4) NOT NULL,
   `state` tinyint(4) unsigned NOT NULL,
   `created_at` int(10) unsigned NOT NULL,
-  `updated_at` bigint(20) unsigned NOT NULL, 
-  `content_id` bigint(20) DEFAULT '-1',
+  `updated_at` bigint(20) unsigned NOT NULL,
+  `attachment_id` bigint(20) DEFAULT '-1',
   PRIMARY KEY (`source_id`,`target_id`,`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='positive direction';
+
+-- ----------------------------
+-- Table structure for rs_2_followed
+-- ----------------------------
+DROP TABLE IF EXISTS `rs_2_followed`;
+CREATE TABLE `rs_2_followed` (
+  `source_id` int(10) unsigned NOT NULL,
+  `target_id` int(10) unsigned NOT NULL,
+  `type` tinyint(4) NOT NULL,
+  `state` tinyint(4) NOT NULL,
+  `created_at` int(10) unsigned NOT NULL,
+  `updated_at` bigint(20) unsigned NOT NULL,
+  `attachment_id` bigint(20) DEFAULT '-1',
+  PRIMARY KEY (`source_id`,`target_id`,`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='negative direction';
+
+-- ----------------------------
+-- Table structure for rs_2_following
+-- ----------------------------
+DROP TABLE IF EXISTS `rs_2_following`;
+CREATE TABLE `rs_2_following` (
+  `source_id` int(10) unsigned NOT NULL,
+  `target_id` int(10) unsigned NOT NULL,
+  `type` tinyint(4) NOT NULL,
+  `state` tinyint(4) NOT NULL,
+  `created_at` int(10) unsigned NOT NULL,
+  `updated_at` bigint(20) unsigned NOT NULL,
+  `attachment_id` bigint(20) DEFAULT '-1',
+  PRIMARY KEY (`source_id`,`target_id`,`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='negative direction';

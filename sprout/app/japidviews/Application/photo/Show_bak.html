@@ -42,12 +42,12 @@
         </div>
         <div class="line6"></div>
         <div class="row ">
-            <div class="col-md-7">
+            <div class="col-lg-7">
                 <button class="btn btn-xs" type="button">
                     &nbsp;&nbsp; &{i.wanna.buy.photo}&nbsp;&nbsp;
                 </button>
             </div>
-            <div class="col-md-5">
+            <div class="col-lg-5">
                 <!-- Baidu Button BEGIN -->
                 <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
                     <a class="bds_tsina"></a>
@@ -116,11 +116,11 @@
     <!-- user info -->
     <div class="col col_4 ">
         <div class="row stat left_rounded6 shadow ">
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <img width="90" height="90" class="img-rounded"
                      src="${fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(photo.idUser)}">
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <p>
                     ${photo.user.niceName}
                 </p>
@@ -139,15 +139,15 @@
         <div class="line6"></div>
 
         <div class="row  ">
-            <div class="btn-group col-md-12">
+            <div class="btn-group col-lg-12">
                 <button id="vote_btn"
-                        class="btn `if(isVote){`disabled`}else{` btn-success `}`  btn-xs  col-md-10 pull-left"
+                        class="btn `if(isVote){`disabled`}else{` btn-success `}`  btn-xs  col-lg-10 pull-left"
                         type="button"
                         isvote="${isVote}">
                     `if(isVote){`&{thank.vote}`}else{`&{like}`}`
                 </button>
                 <button id="favorite_btn" title="`if(isFavorite){`&{favorite.cancel}`}else{`&{favorite}`}`"
-                        class="btn favorite `if(isFavorite){`favorited`}else{`unfavorited`}` ico_favorite btn-xs col-md-2
+                        class="btn favorite `if(isFavorite){`favorited`}else{`unfavorited`}` ico_favorite btn-xs col-lg-2
                 pull-right" type="button"
                         isfavorite="${isFavorite}">&nbsp;
                 </button>
@@ -156,7 +156,7 @@
         <div class="line6"></div>
         <div class="row border-bottom shadow rounded6">
             `if(photo.description!=null && !"".equals(photo.description)){`
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <div id="description" class="photo_stats border-bottom">
                     ${photo.description}
                 </div>
@@ -165,7 +165,7 @@
             `}`
 
             `if(photo.tagList!=null){`
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <div id="tags" class="photo_stats border-bottom">
                     `for(String tag:photo.tagList){`
                     <a class="badge tag" href="javascript:void(0)"> ${tag} </a>
@@ -175,7 +175,7 @@
 
             `}`
 
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <div id="exif" class="exif_info ">
                     <ul>
                         `Set sets = exif.entrySet();`
@@ -195,12 +195,12 @@
 
         <div class="row border-bottom show_map">
 
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <div id="map_show_canvas" lat="${photo.GPSLatitude}" lng="${photo.GPSLongitude}"
                      class="show_map_canvas shadow rounded6"></div>
             </div>
 
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <div id="address">
 
                 </div>

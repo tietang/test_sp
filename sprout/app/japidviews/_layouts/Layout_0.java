@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews._layouts;
 import java.util.*;
 import java.io.*;
@@ -53,18 +52,14 @@ public abstract class Layout_0 extends cn.bran.play.JapidTemplateBase
 	}
 	@Override public void layout() {
 		beginDoLayout(sourceTemplate);		p("<!DOCTYPE html>\n");// line 1, japidviews\_layouts\Layout_0.html
-		p("\n" + 
-"<html lang=\"en\">\n" + 
+		p("<html lang=\"en\">\n" + 
 "<head>\n" + 
 "    <meta charset=\"UTF-8\">\n" + 
 "    ");// line 2, japidviews\_layouts\Layout_0.html
 		String appName=i18n("web.app.name");// line 6, japidviews\_layouts\Layout_0.html
-
     String keywords=i18n("web.keywords");// line 7, japidviews\_layouts\Layout_0.html
-
     String description=i18n("web.description");// line 8, japidviews\_layouts\Layout_0.html
-		p("\n" + 
-"    <title>");// line 8, japidviews\_layouts\Layout_0.html
+		p("    <title>");// line 8, japidviews\_layouts\Layout_0.html
 		try { p(appName); } catch (NullPointerException npe) {}// line 9, japidviews\_layouts\Layout_0.html
 		p(" / ");// line 9, japidviews\_layouts\Layout_0.html
 		title();p(" </title>\n" + 
@@ -176,8 +171,7 @@ public abstract class Layout_0 extends cn.bran.play.JapidTemplateBase
 		p("\" type=\"text/javascript\"></script>\n" + 
 "\n" + 
 "    ");// line 57, japidviews\_layouts\Layout_0.html
-		css();p("\n" + 
-"</head>\n" + 
+		css();p("</head>\n" + 
 "\n" + 
 "<body>\n" + 
 "<div class=\"navbar navbar-inverse\">\n" + 
@@ -245,7 +239,7 @@ public abstract class Layout_0 extends cn.bran.play.JapidTemplateBase
 "\n" + 
 "                    </ul>\n" + 
 "                    <div class=\"nav\">\n" + 
-"                        <form class=\"navbar-search col-md-2\" action=\"/search\">\n" + 
+"                        <form class=\"navbar-search col-lg-2\" action=\"/search\">\n" + 
 "                            <input type=\"text\" class=\"search-query input-medium\" name=\"q\"\n" + 
 "                                   placeholder=\"Search\">\n" + 
 "                        </form>\n" + 
@@ -253,8 +247,7 @@ public abstract class Layout_0 extends cn.bran.play.JapidTemplateBase
 "\n" + 
 "                    ");// line 75, japidviews\_layouts\Layout_0.html
 		if (session.get(Admin.SESSION_LOGIN_KEY) == null) {// line 130, japidviews\_layouts\Layout_0.html
-		p("\n" + 
-"                    <div class=\"nav pull-right\">\n" + 
+		p("                    <div class=\"nav pull-right\">\n" + 
 "                        <div class=\"btn btn-default-group\">\n" + 
 "                            <a href=\"/signup\" class=\"btn btn-default btn btn-default-success btn btn-default-small\"><i class=\"glyphicon glyphicon-arrow-up glyphicon glyphicon-white\"></i>&ensp;Signup</a>\n" + 
 "                        </div>\n" + 
@@ -270,17 +263,14 @@ public abstract class Layout_0 extends cn.bran.play.JapidTemplateBase
 "                    ");// line 130, japidviews\_layouts\Layout_0.html
 		}else{// line 144, japidviews\_layouts\Layout_0.html
 		p("\n" + 
-"\n" + 
 "                    <div class=\"nav pull-right\">\n" + 
 "\n" + 
 "                        <div class=\"btn btn-default-group\">\n" + 
 "                            <a class=\"btn btn-default btn btn-default-primary btn btn-default-small\" href=\"/yours\">\n" + 
 "                                ");// line 144, japidviews\_layouts\Layout_0.html
 		String idUserStr=session.get(Admin.SESSION_USER_ID_KEY);// line 150, japidviews\_layouts\Layout_0.html
-
                                 Integer idUser=Integer.parseInt(idUserStr);// line 151, japidviews\_layouts\Layout_0.html
-		p("\n" + 
-"                                <img class=\"image_18 round3\"\n" + 
+		p("                                <img class=\"image_18 round3\"\n" + 
 "                                     src=\"");// line 151, japidviews\_layouts\Layout_0.html
 		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)); } catch (NullPointerException npe) {}// line 153, japidviews\_layouts\Layout_0.html
 		p("\">\n" + 
@@ -381,8 +371,7 @@ public abstract class Layout_0 extends cn.bran.play.JapidTemplateBase
 "                    </div>\n" + 
 "                    ");// line 215, japidviews\_layouts\Layout_0.html
 		}// line 221, japidviews\_layouts\Layout_0.html
-		p("\n" + 
-"                </div>\n" + 
+		p("                </div>\n" + 
 "            </div>\n" + 
 "        </div>\n" + 
 "    </div>\n" + 
@@ -396,8 +385,7 @@ public abstract class Layout_0 extends cn.bran.play.JapidTemplateBase
 "<div class=\"content_container\">\n" + 
 "    ");// line 230, japidviews\_layouts\Layout_0.html
 		doLayout();// line 233, japidviews\_layouts\Layout_0.html
-		p("\n" + 
-"</div>\n" + 
+		p("</div>\n" + 
 "\n" + 
 "\n" + 
 "<footer class=\"footer\">\n" + 

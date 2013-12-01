@@ -1,14 +1,27 @@
+/*!
+ * bootstrap-select v1.3.5
+ * http://silviomoreto.github.io/bootstrap-select/
+ *
+ * Copyright 2013 bootstrap-select
+ * Licensed under the MIT license
+ */
+
 .bootstrap-select.btn-group,
 .bootstrap-select.btn-group[class*="span"] {
     float: none;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     margin-left: 0;
 }
 .form-search .bootstrap-select.btn-group,
 .form-inline .bootstrap-select.btn-group,
 .form-horizontal .bootstrap-select.btn-group {
     margin-bottom: 0;
+}
+
+.bootstrap-select.form-control {
+    padding: 0;
+    border: none;
 }
 
 .bootstrap-select.btn-group.pull-right,
@@ -25,20 +38,34 @@
     margin-right: -1px;
 }
 
-.bootstrap-select:not([class*="span"]) {
+.bootstrap-select:not([class*="span"]):not([class*="col-"]):not([class*="form-control"]) {
     width: 220px;
 }
 
 .bootstrap-select {
-    width: 220px\9; /*IE8 and below*/
+    /*width: 220px\9; IE8 and below*/
+    width: 220px\0; /*IE9 and below*/
+}
+
+.bootstrap-select.form-control:not([class*="span"]) {
+    width: 100%;
 }
 
 .bootstrap-select > .btn {
     width: 100%;
 }
 
+.error .bootstrap-select .btn {
+    border: 1px solid #b94a48;
+}
+
+
+.dropdown-menu {
+  z-index: 2000;
+}
+
 .bootstrap-select.show-menu-arrow.open > .btn {
-    z-index: 1001;
+    z-index: 2051;
 }
 
 .bootstrap-select .btn:focus {
@@ -57,7 +84,10 @@
 
 .bootstrap-select.btn-group .btn .caret {
     position: absolute;
+    top: 50%;
     right: 12px;
+    margin-top: -2px;
+    vertical-align: middle;
 }
 
 .bootstrap-select.btn-group > .disabled,
@@ -108,11 +138,11 @@
 }
 
 .bootstrap-select.btn-group .dropdown-menu li > a.opt {
+    position: relative;
     padding-left: 35px;
 }
 
 .bootstrap-select.btn-group .dropdown-menu li > a {
-    min-height: 20px;
     cursor: pointer;
 }
 
@@ -201,4 +231,36 @@
 .bootstrap-select.show-menu-arrow.open > .dropdown-toggle:before,
 .bootstrap-select.show-menu-arrow.open > .dropdown-toggle:after {
     display: block;
+}
+
+.mobile-device {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block !important;
+    width: 100%;
+    height: 100% !important;
+    opacity: 0;
+}
+
+.bootstrap-select.fit-width {
+    width: auto !important;
+}
+
+.bootstrap-select.btn-group.fit-width .btn .filter-option {
+    position: static;
+}
+
+.bootstrap-select.btn-group.fit-width .btn .caret {
+    position: static;
+    top: auto;
+    margin-top: -1px;
+}
+
+.control-group.error .bootstrap-select .dropdown-toggle{
+    border-color: #b94a48;
+}
+
+.bootstrap-select-searchbox {
+    padding: 4px 8px;
 }

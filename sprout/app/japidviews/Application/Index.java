@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews.Application;
 import java.util.*;
 import java.io.*;
@@ -69,7 +68,7 @@ public class Index extends japidviews._layouts.Layout
 
 	public cn.bran.japid.template.RenderResult render() {
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/Index.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 0, japidviews/Application/Index.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -81,44 +80,42 @@ public class Index extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\Index.html
-
-p("\n" + 
-"<div class=\"alert\">\n" + 
+p("<div class=\"alert\">\n" + 
 "	<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n" + 
 "	<strong>Warning!</strong> Best check yo self, you're not looking too\n" + 
 "	good.\n" + 
 "</div>\n" + 
 "<div class=\"row\">\n" + 
 "	<ul class=\"thumbnails\">\n" + 
-"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-lg-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
-"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-lg-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
-"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-lg-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
-"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-lg-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
-"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-lg-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
-"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-lg-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
-"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-lg-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
-"		<li class=\"col-md-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"		<li class=\"col-lg-3\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "				src=\"http://placehold.it/260x180\" class=\"img-rounded\" alt=\"\">\n" + 
 "		</a></li>\n" + 
 "	</ul>\n" + 
 "</div>\n" + 
 "<div class=\"row\">\n" + 
 "	<ul class=\"thumbnails\">\n" + 
-"		<li class=\"col-md-3\">\n" + 
+"		<li class=\"col-lg-3\">\n" + 
 "			<div class=\"thumbnail\">\n" + 
 "				<img class=\"img-rounded\" src=\"/images/1.JPG\" alt=\"\">\n" + 
 "				<div class=\"caption\">\n" + 
@@ -128,7 +125,7 @@ p("\n" +
 "				</div>\n" + 
 "			</div>\n" + 
 "		</li>\n" + 
-"		<li class=\"col-md-3\">\n" + 
+"		<li class=\"col-lg-3\">\n" + 
 "			<div class=\"thumbnail\">\n" + 
 "				<img class=\"img-rounded\" src=\"/images/2.JPG\" alt=\"\">\n" + 
 "				<div class=\"caption\">\n" + 
@@ -138,7 +135,7 @@ p("\n" +
 "				</div>\n" + 
 "			</div>\n" + 
 "		</li>\n" + 
-"		<li class=\"col-md-3\">\n" + 
+"		<li class=\"col-lg-3\">\n" + 
 "			<div class=\"thumbnail\">\n" + 
 "				<img class=\"img-rounded\" src=\"/images/3.JPG\" alt=\"\">\n" + 
 "				<div class=\"caption\">\n" + 
@@ -148,7 +145,7 @@ p("\n" +
 "				</div>\n" + 
 "			</div>\n" + 
 "		</li>\n" + 
-"		<li class=\"col-md-3\">\n" + 
+"		<li class=\"col-lg-3\">\n" + 
 "			<div class=\"thumbnail\">\n" + 
 "				<img class=\"img-rounded\" src=\"/images/3.JPG\" alt=\"\">\n" + 
 "				<div class=\"caption\">\n" + 
@@ -162,31 +159,31 @@ p("\n" +
 "</div>\n" + 
 "\n" + 
 "<ul class=\"thumbnails\">\n" + 
-"	<li class=\"col-md-4\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-lg-4\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/360x270\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-lg-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-lg-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-lg-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-lg-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-lg-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-lg-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-lg-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
-"	<li class=\"col-md-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
+"	<li class=\"col-lg-2\"><a href=\"#\" class=\"thumbnail\"> <img\n" + 
 "			src=\"http://placehold.it/160x120\" alt=\"\">\n" + 
 "	</a></li>\n" + 
 "</ul>\n" + 

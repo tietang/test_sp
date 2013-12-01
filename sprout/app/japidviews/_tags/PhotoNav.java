@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews._tags;
 import java.util.*;
 import java.io.*;
@@ -74,7 +73,7 @@ public class PhotoNav extends cn.bran.play.JapidTemplateBase
 		this.item = item;
 		this.pathTitle = pathTitle;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 2, japidviews/_tags/PhotoNav.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 2, japidviews/_tags/PhotoNav.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -86,24 +85,15 @@ public class PhotoNav extends cn.bran.play.JapidTemplateBase
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\_tags\PhotoNav.html
-
 Map  ms=new HashMap();// line 3, japidviews\_tags\PhotoNav.html
-
 ms.put(item," class=\"active\" ");// line 4, japidviews\_tags\PhotoNav.html
-
 System.out.println(ms);// line 5, japidviews\_tags\PhotoNav.html
-
 String qs= request.querystring;// line 6, japidviews\_tags\PhotoNav.html
-
 String qString="";// line 7, japidviews\_tags\PhotoNav.html
-
 if(qs!=null && !"".equals(qs)){// line 8, japidviews\_tags\PhotoNav.html
-
 qString="?"+qs;// line 9, japidviews\_tags\PhotoNav.html
-
 }// line 10, japidviews\_tags\PhotoNav.html
-		p("\n" + 
-"<div class=\"grid_row  photo_nav\" >\n" + 
+		p("<div class=\"grid_row  photo_nav\" >\n" + 
 "	<div class=\"col col_13\">\n" + 
 "\n" + 
 "		<ul class=\"nav nav-pills\">\n" + 
@@ -160,22 +150,15 @@ qString="?"+qs;// line 9, japidviews\_tags\PhotoNav.html
 "		<div class=\"row\">\n" + 
 "			");// line 29, japidviews\_tags\PhotoNav.html
 		Map kv1=fengfei.spruce.cache.SimpleCache.categories;// line 36, japidviews\_tags\PhotoNav.html
-
 			Map kv= new LinkedHashMap();kv.put((Byte)null,i18n("all"));// line 37, japidviews\_tags\PhotoNav.html
-
 			kv.putAll(kv1);// line 38, japidviews\_tags\PhotoNav.html
-
 			String skey=params.get("c");// line 39, japidviews\_tags\PhotoNav.html
-
 			Byte key=null;// line 40, japidviews\_tags\PhotoNav.html
-
 			if(skey!=null) {key=Byte.parseByte(skey);}// line 41, japidviews\_tags\PhotoNav.html
-
 			Object value=kv.get(key);// line 42, japidviews\_tags\PhotoNav.html
-
 			if(fengfei.spruce.utils.Browser.isIE67(request)){// line 43, japidviews\_tags\PhotoNav.html
-		p("			<div class=\" col-md-12\" >\n" + 
-"				<select name=\"category\" id=\"onlyCategoryIe\" class=\"col-md-12\">\n" + 
+		p("			<div class=\" col-lg-12\" >\n" + 
+"				<select name=\"category\" id=\"onlyCategoryIe\" class=\"col-lg-12\">\n" + 
 "					<option value=\"");// line 43, japidviews\_tags\PhotoNav.html
 		p(key);// line 46, japidviews\_tags\PhotoNav.html
 		p("\">");// line 46, japidviews\_tags\PhotoNav.html
@@ -183,38 +166,34 @@ qString="?"+qs;// line 9, japidviews\_tags\PhotoNav.html
 		p("</option>\n" + 
 "					");// line 46, japidviews\_tags\PhotoNav.html
 		final CategorySelectOptions _CategorySelectOptions0 = new CategorySelectOptions(getOut()); _CategorySelectOptions0.setActionRunners(getActionRunners()).setOut(getOut()); _CategorySelectOptions0.render(fengfei.spruce.cache.SimpleCache.categories,key); // line 47, japidviews\_tags\PhotoNav.html// line 47, japidviews\_tags\PhotoNav.html
-		p("\n" + 
-"				</select>\n" + 
+		p("				</select>\n" + 
 "			</div>\n" + 
 "			");// line 47, japidviews\_tags\PhotoNav.html
 		}else{// line 50, japidviews\_tags\PhotoNav.html
 		p("\n" + 
+"			<div class=\" bootstrap-select btn-group col-lg-12\" >\n" + 
 "\n" + 
-"			<div class=\"btn-group bootstrap-select col-md-12\" >\n" + 
-"				<button type=\"button\" class=\"btn dropdown-toggle btn-inverse col-md-12\" data-toggle=\"dropdown\" data-id=\"onlyCategory1\">\n" + 
+"\n" + 
+"				<button type=\"button\" class=\"btn btn-default dropdown-toggle  col-lg-12\" data-toggle=\"dropdown\" data-id=\"onlyCategory1\">\n" + 
 "					<div class=\"filter-option pull-left\">\n" + 
 "						");// line 50, japidviews\_tags\PhotoNav.html
-		p(value);// line 55, japidviews\_tags\PhotoNav.html
-		p("\n" + 
-"					</div>\n" + 
-"					&nbsp;<div class=\"caret\"></div>\n" + 
+		p(value);// line 57, japidviews\_tags\PhotoNav.html
+		p("					</div>&nbsp;<div class=\"caret\"></div>\n" + 
 "				</button>\n" + 
 "				<div class=\"dropdown-menu open\" style=\"max-height: 537px; overflow: hidden; min-height: 92px;\">\n" + 
-"					<ul class=\"dropdown-menu inner\" role=\"menu\" style=\"max-height: 525px; overflow-y: auto;\">\n" + 
-"						");// line 55, japidviews\_tags\PhotoNav.html
-		final CategoryMenus _CategoryMenus1 = new CategoryMenus(getOut()); _CategoryMenus1.setActionRunners(getActionRunners()).setOut(getOut()); _CategoryMenus1.render(kv,key); // line 61, japidviews\_tags\PhotoNav.html// line 61, japidviews\_tags\PhotoNav.html
-		p("\n" + 
-"					</ul>\n" + 
+"					<ul class=\"dropdown-menu inner\"  role=\"menu\" style=\"max-height: 525px; overflow-y: auto;\">\n" + 
+"						");// line 57, japidviews\_tags\PhotoNav.html
+		final CategoryMenus _CategoryMenus1 = new CategoryMenus(getOut()); _CategoryMenus1.setActionRunners(getActionRunners()).setOut(getOut()); _CategoryMenus1.render(kv,key); // line 62, japidviews\_tags\PhotoNav.html// line 62, japidviews\_tags\PhotoNav.html
+		p("					</ul>\n" + 
 "				</div>\n" + 
 "			</div>\n" + 
 "\n" + 
-"			");// line 61, japidviews\_tags\PhotoNav.html
-		}// line 66, japidviews\_tags\PhotoNav.html
-		p("\n" + 
-"		</div>\n" + 
+"			");// line 62, japidviews\_tags\PhotoNav.html
+		}// line 67, japidviews\_tags\PhotoNav.html
+		p("		</div>\n" + 
 "	</div>\n" + 
 "	<div class=\"col col_16  hr\"></div>\n" + 
-"</div>");// line 66, japidviews\_tags\PhotoNav.html
+"</div>");// line 67, japidviews\_tags\PhotoNav.html
 		
 		endDoLayout(sourceTemplate);
 	}

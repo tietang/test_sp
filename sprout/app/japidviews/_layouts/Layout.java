@@ -93,87 +93,90 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 		p(lookupStatic("/public/blueimp/md5.min.js"));// line 20, japidviews\_layouts\Layout.html
 		p("\" type=\"text/javascript\"></script>\n" + 
 "    <script src=\"");// line 20, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/js/jquery.form.js"));// line 21, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/bootstrap/js/bootstrap.min.js"));// line 21, japidviews\_layouts\Layout.html
 		p("\" type=\"text/javascript\"></script>\n" + 
 "    <script src=\"");// line 21, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/bootstrap/js/bootstrap.min.js"));// line 22, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/bootstrap/js/bootstrap3-typeahead.js"));// line 22, japidviews\_layouts\Layout.html
 		p("\" type=\"text/javascript\"></script>\n" + 
 "    <script src=\"");// line 22, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/js/jquery.easing.1.3.min.js"));// line 23, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/js/jquery.form.js"));// line 23, japidviews\_layouts\Layout.html
 		p("\" type=\"text/javascript\"></script>\n" + 
 "    <script src=\"");// line 23, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/js/jquery.bootstrap-growl.js"));// line 24, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/js/jquery.easing.1.3.min.js"));// line 24, japidviews\_layouts\Layout.html
 		p("\" type=\"text/javascript\"></script>\n" + 
-"    <link rel=\"stylesheet\" media=\"screen\" href=\"");// line 24, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/styles/app.css"));// line 25, japidviews\_layouts\Layout.html
-		p("\">\n" + 
+"    <script src=\"");// line 24, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/js/jquery.bootstrap-growl.js"));// line 25, japidviews\_layouts\Layout.html
+		p("\" type=\"text/javascript\"></script>\n" + 
 "    <link rel=\"stylesheet\" media=\"screen\" href=\"");// line 25, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/styles/photo.css"));// line 26, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/styles/app.css"));// line 26, japidviews\_layouts\Layout.html
 		p("\">\n" + 
 "    <link rel=\"stylesheet\" media=\"screen\" href=\"");// line 26, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/styles/grid1200.css"));// line 27, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/styles/photo.css"));// line 27, japidviews\_layouts\Layout.html
 		p("\">\n" + 
 "    <link rel=\"stylesheet\" media=\"screen\" href=\"");// line 27, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/styles/fluid20.css"));// line 28, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/styles/grid1200.css"));// line 28, japidviews\_layouts\Layout.html
 		p("\">\n" + 
-"    <script src=\"");// line 28, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/app/app.js"));// line 29, japidviews\_layouts\Layout.html
-		p("\" type=\"text/javascript\"></script>\n" + 
+"    <link rel=\"stylesheet\" media=\"screen\" href=\"");// line 28, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/styles/fluid20.css"));// line 29, japidviews\_layouts\Layout.html
+		p("\">\n" + 
 "    <script src=\"");// line 29, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/app/utils.js"));// line 30, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/app/app.js"));// line 30, japidviews\_layouts\Layout.html
 		p("\" type=\"text/javascript\"></script>\n" + 
 "    <script src=\"");// line 30, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/app/i18n.js"));// line 31, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/app/utils.js"));// line 31, japidviews\_layouts\Layout.html
+		p("\" type=\"text/javascript\"></script>\n" + 
+"    <script src=\"");// line 31, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/app/i18n.js"));// line 32, japidviews\_layouts\Layout.html
 		p("\" type=\"text/javascript\"></script>\n" + 
 "    <!--[if lte IE 6]>\n" + 
-"    <link rel=\"stylesheet\" type=\"text/css\" href=\"");// line 31, japidviews\_layouts\Layout.html
-		p(lookupStatic("public/bootstrap/css/bootstrap-ie6.css"));// line 33, japidviews\_layouts\Layout.html
+"    <link rel=\"stylesheet\" type=\"text/css\" href=\"");// line 32, japidviews\_layouts\Layout.html
+		p(lookupStatic("public/bootstrap/css/bootstrap-ie6.css"));// line 34, japidviews\_layouts\Layout.html
 		p("\">\n" + 
 "    <![endif]-->\n" + 
 "    <!--[if lte IE 7]>\n" + 
-"    <link rel=\"stylesheet\" type=\"text/css\" href=\"");// line 33, japidviews\_layouts\Layout.html
-		p(lookupStatic("public/bootstrap/css/ie.css"));// line 36, japidviews\_layouts\Layout.html
+"    <link rel=\"stylesheet\" type=\"text/css\" href=\"");// line 34, japidviews\_layouts\Layout.html
+		p(lookupStatic("public/bootstrap/css/ie.css"));// line 37, japidviews\_layouts\Layout.html
 		p("\">\n" + 
 "    <![endif]-->\n" + 
 "    <!--[if IE 6]>\n" + 
-"    <link href=\"");// line 36, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/styles/app.ie6.css"));// line 39, japidviews\_layouts\Layout.html
+"    <link href=\"");// line 37, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/styles/app.ie6.css"));// line 40, japidviews\_layouts\Layout.html
 		p("\" rel=\"stylesheet\" type=\"text/css\">\n" + 
 "    <![endif]-->\n" + 
 "    <!--[if IE 7]>\n" + 
-"    <link href=\"");// line 39, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/styles/app.ie7.css"));// line 42, japidviews\_layouts\Layout.html
+"    <link href=\"");// line 40, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/styles/app.ie7.css"));// line 43, japidviews\_layouts\Layout.html
 		p("\" rel=\"stylesheet\" type=\"text/css\">\n" + 
 "    <![endif]-->\n" + 
 "\n" + 
 "    <!--[if lt IE 8]>\n" + 
-"    <link rel=\"stylesheet\" href=\"");// line 42, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/bootstrap/css/bootstrap-ie7buttonfix.css"));// line 46, japidviews\_layouts\Layout.html
+"    <link rel=\"stylesheet\" href=\"");// line 43, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/bootstrap/css/bootstrap-ie7buttonfix.css"));// line 47, japidviews\_layouts\Layout.html
 		p("\"><![endif]-->\n" + 
 "    <!--[if IE 8]>\n" + 
-"    <link rel=\"stylesheet\" href=\"");// line 46, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/bootstrap/css/bootstrap-ie8buttonfix.css"));// line 48, japidviews\_layouts\Layout.html
+"    <link rel=\"stylesheet\" href=\"");// line 47, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/bootstrap/css/bootstrap-ie8buttonfix.css"));// line 49, japidviews\_layouts\Layout.html
 		p("\"><![endif]-->\n" + 
 "\n" + 
 "    <!--[if lt IE 9]>\n" + 
-"    <script src=\"");// line 48, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/js/html5shiv.js"));// line 51, japidviews\_layouts\Layout.html
+"    <script src=\"");// line 49, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/js/html5shiv.js"));// line 52, japidviews\_layouts\Layout.html
 		p("\"></script>\n" + 
 "    <![endif]-->\n" + 
 "    <!--[if lte IE 6]>\n" + 
-"    <script type=\"text/javascript\" src=\"");// line 51, japidviews\_layouts\Layout.html
-		p(lookupStatic("public/bootstrap/js/bootstrap-ie.js"));// line 54, japidviews\_layouts\Layout.html
+"    <script type=\"text/javascript\" src=\"");// line 52, japidviews\_layouts\Layout.html
+		p(lookupStatic("public/bootstrap/js/bootstrap-ie.js"));// line 55, japidviews\_layouts\Layout.html
 		p("\"></script>\n" + 
 "    <![endif]-->\n" + 
 "\n" + 
-"    <link rel=\"stylesheet\" type=\"text/css\" href=\"");// line 54, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/bootstrap/select/bootstrap-select.min.css"));// line 57, japidviews\_layouts\Layout.html
+"    <link rel=\"stylesheet\" type=\"text/css\" href=\"");// line 55, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/bootstrap/select/bootstrap-select.min.css"));// line 58, japidviews\_layouts\Layout.html
 		p("\"/>\n" + 
-"    <script src=\"");// line 57, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/bootstrap/select/bootstrap-select.js"));// line 58, japidviews\_layouts\Layout.html
+"    <script src=\"");// line 58, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/bootstrap/select/bootstrap-select.js"));// line 59, japidviews\_layouts\Layout.html
 		p("\" type=\"text/javascript\"></script>\n" + 
 "\n" + 
-"    ");// line 58, japidviews\_layouts\Layout.html
+"    ");// line 59, japidviews\_layouts\Layout.html
 		css();p("</head>\n" + 
 "\n" + 
 "<body>\n" + 
@@ -195,13 +198,13 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "            <div class=\"navbar-collapse collapse\">\n" + 
 "                <ul class=\" navbar-nav nav\">\n" + 
 "                    <li>\n" + 
-"                        <a href=\"/\">");// line 60, japidviews\_layouts\Layout.html
-		;p(getMessage("home"));// line 82, japidviews\_layouts\Layout.html
+"                        <a href=\"/\">");// line 61, japidviews\_layouts\Layout.html
+		;p(getMessage("home"));// line 83, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                    </li>\n" + 
 "                    <li>\n" + 
-"                        <a href=\"/photos\">");// line 82, japidviews\_layouts\Layout.html
-		;p(getMessage("photos"));// line 85, japidviews\_layouts\Layout.html
+"                        <a href=\"/photos\">");// line 83, japidviews\_layouts\Layout.html
+		;p(getMessage("photos"));// line 86, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                    </li>\n" + 
 "\n" + 
@@ -254,14 +257,14 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "\n" + 
 "                <ul class=\"nav navbar-nav navbar-right\">\n" + 
 "                    <li>\n" + 
-"                        <form class=\"navbar-form navbar-left  col-md-2\" role=\"search\" action=\"/search\">\n" + 
+"                        <form class=\"navbar-form navbar-left  col-lg-2\" role=\"search\" action=\"/search\">\n" + 
 "                            <div class=\"form-group\">\n" + 
 "                                <input type=\"text\" class=\"form-control\" placeholder=\"Search\"/>\n" + 
 "                            </div>\n" + 
 "                        </form>\n" + 
 "                    </li>\n" + 
-"                    ");// line 85, japidviews\_layouts\Layout.html
-		if (session.get(Admin.SESSION_LOGIN_KEY) == null) {// line 143, japidviews\_layouts\Layout.html
+"                    ");// line 86, japidviews\_layouts\Layout.html
+		if (session.get(Admin.SESSION_LOGIN_KEY) == null) {// line 144, japidviews\_layouts\Layout.html
 		p("\n" + 
 "                    <li>\n" + 
 "                        <div class=\"btn-group\">\n" + 
@@ -274,28 +277,28 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "                        </div>\n" + 
 "                    </li>\n" + 
 "\n" + 
-"                    ");// line 143, japidviews\_layouts\Layout.html
-		}else{// line 156, japidviews\_layouts\Layout.html
+"                    ");// line 144, japidviews\_layouts\Layout.html
+		}else{// line 157, japidviews\_layouts\Layout.html
 		p("\n" + 
 "                    <li class=\"dropdown\">\n" + 
 "                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n" + 
-"                            ");// line 156, japidviews\_layouts\Layout.html
-		String idUserStr=session.get(Admin.SESSION_USER_ID_KEY);// line 160, japidviews\_layouts\Layout.html
-                            Integer idUser=Integer.parseInt(idUserStr);// line 161, japidviews\_layouts\Layout.html
+"                            ");// line 157, japidviews\_layouts\Layout.html
+		String idUserStr=session.get(Admin.SESSION_USER_ID_KEY);// line 161, japidviews\_layouts\Layout.html
+                            Integer idUser=Integer.parseInt(idUserStr);// line 162, japidviews\_layouts\Layout.html
 		p("                            <img class=\"image_18 round3\"\n" + 
-"                                 src=\"");// line 161, japidviews\_layouts\Layout.html
-		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)); } catch (NullPointerException npe) {}// line 163, japidviews\_layouts\Layout.html
+"                                 src=\"");// line 162, japidviews\_layouts\Layout.html
+		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)); } catch (NullPointerException npe) {}// line 164, japidviews\_layouts\Layout.html
 		p("\"/>\n" + 
-"                            ");// line 163, japidviews\_layouts\Layout.html
-		try { p(session.get(Admin.SESSION_USER_NAME_KEY)); } catch (NullPointerException npe) {}// line 164, japidviews\_layouts\Layout.html
+"                            ");// line 164, japidviews\_layouts\Layout.html
+		try { p(session.get(Admin.SESSION_USER_NAME_KEY)); } catch (NullPointerException npe) {}// line 165, japidviews\_layouts\Layout.html
 		p(" <b\n" + 
 "                                class=\"caret\"></b></a>\n" + 
 "                        <ul class=\"dropdown-menu\">\n" + 
 "                            <li>\n" + 
 "                                <a href=\"/yours\">\n" + 
 "                                    <spanmg class=\"img_shadow image_64\"\n" + 
-"                                            src=\"");// line 164, japidviews\_layouts\Layout.html
-		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)); } catch (NullPointerException npe) {}// line 170, japidviews\_layouts\Layout.html
+"                                            src=\"");// line 165, japidviews\_layouts\Layout.html
+		try { p(fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)); } catch (NullPointerException npe) {}// line 171, japidviews\_layouts\Layout.html
 		p("\"/>\n" + 
 "                                </a>\n" + 
 "\n" + 
@@ -304,29 +307,29 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "\n" + 
 "                            <li>\n" + 
 "                                <a href=\"/settings/profile\"><span class=\"glyphicon glyphicon-pencil\"></span>\n" + 
-"                                    ");// line 170, japidviews\_layouts\Layout.html
-		;p(getMessage("settings"));// line 178, japidviews\_layouts\Layout.html
+"                                    ");// line 171, japidviews\_layouts\Layout.html
+		;p(getMessage("settings"));// line 179, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                            </li>\n" + 
 "                            <li>\n" + 
-"                                <a href=\"/account\"><span class=\"glyphicon glyphicon-trash\"></span> ");// line 178, japidviews\_layouts\Layout.html
-		;p(getMessage("account"));// line 181, japidviews\_layouts\Layout.html
+"                                <a href=\"/account\"><span class=\"glyphicon glyphicon-trash\"></span> ");// line 179, japidviews\_layouts\Layout.html
+		;p(getMessage("account"));// line 182, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                            </li>\n" + 
 "                            <li>\n" + 
 "                                <a href=\"/settings/profile\"><span class=\"glyphicon glyphicon-ban-circle\"></span>\n" + 
-"                                    ");// line 181, japidviews\_layouts\Layout.html
-		;p(getMessage("profile"));// line 185, japidviews\_layouts\Layout.html
+"                                    ");// line 182, japidviews\_layouts\Layout.html
+		;p(getMessage("profile"));// line 186, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                            </li>\n" + 
-"                            <li><a href=\"/settings/password\"><span class=\"glyphicon glyphicon-ban-circle\"></span>");// line 185, japidviews\_layouts\Layout.html
-		;p(getMessage("profile.menu.password"));// line 187, japidviews\_layouts\Layout.html
+"                            <li><a href=\"/settings/password\"><span class=\"glyphicon glyphicon-ban-circle\"></span>");// line 186, japidviews\_layouts\Layout.html
+		;p(getMessage("profile.menu.password"));// line 188, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                            </li>\n" + 
 "                            <li class=\"divider\"></li>\n" + 
 "                            <li>\n" + 
-"                                <a href=\"/logout\"><span class=\"i\"></span> ");// line 187, japidviews\_layouts\Layout.html
-		;p(getMessage("logout"));// line 191, japidviews\_layouts\Layout.html
+"                                <a href=\"/logout\"><span class=\"i\"></span> ");// line 188, japidviews\_layouts\Layout.html
+		;p(getMessage("logout"));// line 192, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                            </li>\n" + 
 "                        </ul>\n" + 
@@ -336,54 +339,54 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "                        <a class=\"dropdown-toggle\"\n" + 
 "                           data-toggle=\"dropdown\">\n" + 
 "                            <span class=\" glyphicon glyphicon-share glyphicon-white\"></span>\n" + 
-"                            ");// line 191, japidviews\_layouts\Layout.html
-		;p(getMessage("add"));// line 200, japidviews\_layouts\Layout.html
+"                            ");// line 192, japidviews\_layouts\Layout.html
+		;p(getMessage("add"));// line 201, japidviews\_layouts\Layout.html
 		p(" <span class=\"caret\"></span>\n" + 
 "                        </a>\n" + 
 "\n" + 
 "                        <ul class=\"dropdown-menu\">\n" + 
-"                            <li><a href=\"/add\"><span class=\"glyphicon glyphicon-share\"></span>");// line 200, japidviews\_layouts\Layout.html
-		;p(getMessage("add"));// line 204, japidviews\_layouts\Layout.html
+"                            <li><a href=\"/add\"><span class=\"glyphicon glyphicon-share\"></span>");// line 201, japidviews\_layouts\Layout.html
+		;p(getMessage("add"));// line 205, japidviews\_layouts\Layout.html
 		p("</a></li>\n" + 
 "                            <li>\n" + 
-"                                <a href=\"/upload\"><span class=\"glyphicon glyphicon-picture\"></span> ");// line 204, japidviews\_layouts\Layout.html
-		;p(getMessage("add.photo"));// line 206, japidviews\_layouts\Layout.html
+"                                <a href=\"/upload\"><span class=\"glyphicon glyphicon-picture\"></span> ");// line 205, japidviews\_layouts\Layout.html
+		;p(getMessage("add.photo"));// line 207, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                            </li>\n" + 
 "                            <li>\n" + 
-"                                <a href=\"/ps/upload\"><span class=\" glyphicon glyphicon-leaf\"></span> ");// line 206, japidviews\_layouts\Layout.html
-		;p(getMessage("add.ps"));// line 209, japidviews\_layouts\Layout.html
+"                                <a href=\"/ps/upload\"><span class=\" glyphicon glyphicon-leaf\"></span> ");// line 207, japidviews\_layouts\Layout.html
+		;p(getMessage("add.ps"));// line 210, japidviews\_layouts\Layout.html
 		p("                                </a>\n" + 
 "                            </li>\n" + 
 "                            <li>\n" + 
-"                                <a href=\"/story\"><span class=\"glyphicon glyphicon-th-large\"></span> ");// line 209, japidviews\_layouts\Layout.html
-		;p(getMessage("add.story"));// line 213, japidviews\_layouts\Layout.html
+"                                <a href=\"/story\"><span class=\"glyphicon glyphicon-th-large\"></span> ");// line 210, japidviews\_layouts\Layout.html
+		;p(getMessage("add.story"));// line 214, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                            </li>\n" + 
 "                            <li>\n" + 
-"                                <a href=\"/blink\"><span class=\"glyphicon glyphicon-eye-open\"></span> ");// line 213, japidviews\_layouts\Layout.html
-		;p(getMessage("add.blink"));// line 216, japidviews\_layouts\Layout.html
+"                                <a href=\"/blink\"><span class=\"glyphicon glyphicon-eye-open\"></span> ");// line 214, japidviews\_layouts\Layout.html
+		;p(getMessage("add.blink"));// line 217, japidviews\_layouts\Layout.html
 		p("</a>\n" + 
 "                            </li>\n" + 
 "\n" + 
 "                            <li class=\"divider\"></li>\n" + 
 "                            <li>\n" + 
 "                                <a href=\"/photo/manage\"> <span class=\"glyphicon glyphicon-edit\"></span>\n" + 
-"                                    ");// line 216, japidviews\_layouts\Layout.html
-		;p(getMessage("manage"));// line 222, japidviews\_layouts\Layout.html
+"                                    ");// line 217, japidviews\_layouts\Layout.html
+		;p(getMessage("manage"));// line 223, japidviews\_layouts\Layout.html
 		p(" </a>\n" + 
 "                            </li>\n" + 
 "                            <li>\n" + 
 "                                <a href=\"/photo/manage/set/all\"> <span class=\"glyphicon glyphicon-tasks\"></span>\n" + 
-"                                    ");// line 222, japidviews\_layouts\Layout.html
-		;p(getMessage("sets"));// line 226, japidviews\_layouts\Layout.html
+"                                    ");// line 223, japidviews\_layouts\Layout.html
+		;p(getMessage("sets"));// line 227, japidviews\_layouts\Layout.html
 		p("                                </a>\n" + 
 "                            </li>\n" + 
 "\n" + 
 "                        </ul>\n" + 
 "                    </li>\n" + 
-"                    ");// line 226, japidviews\_layouts\Layout.html
-		}// line 232, japidviews\_layouts\Layout.html
+"                    ");// line 227, japidviews\_layouts\Layout.html
+		}// line 233, japidviews\_layouts\Layout.html
 		p("                </ul>\n" + 
 "\n" + 
 "            </div>\n" + 
@@ -393,12 +396,12 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "\n" + 
 "<!--\n" + 
 "<div class=\"page-header\">\n" + 
-"<h3>");// line 232, japidviews\_layouts\Layout.html
+"<h3>");// line 233, japidviews\_layouts\Layout.html
 		header();p("</h3>\n" + 
 "</div> -->\n" + 
 "<div class=\"content_container\">\n" + 
-"    ");// line 242, japidviews\_layouts\Layout.html
-		doLayout();// line 245, japidviews\_layouts\Layout.html
+"    ");// line 243, japidviews\_layouts\Layout.html
+		doLayout();// line 246, japidviews\_layouts\Layout.html
 		p("</div>\n" + 
 "\n" + 
 "\n" + 
@@ -411,7 +414,7 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 "    </div>\n" + 
 "</footer>\n" + 
 "</body>\n" + 
-"</html>");// line 245, japidviews\_layouts\Layout.html
+"</html>");// line 246, japidviews\_layouts\Layout.html
 				endDoLayout(sourceTemplate);	}
 	 protected void title() {};
 	 protected void keywords() {};

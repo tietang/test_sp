@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews._layouts;
 import java.util.*;
 import java.io.*;
@@ -101,8 +100,7 @@ public abstract class Layout3 extends cn.bran.play.JapidTemplateBase
 		p(lookupStatic("/public/basic/js/bootstrap.js"));// line 21, japidviews\_layouts\Layout3.html
 		p("\"></script>\n" + 
 "		");// line 21, japidviews\_layouts\Layout3.html
-		css();p("\n" + 
-"	</head>\n" + 
+		css();p("	</head>\n" + 
 "\n" + 
 "\n" + 
 "\n" + 
@@ -182,7 +180,7 @@ public abstract class Layout3 extends cn.bran.play.JapidTemplateBase
 "							</div>\n" + 
 "							<div class=\"right\">\n" + 
 "								<form class=\"navbar-search pull-right\" action=\"\">\n" + 
-"									<input type=\"text\" class=\"search-query col-md-2\" placeholder=\"Search\">\n" + 
+"									<input type=\"text\" class=\"search-query col-lg-2\" placeholder=\"Search\">\n" + 
 "								</form>\n" + 
 "							</div>\n" + 
 "						</div>\n" + 
@@ -211,8 +209,7 @@ public abstract class Layout3 extends cn.bran.play.JapidTemplateBase
 		header();p("</h3>\n" + 
 "			</div> -->\n");// line 128, japidviews\_layouts\Layout3.html
 		doLayout();// line 130, japidviews\_layouts\Layout3.html
-		p("\n" + 
-"		<div class=\"row container\">\n" + 
+		p("		<div class=\"row container\">\n" + 
 "			<div class=\"col width_4\">\n" + 
 "				<div class=\"photo_preview medium\" id=\"photo_preview_preview_39189268\">\n" + 
 "					<a href=\"/photo_preview/39189268?from=popular\"><img src=\"http://pcdn.500px.net/39189268/a26d91580c3c6f3aa6c4ff09564a752ced00b738/3.jpg\" /></a>\n" + 

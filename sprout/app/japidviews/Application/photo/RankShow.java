@@ -1,4 +1,3 @@
-//version: 0.9.35
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -72,7 +71,7 @@ public class RankShow extends cn.bran.play.JapidTemplateBase
 	public cn.bran.japid.template.RenderResult render(Rank rank) {
 		this.rank = rank;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 4, japidviews/Application/photo/RankShow.html
+		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 4, japidviews/Application/photo/RankShow.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -89,7 +88,7 @@ p(" \n" +
 "</pre>\n" + 
 "<div id=\"rankShow\">\n" + 
 "	<div class=\"row stat  border-bottom\">\n" + 
-"		<div class=\"col-md-5 \" title=\"");// line 4, japidviews\Application\photo\RankShow.html
+"		<div class=\"col-lg-5 \" title=\"");// line 4, japidviews\Application\photo\RankShow.html
 		;p(getMessage("pluse.alt"));// line 8, japidviews\Application\photo\RankShow.html
 		p("\">\n" + 
 "\n" + 
@@ -99,7 +98,7 @@ p(" \n" +
 		p("</strong>\n" + 
 "			</div>\n" + 
 "		</div>\n" + 
-"		<div class=\"col-md-7 \">\n" + 
+"		<div class=\"col-lg-7 \">\n" + 
 "			<div class=\"photo_stats border-left\">\n" + 
 "				<ul>\n" + 
 "\n" + 
@@ -141,14 +140,14 @@ p(" \n" +
 "\n" + 
 "	</div>\n" + 
 "	<div class=\"row stat shadow\">\n" + 
-"		<div class=\"col-md-5\">\n" + 
+"		<div class=\"col-lg-5\">\n" + 
 "			<div class=\"photo_max_stats\">\n" + 
 "				<strong>");// line 29, japidviews\Application\photo\RankShow.html
 		try { p(rank.sMaxScore); } catch (NullPointerException npe) {}// line 40, japidviews\Application\photo\RankShow.html
 		p("</strong>\n" + 
 "			</div>\n" + 
 "		</div>\n" + 
-"		<div class=\"col-md-7 \">\n" + 
+"		<div class=\"col-lg-7 \">\n" + 
 "			<div class=\"photo_stats  border-left\">\n" + 
 "				<ul class=\"stats\">\n" + 
 "					<li>\n" + 

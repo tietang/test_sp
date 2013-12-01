@@ -86,7 +86,8 @@ $(function () {
             ]
 
         }).bind('fileuploadadd',function (e, data) {
-                $('#progress .bar').css('width', '0%');
+                $("#uploadError").hide();
+                $('#progress .progress-bar').css('width', '0%');
                 $("#preview > img").remove();
                 var file = data.files[0];
                 toForm(file);
@@ -137,7 +138,7 @@ $(function () {
             }).bind('fileuploadprogress',function (e, data) {
             }).bind('fileuploadprogressall',function (e, data) {
                 var progress = parseInt(data.loaded / data.total * 100, 10);
-                $('#progress .bar').css('width', progress + '%');
+                $('#progress .progress-bar').css('width', progress + '%');
             }).bind('fileuploaddone',function (e, data) {
                 // alert(data.result);
                 // $.each(data.result.files, function(index, file) {
@@ -154,8 +155,8 @@ $(function () {
                     // $(data.context.children()[index]).append('<br>').append(error);
                     // $(data.context.children()[index]).append('<br>').append(error);
                     // });
-                    $("#uploadError").css('display', "block");
-                    $('#progress .bar').css('width', '0%');
+                    $("#uploadError").show();
+                    $('#progress .progress-bar').css('width', '0%');
                     notify("upload failure.", "error");
                 }
             }).bind('fileuploadfail',function (e, data) {
