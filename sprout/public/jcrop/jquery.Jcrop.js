@@ -1222,8 +1222,9 @@
     var KeyManager = (function () {
       var $keymgr = $('<input type="radio" />').css({
         position: 'fixed',
-        left: '-120px',
-        width: '12px'
+        left: '-1200000px',
+        width: '0px',
+
       }).addClass('jcrop-keymgr'),
 
         $keywrap = $('<div />').css({

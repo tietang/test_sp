@@ -4,10 +4,10 @@
 `if asBoolean(flash.get("error")){`
 
 <div class="alert alert-danger">
-    <button type="button" class="close" data-dismiss="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
         &times;
     </button>
-    ${flash.get("error")}
+  ${flash.get("error")}
 </div>
 
 `}`
@@ -15,10 +15,20 @@
 ` if asBoolean(flash.get("success")){`
 
 <div class="alert alert-success">
-    <button type="button" class="close" data-dismiss="success">
+    <button type="button" class="close" data-dismiss="success" aria-hidden="true">
         &times;
     </button>
     ${flash.get("success")}
+</div>
+
+`}`
+` if asBoolean(flash.get("msg")) || asBoolean(flash.get("message")){`
+
+<div class="alert alert-info">
+    <button type="button" class="close" data-dismiss="info" aria-hidden="true">
+        &times;
+    </button>
+    ${flash.get("msg")}${flash.get("message")}
 </div>
 
 `}`

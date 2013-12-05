@@ -11,7 +11,7 @@ import java.sql.SQLException;
  */
 public class UserSocialDao {
     static final String Insert = "insert into user_social(id_user,web_site,weibo,qq,qq_weibo,douban,twitter,facebook,flickr,blog,skype,fengniao,renren) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    static final String Update = "update user_social set web_site=?,weibo=?,qq=?,qq_weibo=?,douban=?,twitter=?,facebook=?,flickr=?,blog=?,skype=?,fengniao=?,renre=? where id_user=?";
+    static final String Update = "update user_social set web_site=?,weibo=?,qq=?,qq_weibo=?,douban=?,twitter=?,facebook=?,flickr=?,blog=?,skype=?,fengniao=?,renren=? where id_user=?";
     static final String Delete = "delete user_social where id_user=?";
     static final String SelectOne = "select id_user,web_site,weibo,qq,qq_weibo,douban,twitter,facebook,flickr,blog,skype,fengniao,renren from user_social where id_user=?";
     static final String SelectOneForLock = "select id_user,web_site,weibo,qq,qq_weibo,douban,twitter,facebook,flickr,blog,skype,fengniao,renren from user_social where id_user=? for update";

@@ -15,17 +15,19 @@ import play.modules.router.Any;
 import play.modules.router.Get;
 import play.modules.router.Gets;
 import play.modules.router.Post;
+import play.mvc.With;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
+@With(Secure.class)
 public class EditorChoice extends Admin {
     public static ShowRepository show = new SqlShowRepository();
     static ChoiceRepository choiceRepository = new SqlChoiceRepository();
 
     @Gets({@Get("/editor/choice/{<[0-9]+>pageNum}/?"), @Get("/editor/choice/?")})
     @Any("/editor/choice/{<[0-9]+>pageNum}/?")
+
     public static void choice(int pageNum) {
         String path = "/choice";
         try {
@@ -57,7 +59,7 @@ public class EditorChoice extends Admin {
         int updateAt = (int) System.currentTimeMillis() / 1000;
         Choice choice = new Choice(idPhoto, title, idUser, niceName, updateAt);
         int updated = choiceRepository.addChoice(choice);
-        renderDone(updated > 0);
+        renderDoneJSON(updated > 0);
 
     }
 

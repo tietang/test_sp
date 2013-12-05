@@ -1,5 +1,7 @@
-package controllers;
+package controllers.api;
 
+import controllers.Admin;
+import controllers.SecureForJson;
 import fengfei.ucm.entity.photo.Comment;
 import fengfei.ucm.repository.CommentRepository;
 import fengfei.ucm.repository.impl.SqlCommentRepository;
@@ -47,10 +49,10 @@ public class CommentAction extends Admin {
                     idParent);
 
             boolean updated = repository.addOne(comment);
-            renderDone(updated);
+            renderDoneJSON(updated);
         } catch (Exception e) {
             Logger.error(e, "add comment error.");
-            renderError();
+            renderErrorJSON();
         }
     }
 

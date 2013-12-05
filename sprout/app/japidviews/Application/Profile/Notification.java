@@ -1,3 +1,4 @@
+//version: 0.9.35
 package japidviews.Application.profile;
 import java.util.*;
 import java.io.*;
@@ -66,11 +67,11 @@ public class Notification extends japidviews._layouts.Layout
 	}
 ////// end of named args stuff
 
-	private String checks; // line 3, japidviews/Application/profile/Notification.html
+	private String checks; // line 2, japidviews/Application/profile/Notification.html
 	public cn.bran.japid.template.RenderResult render(String checks) {
 		this.checks = checks;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 3, japidviews/Application/profile/Notification.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 2, japidviews/Application/profile/Notification.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -81,34 +82,40 @@ public class Notification extends japidviews._layouts.Layout
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
 //------
-p("\n");// line 1, japidviews\Application\profile\Notification.html
+;// line 1, japidviews\Application\profile\Notification.html
+
 p("\n" + 
+"\n" + 
 "<div class=\"grid_row\">\n" + 
 "\n" + 
 "    <div class=\"col col_3 \">\n" + 
 "        <div class=\"sidebar-nav \">\n" + 
-"            ");// line 5, japidviews\Application\profile\Notification.html
-		final SettingsMenu _SettingsMenu2 = new SettingsMenu(getOut()); _SettingsMenu2.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu2.render("Notifications"); // line 11, japidviews\Application\profile\Notification.html// line 11, japidviews\Application\profile\Notification.html
-		p("        </div>\n" + 
+"            ");// line 4, japidviews\Application\profile\Notification.html
+		final SettingsMenu _SettingsMenu2 = new SettingsMenu(getOut()); _SettingsMenu2.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu2.render("Notifications"); // line 10, japidviews\Application\profile\Notification.html// line 10, japidviews\Application\profile\Notification.html
+		p("\n" + 
+"        </div>\n" + 
 "    </div>\n" + 
 "    <div class=\"col col_13 \">\n" + 
-"        <div class=\"row-fluid well profile_right\">\n" + 
-"            <div class=\"col-lg-8  \">\n" + 
-"\n" + 
-"                <form id=\"notifyForm\" class=\"form-horizontal\" action=\"/settings/notification/done\" method=\"post\">\n" + 
+"        <div class=\"row well profile_right\">\n" + 
+"            <div class=\"col-lg-12  \">\n" + 
+"                ");// line 10, japidviews\Application\profile\Notification.html
+		final AllMessage _AllMessage3 = new AllMessage(getOut()); _AllMessage3.setActionRunners(getActionRunners()).setOut(getOut()); _AllMessage3.render(); // line 16, japidviews\Application\profile\Notification.html// line 16, japidviews\Application\profile\Notification.html
+		p("\n" + 
+"                <form id=\"notifyForm\" class=\"form-horizontal\" role=\"form\" action=\"/settings/notification/done\"\n" + 
+"                      method=\"post\">\n" + 
 "\n" + 
 "                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"commented_on_your_wall\">\n" + 
-"                            <input  id=\"commented_on_your_wall\"\n" + 
-"                                    name=\"notify1\" type=\"checkbox\" value=\"1\"  />\n" + 
-"                            ");// line 11, japidviews\Application\profile\Notification.html
+"                            <input id=\"commented_on_your_wall\"\n" + 
+"                                   name=\"notify1\" type=\"checkbox\" value=\"1\"/>\n" + 
+"                            ");// line 16, japidviews\Application\profile\Notification.html
 		;p(getMessage("notify.comment.wall"));// line 24, japidviews\Application\profile\Notification.html
 		p(" </label>\n" + 
 "                    </div>\n" + 
 "                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"commented_on_your_photo\">\n" + 
 "                            <input\n" + 
-"                                     id=\"commented_on_your_photo\"\n" + 
+"                                    id=\"commented_on_your_photo\"\n" + 
 "                                    name=\"notify2\" type=\"checkbox\" value=\"2\"/>\n" + 
 "                            ");// line 24, japidviews\Application\profile\Notification.html
 		;p(getMessage("notify.comment.photo"));// line 31, japidviews\Application\profile\Notification.html
@@ -118,7 +125,7 @@ p("\n" +
 "                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"commented_on_your_story\">\n" + 
 "                            <input\n" + 
-"                                     id=\"commented_on_your_story\"\n" + 
+"                                    id=\"commented_on_your_story\"\n" + 
 "                                    name=\"notify3\" type=\"checkbox\" value=\"3\"/>\n" + 
 "                            ");// line 31, japidviews\Application\profile\Notification.html
 		;p(getMessage("notify.comment.story"));// line 39, japidviews\Application\profile\Notification.html
@@ -127,9 +134,9 @@ p("\n" +
 "\n" + 
 "                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"added_to_favorites\">\n" + 
-"                            <input \n" + 
-"                                   id=\"added_to_favorites\" name=\"notify4\"\n" + 
-"                                   type=\"checkbox\" value=\"4\"/>\n" + 
+"                            <input\n" + 
+"                                    id=\"added_to_favorites\" name=\"notify4\"\n" + 
+"                                    type=\"checkbox\" value=\"4\"/>\n" + 
 "                            ");// line 39, japidviews\Application\profile\Notification.html
 		;p(getMessage("notify.favorite.photo"));// line 47, japidviews\Application\profile\Notification.html
 		p(" </label>\n" + 
@@ -137,9 +144,9 @@ p("\n" +
 "\n" + 
 "                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"selected_by_editor\">\n" + 
-"                            <input \n" + 
-"                                   id=\"selected_by_editor\" name=\"notify5\"\n" + 
-"                                   type=\"checkbox\" value=\"5\"/>\n" + 
+"                            <input\n" + 
+"                                    id=\"selected_by_editor\" name=\"notify5\"\n" + 
+"                                    type=\"checkbox\" value=\"5\"/>\n" + 
 "                            ");// line 47, japidviews\Application\profile\Notification.html
 		;p(getMessage("notify.choice.photo"));// line 55, japidviews\Application\profile\Notification.html
 		p("</label>\n" + 
@@ -147,9 +154,9 @@ p("\n" +
 "\n" + 
 "                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"reached_up_or_pop\">\n" + 
-"                            <input \n" + 
-"                                   id=\"reached_up_or_pop\" name=\"notify6\" type=\"checkbox\"\n" + 
-"                                   value=\"6\"/>\n" + 
+"                            <input\n" + 
+"                                    id=\"reached_up_or_pop\" name=\"notify6\" type=\"checkbox\"\n" + 
+"                                    value=\"6\"/>\n" + 
 "                            ");// line 55, japidviews\Application\profile\Notification.html
 		;p(getMessage("notify.score.up"));// line 63, japidviews\Application\profile\Notification.html
 		p("</label>\n" + 
@@ -157,9 +164,9 @@ p("\n" +
 "\n" + 
 "                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"you_are_followed\">\n" + 
-"                            <input \n" + 
-"                                   id=\"you_are_followed\" name=\"notify7\" type=\"checkbox\"\n" + 
-"                                   value=\"7\"/>\n" + 
+"                            <input\n" + 
+"                                    id=\"you_are_followed\" name=\"notify7\" type=\"checkbox\"\n" + 
+"                                    value=\"7\"/>\n" + 
 "                            ");// line 63, japidviews\Application\profile\Notification.html
 		;p(getMessage("notify.follow.me"));// line 71, japidviews\Application\profile\Notification.html
 		p(" </label>\n" + 
@@ -177,9 +184,9 @@ p("\n" +
 "\n" + 
 "                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"buys_my_photo\">\n" + 
-"                            <input \n" + 
-"                                   id=\"buys_my_photo\" name=\"notify9\" type=\"checkbox\"\n" + 
-"                                   value=\"9\"/>\n" + 
+"                            <input\n" + 
+"                                    id=\"buys_my_photo\" name=\"notify9\" type=\"checkbox\"\n" + 
+"                                    value=\"9\"/>\n" + 
 "                            ");// line 79, japidviews\Application\profile\Notification.html
 		;p(getMessage("notify.buy.photo"));// line 87, japidviews\Application\profile\Notification.html
 		p(" </label>\n" + 
@@ -187,8 +194,8 @@ p("\n" +
 "\n" + 
 "                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"newsletters\">\n" + 
-"                            <input \n" + 
-"                                   id=\"newsletters\" name=\"notify10\" type=\"checkbox\" value=\"10\"/>\n" + 
+"                            <input\n" + 
+"                                    id=\"newsletters\" name=\"notify10\" type=\"checkbox\" value=\"10\"/>\n" + 
 "                            ");// line 87, japidviews\Application\profile\Notification.html
 		;p(getMessage("notify.news"));// line 94, japidviews\Application\profile\Notification.html
 		p("</label>\n" + 
@@ -196,9 +203,9 @@ p("\n" +
 "\n" + 
 "                    <div class=\"checkbox form-group\">\n" + 
 "                        <label for=\"account_updates\">\n" + 
-"                            <input \n" + 
-"                                   id=\"account_updates\" name=\"notify11\" type=\"checkbox\"\n" + 
-"                                   value=\"11\"/>\n" + 
+"                            <input\n" + 
+"                                    id=\"account_updates\" name=\"notify11\" type=\"checkbox\"\n" + 
+"                                    value=\"11\"/>\n" + 
 "                            ");// line 94, japidviews\Application\profile\Notification.html
 		;p(getMessage("notify.account.change"));// line 102, japidviews\Application\profile\Notification.html
 		p("</label>\n" + 
@@ -206,10 +213,11 @@ p("\n" +
 "\n" + 
 "                    <div class=\"form-group\">\n" + 
 "                        <div class=\"controls\">\n" + 
-"                            <button type=\"submit\" class=\"btn\">\n" + 
+"                            <button type=\"submit\" class=\"btn btn-default\">\n" + 
 "                                ");// line 102, japidviews\Application\profile\Notification.html
 		;p(getMessage("save.change"));// line 108, japidviews\Application\profile\Notification.html
-		p("                            </button>\n" + 
+		p("\n" + 
+"                            </button>\n" + 
 "                        </div>\n" + 
 "                    </div>\n" + 
 "\n" + 
@@ -221,13 +229,13 @@ p("\n" +
 "    </div>\n" + 
 "</div>\n" + 
 "<script type=\"text/javascript\">\n" + 
-"    var checks=\"");// line 108, japidviews\Application\profile\Notification.html
+"    var checks = \"");// line 108, japidviews\Application\profile\Notification.html
 		p(checks);// line 121, japidviews\Application\profile\Notification.html
 		p("\";\n" + 
-"    $(\"#notifyForm\").find(\":checkbox\").each(function(i){\n" + 
-"        var index=checks.length-this.value;\n" + 
-"        if(checks.charAt(index)==1){\n" + 
-"            $(this).attr(\"checked\",\"checked\");\n" + 
+"    $(\"#notifyForm\").find(\":checkbox\").each(function (i) {\n" + 
+"        var index = checks.length - this.value;\n" + 
+"        if (checks.charAt(index) == 1) {\n" + 
+"            $(this).attr(\"checked\", \"checked\");\n" + 
 "        }\n" + 
 "    });\n" + 
 "</script>\n" + 

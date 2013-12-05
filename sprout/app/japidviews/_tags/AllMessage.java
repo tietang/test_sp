@@ -89,10 +89,10 @@ public class AllMessage extends cn.bran.play.JapidTemplateBase
 		p("\n" + 
 "\n" + 
 "<div class=\"alert alert-danger\">\n" + 
-"    <button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 
+"    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">\n" + 
 "        &times;\n" + 
 "    </button>\n" + 
-"    ");// line 4, japidviews\_tags\AllMessage.html
+"  ");// line 4, japidviews\_tags\AllMessage.html
 		p(flash.get("error"));// line 10, japidviews\_tags\AllMessage.html
 		p("\n" + 
 "</div>\n" + 
@@ -104,7 +104,7 @@ public class AllMessage extends cn.bran.play.JapidTemplateBase
 		p("\n" + 
 "\n" + 
 "<div class=\"alert alert-success\">\n" + 
-"    <button type=\"button\" class=\"close\" data-dismiss=\"success\">\n" + 
+"    <button type=\"button\" class=\"close\" data-dismiss=\"success\" aria-hidden=\"true\">\n" + 
 "        &times;\n" + 
 "    </button>\n" + 
 "    ");// line 15, japidviews\_tags\AllMessage.html
@@ -113,7 +113,23 @@ public class AllMessage extends cn.bran.play.JapidTemplateBase
 "</div>\n" + 
 "\n");// line 21, japidviews\_tags\AllMessage.html
 		}// line 24, japidviews\_tags\AllMessage.html
-		;// line 24, japidviews\_tags\AllMessage.html
+
+if(asBoolean(asBoolean(flash.get("msg")) || asBoolean(flash.get("message")))) {// line 25, japidviews\_tags\AllMessage.html
+		p("\n" + 
+"\n" + 
+"<div class=\"alert alert-info\">\n" + 
+"    <button type=\"button\" class=\"close\" data-dismiss=\"info\" aria-hidden=\"true\">\n" + 
+"        &times;\n" + 
+"    </button>\n" + 
+"    ");// line 25, japidviews\_tags\AllMessage.html
+		p(flash.get("msg"));// line 31, japidviews\_tags\AllMessage.html
+		;// line 31, japidviews\_tags\AllMessage.html
+		p(flash.get("message"));// line 31, japidviews\_tags\AllMessage.html
+		p("\n" + 
+"</div>\n" + 
+"\n");// line 31, japidviews\_tags\AllMessage.html
+		}// line 34, japidviews\_tags\AllMessage.html
+		;// line 34, japidviews\_tags\AllMessage.html
 		
 		endDoLayout(sourceTemplate);
 	}

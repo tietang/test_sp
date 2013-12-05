@@ -1,3 +1,4 @@
+//version: 0.9.35
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -70,7 +71,7 @@ public class Story extends japidviews._layouts.Layout
 
 	public cn.bran.japid.template.RenderResult render() {
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 0, japidviews/Application/photo/Story.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/photo/Story.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -82,6 +83,7 @@ public class Story extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Story.html
+
 // line 7, japidviews\Application\photo\Story.html
 		p("</pre>\n" + 
 "\n" + 
@@ -92,6 +94,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Sto
 "\n");// line 103, japidviews\Application\photo\Story.html
 		final AddNav _AddNav3 = new AddNav(getOut()); _AddNav3.setActionRunners(getActionRunners()).setOut(getOut()); _AddNav3.render("story"); // line 111, japidviews\Application\photo\Story.html// line 111, japidviews\Application\photo\Story.html
 		p("\n" + 
+"\n" + 
 "<form id=\"fileuploadForm\" action=\"/story/done\" method=\"post\" enctype=\"multipart/form-data\">\n" + 
 "\n" + 
 "	<div class=\"grid_row story\">\n" + 

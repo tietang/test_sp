@@ -87,8 +87,8 @@ public class ErrorMessage extends cn.bran.play.JapidTemplateBase
 		if(asBoolean(asBoolean(flash.get("error")))) {// line 3, japidviews\_tags\ErrorMessage.html
 		p("\n" + 
 "\n" + 
-"<div class=\"alert alert-danger form-group\">\n" + 
-"	<button type=\"button\" class=\"close\" data-dismiss=\"alert\">\n" + 
+"<div class=\"alert alert-danger\">\n" + 
+"    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">\n" + 
 "		&times;\n" + 
 "	</button>\n" + 
 "	");// line 3, japidviews\_tags\ErrorMessage.html

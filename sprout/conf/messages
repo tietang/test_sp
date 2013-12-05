@@ -5,6 +5,17 @@ web.app.name = Spruce Photography
 web.keywords = pictures, photos, photography, photographer, photo gallery, photography, communication, work, equipment, photo, professional, upload, share, camera, camera, photo album, blog, online photo gallery, share pictures, professional photography, social photography, upload photos, share photos, excellent photo portfolio, photo community, latest photos, hot photos, hot pictures, models and photography, commercial photography, architectural photography
 web.description = Spruce is the professional photography community share exchange, you can share your own photographs, you can also find a photographer, and the national good photographer can explore photographic skills.
 Untitled=Untitled
+
+success=successful
+fail=failed
+error=Error
+msg.save.success=Save successfully.
+msg.save.fail=Save failed.
+msg.save.error=An error occurred while saving.
+msg.delete.success=Delete successfully.
+msg.delete.fail=Delete failed.
+msg.delete.error=An error occurred while deleting.
+
 # nav link
 home=Home
 photo=Photo

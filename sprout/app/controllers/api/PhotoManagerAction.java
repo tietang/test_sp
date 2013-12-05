@@ -1,6 +1,8 @@
-package controllers;
+package controllers.api;
 
 import cn.bran.play.JapidResult;
+import controllers.Admin;
+import controllers.SecureForJson;
 import fengfei.fir.model.PhotoShow;
 import fengfei.sprucy.AppConstants;
 import fengfei.ucm.entity.photo.PhotoSet;
@@ -195,9 +197,9 @@ public class PhotoManagerAction extends Admin {
             long idPhoto = MapUtils.getLongValue(contents, "id_photo");
             long idSet = MapUtils.getLongValue(contents, "id_set");
             int updated = photoManage.addPhotoSets(idUser, idSet, idPhoto);
-            renderDone(updated > 0);
+            renderDoneJSON(updated > 0);
         } catch (Exception e) {
-            renderError();
+            renderErrorJSON();
         }
     }
 
@@ -208,9 +210,9 @@ public class PhotoManagerAction extends Admin {
             Map<String, String> contents = params.allSimple();
             long idPhoto = MapUtils.getLongValue(contents, "id_photo");
             int updated = photoManage.deletePhotoSets(idUser, idPhoto);
-            renderDone(updated > 0);
+            renderDoneJSON(updated > 0);
         } catch (Exception e) {
-            renderError();
+            renderErrorJSON();
         }
     }
 
@@ -220,9 +222,9 @@ public class PhotoManagerAction extends Admin {
         try {
             boolean updated = photoRepository.deleteOne(idPhoto, idUser);
             System.out.println(updated);
-            renderDone(updated);
+            renderDoneJSON(updated);
         } catch (Exception e) {
-            renderError();
+            renderErrorJSON();
         }
     }
 }

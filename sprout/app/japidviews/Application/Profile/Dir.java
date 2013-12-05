@@ -1,3 +1,4 @@
+//version: 0.9.35
 package japidviews.Application.profile;
 import java.util.*;
 import java.io.*;
@@ -72,7 +73,7 @@ public class Dir extends cn.bran.play.JapidTemplateBase
 	public cn.bran.japid.template.RenderResult render(List<PhotoSet> photoSets) {
 		this.photoSets = photoSets;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 5, japidviews/Application/profile/Dir.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 5, japidviews/Application/profile/Dir.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -85,7 +86,9 @@ public class Dir extends cn.bran.play.JapidTemplateBase
 //------
 p("<pre style=\"display: none\">\n" + 
 "	\n");// line 1, japidviews\Application\profile\Dir.html
+
 p("\n" + 
+"\n" + 
 "</pre>\n" + 
 "<div class=\"row-fluid \" >\n" + 
 "	<div>\n" + 
@@ -94,13 +97,13 @@ p("\n" +
 "\n" + 
 "			<input name=\"idSet\" id=\"idSet1\"  type=\"hidden\" placeholder=\"Set Name\"  />\n" + 
 "\n" + 
-"			<button type=\"button\" class=\"btn\"   onclick=\"addPhotoSetEvent();\" id=\"SetSaveButton\">\n" + 
+"			<button type=\"button\" class=\"btn btn-default\"   onclick=\"addPhotoSetEvent();\" id=\"SetSaveButton\">\n" + 
 "				Save\n" + 
 "			</button>\n" + 
-"			<button type=\"button\" class=\"btn\"  onclick=\"deletePhotoSetEvent();\">\n" + 
+"			<button type=\"button\" class=\"btn btn-default\"  onclick=\"deletePhotoSetEvent();\">\n" + 
 "				Delete\n" + 
 "			</button>\n" + 
-"			<button type=\"button\" class=\"btn\"  onclick=\"resetPhotoSet();\">\n" + 
+"			<button type=\"button\" class=\"btn btn-default\"  onclick=\"resetPhotoSet();\">\n" + 
 "				Reset\n" + 
 "			</button>\n" + 
 "		</form>\n" + 
@@ -109,7 +112,8 @@ p("\n" +
 "	 \n" + 
 "		");// line 5, japidviews\Application\profile\Dir.html
 		final ErrorMessage _ErrorMessage0 = new ErrorMessage(getOut()); _ErrorMessage0.setActionRunners(getActionRunners()).setOut(getOut()); _ErrorMessage0.render(); // line 28, japidviews\Application\profile\Dir.html// line 28, japidviews\Application\profile\Dir.html
-		p("		<table class=\"table table-hover\" >\n" + 
+		p("\n" + 
+"		<table class=\"table table-hover\" >\n" + 
 "			<thead>\n" + 
 "				<tr>\n" + 
 "					<th>Name</th><th>Action</th>\n" + 
@@ -118,8 +122,10 @@ p("\n" +
 "			<tbody>\n" + 
 "				");// line 28, japidviews\Application\profile\Dir.html
 		if(photoSets!=null){int index=0;// line 36, japidviews\Application\profile\Dir.html
+
 				for(PhotoSet set:photoSets){// line 37, japidviews\Application\profile\Dir.html
-		p("				<tr>\n" + 
+		p("\n" + 
+"				<tr>\n" + 
 "					<td  id=\"edit_td");// line 37, japidviews\Application\profile\Dir.html
 		p(index);// line 39, japidviews\Application\profile\Dir.html
 		p("\" onclick=\"setPhotoSetValue(this)\" id_set=\"");// line 39, japidviews\Application\profile\Dir.html
@@ -146,8 +152,10 @@ p("\n" +
 "\n" + 
 "				");// line 44, japidviews\Application\profile\Dir.html
 		index++;}// line 49, japidviews\Application\profile\Dir.html
+
 				}// line 50, japidviews\Application\profile\Dir.html
-		p("			</tbody>\n" + 
+		p("\n" + 
+"			</tbody>\n" + 
 "		</table>\n" + 
 "\n" + 
 "	</div>\n" + 

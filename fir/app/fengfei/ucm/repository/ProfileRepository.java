@@ -14,20 +14,23 @@ public interface ProfileRepository extends UnitNames {
 
     boolean addOneCamera(Camera m) throws Exception;
 
+    boolean deleteOneCamera(final Integer idUser, final long idCamera) throws Exception;
+
     List<Camera> selectCameras(int idUser) throws Exception;
 
     List<Camera> selectCamerasForSorted(int idUser) throws Exception;
 
     ListMultimap<String, Camera> selectCamerasGroup(int idUser) throws Exception;
 
-    boolean saveNotifies(Integer idUser,
-                         List<Notify> notifies) throws Exception;
+    boolean saveNotifies(
+            Integer idUser,
+            List<Notify> notifies) throws Exception;
 
     long getNotifyValue(Integer idUser) throws Exception;
 
-    boolean saveDefaultLicense(Integer idUser, byte license) throws Exception;
-
     byte getDefaultLicense(Integer idUser) throws Exception;
+
+    boolean saveDefaultLicense(Integer idUser, byte license) throws Exception;
 
     int saveUserSocial(UserSocial userSocial) throws Exception;
 

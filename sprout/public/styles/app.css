@@ -668,6 +668,7 @@ ul li a {
 .profile_right {
     max-width: 915px;
     width: 915px;
+    margin-left: 40px;
 }
 
 /*upload */
@@ -720,11 +721,13 @@ ul li a {
     top: -70px;
 }
 
-.upload .glyphicon-head{
+.upload .glyphicon-head {
     width: 60px;
     max-width: 60px;
     text-align: right;
     overflow: hidden;
+    text-transform: capitalize;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .upload .map_canvas {
@@ -984,6 +987,18 @@ section ul.tag_selector, section ul.tag_selector li {
     list-style: none;
     float: left;
     padding: 4px;
+}
+
+.equipment .glyphicon-head {
+    width: 70px;
+    max-width: 70px;
+    text-align: right;
+    overflow: hidden;
+    padding: 0px 5px;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: capitalize;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .pull-left {

@@ -1,3 +1,4 @@
+//version: 0.9.35
 package japidviews.Application.profile;
 import java.util.*;
 import java.io.*;
@@ -70,7 +71,7 @@ public class License extends japidviews._layouts.Layout
 	public cn.bran.japid.template.RenderResult render(byte value) {
 		this.value = value;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 2, japidviews/Application/profile/License.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 2, japidviews/Application/profile/License.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -82,14 +83,17 @@ public class License extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\profile\License.html
+
 // line 5, japidviews\Application\profile\License.html
-		p("<div class=\"grid_row license\">\n" + 
+		p("\n" + 
+"<div class=\"grid_row license\">\n" + 
 "\n" + 
 "    <div class=\"col col_3 \">\n" + 
 "        <div class=\"sidebar-nav \">\n" + 
 "            ");// line 8, japidviews\Application\profile\License.html
 		final SettingsMenu _SettingsMenu3 = new SettingsMenu(getOut()); _SettingsMenu3.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu3.render("License"); // line 14, japidviews\Application\profile\License.html// line 14, japidviews\Application\profile\License.html
-		p("        </div>\n" + 
+		p("\n" + 
+"        </div>\n" + 
 "    </div>\n" + 
 "    <div class=\"col col_13 \">\n" + 
 "        <div class=\"row-fluid \">\n" + 
@@ -104,6 +108,7 @@ public class License extends japidviews._layouts.Layout
 		final AllMessage _AllMessage4 = new AllMessage(getOut()); _AllMessage4.setActionRunners(getActionRunners()).setOut(getOut()); _AllMessage4.render(); // line 24, japidviews\Application\profile\License.html// line 24, japidviews\Application\profile\License.html
 		p("\n" + 
 "\n" + 
+"\n" + 
 "                    <div class=\"subtitle\">");// line 24, japidviews\Application\profile\License.html
 		;p(getMessage("license.content"));// line 27, japidviews\Application\profile\License.html
 		p("</div>\n" + 
@@ -115,17 +120,20 @@ public class License extends japidviews._layouts.Layout
 "                            <input type=\"radio\" name=\"by\" value=\"0\" checked>\n" + 
 "                            ");// line 29, japidviews\Application\profile\License.html
 		;p(getMessage("yes"));// line 32, japidviews\Application\profile\License.html
-		p("                        </label>\n" + 
+		p("\n" + 
+"                        </label>\n" + 
 "                        <label class=\"radio\">\n" + 
 "                            <input type=\"radio\" name=\"by\" id=\"nd\" value=\"nd\">\n" + 
 "                            ");// line 32, japidviews\Application\profile\License.html
 		;p(getMessage("no"));// line 36, japidviews\Application\profile\License.html
-		p("                        </label>\n" + 
+		p("\n" + 
+"                        </label>\n" + 
 "                        <label class=\"radio\">\n" + 
 "                            <input type=\"radio\" name=\"by\" id=\"sa\" value=\"sa\">\n" + 
 "                            ");// line 36, japidviews\Application\profile\License.html
 		;p(getMessage("license.by.share"));// line 40, japidviews\Application\profile\License.html
-		p("                        </label>\n" + 
+		p("\n" + 
+"                        </label>\n" + 
 "\n" + 
 "                    </div>\n" + 
 "                    <div class=\"form-group  \">\n" + 
@@ -138,12 +146,14 @@ public class License extends japidviews._layouts.Layout
 "                            <input type=\"radio\" name=\"c\" value=\"1\" checked>\n" + 
 "                            ");// line 45, japidviews\Application\profile\License.html
 		;p(getMessage("yes"));// line 50, japidviews\Application\profile\License.html
-		p("                        </label>\n" + 
+		p("\n" + 
+"                        </label>\n" + 
 "                        <label class=\"radio\">\n" + 
 "                            <input type=\"radio\" name=\"c\" id=\"nc\" value=\"nc\">\n" + 
 "                            ");// line 50, japidviews\Application\profile\License.html
 		;p(getMessage("no"));// line 54, japidviews\Application\profile\License.html
-		p("                        </label>\n" + 
+		p("\n" + 
+"                        </label>\n" + 
 "\n" + 
 "\n" + 
 "                    </div>\n" + 
@@ -151,10 +161,11 @@ public class License extends japidviews._layouts.Layout
 "\n" + 
 "                    <div class=\"form-group\">\n" + 
 "\n" + 
-"                        <button type=\"submit\" class=\"btn\">\n" + 
+"                        <button type=\"submit\" class=\"btn btn-default\">\n" + 
 "                            ");// line 54, japidviews\Application\profile\License.html
 		;p(getMessage("save.change"));// line 64, japidviews\Application\profile\License.html
-		p("                        </button>\n" + 
+		p("\n" + 
+"                        </button>\n" + 
 "\n" + 
 "                    </div>\n" + 
 "                    <h3>你选择的许可协议</h3>\n" + 

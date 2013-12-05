@@ -134,7 +134,7 @@ public class LorryAction extends Admin {
                         renderJSON(done);
                     } catch (Exception e) {
                         Logger.error(e, "upload error.");
-                        renderJSON(new Done(Status.Error));
+                        renderErrorJSON();
                     }
 
                 }

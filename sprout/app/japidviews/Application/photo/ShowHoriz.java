@@ -1,3 +1,4 @@
+//version: 0.9.35
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -81,7 +82,7 @@ public class ShowHoriz extends japidviews._layouts.Layout
 		this.isFavorite = isFavorite;
 		this.isVote = isVote;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 5, japidviews/Application/photo/ShowHoriz.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 5, japidviews/Application/photo/ShowHoriz.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -94,7 +95,8 @@ public class ShowHoriz extends japidviews._layouts.Layout
 //------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\ShowHoriz.html
  
-p("</pre>\n");// line 7, japidviews\Application\photo\ShowHoriz.html
+p("\n" + 
+"</pre>\n");// line 7, japidviews\Application\photo\ShowHoriz.html
 		// line 9, japidviews\Application\photo\ShowHoriz.html
 		p("<div class=\"grid_row show\">\n" + 
 "    <div class=\"col col_16  \">\n" + 
@@ -140,6 +142,7 @@ p("</pre>\n");// line 7, japidviews\Application\photo\ShowHoriz.html
 "                ");// line 37, japidviews\Application\photo\ShowHoriz.html
 		if (session.get(Admin.SESSION_LOGIN_KEY) == null) {// line 65, japidviews\Application\photo\ShowHoriz.html
 		p("\n" + 
+"\n" + 
 "                <div class=\"line10\"></div>\n" + 
 "                <div class=\"line12\"></div>\n" + 
 "                <a href=\"/login\">Login</a> or <a href=\"/signup\">Sign up</a> to comment.\n" + 
@@ -147,7 +150,8 @@ p("</pre>\n");// line 7, japidviews\Application\photo\ShowHoriz.html
 "                <div class=\"line10\"></div>\n" + 
 "                ");// line 65, japidviews\Application\photo\ShowHoriz.html
 		}else{// line 72, japidviews\Application\photo\ShowHoriz.html
-		p("                <textarea class=\"col_12 comment\" rows=\"3\" cols=\"\" id=\"comment\" name=\"comment\"\n" + 
+		p("\n" + 
+"                <textarea class=\"col_12 comment\" rows=\"3\" cols=\"\" id=\"comment\" name=\"comment\"\n" + 
 "                          placeholder=\"Add your comments...\"></textarea>\n" + 
 "\n" + 
 "                <div class=\"line3\"></div>\n" + 
@@ -158,14 +162,18 @@ p("</pre>\n");// line 7, japidviews\Application\photo\ShowHoriz.html
 "\n" + 
 "                ");// line 78, japidviews\Application\photo\ShowHoriz.html
 		//if(!String.valueOf(photo.idUser).equals(session.get(Admin.SESSION_USER_ID_KEY))){// line 80, japidviews\Application\photo\ShowHoriz.html
-		p("                <button type=\"button\" id=\"comment_btn\" class=\"btn btn-info  btn-xs\">\n" + 
+		p("\n" + 
+"                <button type=\"button\" id=\"comment_btn\" class=\"btn btn-info  btn-xs\">\n" + 
 "                    Comment\n" + 
 "                </button>\n" + 
 "                ");// line 80, japidviews\Application\photo\ShowHoriz.html
 		//}// line 84, japidviews\Application\photo\ShowHoriz.html
-
-                }// line 86, japidviews\Application\photo\ShowHoriz.html
-		p("                <input type=\"hidden\" name=\"id_photo\" id=\"id_photo_x\" value=\"");// line 86, japidviews\Application\photo\ShowHoriz.html
+		p("\n" + 
+"\n" + 
+"                ");// line 84, japidviews\Application\photo\ShowHoriz.html
+		}// line 86, japidviews\Application\photo\ShowHoriz.html
+		p("\n" + 
+"                <input type=\"hidden\" name=\"id_photo\" id=\"id_photo_x\" value=\"");// line 86, japidviews\Application\photo\ShowHoriz.html
 		try { p(photo.idPhoto); } catch (NullPointerException npe) {}// line 87, japidviews\Application\photo\ShowHoriz.html
 		p("\"/>\n" + 
 "                <input type=\"hidden\" name=\"niceName\" id=\"niceNameX\" value=\"");// line 87, japidviews\Application\photo\ShowHoriz.html
@@ -204,7 +212,8 @@ p("</pre>\n");// line 7, japidviews\Application\photo\ShowHoriz.html
 "                <p>\n" + 
 "                    ");// line 108, japidviews\Application\photo\ShowHoriz.html
 		try { p(photo.user.niceName); } catch (NullPointerException npe) {}// line 112, japidviews\Application\photo\ShowHoriz.html
-		p("                </p>\n" + 
+		p("\n" + 
+"                </p>\n" + 
 "\n" + 
 "                <p>\n" + 
 "                    <button\n" + 
@@ -222,14 +231,16 @@ p("</pre>\n");// line 7, japidviews\Application\photo\ShowHoriz.html
 		p("\">\n" + 
 "                        ");// line 118, japidviews\Application\photo\ShowHoriz.html
 		try { p(isFollow?"Following":"Follow"); } catch (NullPointerException npe) {}// line 119, japidviews\Application\photo\ShowHoriz.html
-		p("                    </button>\n" + 
+		p("\n" + 
+"                    </button>\n" + 
 "                </p>\n" + 
 "            </div>\n" + 
 "        </div>\n" + 
 "        <div class=\"line6\"></div>\n" + 
 "        ");// line 119, japidviews\Application\photo\ShowHoriz.html
 		final RankShow _RankShow3 = new RankShow(getOut()); _RankShow3.setActionRunners(getActionRunners()).setOut(getOut()); _RankShow3.render(rank); // line 125, japidviews\Application\photo\ShowHoriz.html// line 125, japidviews\Application\photo\ShowHoriz.html
-		p("        <div class=\"line6\"></div>\n" + 
+		p("\n" + 
+"        <div class=\"line6\"></div>\n" + 
 "\n" + 
 "        <div class=\"row  \">\n" + 
 "            <button id=\"vote_btn\"\n" + 
@@ -249,7 +260,8 @@ p("</pre>\n");// line 7, japidviews\Application\photo\ShowHoriz.html
 		}else{// line 132, japidviews\Application\photo\ShowHoriz.html
 		p("Like");// line 132, japidviews\Application\photo\ShowHoriz.html
 		}// line 132, japidviews\Application\photo\ShowHoriz.html
-		p("            </button>\n" + 
+		p("\n" + 
+"            </button>\n" + 
 "\n" + 
 "            <button id=\"favorite_btn\" title=\"");// line 132, japidviews\Application\photo\ShowHoriz.html
 		if(isFavorite){// line 135, japidviews\Application\photo\ShowHoriz.html
@@ -278,7 +290,8 @@ p("</pre>\n");// line 7, japidviews\Application\photo\ShowHoriz.html
 "                <div id=\"description\" class=\"photo_stats border-bottom\">\n" + 
 "                    ");// line 137, japidviews\Application\photo\ShowHoriz.html
 		try { p(photo.description); } catch (NullPointerException npe) {}// line 146, japidviews\Application\photo\ShowHoriz.html
-		p("                </div>\n" + 
+		p("\n" + 
+"                </div>\n" + 
 "            </div>\n" + 
 "            <div class=\"col-lg-12\">\n" + 
 "                <div id=\"tags\" class=\"photo_stats border-bottom\">\n" + 
@@ -293,9 +306,12 @@ p("</pre>\n");// line 7, japidviews\Application\photo\ShowHoriz.html
 "                    <ul>\n" + 
 "                        ");// line 151, japidviews\Application\photo\ShowHoriz.html
 		Set sets = exif.entrySet();// line 158, japidviews\Application\photo\ShowHoriz.html
+
                         for (Object obj : sets) {// line 159, japidviews\Application\photo\ShowHoriz.html
+
                         Entry entry=(Entry)obj;// line 160, japidviews\Application\photo\ShowHoriz.html
-		p("                        <li>\n" + 
+		p("\n" + 
+"                        <li>\n" + 
 "                            <small class=\"key\">");// line 160, japidviews\Application\photo\ShowHoriz.html
 		try { p(entry.getKey()); } catch (NullPointerException npe) {}// line 162, japidviews\Application\photo\ShowHoriz.html
 		p("</small>\n" + 
@@ -305,7 +321,8 @@ p("</pre>\n");// line 7, japidviews\Application\photo\ShowHoriz.html
 "                        </li>\n" + 
 "                        ");// line 163, japidviews\Application\photo\ShowHoriz.html
 		}// line 165, japidviews\Application\photo\ShowHoriz.html
-		p("                    </ul>\n" + 
+		p("\n" + 
+"                    </ul>\n" + 
 "                </div>\n" + 
 "            </div>\n" + 
 "        </div>\n" + 

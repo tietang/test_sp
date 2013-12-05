@@ -2,7 +2,10 @@ package controllers;
 
 import fengfei.fir.model.Done;
 import fengfei.fir.model.Done.Status;
+import play.Logger;
 import play.mvc.Before;
+import play.mvc.Catch;
+import play.mvc.Finally;
 
 public class SecureForJson extends Secure {
 
@@ -35,5 +38,15 @@ public class SecureForJson extends Secure {
 
 		}
 	}
+    @Catch(Exception.class)
+    public static void logException(Throwable throwable) {
+        Logger.error("Server error: ", throwable);
+        Admin.renderErrorJSON();
+    }
+
+    @Finally
+    static void log() {
+        Logger.info("Ajax Responsed.");
+    }
 
 }

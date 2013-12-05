@@ -10,7 +10,7 @@ public class ExceptionCatchController extends JapidController {
 	@Catch(Exception.class)
 	public static void logException(Throwable throwable) {
 		Logger.error("Server error: ", throwable);
-
+        Admin.flashError();
 	}
 
 	@Finally

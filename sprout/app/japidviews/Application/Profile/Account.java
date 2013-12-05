@@ -1,3 +1,4 @@
+//version: 0.9.35
 package japidviews.Application.profile;
 import java.util.*;
 import java.io.*;
@@ -68,7 +69,7 @@ public class Account extends japidviews._layouts.Layout
 
 	public cn.bran.japid.template.RenderResult render() {
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 0, japidviews/Application/profile/Account.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/profile/Account.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -80,16 +81,20 @@ public class Account extends japidviews._layouts.Layout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\profile\Account.html
-// line 2, japidviews\Application\profile\Account.html
 
-p("\n" + 
+// line 2, japidviews\Application\profile\Account.html
+		p("\n" + 
+"\n");// line 5, japidviews\Application\profile\Account.html
+		p("\n" + 
+"\n" + 
 "<div class=\"grid_row\">\n" + 
 "\n" + 
 "	<div class=\"col col_3 \">\n" + 
 "		<div class=\"sidebar-nav \">\n" + 
 "			");// line 7, japidviews\Application\profile\Account.html
 		final SettingsMenu _SettingsMenu3 = new SettingsMenu(getOut()); _SettingsMenu3.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu3.render("Account"); // line 13, japidviews\Application\profile\Account.html// line 13, japidviews\Application\profile\Account.html
-		p("		</div>\n" + 
+		p("\n" + 
+"		</div>\n" + 
 "	</div>\n" + 
 "	<div class=\"col col_13 \">\n" + 
 "		<div class=\"row-fluid well profile_right\">\n" + 

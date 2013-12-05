@@ -1,3 +1,4 @@
+//version: 0.9.35
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -71,7 +72,7 @@ public class RankShow extends cn.bran.play.JapidTemplateBase
 	public cn.bran.japid.template.RenderResult render(Rank rank) {
 		this.rank = rank;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 4, japidviews/Application/photo/RankShow.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 4, japidviews/Application/photo/RankShow.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 

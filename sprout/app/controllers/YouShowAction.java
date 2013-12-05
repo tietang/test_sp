@@ -277,7 +277,7 @@ public class YouShowAction extends Admin {
         long sourceId = currentUserId();
         try {
             boolean followed = writeFollowService.add(null, sourceId, Long.parseLong(toid),AppConstants.DefaultFollowType);
-            renderDone(followed);
+            renderDoneJSON(followed);
         } catch (Exception e) {
             Logger.error(e, "follow error.");
             renderJSON("{success:false}");
@@ -289,7 +289,7 @@ public class YouShowAction extends Admin {
         long sourceId = currentUserId();
         try {
             boolean followed = writeFollowService.remove(null, sourceId, Long.parseLong(toid),AppConstants.DefaultFollowType);
-            renderDone(followed);
+            renderDoneJSON(followed);
         } catch (Exception e) {
             Logger.error(e, "unfollow error.");
             renderJSON("{success:false}");

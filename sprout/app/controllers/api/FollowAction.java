@@ -1,5 +1,7 @@
-package controllers;
+package controllers.api;
 
+import controllers.Admin;
+import controllers.SecureForJson;
 import fengfei.spruce.utils.FollowServiceUtils;
 import fengfei.sprucy.AppConstants;
 import fengfei.ucm.service.ReadFollowService;
@@ -18,10 +20,10 @@ public class FollowAction extends Admin {
         long sourceId = currentUserId();
         try {
             boolean followed = writeFollowService.add(null, sourceId, Long.parseLong(toid), AppConstants.DefaultFollowType);
-            renderDone(followed);
+            renderDoneJSON(followed);
         } catch (Exception e) {
             Logger.error(e, "follow error.");
-            renderError();
+            renderErrorJSON();
         }
 
     }
@@ -30,10 +32,10 @@ public class FollowAction extends Admin {
         long sourceId = currentUserId();
         try {
             boolean followed = writeFollowService.remove(null, sourceId, Long.parseLong(toid),AppConstants.DefaultFollowType);
-            renderDone(followed);
+            renderDoneJSON(followed);
         } catch (Exception e) {
             Logger.error(e, "unfollow error.");
-            renderError();
+            renderErrorJSON();
         }
 
     }
@@ -45,7 +47,7 @@ public class FollowAction extends Admin {
             renderJSON("{following:" + follow[0] + ",followed:" + follow[1] + "}");
         } catch (Exception e) {
             Logger.error(e, "count follow error.");
-            renderError();
+            renderErrorJSON();
         }
     }
 

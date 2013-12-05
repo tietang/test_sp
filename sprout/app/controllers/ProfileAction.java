@@ -23,7 +23,9 @@ import org.apache.commons.collections.MapUtils;
 import org.apache.commons.io.FileUtils;
 import org.imgscalr.Scalr;
 import play.Logger;
+import play.Play;
 import play.modules.router.Any;
+import play.modules.router.Delete;
 import play.modules.router.Post;
 import play.mvc.With;
 
@@ -67,6 +69,7 @@ public class ProfileAction extends Admin {
             throw new JapidResult(new Profile().render(user));
         } catch (Exception e) {
             Logger.error(e, "profile index error.");
+            flashError();
             throw new JapidResult(new Profile().render(new User()));
         }
 
@@ -119,6 +122,7 @@ public class ProfileAction extends Admin {
             }
             //throw new JapidResult(new profile().render(user));
         } catch (Exception e) {
+            flashError();
             Logger.error(e, "add profile error.");
             // throw new JapidResult(new profile().render(new User()));
 
@@ -127,104 +131,6 @@ public class ProfileAction extends Admin {
 
     }
 
-    @Post("/settings/profile/crop/done")
-    public static void userPhotoCrop() {
-        Map<String, String> contents = params.allSimple();
-        int x1 = MapUtils.getIntValue(contents, "x1");
-        int y1 = MapUtils.getIntValue(contents, "y1");
-        int x2 = MapUtils.getIntValue(contents, "x2");
-        int y2 = MapUtils.getIntValue(contents, "y2");
-        int w = MapUtils.getIntValue(contents, "w");
-        int h = MapUtils.getIntValue(contents, "h");
-        Integer idUser = currentUserId();
-        String jpgPath = Path.getHeadPhotoUploadPath(idUser);
-        File jpegFile = new File(jpgPath);
-        System.out.println(jpgPath);
-        System.out.println(contents);
-        if (jpegFile.exists()) {
-
-            try {
-                BufferedImage src = javax.imageio.ImageIO.read(jpegFile);
-                BufferedImage dest = Scalr.crop(src, x1, y1, w, h, Scalr.OP_ANTIALIAS);
-                if (w > 200) {
-                    dest = Scalr.resize(dest, 200, Scalr.OP_ANTIALIAS);
-                }
-                String jpgPath1 = Path.getHeadPhotoUploadPath(idUser, 1);
-                File jpegFile1 = new File(jpgPath1);
-                ImageIO.write(dest, "JPEG", jpegFile1);
-            } catch (IOException e) {
-
-                Logger.error(e, "user photo crop error.");
-            }
-
-        }
-        Done done = new Done(Status.Success);
-        String path0 = Path.getHeadPhotoDownloadPath(idUser, 0);
-        done.put("path0", path0);
-        String path1 = Path.getHeadPhotoDownloadPath(idUser, 1);
-        done.put("path1", path1);
-        renderJSON(done);
-
-    }
-
-    /**
-     * {"success": false, "error": "error message to display", "preventRetry": true}
-     *
-     * @param qqfile
-     */
-    public static void headUpload(File qqfile) {
-        System.out.println(qqfile);
-        System.out.println(params.allSimple());
-        Done done = new Done(Status.Success);
-        try {
-            Integer idUser = currentUserId();
-
-            String jpgPath = Path.getHeadPhotoUploadPath(idUser);
-            File jpegFile = new File(jpgPath);
-            if (jpegFile.exists()) {
-                jpegFile.delete();
-            } else {
-                jpegFile.getParentFile().mkdirs();
-            }
-
-            BufferedImage src = javax.imageio.ImageIO.read(qqfile);
-            int w = src.getWidth();
-            int h = src.getHeight();
-            System.out.printf("%d %d \n", w, h);
-            if (w > 700 || h > 700) {
-                BufferedImage dest = Scalr.resize(src, 700, 700, Scalr.OP_ANTIALIAS);
-
-                ImageIO.write(dest, "JPEG", new File(jpgPath));
-
-            } else {
-                FileUtils.moveFile(qqfile, jpegFile);
-            }
-            String jpgPath1 = Path.getHeadPhotoUploadPath(idUser, 1);
-            File jpegFile1 = new File(jpgPath1);
-            if (jpegFile1.exists()) {
-                jpegFile1.delete();
-            }
-            jpegProcess.cropAndResize(jpgPath, jpgPath1, 200);
-            boolean updated = userService.updateHeadPhoto(idUser, true);
-            done.put("isHeadPhoto", true);
-            if (updated) {
-                done.setStatus(Status.Success);
-                String path0 = Path.getHeadPhotoDownloadPath(idUser, 0);
-                done.put("path0", path0);
-                String path1 = Path.getHeadPhotoDownloadPath(idUser, 1);
-                done.put("path1", path1);
-            } else {
-                done.setStatus(Status.Fail);
-            }
-
-        } catch (Exception e) {
-            done.setStatus(Status.Error);
-            Logger.error(e, "add profile error.");
-        }
-
-        renderJSON(done);
-
-    }
 
     public static void password() {
         throw new JapidResult(new Password().render());
@@ -260,7 +166,7 @@ public class ProfileAction extends Admin {
                 flash.error(i18n("password.error.new.no.updated"));
             }
         }
-        throw new JapidResult(new Password().render());
+        password();
     }
 
     public static void notification() throws Exception {
@@ -311,7 +217,7 @@ public class ProfileAction extends Admin {
         Map<String, String> map = params.allSimple();
         UserSocial userSocial = new UserSocial();
         userSocial.idUser = currentUserId();
-        userSocial.web_site = MapUtils.getString(map, "	web_site");
+        userSocial.web_site = MapUtils.getString(map, "web_site");
         userSocial.weibo = MapUtils.getString(map, "weibo");
         userSocial.qq = MapUtils.getString(map, "qq");
         userSocial.qq_weibo = MapUtils.getString(map, "qq_weibo");
@@ -324,7 +230,6 @@ public class ProfileAction extends Admin {
         userSocial.fengniao = MapUtils.getString(map, "fengniao");
         userSocial.renren = MapUtils.getString(map, "renren");
         int updated = profileRepository.saveUserSocial(userSocial);
-
         //web_site, weibo, qq, qq_weibo, douban, twitter, facebook, flickr, blog, skype, fengniao, renren
 
         socialMedia();
@@ -332,10 +237,6 @@ public class ProfileAction extends Admin {
 
     public static void camera() {
         Integer idUser = currentUserId();
-        if (idUser == null) {
-            flash.error(i18n("no.login"));
-            idUser = 1;
-        }
         try {
             List<Camera> cameras = profileRepository.selectCamerasForSorted(idUser);
 
@@ -348,6 +249,7 @@ public class ProfileAction extends Admin {
 
     }
 
+
     public static void cameraDone() {
         String[] cameras = params.getAll(Camera.TypeCamera);
         String[] lenses = params.getAll(Camera.TypeLens);
@@ -358,15 +260,16 @@ public class ProfileAction extends Admin {
         try {
             addCamera(models, idUser, cameras, Camera.TypeCamera);
             addCamera(models, idUser, lenses, Camera.TypeLens);
-            addCamera(models, idUser, tripods, Camera.TypeFilter);
-            addCamera(models, idUser, filters, Camera.TypeTripod);
+            addCamera(models, idUser, tripods, Camera.TypeTripod);
+            addCamera(models, idUser, filters, Camera.TypeFilter);
             profileRepository.addCamera(models, idUser);
-            camera();
-        } catch (Exception e) {
-            Logger.error(e, "camera error.");
-            throw new JapidResult(new Equipment().render(new ArrayList<Camera>()));
-        }
+            flash.put("success", i18n("msg.save.success"));
 
+        } catch (Exception e) {
+            flash.put("error", i18n("msg.save.fail"));
+            Logger.error(e, "camera error.");
+        }
+        camera();
     }
 
     private static void addCamera(List<Camera> models, int idUser, String[] cameras, String type) {
@@ -374,8 +277,10 @@ public class ProfileAction extends Admin {
             return;
         }
         for (int i = 0; i < cameras.length; i++) {
-            Camera camera = new Camera(idUser, cameras[i], type);
-            models.add(camera);
+            if (!"".equals(cameras[i])) {
+                Camera camera = new Camera(idUser, cameras[i], type);
+                models.add(camera);
+            }
         }
     }
 
@@ -406,7 +311,6 @@ public class ProfileAction extends Admin {
         if ("nd".equals(by) || "sa".equals(by)) {
             licenseKey += "-" + by;
         }
-        System.out.println("------------: " + licenseKey);
         LicenseType licenseType = LicenseType.findByKey(licenseKey);
         profileRepository.saveDefaultLicense(currentUserId(), licenseType.getValue());
 

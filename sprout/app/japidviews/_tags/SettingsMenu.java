@@ -1,3 +1,4 @@
+//version: 0.9.35
 package japidviews._tags;
 import java.util.*;
 import java.io.*;
@@ -71,7 +72,7 @@ public class SettingsMenu extends cn.bran.play.JapidTemplateBase
 	public cn.bran.japid.template.RenderResult render(String item) {
 		this.item = item;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 2, japidviews/_tags/SettingsMenu.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 2, japidviews/_tags/SettingsMenu.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -83,9 +84,12 @@ public class SettingsMenu extends cn.bran.play.JapidTemplateBase
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\_tags\SettingsMenu.html
+
 Map<String,String> ms=new HashMap<String , String>();// line 3, japidviews\_tags\SettingsMenu.html
+
 ms.put(item," class=\"active\" ");// line 4, japidviews\_tags\SettingsMenu.html
 		p("\n" + 
+"\n" + 
 "\n" + 
 "<ul class=\"nav nav-pills nav-stacked\">\n" + 
 "	<li><h4>");// line 4, japidviews\_tags\SettingsMenu.html

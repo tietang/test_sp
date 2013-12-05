@@ -1,3 +1,4 @@
+//version: 0.9.35
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -70,7 +71,7 @@ public class TestUpload extends japidviews._layouts.EmptyLayout
 	public cn.bran.japid.template.RenderResult render(List paths) {
 		this.paths = paths;
 		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 2, japidviews/Application/photo/TestUpload.html
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 2, japidviews/Application/photo/TestUpload.html
 		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
@@ -82,6 +83,7 @@ public class TestUpload extends japidviews._layouts.EmptyLayout
 		beginDoLayout(sourceTemplate);
 //------
 ;// line 1, japidviews\Application\photo\TestUpload.html
+
 // line 4, japidviews\Application\photo\TestUpload.html
 		p("<div class=\"grid_row\">\n" + 
 "	<div class=\"col col_16\">\n" + 
@@ -254,14 +256,16 @@ public class TestUpload extends japidviews._layouts.EmptyLayout
 "	<div class=\"onerow\">\n" + 
 "		");// line 145, japidviews\Application\photo\TestUpload.html
 		for(Object path:paths){// line 315, japidviews\Application\photo\TestUpload.html
-		p("		<div class=\"col2\">\n" + 
+		p("\n" + 
+"		<div class=\"col2\">\n" + 
 "			<img src=\"");// line 315, japidviews\Application\photo\TestUpload.html
 		p(path);// line 317, japidviews\Application\photo\TestUpload.html
 		p("\"  />\n" + 
 "		</div>\n" + 
 "		");// line 317, japidviews\Application\photo\TestUpload.html
 		}// line 319, japidviews\Application\photo\TestUpload.html
-		p("	</div>\n" + 
+		p("\n" + 
+"	</div>\n" + 
 "</div>\n" + 
 "\n" + 
 "<style type=\"text/css\">\n" + 

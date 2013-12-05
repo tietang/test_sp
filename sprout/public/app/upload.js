@@ -15,7 +15,11 @@ $.blueimp.fileupload.prototype.processActions.duplicateImage = function (data, o
 $(function () {
     'use strict';
     var photoUploadForm = $("#photoUploadForm");
-    if (photoUploadForm) {
+    uploadInit(photoUploadForm);
+
+});
+function uploadInit(parentContainer) {
+    if (parentContainer) {
         var licenseContainer = $("#cc");
         $("#license1").change(function () {
             var licenseKey = $(this).val();
@@ -176,8 +180,7 @@ $(function () {
             $("#dropzone").css("display", "block");
         });
     }
-});
-
+}
 function toForm(file) {
     ExifUtils.readExif(file, function (data) {
         //console.info(data);

@@ -89,7 +89,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Upl
 p("\n" + 
 "</pre>\n");// line 5, japidviews\Application\photo\Upload.html
 		// line 7, japidviews\Application\photo\Upload.html
-final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActionRunners()).setOut(getOut()); _AddNav2.render("upload"); // line 45, japidviews\Application\photo\Upload.html// line 45, japidviews\Application\photo\Upload.html
+final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActionRunners()).setOut(getOut()); _AddNav2.render("upload"); // line 42, japidviews\Application\photo\Upload.html// line 42, japidviews\Application\photo\Upload.html
 		p("\n" + 
 "<form id=\"photoUploadForm\" action=\"/upload/done\" method=\"post\" enctype=\"multipart/form-data\">\n" + 
 "    <div class=\"grid_row upload \">\n" + 
@@ -97,18 +97,19 @@ final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActio
 "\n" + 
 "            <div>\n" + 
 "                <div id=\"dropzone\" class=\"fade  \">\n" + 
-"                    <h5> ");// line 45, japidviews\Application\photo\Upload.html
-		;p(getMessage("upload.drag"));// line 52, japidviews\Application\photo\Upload.html
+"\n" + 
+"                    <h5> ");// line 42, japidviews\Application\photo\Upload.html
+		;p(getMessage("upload.drag"));// line 50, japidviews\Application\photo\Upload.html
 		p(" </h5>\n" + 
-"                    <h5>");// line 52, japidviews\Application\photo\Upload.html
-		;p(getMessage("upload.add.before"));// line 53, japidviews\Application\photo\Upload.html
-		p("<span class=\"btn btn-success fileinput-button\"> <i\n" + 
-"                            class=\"glyphicon glyphicon-plus glyphicon glyphicon-white\"></i> <span>");// line 53, japidviews\Application\photo\Upload.html
-		;p(getMessage("upload.add.button"));// line 54, japidviews\Application\photo\Upload.html
+"                    <h5>");// line 50, japidviews\Application\photo\Upload.html
+		;p(getMessage("upload.add.before"));// line 51, japidviews\Application\photo\Upload.html
+		p("<button class=\"btn btn-success fileinput-button\"> <i\n" + 
+"                            class=\"glyphicon glyphicon-plus glyphicon glyphicon-white\"></i> <span>");// line 51, japidviews\Application\photo\Upload.html
+		;p(getMessage("upload.add.button"));// line 52, japidviews\Application\photo\Upload.html
 		p("</span>\n" + 
 "						<input id=\"fileupload\" type=\"file\" name=\"files\">\n" + 
-"					</span> ");// line 54, japidviews\Application\photo\Upload.html
-		;p(getMessage("upload.add.after"));// line 56, japidviews\Application\photo\Upload.html
+"					</button> ");// line 52, japidviews\Application\photo\Upload.html
+		;p(getMessage("upload.add.after"));// line 54, japidviews\Application\photo\Upload.html
 		p("</h5>\n" + 
 "\n" + 
 "                </div>\n" + 
@@ -125,19 +126,19 @@ final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActio
 "                    </tr>\n" + 
 "                    </thead>\n" + 
 "                    <tbody>\n" + 
-"                    ");// line 56, japidviews\Application\photo\Upload.html
-		final UploadForm _UploadForm3 = new UploadForm(getOut()); _UploadForm3.setActionRunners(getActionRunners()).setOut(getOut()); _UploadForm3.render(null,photoSets); // line 72, japidviews\Application\photo\Upload.html// line 72, japidviews\Application\photo\Upload.html
+"                    ");// line 54, japidviews\Application\photo\Upload.html
+		final UploadForm _UploadForm3 = new UploadForm(getOut()); _UploadForm3.setActionRunners(getActionRunners()).setOut(getOut()); _UploadForm3.render(null,photoSets); // line 70, japidviews\Application\photo\Upload.html// line 70, japidviews\Application\photo\Upload.html
 		p("\n" + 
 "\n" + 
 "                    <tr>\n" + 
-"                        <td>");// line 72, japidviews\Application\photo\Upload.html
-		;p(getMessage("photo.note"));// line 75, japidviews\Application\photo\Upload.html
+"                        <td>");// line 70, japidviews\Application\photo\Upload.html
+		;p(getMessage("photo.note"));// line 73, japidviews\Application\photo\Upload.html
 		p("</td>\n" + 
 "                        <td >\n" + 
 "                            <div class=\"checkbox \">\n" + 
 "                                <label for=\"status1\">\n" + 
-"                                    ");// line 75, japidviews\Application\photo\Upload.html
-		;p(getMessage("photo.status"));// line 79, japidviews\Application\photo\Upload.html
+"                                    ");// line 73, japidviews\Application\photo\Upload.html
+		;p(getMessage("photo.status"));// line 77, japidviews\Application\photo\Upload.html
 		p("\n" + 
 "                                    <input type=\"checkbox\" name=\"status\" id=\"status1\"   checked value=\"1\"/>\n" + 
 "                                </label>\n" + 
@@ -145,8 +146,8 @@ final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActio
 "                        </td>\n" + 
 "                        <td><span class=\"start\" id=\"start\"> </span>\n" + 
 "                            <button class=\"btn btn-info\" type=\"button\" id=\"close\">\n" + 
-"                                ");// line 79, japidviews\Application\photo\Upload.html
-		;p(getMessage("close"));// line 86, japidviews\Application\photo\Upload.html
+"                                ");// line 77, japidviews\Application\photo\Upload.html
+		;p(getMessage("close"));// line 84, japidviews\Application\photo\Upload.html
 		p("\n" + 
 "                            </button>\n" + 
 "                        </td>\n" + 
@@ -154,10 +155,10 @@ final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActio
 "                    </tbody>\n" + 
 "                </table>\n" + 
 "                <div class=\"block\">\n" + 
-"                    ");// line 86, japidviews\Application\photo\Upload.html
-		Map map=new HashMap();map.put("catefory",fengfei.spruce.cache.SimpleCache.categories);// line 93, japidviews\Application\photo\Upload.html
+"                    ");// line 84, japidviews\Application\photo\Upload.html
+		Map map=new HashMap();map.put("catefory",fengfei.spruce.cache.SimpleCache.categories);// line 91, japidviews\Application\photo\Upload.html
 
-                    final CategorySelector _CategorySelector4 = new CategorySelector(getOut()); _CategorySelector4.setActionRunners(getActionRunners()).setOut(getOut()); _CategorySelector4.render(map,(byte) 0); // line 94, japidviews\Application\photo\Upload.html// line 94, japidviews\Application\photo\Upload.html
+                    final CategorySelector _CategorySelector4 = new CategorySelector(getOut()); _CategorySelector4.setActionRunners(getActionRunners()).setOut(getOut()); _CategorySelector4.render(map,(byte) 0); // line 92, japidviews\Application\photo\Upload.html// line 92, japidviews\Application\photo\Upload.html
 		p("\n" + 
 "                </div>\n" + 
 "            </div>\n" + 
@@ -166,7 +167,7 @@ final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActio
 "\n" + 
 "    </div>\n" + 
 "\n" + 
-"</form>\n");// line 94, japidviews\Application\photo\Upload.html
+"</form>\n");// line 92, japidviews\Application\photo\Upload.html
 		
 		endDoLayout(sourceTemplate);
 	}
@@ -178,78 +179,75 @@ final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActio
 		// line 7, japidviews\Application\photo\Upload.html
 		p("<style type=\"text/css\"></style>\n" + 
 "<!-- Bootstrap CSS fixes for IE6 -->\n" + 
-"<!--[if lt IE 7]>\n" + 
-"<link rel=\"stylesheet\" href=\"http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css\">\n" + 
-"<![endif]-->\n" + 
 "<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->\n" + 
 "<link rel=\"stylesheet\" href=\"");// line 7, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/blueimp/css/jquery.fileupload-ui.css"));// line 14, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/blueimp/css/jquery.fileupload.css"));// line 11, japidviews\Application\photo\Upload.html
 		p("\">\n" + 
 "<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->\n" + 
-"<script src=\"");// line 14, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/blueimp/js/vendor/jquery.ui.widget.js"));// line 16, japidviews\Application\photo\Upload.html
+"<script src=\"");// line 11, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/blueimp/js/vendor/jquery.ui.widget.js"));// line 13, japidviews\Application\photo\Upload.html
 		p("\"></script>\n" + 
 "<!-- The Load Image plugin is included for the preview images and image resizing functionality -->\n" + 
-"<script src=\"");// line 16, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/blueimp/load-image.min.js"));// line 18, japidviews\Application\photo\Upload.html
+"<script src=\"");// line 13, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/blueimp/load-image.min.js"));// line 15, japidviews\Application\photo\Upload.html
 		p("\"></script>\n" + 
 "<!-- The Canvas to Blob plugin is included for image resizing functionality -->\n" + 
-"<script src=\"");// line 18, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/blueimp/canvas-to-blob.min.js"));// line 20, japidviews\Application\photo\Upload.html
+"<script src=\"");// line 15, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/blueimp/canvas-to-blob.min.js"));// line 17, japidviews\Application\photo\Upload.html
 		p("\"></script>\n" + 
 "<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->\n" + 
-"<script src=\"");// line 20, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/blueimp/js/jquery.iframe-transport.js"));// line 22, japidviews\Application\photo\Upload.html
+"<script src=\"");// line 17, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/blueimp/js/jquery.iframe-transport.js"));// line 19, japidviews\Application\photo\Upload.html
 		p("\"></script>\n" + 
 "<!-- The basic File Upload plugin -->\n" + 
-"<script src=\"");// line 22, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/blueimp/js/jquery.fileupload.js"));// line 24, japidviews\Application\photo\Upload.html
+"<script src=\"");// line 19, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/blueimp/js/jquery.fileupload.js"));// line 21, japidviews\Application\photo\Upload.html
 		p("\"></script>\n" + 
 "<!-- The File Upload processing plugin -->\n" + 
-"<script src=\"");// line 24, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/blueimp/js/jquery.fileupload-process.js"));// line 26, japidviews\Application\photo\Upload.html
+"<script src=\"");// line 21, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/blueimp/js/jquery.fileupload-process.js"));// line 23, japidviews\Application\photo\Upload.html
 		p("\"></script>\n" + 
 "<!-- The File Upload image resize plugin -->\n" + 
-"<script src=\"");// line 26, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/blueimp/js/jquery.fileupload-image.js"));// line 28, japidviews\Application\photo\Upload.html
+"<script src=\"");// line 23, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/blueimp/js/jquery.fileupload-image.js"));// line 25, japidviews\Application\photo\Upload.html
 		p("\"></script>\n" + 
 "<!-- The File Upload validation plugin -->\n" + 
+"<script src=\"");// line 25, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/blueimp/js/jquery.fileupload-validate.js"));// line 27, japidviews\Application\photo\Upload.html
+		p("\"></script>\n" + 
+"<script src=\"");// line 27, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/js/json/json2.js"));// line 28, japidviews\Application\photo\Upload.html
+		p("\"></script>\n" + 
 "<script src=\"");// line 28, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/blueimp/js/jquery.fileupload-validate.js"));// line 30, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/bootstrap/bootstrap-tag.js"));// line 29, japidviews\Application\photo\Upload.html
 		p("\"></script>\n" + 
-"<script src=\"");// line 30, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/js/json/json2.js"));// line 31, japidviews\Application\photo\Upload.html
-		p("\"></script>\n" + 
-"<script src=\"");// line 31, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/bootstrap/bootstrap-tag.js"));// line 32, japidviews\Application\photo\Upload.html
-		p("\"></script>\n" + 
-"<link type=\"text/css\" href=\"");// line 32, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/bootstrap/bootstrap-tag.css"));// line 33, japidviews\Application\photo\Upload.html
+"<link type=\"text/css\" href=\"");// line 29, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/bootstrap/bootstrap-tag.css"));// line 30, japidviews\Application\photo\Upload.html
 		p("\" rel=\"stylesheet\"/>\n" + 
 "<script type=\"text/javascript\"\n" + 
 "        src=\"http://maps.googleapis.com/maps/api/js?key=AIzaSyDqPLY_onh61yMSw5KSVICJN-B5igbHCTs&sensor=false&language=zh-cn\"></script>\n" + 
-"<script src=\"");// line 33, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/js/gmap/gmap-context-menu.js"));// line 36, japidviews\Application\photo\Upload.html
+"<script src=\"");// line 30, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/js/gmap/gmap-context-menu.js"));// line 33, japidviews\Application\photo\Upload.html
 		p("\"></script>\n" + 
-"<link type=\"text/css\" href=\"");// line 36, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/js/gmap/gmap-context-menu.css"));// line 37, japidviews\Application\photo\Upload.html
+"<link type=\"text/css\" href=\"");// line 33, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/js/gmap/gmap-context-menu.css"));// line 34, japidviews\Application\photo\Upload.html
 		p("\" rel=\"stylesheet\"/>\n" + 
+"<script src=\"");// line 34, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/app/map.js"));// line 35, japidviews\Application\photo\Upload.html
+		p("\"></script>\n" + 
+"<script src=\"");// line 35, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/js/binaryajax.js"));// line 36, japidviews\Application\photo\Upload.html
+		p("\"></script>\n" + 
+"<script src=\"");// line 36, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/js/exif_ff.js"));// line 37, japidviews\Application\photo\Upload.html
+		p("\"></script>\n" + 
 "<script src=\"");// line 37, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/app/map.js"));// line 38, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/app/ExifUtils.js"));// line 38, japidviews\Application\photo\Upload.html
 		p("\"></script>\n" + 
 "<script src=\"");// line 38, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/js/binaryajax.js"));// line 39, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/app/upload.js"));// line 39, japidviews\Application\photo\Upload.html
 		p("\"></script>\n" + 
-"<script src=\"");// line 39, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/js/exif_ff.js"));// line 40, japidviews\Application\photo\Upload.html
-		p("\"></script>\n" + 
-"<script src=\"");// line 40, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/app/ExifUtils.js"));// line 41, japidviews\Application\photo\Upload.html
-		p("\"></script>\n" + 
-"<script src=\"");// line 41, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/app/upload.js"));// line 42, japidviews\Application\photo\Upload.html
-		p("\"></script>\n" + 
-"\n");// line 42, japidviews\Application\photo\Upload.html
+"\n");// line 39, japidviews\Application\photo\Upload.html
 		;
 	}
 }

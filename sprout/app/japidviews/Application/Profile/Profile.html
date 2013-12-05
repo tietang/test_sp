@@ -44,18 +44,18 @@
     </div>
 
     <div class="col col_13 ">
-        <div class="row-fluid well profile_right">
+        <div class="row well well-sm profile_right">
             <div class="col-lg-12  ">
-                `tag ErrorMessage`
+                `tag AllMessage`
 
                 <form class="" action="/settings/profile/done" method="post">
-                    <div class="row-fluid">
-                        <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-6 ">
 
                             <div class="form-group ">
                                 <div class="controls inline">
                                     <div class="head_img">
-                                        <img id="head_img"
+                                        <img id="head_img" class="image_64"
                                              src="${fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(user.idUser,1)}">
                                     </div>
                                     <input type="hidden" id="user_id_photo" name="user_photo"
@@ -70,19 +70,21 @@
                             <div class="form-group ">
                                 <label class="control-label" for="gender0">&{user.gender}</label>
 
-                                <div class="controls ">
-                                    <label class="radio inline">
+                                <div class="controls form-control">
+                                    <label class="radio-inline">
                                         <input type="radio"
                                                id="gender1" name="gender" value="1" ${user.gender==1?"checked":""}>
-                                        &{user.male} </label><label class="radio inline">
-                                    <input type="radio"
-                                           id="gender2" name="gender" value="2" ${user.gender==2?"checked":""}>
-                                    &{user.female} </label><label class="radio inline">
-                                    <input type="radio"
-                                           id="gender0" name="gender" value="0"
-                                    ${(user.gender==null || user.gender==0)?"checked":""}
-                                    >
-                                    &{user.not.specified} </label>
+                                        &{user.male} </label>
+                                    <label class="radio-inline">
+                                        <input type="radio"
+                                               id="gender2" name="gender" value="2" ${user.gender==2?"checked":""}>
+                                        &{user.female} </label>
+                                    <label class="radio-inline">
+                                        <input type="radio"
+                                               id="gender0" name="gender" value="0"
+                                        ${(user.gender==null || user.gender==0)?"checked":""}
+                                        >
+                                        &{user.not.specified} </label>
                                 </div>
                             </div>
 
@@ -113,7 +115,8 @@
                                 <label class="control-label">&{user.location}</label>
 
                                 <div class="controls">
-                                    <input id="city" name="city" class="form-control col-lg-11" placeholder="&{user.city}"
+                                    <input id="city" name="city" class="form-control col-lg-11"
+                                           placeholder="&{user.city}"
                                            type="text" value="${user.city}"/>
                                     <input class="form-control col-lg-11"
                                            id="state" name="state" placeholder="&{user.state}" type="text"
@@ -133,7 +136,7 @@
 
                                 <div class="controls">
                                     <input type="text" id="nicename" name="nicename"
-                                           class="col-lg-11" placeholder="&{user.nice.name}"
+                                           class="form-control col-lg-11" placeholder="&{user.nice.name}"
                                            value="${user.niceName}">
                                 </div>
                             </div>
@@ -142,7 +145,7 @@
 
                                 <div class="controls">
                                     <input type="text" id="birthday" name="birthday" data-date="1980-02-02"
-                                           class="col-lg-11" placeholder="&{user.birthday}"
+                                           class="form-control col-lg-11" placeholder="&{user.birthday}"
                                            value="${user.birthday}">
                                 </div>
                             </div>
@@ -151,7 +154,7 @@
                                 <label class="control-label" for="phone">&{user.phone}</label>
 
                                 <div class="controls">
-                                    <input type="text" id="phone" name="phone" class="col-lg-11"
+                                    <input type="text" id="phone" name="phone" class="form-control col-lg-11"
                                            placeholder="&{user.phone}" value="${user.phoneNum}">
                                 </div>
                             </div>
@@ -160,7 +163,7 @@
 
                                 <div class="controls">
                                     <input type="text" id="realName" name="realName"
-                                           class="col-lg-11" placeholder="&{user.real.name}"
+                                           class="form-control col-lg-11" placeholder="&{user.real.name}"
                                            value="${user.realName}">
                                 </div>
                             </div>
@@ -169,7 +172,7 @@
                                 <label class="control-label" for="about">&{user.about}</label>
 
                                 <div class="controls">
-                                    <textarea id="about" name="about" class="col-lg-11" rows="6"
+                                    <textarea id="about" name="about" class="form-control col-lg-11" rows="6"
                                               placeholder="&{user.about}">${user.about}</textarea>
                                 </div>
                             </div>
@@ -179,7 +182,7 @@
 
                     <div class="form-group">
                         <div class="controls">
-                            <button type="submit" class="btn">
+                            <button type="submit" class="btn btn-default">
                                 Save change
                             </button>
                         </div>
@@ -194,51 +197,75 @@
     </div>
 </div>
 
-<div id="userPhotoModal" class="modal hide fade modal_photo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"
-                aria-hidden="true">
-            ×
-        </button>
-        <h3 id="myModalLabel">User's photo</h3>
-    </div>
-    <div class="modal-body modal-body_photo">
-        <div id="viewUserPhoto">
-            <img
-                    src="${fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(user.idUser,0)}"
-                    id="ora_user_photo"/>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <form id="cropForm" method="post" class="form-inline">
-            <label>X1
-                <input type="text" size="4" id="x1" name="x1"
-                       class="col-lg-1"/>
-            </label><label>Y1
-            <input type="text" size="4"
-                   id="y1" name="y1" class="col-lg-1"/>
-        </label><label>X2
-            <input type="text" size="4" id="x2" name="x2"
-                   class="col-lg-1"/>
-        </label><label>Y2
-            <input type="text" size="4"
-                   id="y2" name="y2" class="col-lg-1"/>
-        </label><label>W
-            <input
-                    type="text" size="4" id="w" name="w" class="col-lg-1"/>
-        </label><label>H
-            <input type="text" size="4" id="h" name="h"
-                   class="col-lg-1"/>
-        </label>
 
-            <button class="btn" data-dismiss="modal" aria-hidden="true">
-                Close
-            </button>
-            <button class="btn btn-primary" id="SaveUserPhoto" type="button">
-                Save
-                changes
-            </button>
-        </form>
+<div id="userPhotoModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal_photo">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 id="myModalLabel">User's photo</h4>
+            </div>
+            <div class="modal-body modal-body_photo">
+                <div id="viewUserPhoto">
+                    <img src="${fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(user.idUser,0)}"
+                         id="ora_user_photo"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <form id="cropForm" method="post" class="form-inline">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <div class="input-group">
+                                <span class="input-group-addon">X1</span>
+                                <input type="text" size="4" id="x1" name="x1"
+                                       class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="input-group">
+                                <span class="input-group-addon">Y1</span>
+                                <input type="text" size="4" id="y1" name="y1"
+                                       class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="input-group">
+                                <span class="input-group-addon">X2</span>
+                                <input type="text" size="4" id="x2" name="x2"
+                                       class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="input-group">
+                                <span class="input-group-addon">Y2</span>
+                                <input type="text" size="4" id="y2" name="y2"
+                                       class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="input-group">
+                                <span class="input-group-addon">W</span>
+                                <input type="text" size="4" id="w" name="w"
+                                       class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="input-group">
+                                <span class="input-group-addon">H</span>
+                                <input type="text" size="4" id="h" name="h"
+                                       class="form-control"/>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <button class="btn btn-primary" id="SaveUserPhoto" type="button">
+                        Save Changes
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
