@@ -73,6 +73,24 @@ public class SqlProfileRepository implements ProfileRepository {
 
     }
 
+    public boolean deleteOneCamera(final Integer idUser, final long idCamera) throws Exception {
+        int updated = Transactions.execute(
+                PhotoUnitName,
+                new Long(idUser),
+                Function.Write,
+                new TaCallback<Integer>() {
+
+                    @Override
+                    public Integer execute(ForestGrower grower, String suffix) throws SQLException {
+                        suffix = "";
+                        return CameraDao.deleteOneByUserAndIdCamera(grower, suffix, idUser, idCamera);
+                    }
+
+                });
+
+        return updated > 0;
+    }
+
     @Override
     public List<Camera> selectCameras(final int idUser) throws Exception {
 

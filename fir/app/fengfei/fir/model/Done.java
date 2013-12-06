@@ -15,7 +15,7 @@ public class Done extends HashMap<String, Object> {
     public Status status;
 
 
-    public Done() {
+    protected Done() {
         setStatus(Status.Success);
         setMsg(Status.Success.name());
     }
@@ -26,7 +26,7 @@ public class Done extends HashMap<String, Object> {
         setStatus(status);
     }
 
-    public Done(Status status) {
+    protected Done(Status status) {
         super();
         setStatus(status);
         setMsg(status.name());

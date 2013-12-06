@@ -21,9 +21,10 @@ public class QueueServiceFQueueImpl implements QueueService {
     public QueueServiceFQueueImpl() {
     }
 
-    public QueueServiceFQueueImpl(String queueName, String path) {
+    public QueueServiceFQueueImpl(String queueName, String path) throws Exception {
         this.queueName = queueName;
         this.path = path;
+        this.start();
     }
 
     public void setSerializer(ObjectSerializer serializer) {
@@ -31,12 +32,14 @@ public class QueueServiceFQueueImpl implements QueueService {
     }
 
     public void start() throws Exception {
-        File file = new File(path);
-        if (!file.exists()) file.mkdirs();
-        queue = new FQueue(path);
+        if (this.queue == null) {
+            File file = new File(path);
+            if (!file.exists()) file.mkdirs();
+            queue = new FQueue(path);
+        }
+
     }
 
-    @Override
     public <T> void add(QueueMessage<T> item) {
         byte[] bytes = serializer.write(item);
         queue.add(bytes);

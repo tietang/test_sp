@@ -1,15 +1,18 @@
-package controllers;
+package controllers.api;
 
+import controllers.Admin;
+import controllers.SecureForJson;
 import fengfei.fir.model.Done;
 import fengfei.fir.model.Done.Status;
 import fengfei.ucm.repository.PhotoRepository;
 import fengfei.ucm.repository.impl.SqlPhotoRepository;
 import org.apache.commons.collections.MapUtils;
 import play.Logger;
+import play.mvc.With;
 
 import java.util.Map;
 
-//@With(SecureForJson.class)
+@With(SecureForJson.class)
 public class RankAction extends Admin {
 
     static PhotoRepository photoService = new SqlPhotoRepository();
@@ -24,16 +27,10 @@ public class RankAction extends Admin {
         try {
             int iip = getIIP();
             int updated = photoService.vote(id, photoIdUser, photoNiceName, category, idUser, iip);
-            Done done = null;
-            if (updated > 0) {
-                done = new Done(Status.Success);
-            } else {
-                done = new Done(Status.Fail);
-            }
-            renderJSON(done);
+            renderDoneJSON(updated > 0);
         } catch (Exception e) {
             Logger.error(e, "vote error.");
-            renderError();
+            renderErrorJSON();
         }
     }
 
@@ -47,22 +44,16 @@ public class RankAction extends Admin {
         try {
             int iip = getIIP();
             int updated = photoService.favorite(
-                id,
-                photoIdUser,
-                photoNiceName,
-                category,
-                idUser,
-                iip);
-            Done done = null;
-            if (updated > 0) {
-                done = new Done(Status.Success);
-            } else {
-                done = new Done(Status.Fail);
-            }
-            renderJSON(done);
+                    id,
+                    photoIdUser,
+                    photoNiceName,
+                    category,
+                    idUser,
+                    iip);
+            renderDoneJSON(updated > 0);
         } catch (Exception e) {
             Logger.error(e, "favorite error.");
-            renderError();
+            renderErrorJSON();
         }
     }
 
@@ -76,16 +67,10 @@ public class RankAction extends Admin {
         try {
             int iip = getIIP();
             int updated = photoService.unfavorite(id, photoIdUser, idUser, iip);
-            Done done = null;
-            if (updated > 0) {
-                done = new Done(Status.Success);
-            } else {
-                done = new Done(Status.Fail);
-            }
-            renderJSON(done);
+            renderDoneJSON(updated > 0);
         } catch (Exception e) {
             Logger.error(e, "favorite error.");
-            renderError();
+            renderErrorJSON();
         }
     }
 }

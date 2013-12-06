@@ -124,7 +124,7 @@ public class AppInitPlugin extends PlayPlugin {
             String line = null;
             while ((line = reader.readLine()) != null) {
                 String[] ls = line.split("=");
-                if (!line.startsWith("#")) {
+                if (!line.startsWith("#") && ls.length>=2) {
 //                    byte key = Byte.parseByte(ls[0].trim());
                     String key = ls[0].trim();
                     String value = ls[1];

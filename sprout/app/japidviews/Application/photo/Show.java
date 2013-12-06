@@ -1,16 +1,24 @@
-//version: 0.9.35
+//version: 0.9.37
 package japidviews.Application.photo;
-
-import controllers.Admin;
-import fengfei.fir.utils.Path;
-import fengfei.ucm.entity.photo.Photo;
-import fengfei.ucm.entity.photo.Rank;
-
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.ucm.entity.photo.*;import fengfei.fir.utils.Path;import java.util.*;import java.util.Map.Entry;
+import static play.templates.JavaExtensions.*;
 import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/Show.html
 // Change to this file will be lost next time the template file is compiled.
@@ -19,9 +27,11 @@ import static cn.bran.play.JapidPlayAdapter.*;
 public class Show extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/photo/Show.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -39,11 +49,17 @@ public class Show extends japidviews._layouts.Layout
 
 
 	public Show() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public Show(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public Show(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"photo", "rank", "exif", "isFollow", "isFavorite", "isVote",  };
@@ -73,9 +89,8 @@ public class Show extends japidviews._layouts.Layout
 		this.isFollow = isFollow;
 		this.isFavorite = isFavorite;
 		this.isVote = isVote;
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 4, japidviews/Application/photo/Show.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(Photo photo,Rank rank,Map exif,boolean isFollow,boolean isFavorite,boolean isVote) {
@@ -84,7 +99,6 @@ public class Show extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 ;// line 1, japidviews\Application\photo\Show.html
 
 p("\n" + 
@@ -248,7 +262,7 @@ p("\n" +
 "        </div>\n" + 
 "        <div class=\"line6\"></div>\n" + 
 "        ");// line 132, japidviews\Application\photo\Show.html
-		final RankShow _RankShow5 = new RankShow(getOut()); _RankShow5.setActionRunners(getActionRunners()).setOut(getOut()); _RankShow5.render(rank); // line 138, japidviews\Application\photo\Show.html// line 138, japidviews\Application\photo\Show.html
+		new RankShow(Show.this).render(rank); // line 138, japidviews\Application\photo\Show.html// line 138, japidviews\Application\photo\Show.html
 		p("\n" + 
 "        <div class=\"line6\"></div>\n" + 
 "\n" + 

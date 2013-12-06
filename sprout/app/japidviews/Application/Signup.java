@@ -1,10 +1,24 @@
-//version: 0.9.35
+//version: 0.9.37
 package japidviews.Application;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
 import fengfei.ucm.entity.profile.UserPwd;
-
-import static cn.bran.play.JapidPlayAdapter.flash;
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/Signup.html
 // Change to this file will be lost next time the template file is compiled.
@@ -13,9 +27,11 @@ import static cn.bran.play.JapidPlayAdapter.lookupStatic;
 public class Signup extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/Signup.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -33,11 +49,17 @@ public class Signup extends japidviews._layouts.Layout
 
 
 	public Signup() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public Signup(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public Signup(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"up",  };
@@ -57,9 +79,8 @@ public class Signup extends japidviews._layouts.Layout
 	private UserPwd up; // line 3, japidviews/Application/Signup.html
 	public cn.bran.japid.template.RenderResult render(UserPwd up) {
 		this.up = up;
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 3, japidviews/Application/Signup.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(UserPwd up) {
@@ -68,7 +89,6 @@ public class Signup extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 ;// line 1, japidviews\Application\Signup.html
 
 // line 6, japidviews\Application\Signup.html

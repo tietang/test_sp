@@ -1,6 +1,20 @@
+server.error=服务器连接超时
+server.inner.error=服务器内部错误
+
 web.app.name=Spruce摄影
 web.keywords=图片,照片,摄影,摄影师,图片库,摄影交流,作品,器材,照片,专业,上传,分享,拍照,照相,相册,博客,在线照片库,共享图片,专业摄影,社会照相,上传照片,分享照片,出色的照片组合,图片社区,最新照片,热门照片,热门图片,模型与摄影,商业摄影,建筑摄影
 web.description=Spruce是专业的摄影作品分享交流社区，你可以分享自己的摄影作品，也可以找摄影师，可以和全国优秀的摄影师共同探讨摄影技巧。
+Untitled=未命名
+
+success=成功！
+fail=失败！
+error=出错了！
+msg.save.success=保存成功！
+msg.save.fail=保存失败！
+msg.save.error=保存时发生错误！
+msg.delete.success=删除成功！
+msg.delete.fail=删除失败！
+msg.delete.error=删除时发生错误！
 
 #page
 home=主页
@@ -16,8 +30,6 @@ fav=收藏的
 favorite=收藏的
 
 
-server.error=服务器连接超时
-server.inner.error=服务器内部错误
 
 # nav link
 
@@ -227,6 +239,7 @@ camera.camera=相机
 camera.lens=镜头
 camera.tripod=脚架
 camera.filter=滤镜
+
 #password
 password.title=修改密码
 password.old=旧密码

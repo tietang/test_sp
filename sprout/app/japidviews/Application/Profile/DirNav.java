@@ -1,10 +1,25 @@
-//version: 0.9.35
+//version: 0.9.37
 package japidviews.Application.profile;
-
-import fengfei.ucm.entity.photo.PhotoSet;
-
-import java.util.List;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.fir.utils.Path;import fengfei.fir.model.PhotoShow;
+import java.util.*;import fengfei.ucm.entity.photo.*;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/DirNav.html
 // Change to this file will be lost next time the template file is compiled.
@@ -13,9 +28,11 @@ import java.util.List;
 public class DirNav extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/Application/profile/DirNav.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -33,11 +50,17 @@ public class DirNav extends cn.bran.play.JapidTemplateBase
 
 
 	public DirNav() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public DirNav(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public DirNav(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"photoSets",  };
@@ -57,9 +80,8 @@ public class DirNav extends cn.bran.play.JapidTemplateBase
 	private List<PhotoSet> photoSets; // line 6, japidviews/Application/profile/DirNav.html
 	public cn.bran.japid.template.RenderResult render(List<PhotoSet> photoSets) {
 		this.photoSets = photoSets;
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 6, japidviews/Application/profile/DirNav.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(List<PhotoSet> photoSets) {
@@ -68,7 +90,6 @@ public class DirNav extends cn.bran.play.JapidTemplateBase
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 p("<pre style=\"display: none\">\n" + 
 "	\n");// line 1, japidviews\Application\profile\DirNav.html
 

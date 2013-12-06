@@ -1,3 +1,4 @@
+//version: 0.9.37
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -27,9 +28,11 @@ import japidviews._javatags.*;
 public class UploadForm extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/Application/photo/UploadForm.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -47,11 +50,17 @@ public class UploadForm extends cn.bran.play.JapidTemplateBase
 
 
 	public UploadForm() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public UploadForm(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public UploadForm(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"photo", "photoSets",  };
@@ -73,9 +82,8 @@ public class UploadForm extends cn.bran.play.JapidTemplateBase
 	public cn.bran.japid.template.RenderResult render(Photo photo,List<PhotoSet> photoSets) {
 		this.photo = photo;
 		this.photoSets = photoSets;
-		long __t = -1;
-		try {super.layout();} catch (RuntimeException e) { super.handleException(e);} // line 4, japidviews/Application/photo/UploadForm.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 4, japidviews/Application/photo/UploadForm.html
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(Photo photo,List<PhotoSet> photoSets) {
@@ -84,9 +92,10 @@ public class UploadForm extends cn.bran.play.JapidTemplateBase
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\UploadForm.html
-p("</pre>\n" + 
+
+p("\n" + 
+"</pre>\n" + 
 "\n" + 
 "\n" + 
 "<tr>\n" + 
@@ -95,12 +104,14 @@ p("</pre>\n" +
 "            <div id=\"preview\" class=\"preview img_shadow\">\n" + 
 "                ");// line 4, japidviews\Application\photo\UploadForm.html
 		if(photo!=null){// line 12, japidviews\Application\photo\UploadForm.html
-		p("                <img src=\"");// line 12, japidviews\Application\photo\UploadForm.html
+		p("\n" + 
+"                <img src=\"");// line 12, japidviews\Application\photo\UploadForm.html
 		p(Path.getJpegDownloadPath(photo.idPhoto,0));// line 13, japidviews\Application\photo\UploadForm.html
 		p("\" class=\"rounded3 img_shadow\" alt=\"\">\n" + 
 "                ");// line 13, japidviews\Application\photo\UploadForm.html
 		}// line 14, japidviews\Application\photo\UploadForm.html
 		p("\n" + 
+"\n" + 
 "            </div>\n" + 
 "            <p>\n" + 
 "\n" + 
@@ -128,7 +139,8 @@ p("</pre>\n" +
 "                </button>\n" + 
 "                ");// line 24, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("upload.error"));// line 33, japidviews\Application\photo\UploadForm.html
-		p("            </div>\n" + 
+		p("\n" + 
+"            </div>\n" + 
 "\n" + 
 "        </div>\n" + 
 "    </td>\n" + 
@@ -163,8 +175,10 @@ p("</pre>\n" +
 		p("</option>\n" + 
 "                    ");// line 56, japidviews\Application\photo\UploadForm.html
 		if(photoSets!=null){// line 57, japidviews\Application\photo\UploadForm.html
+
                     for(PhotoSet set:photoSets){// line 58, japidviews\Application\photo\UploadForm.html
-		p("                    <option value=\"");// line 58, japidviews\Application\photo\UploadForm.html
+		p("\n" + 
+"                    <option value=\"");// line 58, japidviews\Application\photo\UploadForm.html
 		p(set.idSet);// line 59, japidviews\Application\photo\UploadForm.html
 		p("\">");// line 59, japidviews\Application\photo\UploadForm.html
 		p(set.name);// line 59, japidviews\Application\photo\UploadForm.html
@@ -172,27 +186,33 @@ p("</pre>\n" +
 "\n" + 
 "                    ");// line 59, japidviews\Application\photo\UploadForm.html
 		}// line 61, japidviews\Application\photo\UploadForm.html
+
                     }// line 62, japidviews\Application\photo\UploadForm.html
-		p("                </select>\n" + 
+		p("\n" + 
+"                </select>\n" + 
 "            </div>\n" + 
 "\n" + 
 "            <div class=\"block\">\n" + 
 "                <select name=\"category\" id=\"category1\" data-style=\" \"\n" + 
 "                        class=\"selectpicker category span4\">\n" + 
 "                    ");// line 62, japidviews\Application\photo\UploadForm.html
-		final CategorySelectOptions _CategorySelectOptions0 = new CategorySelectOptions(getOut()); _CategorySelectOptions0.setActionRunners(getActionRunners()).setOut(getOut()); _CategorySelectOptions0.render(fengfei.spruce.cache.SimpleCache.categories,(byte) 0); // line 69, japidviews\Application\photo\UploadForm.html// line 69, japidviews\Application\photo\UploadForm.html
-		p("                </select>\n" + 
+		new CategorySelectOptions(UploadForm.this).render(fengfei.spruce.cache.SimpleCache.categories,(byte) 0); // line 69, japidviews\Application\photo\UploadForm.html// line 69, japidviews\Application\photo\UploadForm.html
+		p("\n" + 
+"                </select>\n" + 
 "                ");// line 69, japidviews\Application\photo\UploadForm.html
 		Map kv=new HashMap();kv.put("分类",fengfei.spruce.cache.SimpleCache.categories);// line 71, japidviews\Application\photo\UploadForm.html
-                final CategorySelector _CategorySelector1 = new CategorySelector(getOut()); _CategorySelector1.setActionRunners(getActionRunners()).setOut(getOut()); _CategorySelector1.render(kv,(byte) 0); // line 72, japidviews\Application\photo\UploadForm.html// line 72, japidviews\Application\photo\UploadForm.html
-		p("            </div>\n" + 
+
+                new CategorySelector(UploadForm.this).render(kv,(byte) 0); // line 72, japidviews\Application\photo\UploadForm.html// line 72, japidviews\Application\photo\UploadForm.html
+		p("\n" + 
+"            </div>\n" + 
 "\n" + 
 "            <div class=\"block\">\n" + 
 "                <select name=\"license\" id=\"license1\" data-style=\" \"\n" + 
 "                        class=\"selectpicker license span4\">\n" + 
 "                    ");// line 72, japidviews\Application\photo\UploadForm.html
-		final LicenseSelectOptions _LicenseSelectOptions2 = new LicenseSelectOptions(getOut()); _LicenseSelectOptions2.setActionRunners(getActionRunners()).setOut(getOut()); _LicenseSelectOptions2.render(fengfei.spruce.cache.SimpleCache.licenses,"by"); // line 78, japidviews\Application\photo\UploadForm.html// line 78, japidviews\Application\photo\UploadForm.html
-		p("                </select>\n" + 
+		new LicenseSelectOptions(UploadForm.this).render(fengfei.spruce.cache.SimpleCache.licenses,"by"); // line 78, japidviews\Application\photo\UploadForm.html// line 78, japidviews\Application\photo\UploadForm.html
+		p("\n" + 
+"                </select>\n" + 
 "\n" + 
 "                <p style=\"text-align: right\">\n" + 
 "                    <a href=\"#\">About License</a>\n" + 

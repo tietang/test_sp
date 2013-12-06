@@ -54,7 +54,7 @@ $(function() {
 	}).on('error', function(event, id, name, reason) {
 		$(".qq-upload-list li").prepend('<button type="button" class="close" data-dismiss="alert">&times;</button>');
 	});
-	$(".qq-upload-button").addClass("btn btn-small").removeClass("qq-upload-button").after('  <a	href="#userPhotoModal" role="button" class="btn btn-small"	data-toggle="modal">Crop Photo</a>');
+	$(".qq-upload-button").addClass("btn btn-default btn-small").removeClass("qq-upload-button").after('  <a	href="#userPhotoModal" role="button" class="btn btn-default btn-small"	data-toggle="modal">Crop Photo</a>');
 
 	$(".qq-upload-list li").prepend('<button type="button" class="close" data-dismiss="alert">&times;</button>');
 	var userPhoto = $('#ora_user_photo');

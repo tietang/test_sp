@@ -1,14 +1,25 @@
-//version: 0.9.35
+//version: 0.9.37
 package japidviews.Application.profile;
-
-import fengfei.ucm.entity.photo.PhotoSet;
-import japidviews._tags.AddNav;
-
-import java.util.List;
-
-import static cn.bran.play.JapidPlayAdapter.getMessage;
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
-
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import java.util.*;
+import fengfei.ucm.entity.photo.*;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/PhotoManage.html
 // Change to this file will be lost next time the template file is compiled.
@@ -17,9 +28,11 @@ import static cn.bran.play.JapidPlayAdapter.lookupStatic;
 public class PhotoManage extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/profile/PhotoManage.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -37,11 +50,17 @@ public class PhotoManage extends japidviews._layouts.Layout
 
 
 	public PhotoManage() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public PhotoManage(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public PhotoManage(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"sets",  };
@@ -61,9 +80,8 @@ public class PhotoManage extends japidviews._layouts.Layout
 	private List<PhotoSet> sets; // line 5, japidviews/Application/profile/PhotoManage.html
 	public cn.bran.japid.template.RenderResult render(List<PhotoSet> sets) {
 		this.sets = sets;
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 5, japidviews/Application/profile/PhotoManage.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(List<PhotoSet> sets) {
@@ -72,7 +90,6 @@ public class PhotoManage extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\PhotoManage.html
 
 // line 8, japidviews\Application\profile\PhotoManage.html
@@ -80,7 +97,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\P
 "\n" + 
 "\n" + 
 "\n");// line 12, japidviews\Application\profile\PhotoManage.html
-		final AddNav _AddNav3 = new AddNav(getOut()); _AddNav3.setActionRunners(getActionRunners()).setOut(getOut()); _AddNav3.render("manage"); // line 17, japidviews\Application\profile\PhotoManage.html// line 17, japidviews\Application\profile\PhotoManage.html
+		new AddNav(PhotoManage.this).render("manage"); // line 17, japidviews\Application\profile\PhotoManage.html// line 17, japidviews\Application\profile\PhotoManage.html
 		p("\n" + 
 "<div class=\"grid_row manage\">\n" + 
 "\n" + 
@@ -107,7 +124,7 @@ p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\profile\P
 		p("</h4></a>\n" + 
 "				</li>\n" + 
 "				");// line 34, japidviews\Application\profile\PhotoManage.html
-		final DirNav _DirNav4 = new DirNav(getOut()); _DirNav4.setActionRunners(getActionRunners()).setOut(getOut()); _DirNav4.render(sets); // line 36, japidviews\Application\profile\PhotoManage.html// line 36, japidviews\Application\profile\PhotoManage.html
+		new DirNav(PhotoManage.this).render(sets); // line 36, japidviews\Application\profile\PhotoManage.html// line 36, japidviews\Application\profile\PhotoManage.html
 		p("\n" + 
 "\n" + 
 "			</ul>\n" + 

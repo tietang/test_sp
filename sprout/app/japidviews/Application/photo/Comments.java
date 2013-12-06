@@ -1,9 +1,24 @@
-//version: 0.9.35
+//version: 0.9.37
 package japidviews.Application.photo;
-
-import fengfei.ucm.entity.photo.Comment;
-
-import java.util.List;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import fengfei.ucm.entity.photo.*;import fengfei.fir.utils.Path;import java.util.*;import java.util.Map.Entry;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/Comments.html
 // Change to this file will be lost next time the template file is compiled.
@@ -12,9 +27,11 @@ import java.util.List;
 public class Comments extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/Application/photo/Comments.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -32,11 +49,17 @@ public class Comments extends cn.bran.play.JapidTemplateBase
 
 
 	public Comments() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public Comments(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public Comments(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"comments", "pages", "cp", "ct",  };
@@ -62,9 +85,8 @@ public class Comments extends cn.bran.play.JapidTemplateBase
 		this.pages = pages;
 		this.cp = cp;
 		this.ct = ct;
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 4, japidviews/Application/photo/Comments.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(List<Comment> comments,List<String> pages,int cp,int ct) {
@@ -73,7 +95,6 @@ public class Comments extends cn.bran.play.JapidTemplateBase
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Comments.html
  
 p("\n" + 

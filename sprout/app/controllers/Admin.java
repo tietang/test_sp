@@ -47,7 +47,7 @@ public class Admin extends ExceptionCatchController {
         Http.Header agentHeader = request.headers.get("user-agent");
         String agent = agentHeader.value().toLowerCase();
         String ip = request.remoteAddress;
-        logger.info(ip+": "+agent);
+        logger.info(ip + ": " + agent);
     }
 
     protected static Map<String, String[]> escapeAll() {
@@ -92,7 +92,7 @@ public class Admin extends ExceptionCatchController {
         return username;
     }
 
-    protected static void renderDone(boolean updated) {
+    protected static void renderDoneJSON(boolean updated) {
         Done done = createDone(updated);
         renderJSON(done);
     }
@@ -109,19 +109,24 @@ public class Admin extends ExceptionCatchController {
     protected static Done createDone(boolean updated) {
         Done done = null;
         if (updated) {
-            done = new Done(Status.Success);
+            done = new Done(i18n("success"), Status.Success);
         } else {
-            done = new Done(Status.Fail);
+            done = new Done(i18n("server.inner.error"), Status.Fail);
         }
         return done;
     }
 
 
-    protected static void renderError() {
-        Done done = new Done(Status.Error);
+    protected static void renderErrorJSON() {
+        Done done = new Done(i18n("server.inner.error"), Status.Error);
         renderJSON(done);
-
     }
+
+    protected static void renderSuccessJSON() {
+        Done done = new Done(i18n("server.inner.error"), Status.Error);
+        renderJSON(done);
+    }
+
 
     protected static void redirect500() {
         redirect("/500");
@@ -130,6 +135,18 @@ public class Admin extends ExceptionCatchController {
 
     protected static void render500() {
         throw new JapidResult(new E500().render());
+    }
+
+    protected static void flashError() {
+        flash.put("error", i18n("msg.save.fail"));
+    }
+
+    protected static void flashSuccess() {
+        flash.put("success", i18n("msg.save.success"));
+    }
+
+    protected static void flashFail() {
+        flash.put("error", i18n("msg.save.fail"));
     }
 
     protected static int getIIP() {

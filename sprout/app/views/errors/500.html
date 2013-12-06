@@ -8,7 +8,7 @@
     <body>
         #{if play.mode.name() == 'DEV'}
             #{500 exception /}
-            ${cn.bran.play.JapidPlayRenderer.renderPlayException(exception).raw()}
+            $   {   cn.bran.play.JapidPlayRenderer.renderPlayException(exception).raw()  }
         #{/if}
         #{else}
             <h1>Oops, an error occured</h1>

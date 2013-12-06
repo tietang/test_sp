@@ -1,9 +1,23 @@
-//version: 0.9.35
+//version: 0.9.37
 package japidviews._layouts;
-
-import controllers.Admin;
-
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_layouts/Layoutx.html
 // Change to this file will be lost next time the template file is compiled.
@@ -12,9 +26,11 @@ import static cn.bran.play.JapidPlayAdapter.lookupStatic;
 public abstract class Layoutx extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/_layouts/Layoutx.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -32,13 +48,20 @@ public abstract class Layoutx extends cn.bran.play.JapidTemplateBase
 
 
 	public Layoutx() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public Layoutx(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public Layoutx(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 	@Override public void layout() {
-		beginDoLayout(sourceTemplate);		p("<!DOCTYPE html>\n");// line 1, japidviews\_layouts\Layoutx.html
+		beginDoLayout(sourceTemplate);
+p("<!DOCTYPE html>\n");// line 1, japidviews\_layouts\Layoutx.html
 		p("\n" + 
 "<html lang=\"en\">\n" + 
 "	<head>\n" + 
@@ -188,7 +211,10 @@ public abstract class Layoutx extends cn.bran.play.JapidTemplateBase
 "		</footer>\n" + 
 "	</body>\n" + 
 "</html>\n");// line 95, japidviews\_layouts\Layoutx.html
-				endDoLayout(sourceTemplate);	}
+		
+		endDoLayout(sourceTemplate);
+	}
+
 	 protected void title() {};
 	 protected void header() {};
 	 protected void css() {};

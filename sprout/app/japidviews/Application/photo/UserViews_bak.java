@@ -1,4 +1,4 @@
-//version: 0.9.35
+//version: 0.9.37
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -29,9 +29,11 @@ import japidviews._javatags.*;
 public class UserViews_bak extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/photo/UserViews_bak.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -49,11 +51,17 @@ public class UserViews_bak extends japidviews._layouts.Layout
 
 
 	public UserViews_bak() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public UserViews_bak(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public UserViews_bak(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"pagePath", "photos", "pageNum", "user", "targets", "sources", "targetCount", "sourceCount", "rank", "cameras", "isFollow", "action",  };
@@ -95,9 +103,8 @@ public class UserViews_bak extends japidviews._layouts.Layout
 		this.cameras = cameras;
 		this.isFollow = isFollow;
 		this.action = action;
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 6, japidviews/Application/photo/UserViews_bak.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(String pagePath,List<? extends PhotoShow> photos,int pageNum,User user,List<Long> targets,List<Long> sources,int targetCount,int sourceCount,Rank rank,ListMultimap<String, Camera> cameras,boolean isFollow,String action) {
@@ -106,7 +113,6 @@ public class UserViews_bak extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\UserViews_bak.html
 
 // line 9, japidviews\Application\photo\UserViews_bak.html

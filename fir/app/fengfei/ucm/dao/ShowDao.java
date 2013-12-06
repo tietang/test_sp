@@ -32,7 +32,6 @@ public class ShowDao {
     final static String SelectPopularWithCategory = "SELECT  id_photo,title,id_user,username, category,view, vote, favorite, comment, score, update_at,max_score,max_at  FROM photo_rank%s  where score>=? and category=? order by score desc limit ?,?";
     final static String SelectRankWithCategory = "SELECT  id_photo,title,id_user,username, category,view, vote, favorite, comment, score, update_at,max_score,max_at  FROM photo_rank%s  where category=? limit ?,?";
 
-
     final static String GetPhoto = PhotoDao.SelectPhotoClause + " FROM photo%s where id_photo=?";
     final static String GetPhotoWithUser = PhotoDao.SelectPhotoClause + " FROM photo%s where id_photo=? and id_user=?";
     final static String SelectPhotos = PhotoDao.SelectPhotoClause + " FROM photo%s where id_photo in(%s)";

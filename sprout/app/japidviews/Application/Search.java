@@ -1,12 +1,25 @@
-//version: 0.9.35
+//version: 0.9.37
 package japidviews.Application;
-
-import fengfei.fir.model.PhotoShow;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
 import fengfei.ucm.entity.profile.User;
-import japidviews._tags.CategorySelectOptions;
-import japidviews._tags.UsersCard;
-
-import java.util.List;
+import fengfei.fir.model.PhotoShow;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/Search.html
 // Change to this file will be lost next time the template file is compiled.
@@ -15,9 +28,11 @@ import java.util.List;
 public class Search extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/Search.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -35,11 +50,17 @@ public class Search extends japidviews._layouts.Layout
 
 
 	public Search() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public Search(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public Search(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"type", "pagePath", "rs", "pageNum",  };
@@ -65,9 +86,8 @@ public class Search extends japidviews._layouts.Layout
 		this.pagePath = pagePath;
 		this.rs = rs;
 		this.pageNum = pageNum;
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 5, japidviews/Application/Search.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(int type,String pagePath,Object rs,int pageNum) {
@@ -76,7 +96,6 @@ public class Search extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\Search.html
 
 p("	\n" + 
@@ -111,7 +130,7 @@ p("	\n" +
 "\n" + 
 "			<select class=\"selectpicker  span2\" id=\"category\" name=\"c\" onchange=\"form.submit();\">\n" + 
 "				");// line 31, japidviews\Application\Search.html
-		final CategorySelectOptions _CategorySelectOptions2 = new CategorySelectOptions(getOut()); _CategorySelectOptions2.setActionRunners(getActionRunners()).setOut(getOut()); _CategorySelectOptions2.render(fengfei.spruce.cache.SimpleCache.categories,key); // line 34, japidviews\Application\Search.html// line 34, japidviews\Application\Search.html
+		new CategorySelectOptions(Search.this).render(fengfei.spruce.cache.SimpleCache.categories,key); // line 34, japidviews\Application\Search.html// line 34, japidviews\Application\Search.html
 		p("\n" + 
 "			</select>\n" + 
 "\n" + 
@@ -162,13 +181,13 @@ p("	\n" +
 
 	List<PhotoShow>	photos=(List<PhotoShow>)rs;// line 77, japidviews\Application\Search.html
 
-		final japidviews.Application.photo.PhotoView _japidviews_Application_photo_PhotoView3 = new japidviews.Application.photo.PhotoView(getOut()); _japidviews_Application_photo_PhotoView3.setActionRunners(getActionRunners()).setOut(getOut()); _japidviews_Application_photo_PhotoView3.render(pagePath,photos,pageNum); // line 78, japidviews\Application\Search.html// line 78, japidviews\Application\Search.html
+		new japidviews.Application.photo.PhotoView(Search.this).render(pagePath,photos,pageNum); // line 78, japidviews\Application\Search.html// line 78, japidviews\Application\Search.html
 
 }else{// line 79, japidviews\Application\Search.html
 
 	List<User>	users=(List<User>)rs;// line 80, japidviews\Application\Search.html
 
-	final UsersCard _UsersCard4 = new UsersCard(getOut()); _UsersCard4.setActionRunners(getActionRunners()).setOut(getOut()); _UsersCard4.render(pagePath,users,pageNum); // line 81, japidviews\Application\Search.html// line 81, japidviews\Application\Search.html
+	new UsersCard(Search.this).render(pagePath,users,pageNum); // line 81, japidviews\Application\Search.html// line 81, japidviews\Application\Search.html
 		p("\n" + 
 "\n");// line 81, japidviews\Application\Search.html
 		}// line 83, japidviews\Application\Search.html

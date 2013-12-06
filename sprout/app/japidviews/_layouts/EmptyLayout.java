@@ -1,7 +1,23 @@
-//version: 0.9.35
+//version: 0.9.37
 package japidviews._layouts;
-
-import static cn.bran.play.JapidPlayAdapter.lookupStatic;
+import java.util.*;
+import java.io.*;
+import cn.bran.japid.tags.Each;
+import static play.templates.JavaExtensions.*;
+import static cn.bran.play.JapidPlayAdapter.*;
+import static play.data.validation.Validation.*;
+import japidviews._layouts.*;
+import play.i18n.Messages;
+import play.data.validation.Validation;
+import static japidviews._javatags.Pic.*;
+import play.mvc.Scope.*;
+import models.*;
+import play.data.validation.Error;
+import play.i18n.Lang;
+import japidviews._tags.*;
+import play.mvc.Http.*;
+import controllers.*;
+import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_layouts/EmptyLayout.html
 // Change to this file will be lost next time the template file is compiled.
@@ -10,9 +26,11 @@ import static cn.bran.play.JapidPlayAdapter.lookupStatic;
 public abstract class EmptyLayout extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/_layouts/EmptyLayout.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -30,13 +48,20 @@ public abstract class EmptyLayout extends cn.bran.play.JapidTemplateBase
 
 
 	public EmptyLayout() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public EmptyLayout(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public EmptyLayout(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 	@Override public void layout() {
-		beginDoLayout(sourceTemplate);		p("<!DOCTYPE html>\n");// line 1, japidviews\_layouts\EmptyLayout.html
+		beginDoLayout(sourceTemplate);
+p("<!DOCTYPE html>\n");// line 1, japidviews\_layouts\EmptyLayout.html
 		p("\n" + 
 "<html>\n" + 
 "	<head>\n" + 
@@ -62,7 +87,10 @@ public abstract class EmptyLayout extends cn.bran.play.JapidTemplateBase
 "\n" + 
 "	</body>\n" + 
 "</html>\n");// line 16, japidviews\_layouts\EmptyLayout.html
-				endDoLayout(sourceTemplate);	}
+		
+		endDoLayout(sourceTemplate);
+	}
+
 	 protected void title() {};
 	 protected void header() {};
 	 protected void css() {};
