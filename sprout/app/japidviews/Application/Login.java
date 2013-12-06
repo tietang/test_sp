@@ -95,7 +95,7 @@ public class Login extends japidviews._layouts.Layout
 "\n" + 
 "	<div class=\"col col_16\" >\n" + 
 "\n" + 
-"		<div id=\"login\"   class=\" 	cardx\">\n" + 
+"		<div id=\"login\"   class=\"cardx\">\n" + 
 "			<div class=\"col left_form rigth_line\" >\n" + 
 "				<form class=\"form-horizontal\"  method=\"post\" action=\"/login");// line 13, japidviews\Application\Login.html
 		p(flash.get("cpage"));// line 27, japidviews\Application\Login.html

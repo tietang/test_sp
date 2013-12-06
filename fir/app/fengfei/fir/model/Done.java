@@ -15,12 +15,22 @@ public class Done extends HashMap<String, Object> {
     public Status status;
 
 
+    protected Done() {
+        setStatus(Status.Success);
+        setMsg(Status.Success.name());
+    }
+
     public Done(String msg, Status status) {
         super();
         setMsg(msg);
         setStatus(status);
     }
 
+    protected Done(Status status) {
+        super();
+        setStatus(status);
+        setMsg(status.name());
+    }
 
     public Done(String msg) {
         super();
@@ -51,7 +61,7 @@ public class Done extends HashMap<String, Object> {
                 key.equals(Status.Success.name()) ||
                 key.equals(Status.Success.name().toLowerCase());
         if (keyExisted) {
-            throw new RuntimeException(key + " is reserved keyword!");
+            throw new RuntimeException(key +" is reserved keyword!");
         } else {
             return super.put(key, value);
         }

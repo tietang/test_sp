@@ -131,6 +131,7 @@ public class LorryAction extends Admin {
                         }
 
                         done = lorryService.writeFile(contents, contents, file);
+                        done.setMsg(i18n("success"));
                         renderJSON(done);
                     } catch (Exception e) {
                         Logger.error(e, "upload error.");
