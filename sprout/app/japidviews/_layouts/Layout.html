@@ -11,6 +11,7 @@
     <meta name="description" content="`get description` ----  ${description}"/>
     <meta name="viewport" content="width=1240, maximum-scale=1.5"/>
     <link rel="stylesheet" media="screen" href="@{'/public/bootstrap/css/bootstrap.min.css'}">
+    <link rel="stylesheet" media="screen" href="@{'/public/bootstrap/css/bootstrap-theme.css'}">
     <!--
     <link rel="stylesheet" media="screen" 	href="@{'/public/bootstrap/css/bootstrap-responsive.min.css'}">
     -->
@@ -130,33 +131,28 @@
                     </div>
 
                     `if (session.get(Admin.SESSION_LOGIN_KEY) == null) {`
-                    <div class="nav pull-right">
-                        <div class="btn-group">
-                            <a href="/signup" class="btn btn-success btn-small"><i class="icon-arrow-up icon-white"></i>&ensp;Signup</a>
-                        </div>
-                    </div>
-                    <div class="nav pull-right">
-                        <div class="btn-group">
-                            <a class="btn btn-primary btn-small" href="/login"><i
-                                    class="icon-user icon-white"></i>&ensp;Login</a>
-                        </div>
-                        &ensp;
-                    </div>
+                    <ul class="nav pull-right">
+                        <li>
+                            <div class="btn-group">
+                                <a href="/signup" class="btn btn3  btn3-green btn-small"><i class="icon-arrow-up icon-white"></i>&ensp;Signup</a>
+
+                                <a class="   btn btn3  btn3-blue btn-small" href="/login"><i
+                                        class="icon-user icon-white"></i>&ensp;Login</a>
+                            </div>
+                        </li>
+                    </ul>
 
                     `}else{`
 
-                    <div class="nav pull-right">
+                    <ul class="nav pull-right">
 
-                        <div class="btn-group">
-                            <a class="btn btn-primary btn-small" href="/yours">
+                        <li class=" dropdown">
+                            <a class="dropdown-toggle" href="/yours" data-toggle="dropdown">
                                 `String idUserStr=session.get(Admin.SESSION_USER_ID_KEY);`
                                 `Integer idUser=Integer.parseInt(idUserStr);`
                                 <img class="image_18 round3"
                                      src="${fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(idUser,1)}">
-
-                                ${session.get(Admin.SESSION_USER_NAME_KEY)}</a><a
-                                class="btn btn-primary btn-small dropdown-toggle"
-                                data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                                ${session.get(Admin.SESSION_USER_NAME_KEY)}<span class="caret"></span></a>
 
                             <ul class="dropdown-menu">
                                 <li>
@@ -182,16 +178,12 @@
                                     <a href="/logout"><i class="i"></i> &{logout}</a>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
+                        </li>
 
-                    <div class="nav pull-right">
-
-                        <div class="btn-group">
-                            <a class="btn btn-success btn-small" href="/add"><i
-                                    class=" icon-share icon-white"></i> &{add}</a><a
-                                class="btn btn-success btn-small dropdown-toggle"
-                                data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                        <li class=" dropdown">
+                            <a class="dropdown-toggle" href="/add" data-toggle="dropdown">
+                                <i
+                                        class=" icon-share icon-white"></i> &{add}<span class="caret"></span></a>
 
                             <ul class="dropdown-menu">
                                 <li>
@@ -216,8 +208,8 @@
                                 </li>
 
                             </ul>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                     `}`
                 </div>
             </div>

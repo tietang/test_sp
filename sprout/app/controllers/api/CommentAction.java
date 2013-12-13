@@ -8,17 +8,23 @@ import fengfei.ucm.repository.impl.SqlCommentRepository;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 import play.Logger;
+import play.modules.router.Any;
 import play.mvc.With;
 
 import java.sql.Timestamp;
 import java.util.Map;
 
+/**
+ * * 		/comment/done					CommentAction.commentDone
+ * #*		/comments						CommentAction.showComments
+ */
 @With(SecureForJson.class)
 public class CommentAction extends Admin {
 
 
     static CommentRepository repository = new SqlCommentRepository();
 
+    @Any("/comment/done")
     public static void commentDone() {
         int idUser = currentUserId();
         String niceName = currentNiceName();

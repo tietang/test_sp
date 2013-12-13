@@ -322,7 +322,7 @@ p("\n" +
 		p("\" value=\"\"\n" + 
 "                       class=\"aperture\" id=\"aperture1\" name=\"aperture\">\n" + 
 "            </div>\n" + 
-"            <div class=\"inline input-prepend last\">\n" + 
+"            <div class=\"inline input-prepend \">\n" + 
 "                <span class=\"add-on\"><span class=\"icon-head left\">");// line 156, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("photo.iso"));// line 160, japidviews\Application\photo\UploadForm.html
 		p(" </span></span>\n" + 
@@ -331,7 +331,7 @@ p("\n" +
 		p("\" value=\"\" class=\"iso\"\n" + 
 "                       id=\"iso1\" name=\"iso\">\n" + 
 "            </div>\n" + 
-"            <div class=\"inline input-prepend last\">\n" + 
+"            <div class=\"inline input-prepend\">\n" + 
 "                <span class=\"add-on\"><span class=\"icon-head left\">");// line 161, japidviews\Application\photo\UploadForm.html
 		;p(getMessage("photo.ev"));// line 165, japidviews\Application\photo\UploadForm.html
 		p("</span></span>\n" + 

@@ -65,9 +65,10 @@ public class QueueServiceFQueueImpl implements QueueService {
                     i + "_user",
                     i + "_password");
             QueueMessage<UserPwd> message = new QueueMessage<>(
-                    QueueMessage.MessageType.Photo,
+                    QueueMessage.MessageType.User,
                     QueueMessage.OperationType.Add,
-                    userPwd);
+                    userPwd
+            );
             qs.add(message);
         }
         for (int i = 0; i < 150; i++) {

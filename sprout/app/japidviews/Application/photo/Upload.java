@@ -189,7 +189,7 @@ new AddNav(Upload.this).render("upload"); // line 45, japidviews\Application\pho
 "<![endif]-->\n" + 
 "<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->\n" + 
 "<link rel=\"stylesheet\" href=\"");// line 7, japidviews\Application\photo\Upload.html
-		p(lookupStatic("/public/blueimp/css/jquery.fileupload-ui.css"));// line 14, japidviews\Application\photo\Upload.html
+		p(lookupStatic("/public/blueimp/css/jquery.fileupload.css"));// line 14, japidviews\Application\photo\Upload.html
 		p("\">\n" + 
 "<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->\n" + 
 "<script src=\"");// line 14, japidviews\Application\photo\Upload.html

@@ -8,15 +8,17 @@ import fengfei.ucm.repository.PhotoRepository;
 import fengfei.ucm.repository.impl.SqlPhotoRepository;
 import org.apache.commons.collections.MapUtils;
 import play.Logger;
+import play.modules.router.Any;
 import play.mvc.With;
 
 import java.util.Map;
 
-@With(SecureForJson.class)
+//@With(SecureForJson.class)
 public class RankAction extends Admin {
 
     static PhotoRepository photoService = new SqlPhotoRepository();
 
+    @Any("/vote/{id}")
     public static void vote(long id) {
         Integer idUser = currentUserId();
         String username = currentNiceName();
@@ -33,7 +35,7 @@ public class RankAction extends Admin {
             renderErrorJSON();
         }
     }
-
+    @Any("/favorite/{id}")
     public static void favorite(long id) {
         Integer idUser = currentUserId();
         String username = currentNiceName();
@@ -56,7 +58,7 @@ public class RankAction extends Admin {
             renderErrorJSON();
         }
     }
-
+    @Any("/unfavorite/{id}")
     public static void unFavorite(long id) {
         Integer idUser = currentUserId();
         Map<String, String> as = params.allSimple();

@@ -6,8 +6,8 @@ import fengfei.fir.search.lucene.PhotoIndexCreator;
 import fengfei.fir.search.lucene.Searcher;
 import fengfei.fir.search.lucene.UserIndexCreator;
 import fengfei.fir.utils.PausableLock;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import play.Logger;
 import play.Play;
 import play.PlayPlugin;
 
@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SearchPlugin extends PlayPlugin {
 
-    static org.slf4j.Logger logger = LoggerFactory.getLogger(SearchPlugin.class);
+    static Logger logger = LoggerFactory.getLogger(SearchPlugin.class);
 
     @Override
     public void onApplicationStart() {
@@ -37,7 +37,7 @@ public class SearchPlugin extends PlayPlugin {
         int corePoolSize = userConsumerSize + photoConsumerSize;
         int maximumPoolSize = corePoolSize * new Float(1 + increment).intValue();
         long keepAliveTime = Long.parseLong(keepAliveTimeStr);
-        Logger.info("starting queue consume ThreadPoolExecutor...");
+        logger.info("starting queue consume ThreadPoolExecutor...");
         ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(
                 corePoolSize,// corePoolSize
                 maximumPoolSize,// maximumPoolSize
@@ -56,14 +56,14 @@ public class SearchPlugin extends PlayPlugin {
         }
         PausableLock photoPausableLock = new PausableLock();
         PhotoQueue.queueProducer = new QueueProducer(photoQueueService, photoPausableLock);
-        Logger.info("Initialized PhotoQueue.queueProducer.");
+        logger.info("Initialized PhotoQueue.queueProducer.");
         //lucene
         LuceneFactory photoLuceneFactory = LuceneFactory.get(lucenePhotoPath);
         PhotoIndexCreator photoIndexCreator = new PhotoIndexCreator(photoLuceneFactory);
         PhotoQueueConsumer photoQueueConsumer = new PhotoQueueConsumer(photoQueueService,
                                                                        photoPausableLock,
                                                                        photoIndexCreator);
-        Logger.info("starting photoQueueConsumer.");
+        logger.info("starting photoQueueConsumer.");
         for (int i = 0; i < photoConsumerSize; i++) {
             poolExecutor.execute(photoQueueConsumer);
         }
@@ -82,22 +82,22 @@ public class SearchPlugin extends PlayPlugin {
         }
         PausableLock userPausableLock = new PausableLock();
         UserQueue.queueProducer = new QueueProducer(userQueueService, userPausableLock);
-        Logger.info("Initialized UserQueue.queueProducer.");
+        logger.info("Initialized UserQueue.queueProducer.");
         //lucene
         LuceneFactory userLuceneFactory = LuceneFactory.get(luceneUserPath);
         UserIndexCreator userIndexCreator = new UserIndexCreator(userLuceneFactory);
         UserQueueConsumer userQueueConsumer = new UserQueueConsumer(userQueueService,
                                                                     userPausableLock,
                                                                     userIndexCreator);
-        Logger.info("starting userQueueConsumer.");
+        logger.info("starting userQueueConsumer.");
         for (int i = 0; i < userConsumerSize; i++) {
             poolExecutor.execute(userQueueConsumer);
         }
 
         //
-        Logger.info("Init user searcher.");
+        logger.info("Init user searcher.");
         Searcher.userSearcher = new Searcher(userLuceneFactory);
-        Logger.info("Init photo searcher.");
+        logger.info("Init photo searcher.");
         Searcher.photoSearcher = new Searcher(photoLuceneFactory);
     }
 

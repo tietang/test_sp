@@ -31,14 +31,6 @@ GET		/shop/random/?		   		 	Store.random
 GET		/shop/catalog/? 			   	Store.catalog
 GET		/shop/new/?  			   		Store.showNew
 #
-*		/follow/{toid}					FollowAction.follow
-*		/unfollow/{toid}				FollowAction.unfollow
-GET		/follows						FollowAction.countFollows
-* 		/comment/done					CommentAction.commentDone
-#*		/comments						CommentAction.showComments
-*		/vote/{id}						RankAction.vote
-*		/favorite/{id}					RankAction.favorite
-*		/unfavorite/{id}				RankAction.unFavorite
 #
 * 		/settings/?		 				ProfileAction.profile
 * 		/settings/profile 				ProfileAction.profile
