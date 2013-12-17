@@ -262,7 +262,7 @@ p("\n" +
 "        </div>\n" + 
 "        <div class=\"line6\"></div>\n" + 
 "        ");// line 132, japidviews\Application\photo\Show_2.html
-		new RankShow(Show_2.this).render(rank); // line 138, japidviews\Application\photo\Show_2.html// line 138, japidviews\Application\photo\Show_2.html
+		new RankShow2(Show_2.this).render(rank); // line 138, japidviews\Application\photo\Show_2.html// line 138, japidviews\Application\photo\Show_2.html
 		p("\n" + 
 "        <div class=\"line6\"></div>\n" + 
 "\n" + 

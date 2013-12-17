@@ -36,6 +36,7 @@ function vote() {
             if (data.status == "Success") {
                 btn.removeClass("btn-success").addClass("disabled").text(i18n.Thank.vote);
                 rankReShow(id);
+                btn.attr("isvote",true);
             } else {
                 notify(data.msg, i18n.Server.error);
             }

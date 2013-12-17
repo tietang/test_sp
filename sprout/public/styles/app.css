@@ -4,7 +4,7 @@
  commons
  */
 body {
-    background: #fff;
+    background: #EfEfFF;
     color: #000;
     font-family: Arial, Helvetica, "微软雅黑", "幼圆", "宋体";
     position: relative;
@@ -236,9 +236,11 @@ a:hover {
 .txt_right {
     text-align: right;
 }
-.txt_center{
+
+.txt_center {
     text-align: center;
 }
+
 .center {
     margin: 0px auto;
     display: -webkit-box;
@@ -262,6 +264,7 @@ a:hover {
     box-pack: center;
     box-align: center;
 }
+
 /*Form*/
 input.error {
     border: 1px solid red;
@@ -271,6 +274,7 @@ input.error {
 
     margin-right: auto;
     margin-left: auto;
+
 }
 
 .content_container:before,
@@ -291,6 +295,20 @@ input.error {
 
 .content_container:after {
     clear: both;
+}
+
+.column {
+    margin: 0px;
+    padding: 0px;
+    display: inline;
+    float: left;
+}
+
+.column_right {
+    margin: 0px;
+    padding: 0px;
+    display: inline;
+    float: right;
 }
 
 /*app*/
@@ -549,12 +567,184 @@ input.error {
     vertical-align: middle;
 }
 
+/*Show*/
+.show .title {
+    min-height: 26px;
+}
+
+.show .favorite {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    font-weight: bold;
+    background-image: url("/public/images/favorite.png");
+    background-position: 50% -32px;
+    background-repeat: no-repeat;
+}
+
+.show .favorited {
+    color: #e05555;
+    background-position: 50% 0px;
+}
+
+.show .unfavorited {
+    background-position: 50% -32px;
+    color: #BBB;
+    text-shadow: -1px 0px 0 #888, 1px 0px 0 #888, 0px 1px 0 #888, 0px -1px 0 #888;
+}
+
 .show .show_map {
     margin-top: 19px;
 }
 
 .show .show_map_canvas {
     height: 280px;
+}
+
+.show .comment_error {
+    border-color: red;
+}
+
+.show_photo {
+    width: 100%;
+    background-color: #282828;
+    padding: 30px 0px;
+    margin: 10px 0px 0px 0px;
+}
+
+.show_photo .img_shadow {
+    max-height: 600px;
+    -moz-box-shadow: 3px 3px 10px 4px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 3px 3px 10px 4px rgba(0, 0, 0, 1);
+    box-shadow: 3px 3px 10px 4px rgba(0, 0, 0, 1);
+}
+
+.show_title {
+    width: 100%;
+    padding: 0px 0px;
+}
+
+.show_title .column {
+    margin-right: 10px;
+}
+
+.show_title .photo_title {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 2px 4px 4px 0px;
+}
+
+.show_title .user {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    padding: 2px 4px 4px 0px;
+}
+
+.show_title .photo_stats_card {
+    padding: 0px 0px 0px 20px;
+    margin: 10px 20px 10px 0px;
+}
+
+.show_title .photo_stats_card ul {
+    list-style: none;
+    margin: 0px;
+}
+.show_title .photo_stats_card ul li {
+    list-style: none;
+    line-height: 19px;
+}
+
+.show_title .photo_stats_card .key {
+    color: #3B3B3B;
+}
+
+.show_title .photo_stats_card .value {
+    padding: 0px 0px 0px 5px;
+    color: #AAA;
+}
+
+.show_title .photo_score_stats {
+    font-size: 18px;
+    min-height: 60px;
+    padding-left: 0px;
+    text-align: center;
+    vertical-align: middle;
+    background-image: url("/public/images/heart.gif");
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+}
+
+.show_title .stats {
+    height: 80px;
+    max-height: 80px;
+    display: inline-table;
+    position: relative;
+    margin: 0px 10px 0px 10px;
+    padding: 0px 10px 0px 10px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background: linear-gradient(left, #aaaaaa, #ffffff, #aaaaaa);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.show_title .btn-group > .btn {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.show_title .btn-group > .btn:first-child {
+    -webkit-border-radius: 4px 0px 0px 4px;
+    -moz-border-radius: 4px 0px 0px 4px;
+    border-radius: 4px 0px 0px 4px;
+}
+
+.show_title .btn-group > .btn:last-child {
+    -webkit-border-radius: 0 4px 4px 0;
+    -moz-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.show_title .vote_btn, .show_title .favorite_btn {
+    width: 60px;
+    min-height: 80px;
+    max-height: 80px;
+}
+
+.show_title .vote_btn {
+    width: 80px;
+}
+
+.show_title .favorite_btn {
+    width: 60px;
+
+}
+
+.show_title .follow_btn {
+    width: 80px;
+    max-width: 80px;
+}
+
+.rank_show .stat {
+    background-color: #F5F5F5;
+}
+
+.rank_show .stat.left_rounded6 {
+    -webkit-border-top-left-radius: 6px;
+    -moz-border-top-left-radius: 6px;
+    -ms-border-top-left-radius: 6px;
+    -o-border-top-left-radius: 6px;
+    border-top-left-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-bottom-left-radius: 6px;
+    -ms-border-bottom-left-radius: 6px;
+    -o-border-bottom-left-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
 
 #comment.comment {
@@ -834,33 +1024,6 @@ ul li a {
     overflow: hidden;
 }
 
-/*Show*/
-.show .title {
-    min-height: 26px;
-}
-
-.show .favorite {
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-    font-weight: bold;
-    background-image: url("/public/images/favorite.png");
-    background-position: 50% -32px;
-    background-repeat: no-repeat;
-}
-
-.show .favorited {
-    color: #e05555;
-    background-position: 50% 0px;
-}
-
-.show .unfavorited {
-    background-position: 50% -32px;
-    color: #BBB;
-    text-shadow: -1px 0px 0 #888, 1px 0px 0 #888, 0px 1px 0 #888, 0px -1px 0 #888;
-}
-
 /*Story*/
 .exif .well {
     width: 1160px;
@@ -1006,9 +1169,19 @@ ul li a {
     height: 32px;
 }
 
+.image_40 {
+    width: 40px;
+    height: 40px;
+}
+
 .image_64 {
     width: 64px;
     height: 64px;
+}
+
+.image_80 {
+    width: 80px;
+    height: 80px;
 }
 
 .image_100 {

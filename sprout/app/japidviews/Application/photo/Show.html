@@ -15,49 +15,79 @@
 <script src="@{'/public/app/show.js'}"></script>
 <script src="@{'/public/app/follow.js'}"></script>
 <script src="@{'/public/app/comment.js'}"></script>
-<style type="text/css">
-    .follow_btn {
-        width: 80px;
-        max-width: 80px;
-    }
-
-    .comment_error {
-        border-color: red;
-    }
-
-</style>
 
 `
+<div class="show_title">
+    <div class="grid_row ">
+        <div class="col col_16">
+            <div class="column">
+                <img class="img-rounded image_80 img_shadow"
+                     src="${fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(photo.idUser)}"/>
+            </div>
+            <div class="column">
+                <div class="photo_title">
+                    ${(photo.title==null || "".equals(photo.title.trim()))?i18n("Untitled"):photo.title}
+                </div>
+
+                <div class="user">
+
+                    <span><i class="icon-user"></i> ${photo.user.niceName}</span>
+                    <span><i class="icon-globe"></i> ${(photo.user.city==null || "".equals(photo.user.city.trim()))?i18n("unknown.city"):photo.user.city}</span>
+
+
+                </div>
+                <div>
+                    <button class="follow_btn btn `if(isFollow){` btn-success`}else{`btn-info`}` btn-small  "
+                            type="button" id="follow" toid="${photo.idUser}" isfollow="${isFollow}">
+                        ${isFollow?i18n("following "):i18n("follow")}
+                    </button>
+                    <button class=" btn btn-info btn-small  "
+                            type="button" id="sendemail" toid="${photo.idUser}">
+                        Hire Me
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="column_right  ">
+                <div class="btn-group rank">
+                    <button id="vote_btn"
+                            class="btn `if(isVote){`disabled`}else{` btn-success `}` vote_btn"
+                            type="button"
+                            isvote="${isVote}">
+                        <i class="icon-thumbs-up icon-white"></i>
+                        `if(isVote){`&{thank.vote}`}else{`&{like}`}`
+                    </button>
+                    <button id="favorite_btn" title="`if(isFavorite){`&{favorite.cancel}`}else{`&{favorite}`}`"
+                            class="btn favorite `if(isFavorite){`favorited`}else{`unfavorited`}` ico_favorite favorite_btn
+                pull-right" type="button"
+                            isfavorite="${isFavorite}">&nbsp;
+                    </button>
+                </div>
+            </div>
+            <div class="column_right rank_show" id="rankShow">
+                `tag RankShow rank`
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="show_photo ">
+    <div class="grid_row">
+        <!---->
+        <div class="col col_16  ">
+            <div class="center">
+                <img src="${Path.getJpegDownloadPath(photo.idPhoto,0)}" class="img_shadow" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="grid_row show">
 
-    <div class="col col_16  ">
 
-        <div class="col col_1">
-            <img class="img-rounded image_64"
-                 src="${fengfei.spruce.utils.PhotoPathUtils.getUserPhotoDownloadPath(photo.idUser)}"/>
-        </div>
-        <div class="col col_1">
-            ${photo.user.niceName}
-            <button class="follow_btn btn `if(isFollow){` btn-success`}else{`btn-info`}` btn-small  "
-                    type="button" id="follow" toid="${photo.idUser}" isfollow="${isFollow}">
-                ${isFollow?i18n("following"):i18n("follow")}
-            </button>
-
-        </div>
-        <div class="col col_1">
-            <h4>${(photo.title==null || "".equals(photo.title.trim()))?"Untitled":photo.title}</h4>
-        </div>
-        <div class="col col_2">
-        </div>
-        <div class="col col_6">
-        </div>
-    </div>
-    <!---->
-    <div class="col col_16  ">
-        <div class="center">
-            <img src="${Path.getJpegDownloadPath(photo.idPhoto,0)}" class="rounded3 img_shadow" alt="">
-        </div>
-    </div>
     <div class="col col_12  ">
 
         <div class="line6"></div>
@@ -136,25 +166,6 @@
     <!-- user info -->
     <div class="col col_4 ">
 
-        <div class="line6"></div>
-        `tag RankShow rank`
-        <div class="line6"></div>
-
-        <div class="row-fluid  ">
-            <div class="btn-group span12">
-                <button id="vote_btn"
-                        class="btn `if(isVote){`disabled`}else{` btn-success `}`  btn-mini  span10 pull-left"
-                        type="button"
-                        isvote="${isVote}">
-                    `if(isVote){`&{thank.vote}`}else{`&{like}`}`
-                </button>
-                <button id="favorite_btn" title="`if(isFavorite){`&{favorite.cancel}`}else{`&{favorite}`}`"
-                        class="btn favorite `if(isFavorite){`favorited`}else{`unfavorited`}` ico_favorite btn-mini span2
-                pull-right" type="button"
-                        isfavorite="${isFavorite}">&nbsp;
-                </button>
-            </div>
-        </div>
         <div class="line6"></div>
         <div class="row-fluid border-bottom shadow rounded6">
             `if(photo.description!=null && !"".equals(photo.description)){`
