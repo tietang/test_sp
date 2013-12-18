@@ -16,6 +16,8 @@
 <script src="@{'/public/app/follow.js'}"></script>
 <script src="@{'/public/app/comment.js'}"></script>
 
+
+
 `
 <div class="show_title">
     <div class="grid_row ">
@@ -29,11 +31,11 @@
                     ${(photo.title==null || "".equals(photo.title.trim()))?i18n("Untitled"):photo.title}
                 </div>
 
+
                 <div class="user">
 
                     <span><i class="icon-user"></i> ${photo.user.niceName}</span>
                     <span><i class="icon-globe"></i> ${(photo.user.city==null || "".equals(photo.user.city.trim()))?i18n("unknown.city"):photo.user.city}</span>
-
 
                 </div>
                 <div>
@@ -41,7 +43,7 @@
                             type="button" id="follow" toid="${photo.idUser}" isfollow="${isFollow}">
                         ${isFollow?i18n("following "):i18n("follow")}
                     </button>
-                    <button class=" btn btn-info btn-small  "
+                    <button class="btn btn-info btn-small  "
                             type="button" id="sendemail" toid="${photo.idUser}">
                         Hire Me
                     </button>
@@ -51,18 +53,19 @@
 
             <div class="column_right  ">
                 <div class="btn-group rank">
-                    <button id="vote_btn"
-                            class="btn `if(isVote){`disabled`}else{` btn-success `}` vote_btn"
+                    <a id="vote_btn"
+                            class="btn flat-btn `if(isVote){`disabled`}` vote_btn"
                             type="button"
-                            isvote="${isVote}">
-                        <i class="icon-thumbs-up icon-white"></i>
-                        `if(isVote){`&{thank.vote}`}else{`&{like}`}`
-                    </button>
-                    <button id="favorite_btn" title="`if(isFavorite){`&{favorite.cancel}`}else{`&{favorite}`}`"
-                            class="btn favorite `if(isFavorite){`favorited`}else{`unfavorited`}` ico_favorite favorite_btn
+                            isvote="${isVote}" title="`if(isVote){`&{thank.vote}`}else{`&{like}`}`">
+                        <div class="icon-thumbs-up icon-white"></div>
+                        <div>`if(isVote){`&{vote.voted}`}else{`&{vote.like}`}`</div>
+
+                    </a>
+                    <a id="favorite_btn" title="`if(isFavorite){`&{favorite.cancel}`}else{`&{favorite}`}`"
+                            class="btn flat-btn favorite `if(isFavorite){`favorited`}else{`unfavorited`}` ico_favorite favorite_btn
                 pull-right" type="button"
                             isfavorite="${isFavorite}">&nbsp;
-                    </button>
+                    </a>
                 </div>
             </div>
             <div class="column_right rank_show" id="rankShow">

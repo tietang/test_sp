@@ -72,6 +72,8 @@ yes=Yes
 no=No
 #show
 highest.pulse=Highest Pulse
+vote.like=Like
+vote.voted=Voted
 thank.vote=Thank for your vote.
 favorite.wanna=Favorite?
 favorite.cancel=Cancel favorite?

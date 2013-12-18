@@ -620,6 +620,10 @@ input.error {
     box-shadow: 3px 3px 10px 4px rgba(0, 0, 0, 1);
 }
 
+.rank_show {
+    max-height: 80px;
+}
+
 .show_title {
     width: 100%;
     padding: 0px 0px;
@@ -651,6 +655,7 @@ input.error {
     list-style: none;
     margin: 0px;
 }
+
 .show_title .photo_stats_card ul li {
     list-style: none;
     line-height: 19px;
@@ -668,11 +673,12 @@ input.error {
 .show_title .photo_score_stats {
     font-size: 18px;
     min-height: 60px;
+    min-width: 70px;
     padding-left: 0px;
     text-align: center;
     vertical-align: middle;
     background-image: url("/public/images/heart.gif");
-    background-position: 50% 100%;
+    background-position: 50% 90%;
     background-repeat: no-repeat;
 }
 
@@ -692,10 +698,76 @@ input.error {
     filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
+
+.vote_btn {
+    min-height: 80px;
+    max-height: 80px;
+    width: 80px;
+    color: #ffffff;
+    background-color: #039aea;
+    border: none;
+}
+
+.vote_btn:hover,
+.vote_btn:focus,
+.vote_btn:active,
+.vote_btn.active,
+.open .dropdown-toggle.vote_btn {
+    color: #ffffff;
+    background-color: #02adea;
+}
+
+.vote_btn:active,
+.vote_btn.active,
+.open .dropdown-toggle.vote_btn {
+    background-image: none;
+}
+
+.vote_btn.disabled,
+.vote_btn[disabled]  {
+    background-color: #a0a0a0;
+}
+
+
+.favorite_btn {
+    min-height: 80px;
+    max-height: 80px;
+    width: 60px;
+    color: #ffffff;
+    background-color: #ed4d63;
+    border: none;
+}
+
+.favorite_btn:hover,
+.favorite_btn:focus,
+.favorite_btn:active,
+.favorite_btn.active {
+    color: #ffffff;
+    background-color: #EE5F5B;
+}
+
+.favorite_btn:active,
+.favorite_btn.active {
+    background-image: none;
+}
+
+
+.favorite_btn.disabled,
+.favorite_btn[disabled]  {
+    background-color: #808080;
+}
+
+.show_title .vote_btn, .show_title .favorite_btn {
+    width: 60px;
+    min-height: 80px;
+    max-height: 80px;
+}
+
 .show_title .btn-group > .btn {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+    margin-left: 1px;
 }
 
 .show_title .btn-group > .btn:first-child {
@@ -708,21 +780,6 @@ input.error {
     -webkit-border-radius: 0 4px 4px 0;
     -moz-border-radius: 0 4px 4px 0;
     border-radius: 0 4px 4px 0;
-}
-
-.show_title .vote_btn, .show_title .favorite_btn {
-    width: 60px;
-    min-height: 80px;
-    max-height: 80px;
-}
-
-.show_title .vote_btn {
-    width: 80px;
-}
-
-.show_title .favorite_btn {
-    width: 60px;
-
 }
 
 .show_title .follow_btn {

@@ -77,7 +77,9 @@ yes=是
 no=否
 #show
 highest.pulse=历史最高分数
-thank.vote=谢谢你投票
+vote.like=喜欢
+vote.voted=已投票
+thank.vote=谢谢你投票！
 favorite.wanna=收藏？
 favorite.cancel=取消收藏
 follow.cancel=取消关注？
