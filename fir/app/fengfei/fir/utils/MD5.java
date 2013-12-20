@@ -150,9 +150,9 @@ public class MD5 {
         String srcStr = "待转换字符串";
         String encodeStr = encodeHexStr(srcStr.getBytes());
         String decodeStr = new String(decodeHex(encodeStr.toCharArray()));
-        System.out.println("转换前：" + srcStr);
-        System.out.println("转换后：" + encodeStr);
-        System.out.println("还原后：" + decodeStr);
+        //System.out.println("转换前：" + srcStr);
+        //System.out.println("转换后：" + encodeStr);
+        //System.out.println("还原后：" + decodeStr);
         for (int i = 0; i < 10; i++) {
             srcStr = "432dsdsada" + i;
             encodeStr = encodeHexStr(srcStr.getBytes());

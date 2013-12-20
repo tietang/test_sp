@@ -1,4 +1,3 @@
-//version: 0.9.37
 package japidviews._tags;
 import java.util.*;
 import java.io.*;
@@ -10,7 +9,6 @@ import static play.data.validation.Validation.*;
 import japidviews._layouts.*;
 import play.i18n.Messages;
 import play.data.validation.Validation;
-import static japidviews._javatags.Pic.*;
 import play.mvc.Scope.*;
 import models.*;
 import play.data.validation.Error;
@@ -18,7 +16,6 @@ import play.i18n.Lang;
 import japidviews._tags.*;
 import play.mvc.Http.*;
 import controllers.*;
-import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_tags/HomeNav.html
 // Change to this file will be lost next time the template file is compiled.
@@ -27,11 +24,9 @@ import japidviews._javatags.*;
 public class HomeNav extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/_tags/HomeNav.html";
-	 private void initHeaders() {
+	{
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
-	}
-	{
 	}
 
 // - add implicit fields with Play
@@ -49,17 +44,11 @@ public class HomeNav extends cn.bran.play.JapidTemplateBase
 
 
 	public HomeNav() {
-	super((StringBuilder)null);
-	initHeaders();
+		super(null);
 	}
 	public HomeNav(StringBuilder out) {
 		super(out);
-		initHeaders();
 	}
-	public HomeNav(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
-		super(caller);
-	}
-
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"item", "pathTitle",  };
@@ -81,8 +70,9 @@ public class HomeNav extends cn.bran.play.JapidTemplateBase
 	public cn.bran.japid.template.RenderResult render(String item,Map<String, String> pathTitle) {
 		this.item = item;
 		this.pathTitle = pathTitle;
+		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 2, japidviews/_tags/HomeNav.html
-		return getRenderResult();
+		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(String item,Map<String, String> pathTitle) {
@@ -91,6 +81,7 @@ public class HomeNav extends cn.bran.play.JapidTemplateBase
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
+//------
 ;// line 1, japidviews\_tags\HomeNav.html
 
 Map  ms=new HashMap();// line 3, japidviews\_tags\HomeNav.html

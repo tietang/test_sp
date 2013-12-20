@@ -53,7 +53,7 @@ public class RelaionRepositoryTest {
         setUpBeforeClass();
         for (int i = 0; i < 100; i++) {
             PoolableDatabaseResource rs = router.locate(Long.valueOf(i));
-            System.out.println(rs);
+            //System.out.println(rs);
         }
     }
 
@@ -151,7 +151,7 @@ public class RelaionRepositoryTest {
 
             for (int i = 0; i < sql.length; i++) {
                 boolean executed = stmt.execute(sql[i]);
-                System.out.println(sql[i]);
+                //System.out.println(sql[i]);
             }
         }
 

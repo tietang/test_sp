@@ -45,7 +45,7 @@ public class SaveImageApp {
             // print the result
             DBCursor cursor = gfsPhoto.getFileList();
             while (cursor.hasNext()) {
-                System.out.println(cursor.next());
+                //System.out.println(cursor.next());
             }
 
             // get image file by it's filename
@@ -57,7 +57,7 @@ public class SaveImageApp {
             // remove the image file from mongoDB
             gfsPhoto.remove(gfsPhoto.findOne(newFileName));
 
-            System.out.println("Done");
+            //System.out.println("Done");
 
         } catch (UnknownHostException e) {
             e.printStackTrace();

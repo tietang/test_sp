@@ -16,7 +16,7 @@ public class Main1 {
 //        ctx.start();
         RedisInit init = ctx.getBean(RedisInit.class);
         SliceDBInit init2 = ctx.getBean(SliceDBInit.class);
-        System.out.println(init.getHosts());
+        //System.out.println(init.getHosts());
 
 //        ctx.stop();
 

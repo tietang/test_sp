@@ -32,8 +32,8 @@ public class ByteUtils {
         v = setBit1(v, 6);
         v = setBit1(v, 1);
         v = setBit0(v, 6);
-        System.out.println(192073);
-        System.out.println(Long.toBinaryString(v));
+        //System.out.println(192073);
+        //System.out.println(Long.toBinaryString(v));
     }
 
 

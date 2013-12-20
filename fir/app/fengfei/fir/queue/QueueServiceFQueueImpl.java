@@ -74,8 +74,10 @@ public class QueueServiceFQueueImpl implements QueueService {
         for (int i = 0; i < 150; i++) {
             QueueMessage<UserPwd> message = qs.poll();
             if (message == null) {
-                System.out.println("0");
-            } else System.out.println(message);
+                //System.out.println("0");
+            } else {
+                System.out.println(message);
+            }
         }
         qs.close();
     }

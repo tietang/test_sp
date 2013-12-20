@@ -69,7 +69,7 @@ public class PropertiesToJson {
 
     public static void main(String[] args) throws Exception {
         File f = new File("dd");
-        System.out.println(f.getAbsolutePath());
+        //System.out.println(f.getAbsolutePath());
         InputStream in = PropertiesToJson.class.getClassLoader().getResourceAsStream("messages");
         toFile(in, "public/app/i18n.js", "i18n", "web", "since",
                 "validation");
@@ -116,7 +116,7 @@ public class PropertiesToJson {
         in.close();
         String json = toJson(properties, upperCaseFirst, excludes);
         File f = new File(jsonFile);
-//        System.out.println(f.getAbsolutePath());
+//        //System.out.println(f.getAbsolutePath());
         if (!f.exists()) {
             f.getParentFile().mkdirs();
         }

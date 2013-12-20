@@ -50,7 +50,7 @@ public class GridFsUtils {
         in.close();
         out.close();
         //
-        System.out.println(data.length);
+        //System.out.println(data.length);
         DB db = m.getDB("image");
         DBCollection coll = db.getCollection("photo1");
         BasicDBObject doc = new BasicDBObject();
@@ -61,7 +61,7 @@ public class GridFsUtils {
         coll.insert(doc);
         DBObject myDoc = coll.findOne();
 
-        System.out.println(myDoc);
+        //System.out.println(myDoc);
 
     }
 

@@ -149,7 +149,7 @@ public class SqlUserRepository implements UserRepository {
             }
 
         };
-        System.out.println(Transactions.get(UserUnitName,UserPwdSliceId));
+        //System.out.println(Transactions.get(UserUnitName,UserPwdSliceId));
         return Transactions.execute(UserUnitName, UserPwdSliceId, Function.Write, callback);
     }
 

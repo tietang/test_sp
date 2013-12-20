@@ -32,7 +32,7 @@ public class LuceneSearchRespository {
             String id = d.get(PhotoFields.ID);
             Long idPhoto = Long.parseLong(id);
             idPhotos.add(idPhoto);
-            System.out.println(String.format("%f  %d  %s    %s", sd.score, sd.shardIndex, d.get("id"), d.get(PhotoFields.Content)));
+            //System.out.println(String.format("%f  %d  %s    %s", sd.score, sd.shardIndex, d.get("id"), d.get(PhotoFields.Content)));
         }
         return idPhotos;
     }

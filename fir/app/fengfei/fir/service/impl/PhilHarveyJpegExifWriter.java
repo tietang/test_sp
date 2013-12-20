@@ -66,7 +66,7 @@ public class PhilHarveyJpegExifWriter implements JpegExifWriter {
         et.run(op, imageFile);
         // ArrayList<String> cmdOutput = output.getOutput();
         // for (String line : cmdOutput) {
-        // System.out.println(line);
+        // //System.out.println(line);
         // }
         return null;
     }

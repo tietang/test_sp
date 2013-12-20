@@ -89,7 +89,7 @@ public class ChoiceRank {
     private long[] range() {
         long max = 1 + System.currentTimeMillis() / 1000 / 60 - T2013Minute;
         long min = max - WeekMinute;
-        System.out.println(min + " " + max);
+        //System.out.println(min + " " + max);
         return new long[]{min, max};
     }
 

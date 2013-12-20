@@ -69,7 +69,7 @@ public class ExifMain1 {
         // dump output
         ArrayList<String> cmdOutput = output.getOutput();
         for (String line : cmdOutput) {
-            System.out.println(line);
+            //System.out.println(line);
         }
 
     }

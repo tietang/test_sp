@@ -28,7 +28,7 @@ public class SanselanExifWritetest {
 			if (f.isFile()
 					&& "jpg".equalsIgnoreCase(FilenameUtils.getExtension(f
 							.getName()))) {
-				System.out.println("==========================="
+				//System.out.println("==========================="
 						+ f.getAbsolutePath());
 				Map<String, String> values = new HashMap<>();
 				values.put(JpegExifWriter.Make, "NewCanon");
@@ -53,10 +53,10 @@ public class SanselanExifWritetest {
 			if (f.isFile()
 					&& "jpg".equalsIgnoreCase(FilenameUtils.getExtension(f
 							.getName()))) {
-				System.out.println("==========================="
+				//System.out.println("==========================="
 						+ f.getAbsolutePath());
 				Map<String, String> exif = d.readExif(f);
-				System.out.println(exif);
+				//System.out.println(exif);
 
 			}
 		}

@@ -1,4 +1,3 @@
-//version: 0.9.37
 package japidviews.Application;
 import java.util.*;
 import java.io.*;
@@ -10,7 +9,6 @@ import static play.data.validation.Validation.*;
 import japidviews._layouts.*;
 import play.i18n.Messages;
 import play.data.validation.Validation;
-import static japidviews._javatags.Pic.*;
 import play.mvc.Scope.*;
 import models.*;
 import play.data.validation.Error;
@@ -18,7 +16,6 @@ import play.i18n.Lang;
 import japidviews._tags.*;
 import play.mvc.Http.*;
 import controllers.*;
-import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/Login.html
 // Change to this file will be lost next time the template file is compiled.
@@ -27,11 +24,9 @@ import japidviews._javatags.*;
 public class Login extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/Login.html";
-	 private void initHeaders() {
+	{
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
-	}
-	{
 	}
 
 // - add implicit fields with Play
@@ -49,17 +44,11 @@ public class Login extends japidviews._layouts.Layout
 
 
 	public Login() {
-	super((StringBuilder)null);
-	initHeaders();
+		super(null);
 	}
 	public Login(StringBuilder out) {
 		super(out);
-		initHeaders();
 	}
-	public Login(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
-		super(caller);
-	}
-
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/ };
@@ -77,8 +66,9 @@ public class Login extends japidviews._layouts.Layout
 ////// end of named args stuff
 
 	public cn.bran.japid.template.RenderResult render() {
+		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/Login.html
-		return getRenderResult();
+		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
 	public static cn.bran.japid.template.RenderResult apply() {
@@ -87,6 +77,7 @@ public class Login extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
+//------
 ;// line 1, japidviews\Application\Login.html
 
 // line 5, japidviews\Application\Login.html
@@ -110,7 +101,7 @@ public class Login extends japidviews._layouts.Layout
 "						No account yet? <a href=\"/signup\">Sign up</a>\n" + 
 "					</div>\n" + 
 "					");// line 27, japidviews\Application\Login.html
-		new ErrorMessage(Login.this).render(); // line 31, japidviews\Application\Login.html// line 31, japidviews\Application\Login.html
+		final ErrorMessage _ErrorMessage3 = new ErrorMessage(getOut()); _ErrorMessage3.setActionRunners(getActionRunners()).setOut(getOut()); _ErrorMessage3.render(); // line 31, japidviews\Application\Login.html// line 31, japidviews\Application\Login.html
 		p("\n" + 
 "					<p class=\"control-group \">\n" + 
 "						<label for=\"email\">	Login with your username or email:</label>\n" + 

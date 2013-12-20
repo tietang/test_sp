@@ -86,7 +86,7 @@ public class DrewNoakesJpegExifReader implements JpegExifReader {
             directory.getString(ExifIFD0Directory.TAG_MODEL));
 
         // for (Tag tag : directory.getTags()) {
-        // System.out.println(tag);
+        // //System.out.println(tag);
         // }
         String manufacturer = exif.get(directory.getTagName(ExifIFD0Directory.TAG_MAKE));
 
@@ -162,22 +162,22 @@ public class DrewNoakesJpegExifReader implements JpegExifReader {
         // }
 
         // for (Tag tag : directory.getTags()) {
-        // System.out.println(tag);
+        // //System.out.println(tag);
         // }
         // directory = metadata.getDirectory(ExifThumbnailDirectory.class);
         // for (Tag tag : directory.getTags()) {
-        // System.out.println(tag);
+        // //System.out.println(tag);
         // }
         // directory = metadata.getDirectory(ExifInteropDirectory.class);
         // for (Tag tag : directory.getTags()) {
-        // System.out.println(tag);
+        // //System.out.println(tag);
         // }
         // for (Tag tag : directory.getTags()) {
         // exif.put(tag.getTagName(), tag.getDescription());
         // }
         // for (Directory directory : metadata.getDirectories()) {
         // for (Tag tag : directory.getTags()) {
-        // System.out.println(tag);
+        // //System.out.println(tag);
         // }
         // }
         return exif;
@@ -189,9 +189,9 @@ public class DrewNoakesJpegExifReader implements JpegExifReader {
         // File("C:\\Users\\tietang\\Desktop\\New folder\\IMG_2692.jpg");
         // File jpegFile = new
         // File("C:\\Users\\wtt\\Desktop\\3\\IMG_33382.jpg");
-        // System.out.println(getExif(jpegFile));
+        // //System.out.println(getExif(jpegFile));
         String file = "C:/Users/wtt/Desktop/3/IMG_3810.JPG";
-        System.out.println(r.readExif((new File(file))));
+        //System.out.println(r.readExif((new File(file))));
         // Map<String, String> values = new HashMap<>();
         // values.put("Make", "New CN");
         // values.put("Model", "New CN S2356X-OP");

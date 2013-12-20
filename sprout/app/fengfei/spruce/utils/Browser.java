@@ -9,9 +9,9 @@ import java.util.regex.Pattern;
 
 public class Browser {
 
-    final static String[] regs = { "(msie) ([\\w.]+)", "(chrome)[ \\/]([\\w.]+)",
+    final static String[] regs = {"(msie) ([\\w.]+)", "(chrome)[ \\/]([\\w.]+)",
             "(firefox)[ \\/]([\\w.]+)", "version[ \\/]([\\w.]+) (safari)",
-            "(opera)(?:.*version|)[ \\/]([\\w.]+)", "(webkit)[ \\/]([\\w.]+)" };
+            "(opera)(?:.*version|)[ \\/]([\\w.]+)", "(webkit)[ \\/]([\\w.]+)"};
 
     public static String[] getBrowser(String ua) {
         // Header agentHeader = request.headers.get("user-agent");
@@ -32,13 +32,16 @@ public class Browser {
 
     public static boolean isIE67(Http.Request request) {
         Header agentHeader = request.headers.get("user-agent");
+        if (agentHeader == null || agentHeader.value() == null) return false;
+
         String agent = agentHeader.value().toLowerCase();
-//        System.out.println(agent);
+//        //System.out.println(agent);
 //        List<String> langs=request.acceptLanguage();
 //
-//        System.out.println("lng: "+ langs);
+//        //System.out.println("lng: "+ langs);
 //        Lang.change(langs.get(0));
         String[] bs = getBrowser(agent);
+        if (bs == null) return false;
         float version = toFloat(bs[1]);
         if ("msie".equals(bs[0]) && version <= 7) {
             return true;
@@ -50,7 +53,7 @@ public class Browser {
 
     private static float toFloat(String s) {
         int index = s.indexOf(".");
-        if(index<0){
+        if (index < 0) {
             return 0;
         }
         try {
@@ -70,18 +73,18 @@ public class Browser {
                 + "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36\n"
                 + "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.57.2 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2\n"
                 + " Mozilla/5.0 (Windows NT 6.1; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0\n")
-            .toLowerCase();
+                .toLowerCase();
         String[] ua = agent.split("\n");
-        System.out.println(ua.length);
-        String[] regs = { "(msie) ([\\w.]+)", "(chrome)[ \\/]([\\w.]+)",
+        //System.out.println(ua.length);
+        String[] regs = {"(msie) ([\\w.]+)", "(chrome)[ \\/]([\\w.]+)",
                 "(firefox)[ \\/]([\\w.]+)", "version[ \\/]([\\w.]+) (safari)",
-                "(opera)(?:.*version|)[ \\/]([\\w.]+)", "(webkit)[ \\/]([\\w.]+)" };
+                "(opera)(?:.*version|)[ \\/]([\\w.]+)", "(webkit)[ \\/]([\\w.]+)"};
         for (int j = 0; j < ua.length; j++) {
 
             for (int i = 0; i < regs.length; i++) {
                 String[] rs = getMatcher(regs[i], ua[j]);
                 if (rs != null) {
-                    System.out.println(Arrays.asList(rs));
+                    //System.out.println(Arrays.asList(rs));
                     break;
                 }
 
@@ -94,7 +97,7 @@ public class Browser {
         String[] result = new String[2];
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(source);
-        // System.out.println(regex+" "+source);
+        // //System.out.println(regex+" "+source);
         if (matcher.find()) {
 
             if (source.indexOf("safari") > 0 && source.indexOf("chrome") < 0) {

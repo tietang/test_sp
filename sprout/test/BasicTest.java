@@ -20,7 +20,7 @@ public class BasicTest {
         String sliceConfig = "file/cp:config.xml";
         if (sliceConfig != null && !"".equals(sliceConfig)) {
             String[] scc = sliceConfig.split("/");
-            System.out.println("scc: " + scc.length);
+            //System.out.println("scc: " + scc.length);
             String file = scc[1];
             if (scc[0].equals("file")) {
                 configReader = new XmlSliceConfigReader(file);
@@ -32,7 +32,7 @@ public class BasicTest {
                 logger.info("reading xml config..." + file);
                 Config config = configReader.read("/root");
                 logger.info("pasering config....");
-                System.out.println(config);
+                //System.out.println(config);
                 databaseRouterFactory = new DatabaseRouterFactory(config);
                 logger.info("pasered config.");
 

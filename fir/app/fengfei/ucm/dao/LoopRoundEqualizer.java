@@ -44,14 +44,14 @@ public class LoopRoundEqualizer implements Equalizer<Long> {
             // key = random.nextLong();
             long index = e.get(key, size);
             map.put(index, key);
-            System.out.println(i + " : " + index);
-            // System.out.println(i + " : " + e.get(random.nextLong(), 3));
+            //System.out.println(i + " : " + index);
+            // //System.out.println(i + " : " + e.get(random.nextLong(), 3));
         }
         Set<Entry> set = map.entrySet();
         for (Entry entry : set) {
             List list = (List) entry.getValue();
-            System.out.println(entry);
-            // System.out.println(entry.getKey() + "=" + list.size());
+            //System.out.println(entry);
+            // //System.out.println(entry.getKey() + "=" + list.size());
         }
 
     }

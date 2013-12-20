@@ -41,14 +41,14 @@ public class Secure extends JapidController {
         //
         // }
         //
-        // System.out.println("session: " + session.all());
-        // System.out.println("session: " + session.getId());
-        // System.out.println();
+        // //System.out.println("session: " + session.all());
+        // //System.out.println("session: " + session.getId());
+        // //System.out.println();
         if (session.get(SESSION_LOGIN_KEY) == null) {
             // Http.Cookie cookie = cookies.get(COOKIE_EMAIL);
             // Http.Cookie cookie = cookies.get(COOKIE_USER);
             // loginIndex();
-            // System.out.println("-----------------login1-----------------");
+            // //System.out.println("-----------------login1-----------------");
             // throw new JapidResult(new Login().render());
             String url = (cpage == null || "".equals(cpage)) ? "" : "?cpage=" + cpage;
 

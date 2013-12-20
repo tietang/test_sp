@@ -48,7 +48,7 @@ public class ProfileAction extends Admin {
     public static void profile() {
 
         Integer idUser = currentUserId();
-        System.out.println("user: " + idUser);
+        //System.out.println("user: " + idUser);
         try {
 
             User user = userService.getUser(idUser);
@@ -178,7 +178,7 @@ public class ProfileAction extends Admin {
         String padding = "0000000000000000000000000000000000000000000000000000000000000000";
         String result = padding + Long.toBinaryString(value);
         bStr = result.substring(result.length() - 64, result.length());
-//        System.out.println(bStr);
+//        //System.out.println(bStr);
 //        for (int i = 1; i <= bStr.length(); i++) {
 //            int index = bStr.length() - i;
 //            checks[i-1] = '1' == bStr.charAt(index);

@@ -26,9 +26,9 @@ public class Mail {
         debytes = base64.decode(enbytes);
         decodeStr = new String(debytes);
 
-        System.out.println("编码前:" + str);
-        System.out.println("编码后:" + encodeStr);
-        System.out.println("解码后:" + decodeStr);
+        //System.out.println("编码前:" + str);
+        //System.out.println("编码后:" + encodeStr);
+        //System.out.println("解码后:" + decodeStr);
     }
 
     public void sendSimple() throws EmailException {

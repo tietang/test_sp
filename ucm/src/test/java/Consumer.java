@@ -16,13 +16,13 @@ public class Consumer {
 				new String[] { "consumer.xml" });
 		context.start();
 		PingService ping = (PingService) context.getBean("ping");
-		System.out.println(ping.ping());
+		//System.out.println(ping.ping());
 		UserService us = (UserService) context.getBean("userService"); // 获取远程服务代理
 		for (int i = 0; i < 100; i++) {
 			UserPwd userPwd = new UserPwd("userName" + i, "email" + i,
 					"password");
 			int u = us.saveUserPwd(userPwd);
-			System.out.println(u);
+			//System.out.println(u);
 		}
 
 	}

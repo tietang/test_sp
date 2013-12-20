@@ -372,7 +372,7 @@ public class DefaultJpegProcess implements JpegProcess {
         }
         long start = System.currentTimeMillis();
 
-        System.out.println(System.currentTimeMillis() - start);
+        //System.out.println(System.currentTimeMillis() - start);
 
     }
 

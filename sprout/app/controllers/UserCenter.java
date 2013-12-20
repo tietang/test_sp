@@ -32,7 +32,7 @@ public class UserCenter extends Admin {
         String cpage = params.get("cpage");
         if (e == null || p == null) {
             flash.put("cpage", cpageUrl(request.querystring));
-            System.out.println(flash.get("cpage"));
+            //System.out.println(flash.get("cpage"));
             throw new JapidResult(new Login().render());
         }
         validation.required(e);
@@ -177,7 +177,7 @@ public class UserCenter extends Admin {
     }
 
     public static void register() {
-        System.out.println(params.allSimple());
+        //System.out.println(params.allSimple());
         String username = params.get("username");
         String email = params.get("email");
         String password = params.get("password");

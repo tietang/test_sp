@@ -1,4 +1,3 @@
-//version: 0.9.37
 package japidviews.Application.profile;
 import java.util.*;
 import java.io.*;
@@ -9,7 +8,6 @@ import static play.data.validation.Validation.*;
 import japidviews._layouts.*;
 import play.i18n.Messages;
 import play.data.validation.Validation;
-import static japidviews._javatags.Pic.*;
 import play.mvc.Scope.*;
 import models.*;
 import play.data.validation.Error;
@@ -17,7 +15,6 @@ import play.i18n.Lang;
 import japidviews._tags.*;
 import play.mvc.Http.*;
 import controllers.*;
-import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/License.html
 // Change to this file will be lost next time the template file is compiled.
@@ -26,11 +23,9 @@ import japidviews._javatags.*;
 public class License extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/profile/License.html";
-	 private void initHeaders() {
+	{
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
-	}
-	{
 	}
 
 // - add implicit fields with Play
@@ -48,17 +43,11 @@ public class License extends japidviews._layouts.Layout
 
 
 	public License() {
-	super((StringBuilder)null);
-	initHeaders();
+		super(null);
 	}
 	public License(StringBuilder out) {
 		super(out);
-		initHeaders();
 	}
-	public License(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
-		super(caller);
-	}
-
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"value",  };
@@ -78,8 +67,9 @@ public class License extends japidviews._layouts.Layout
 	private byte value; // line 2, japidviews/Application/profile/License.html
 	public cn.bran.japid.template.RenderResult render(byte value) {
 		this.value = value;
+		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 2, japidviews/Application/profile/License.html
-		return getRenderResult();
+		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(byte value) {
@@ -88,6 +78,7 @@ public class License extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
+//------
 ;// line 1, japidviews\Application\profile\License.html
 
 // line 5, japidviews\Application\profile\License.html
@@ -97,7 +88,7 @@ public class License extends japidviews._layouts.Layout
 "    <div class=\"col col_3 \">\n" + 
 "        <div class=\"sidebar-nav \">\n" + 
 "            ");// line 8, japidviews\Application\profile\License.html
-		new SettingsMenu(License.this).render("License"); // line 14, japidviews\Application\profile\License.html// line 14, japidviews\Application\profile\License.html
+		final SettingsMenu _SettingsMenu3 = new SettingsMenu(getOut()); _SettingsMenu3.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu3.render("License"); // line 14, japidviews\Application\profile\License.html// line 14, japidviews\Application\profile\License.html
 		p("\n" + 
 "        </div>\n" + 
 "    </div>\n" + 
@@ -111,7 +102,7 @@ public class License extends japidviews._layouts.Layout
 "                <form class=\"form-horizontal\" action=\"/settings/license/done\" id=\"licenseForm\"\n" + 
 "                      method=\"post\">\n" + 
 "                    ");// line 20, japidviews\Application\profile\License.html
-		new AllMessage(License.this).render(); // line 24, japidviews\Application\profile\License.html// line 24, japidviews\Application\profile\License.html
+		final AllMessage _AllMessage4 = new AllMessage(getOut()); _AllMessage4.setActionRunners(getActionRunners()).setOut(getOut()); _AllMessage4.render(); // line 24, japidviews\Application\profile\License.html// line 24, japidviews\Application\profile\License.html
 		p("\n" + 
 "\n" + 
 "\n" + 

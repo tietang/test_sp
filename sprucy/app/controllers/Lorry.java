@@ -60,7 +60,7 @@ public class Lorry extends JapidController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println("ppppppp:  " + files[0].length());
+			//System.out.println("ppppppp:  " + files[0].length());
 		}
 //		Map<String, String> exif = new HashMap<>();
 //		putExif(Make, exif);
@@ -74,11 +74,11 @@ public class Lorry extends JapidController {
 //		putExif(ExposureTime, exif);
 //		putExif(ExposureCompensation, exif);
 //		putExif(DateTimeOriginal, exif);
-//		System.out.println("1==================");
-//		System.out.println(exif);
-//		System.out.println("2==================");
-//		// System.out.println(new HashMap<>(params.allSimple()));
-//		System.out.println(params.allSimple());
+//		//System.out.println("1==================");
+//		//System.out.println(exif);
+//		//System.out.println("2==================");
+//		// //System.out.println(new HashMap<>(params.allSimple()));
+//		//System.out.println(params.allSimple());
 //		UploadDone done;
 //		try {
 //			done = lorryStorage.writeFile(exif, exif, files[0]);
@@ -122,16 +122,16 @@ public class Lorry extends JapidController {
 			// lens[i], focus[i], "", taken_at[i], tags[i]));
 		}
 
-		System.out.println("---------------" + Arrays.asList(ids));
+		//System.out.println("---------------" + Arrays.asList(ids));
 		Map<String, String> values = new HashMap<>();
 		values.put("Make", "New CN");
 		values.put("Model", "New CN S2356X-OP");
 		values.put("FNumber", "0.1");
 		values.put("Lens", "8-1200 F1.0");
 		// writeExif(values, jpegFile2);
-		System.out.println("==================");
-		// System.out.println(new HashMap<>(params.allSimple()));
-		System.out.println(params.allSimple());
+		//System.out.println("==================");
+		// //System.out.println(new HashMap<>(params.allSimple()));
+		//System.out.println(params.allSimple());
 		// try {
 		// List<InsertResultSet<Long>> irs = Transactions
 		// .execute(new TransactionCallback<List<InsertResultSet<Long>>>() {
@@ -142,7 +142,7 @@ public class Lorry extends JapidController {
 		// return ExifDao.save(grower, "", models);
 		// }
 		// });
-		// System.out.println("updated: size=" + irs.size());
+		// //System.out.println("updated: size=" + irs.size());
 		// } catch (SQLException e) {
 		//
 		// e.printStackTrace();
@@ -164,10 +164,10 @@ public class Lorry extends JapidController {
 
 	public static void swfDone(File[] Filedata) {
 		File[] files = Filedata;
-		System.out.println("321313131:  " + params.allSimple().keySet());
-		System.out.println("ddddd : " + Filedata.length);
+		//System.out.println("321313131:  " + params.allSimple().keySet());
+		//System.out.println("ddddd : " + Filedata.length);
 		List<UploadDone> dones = new ArrayList<>();
-		System.out.println(files.length);
+		//System.out.println(files.length);
 		// return id=id_catalog_name
 		for (int i = 0; i < files.length; i++) {
 			String id = UUID.randomB32UUID();
@@ -177,8 +177,8 @@ public class Lorry extends JapidController {
 			try {
 				File jpegFile = new File(path);
 				FileUtils.moveFile(files[i], jpegFile);
-				System.out.println(jpegFile.exists());
-				System.out.println(new File(path).exists());
+				//System.out.println(jpegFile.exists());
+				//System.out.println(new File(path).exists());
 				UploadDone done = new UploadDone(i, id);
 				dones.add(done);
 			} catch (Exception e) {

@@ -18,7 +18,7 @@ public class Main1 {
         for (int i = 0; i < 1000000; i++) {
             fQueue.add(data);
         }
-        System.out.println(1000000 / ((System.currentTimeMillis() - start) / 1000) + "qps");
+        //System.out.println(1000000 / ((System.currentTimeMillis() - start) / 1000) + "qps");
         fQueue.close();
     }
 }

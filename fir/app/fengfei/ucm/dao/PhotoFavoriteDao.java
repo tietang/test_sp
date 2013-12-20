@@ -63,7 +63,7 @@ public class PhotoFavoriteDao {
         // m.accessIdUser,
         // m.ip);
         Favorite favorite = getFavoriteForLock(grower, suffix, m.accessIdUser, m.idPhoto, m.iip);
-        System.out.println(favorite);
+        //System.out.println(favorite);
         if (favorite == null) {
             String insert = String.format(InsertFavorite, suffix);
             int updated = grower.update(

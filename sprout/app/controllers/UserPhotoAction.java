@@ -36,7 +36,7 @@ public class UserPhotoAction extends Admin {
         try {
             Map<String, String> map = params.allSimple();
             Byte category = MapUtils.getByte(map, "c");
-            System.out.println(pageNum);
+            //System.out.println(pageNum);
             pageNum = pageNum <= 0 ? 1 : pageNum;
             int offset = (pageNum - 1) * TotalRowShow + 1;
 

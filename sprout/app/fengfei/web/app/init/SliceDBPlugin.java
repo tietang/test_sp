@@ -23,12 +23,12 @@ public class SliceDBPlugin extends PlayPlugin {
 
     @Override
     public void onApplicationStart() {
-        System.out.println("----------------------------");
+        //System.out.println("----------------------------");
         Properties p = Play.configuration;
         String sliceConfig = p.getProperty(SliceConfig);
         if (sliceConfig != null && !"".equals(sliceConfig)) {
             String[] scc = sliceConfig.split("/");
-            System.out.println("scc: " + scc.length);
+            //System.out.println("scc: " + scc.length);
             String file = scc[1];
             if (scc[0].equals("file")) {
                 configReader = new XmlSliceConfigReader(file);
@@ -40,7 +40,7 @@ public class SliceDBPlugin extends PlayPlugin {
                 logger.info("reading xml config..." + file);
                 Config config = configReader.read("/root");
                 logger.info("pasering config....");
-                // System.out.println(config.toString());
+                // //System.out.println(config.toString());
                 databaseRouterFactory = new DatabaseRouterFactory(config);
                 logger.info("pasered config.");
                 Transactions

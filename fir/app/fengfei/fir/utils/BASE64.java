@@ -27,10 +27,10 @@ public class BASE64 {
     public static void main(String[] args) throws Exception {
         String str = "yiruewy8";
         String data = BASE64.encryptBASE64(str.getBytes());
-        System.out.println("加密前：" + data);
-        System.out.println(data.getBytes().length);
+        //System.out.println("加密前：" + data);
+        //System.out.println(data.getBytes().length);
         byte[] byteArray = BASE64.decryptBASE64(data);
-        System.out.println("解密后：" + new String(byteArray));
-        System.out.println(byteArray.length);
+        //System.out.println("解密后：" + new String(byteArray));
+        //System.out.println(byteArray.length);
     }
 }

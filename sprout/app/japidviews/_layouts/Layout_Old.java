@@ -1,4 +1,3 @@
-//version: 0.9.37
 package japidviews._layouts;
 import java.util.*;
 import java.io.*;
@@ -9,7 +8,6 @@ import static play.data.validation.Validation.*;
 import japidviews._layouts.*;
 import play.i18n.Messages;
 import play.data.validation.Validation;
-import static japidviews._javatags.Pic.*;
 import play.mvc.Scope.*;
 import models.*;
 import play.data.validation.Error;
@@ -17,7 +15,6 @@ import play.i18n.Lang;
 import japidviews._tags.*;
 import play.mvc.Http.*;
 import controllers.*;
-import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_layouts/Layout_Old.html
 // Change to this file will be lost next time the template file is compiled.
@@ -26,11 +23,9 @@ import japidviews._javatags.*;
 public abstract class Layout_Old extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/_layouts/Layout_Old.html";
-	 private void initHeaders() {
+	{
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
-	}
-	{
 	}
 
 // - add implicit fields with Play
@@ -48,20 +43,13 @@ public abstract class Layout_Old extends cn.bran.play.JapidTemplateBase
 
 
 	public Layout_Old() {
-	super((StringBuilder)null);
-	initHeaders();
+		super(null);
 	}
 	public Layout_Old(StringBuilder out) {
 		super(out);
-		initHeaders();
 	}
-	public Layout_Old(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
-		super(caller);
-	}
-
 	@Override public void layout() {
-		beginDoLayout(sourceTemplate);
-p("<!DOCTYPE html>\n" + 
+		beginDoLayout(sourceTemplate);		p("<!DOCTYPE html>\n" + 
 "<html>\n" + 
 "<head>\n" + 
 "<meta charset=\"UTF-8\">\n" + 
@@ -188,10 +176,7 @@ p("<!DOCTYPE html>\n" +
 "<div id=\"dialog\"></div>\n" + 
 "</body>\n" + 
 "</html>");// line 88, japidviews\_layouts\Layout_Old.html
-		
-		endDoLayout(sourceTemplate);
-	}
-
+				endDoLayout(sourceTemplate);	}
 	 protected void title() {};
 	 protected void css() {};
 

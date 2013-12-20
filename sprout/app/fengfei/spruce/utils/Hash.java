@@ -33,6 +33,6 @@ public class Hash {
     public static void main(String[] args) {
         int h1 = hash("11".getBytes());
         long h2 = hash64(h1);
-        System.out.println((h1 % 1024) + ", " + (h2 % 1024));
+        //System.out.println((h1 % 1024) + ", " + (h2 % 1024));
     }
 }

@@ -45,9 +45,9 @@ public class Dubbo extends JavaTest {
 		ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				new String[] { "consumer.xml" });
 		applicationContext.start();
-		System.out.println(applicationContext);
+		//System.out.println(applicationContext);
 		demoService = (UserService) applicationContext.getBean("userService"); // 获取远程服务代理
-		System.out.println(demoService);
+		//System.out.println(demoService);
 	}
 
 	UserService demoService;

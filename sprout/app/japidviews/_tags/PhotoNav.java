@@ -1,4 +1,3 @@
-//version: 0.9.37
 package japidviews._tags;
 import java.util.*;
 import java.io.*;
@@ -10,7 +9,6 @@ import static play.data.validation.Validation.*;
 import japidviews._layouts.*;
 import play.i18n.Messages;
 import play.data.validation.Validation;
-import static japidviews._javatags.Pic.*;
 import play.mvc.Scope.*;
 import models.*;
 import play.data.validation.Error;
@@ -18,7 +16,6 @@ import play.i18n.Lang;
 import japidviews._tags.*;
 import play.mvc.Http.*;
 import controllers.*;
-import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_tags/PhotoNav.html
 // Change to this file will be lost next time the template file is compiled.
@@ -27,11 +24,9 @@ import japidviews._javatags.*;
 public class PhotoNav extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/_tags/PhotoNav.html";
-	 private void initHeaders() {
+	{
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
-	}
-	{
 	}
 
 // - add implicit fields with Play
@@ -49,17 +44,11 @@ public class PhotoNav extends cn.bran.play.JapidTemplateBase
 
 
 	public PhotoNav() {
-	super((StringBuilder)null);
-	initHeaders();
+		super(null);
 	}
 	public PhotoNav(StringBuilder out) {
 		super(out);
-		initHeaders();
 	}
-	public PhotoNav(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
-		super(caller);
-	}
-
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"item", "pathTitle",  };
@@ -81,8 +70,9 @@ public class PhotoNav extends cn.bran.play.JapidTemplateBase
 	public cn.bran.japid.template.RenderResult render(String item,Map<String, String> pathTitle) {
 		this.item = item;
 		this.pathTitle = pathTitle;
+		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 2, japidviews/_tags/PhotoNav.html
-		return getRenderResult();
+		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(String item,Map<String, String> pathTitle) {
@@ -91,6 +81,7 @@ public class PhotoNav extends cn.bran.play.JapidTemplateBase
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
+//------
 ;// line 1, japidviews\_tags\PhotoNav.html
 
 Map  ms=new HashMap();// line 3, japidviews\_tags\PhotoNav.html
@@ -188,7 +179,7 @@ qString="?"+qs;// line 9, japidviews\_tags\PhotoNav.html
 		p(value);// line 46, japidviews\_tags\PhotoNav.html
 		p("</option>\n" + 
 "					");// line 46, japidviews\_tags\PhotoNav.html
-		new CategorySelectOptions(PhotoNav.this).render(fengfei.spruce.cache.SimpleCache.categories,key); // line 47, japidviews\_tags\PhotoNav.html// line 47, japidviews\_tags\PhotoNav.html
+		final CategorySelectOptions _CategorySelectOptions0 = new CategorySelectOptions(getOut()); _CategorySelectOptions0.setActionRunners(getActionRunners()).setOut(getOut()); _CategorySelectOptions0.render(fengfei.spruce.cache.SimpleCache.categories,key); // line 47, japidviews\_tags\PhotoNav.html// line 47, japidviews\_tags\PhotoNav.html
 		p("\n" + 
 "				</select>\n" + 
 "			</div>\n" + 
@@ -208,7 +199,7 @@ qString="?"+qs;// line 9, japidviews\_tags\PhotoNav.html
 "				<div class=\"dropdown-menu open\" style=\"max-height: 537px; overflow: hidden; min-height: 92px;\">\n" + 
 "					<ul class=\"dropdown-menu inner\" role=\"menu\" style=\"max-height: 525px; overflow-y: auto;\">\n" + 
 "						");// line 55, japidviews\_tags\PhotoNav.html
-		new CategoryMenus(PhotoNav.this).render(kv,key); // line 61, japidviews\_tags\PhotoNav.html// line 61, japidviews\_tags\PhotoNav.html
+		final CategoryMenus _CategoryMenus1 = new CategoryMenus(getOut()); _CategoryMenus1.setActionRunners(getActionRunners()).setOut(getOut()); _CategoryMenus1.render(kv,key); // line 61, japidviews\_tags\PhotoNav.html// line 61, japidviews\_tags\PhotoNav.html
 		p("\n" + 
 "					</ul>\n" + 
 "				</div>\n" + 

@@ -31,7 +31,7 @@ public class SanselanJpegExifReader implements JpegExifReader, SanselanExifTagCo
         IImageMetadata metadata = null;
         try {
             metadata = Sanselan.getMetadata(file);
-            System.out.println(metadata);
+            //System.out.println(metadata);
             if (metadata == null) {
                 return exif;
             }

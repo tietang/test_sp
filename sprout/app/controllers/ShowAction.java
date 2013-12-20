@@ -45,7 +45,7 @@ public class ShowAction extends Admin {
 
         try {
             String ip = request.remoteAddress;
-            System.out.println(idPhoto);
+            //System.out.println(idPhoto);
             Integer idUser = currentUserId();
             String username = currentNiceName();
             int iip = getIIP();
@@ -74,9 +74,9 @@ public class ShowAction extends Admin {
                 // followNum[1] = readFollowService.countSource(null, idUser);
 
             }
-            System.out.println(isFollow);
-            System.out.println(isVote);
-            System.out.println(isFavorite);
+            //System.out.println(isFollow);
+            //System.out.println(isVote);
+            //System.out.println(isFavorite);
             throw new JapidResult(new Show().render(
                     photo,
                     photo.rank,
@@ -135,7 +135,7 @@ public class ShowAction extends Admin {
             int page = MapUtils.getIntValue(map, "p");
             int cp = MapUtils.getIntValue(map, "cp");
             int total = MapUtils.getIntValue(map, "t");
-            System.out.println(cp + "," + page);
+            //System.out.println(cp + "," + page);
             cp += page;
             cp = cp <= 0 ? 1 : cp;
             List<Comment> comments = repository.select(idPhoto, idUser, (cp - 1) * Row, Row);
@@ -148,7 +148,7 @@ public class ShowAction extends Admin {
 
             int maxPage = total / Row + 1;
             List<String> pages = pageList(cp, maxPage);
-            System.out.println(pages);
+            //System.out.println(pages);
             throw new JapidResult(new Comments().render(comments, pages, cp, maxPage));
         } catch (Exception e) {
             Logger.error(e, "show photo error.");

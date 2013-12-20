@@ -74,14 +74,14 @@ public class Searcher extends BaseLucene {
     }
 
     private static void out(TopDocs tds, IndexSearcher searcher) throws IOException {
-        System.out.println("总共有【" + tds.totalHits + "】条匹配结果");
+        //System.out.println("总共有【" + tds.totalHits + "】条匹配结果");
         //6.根据TopDocs获取ScoreDoc对象
         ScoreDoc[] sds = tds.scoreDocs;
         for (ScoreDoc sd : sds) {
             //7.根据searcher和TopDocs对象获取Document对象
             Document d = searcher.doc(sd.doc);//sd.doc:文档内部编号
             //8.根据Document对象获取需要的值
-            System.out.println(String.format("%f  %d  %s    %s", sd.score, sd.shardIndex, d.get("id"), d.get(PhotoFields.Content)));
+            //System.out.println(String.format("%f  %d  %s    %s", sd.score, sd.shardIndex, d.get("id"), d.get(PhotoFields.Content)));
         }
     }
 

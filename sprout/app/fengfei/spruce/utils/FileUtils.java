@@ -39,6 +39,6 @@ public class FileUtils {
         }
         in.close();
 
-        System.out.println("Spend: " + (System.currentTimeMillis() - start) / 800 + "ms");
+        //System.out.println("Spend: " + (System.currentTimeMillis() - start) / 800 + "ms");
     }
 }

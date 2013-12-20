@@ -87,7 +87,7 @@ public class LorryAction extends Admin {
     }
 
     public static void uploadDone(File[] files) {
-        // System.out.println("files size " + files.length);
+        // //System.out.println("files size " + files.length);
         // for (File file : files) {
         // try {
         // BufferedImage src = javax.imageio.ImageIO.read(file);
@@ -101,20 +101,20 @@ public class LorryAction extends Admin {
         // }
         List<play.data.Upload> uploadFiles = (List<play.data.Upload>) request.args
                 .get("__UPLOADS");
-        System.out.println("file size:" + uploadFiles.size());
+        //System.out.println("file size:" + uploadFiles.size());
 //        String exifAll = params.get("exifs");
 //        ObjectMapper mapper = new ObjectMapper();
 //        Map<String, String> exifs = mapper.readValue(exifAll, Map.class);
         if (uploadFiles != null && uploadFiles.size() > 0) {
             for (play.data.Upload upload : uploadFiles) {
-                System.out.println("size: " + upload.getSize());
+                //System.out.println("size: " + upload.getSize());
                 if (upload.getSize() > 0) {
                     File file = upload.asFile();
 
-                    System.out.println("files length " + file.length());
+                    //System.out.println("files length " + file.length());
 
-                    // System.out.println(new HashMap<>(params.allSimple()));
-//                    System.out.println(params.allSimple());
+                    // //System.out.println(new HashMap<>(params.allSimple()));
+//                    //System.out.println(params.allSimple());
                     UploadDone done;
                     try {
 
@@ -180,9 +180,9 @@ public class LorryAction extends Admin {
         }
 
         // writeExif(values, jpegFile2);
-        System.out.println("==================");
-        // System.out.println(new HashMap<>(params.allSimple()));
-        System.out.println(params.allSimple());
+        //System.out.println("==================");
+        // //System.out.println(new HashMap<>(params.allSimple()));
+        //System.out.println(params.allSimple());
 
         // List<InsertResultSet<Long>> irs = Transactions
         // .execute(new TransactionCallback<List<InsertResultSet<Long>>>() {
@@ -193,7 +193,7 @@ public class LorryAction extends Admin {
         // return ExifDao.save(grower, "", models);
         // }
         // });
-        // System.out.println("updated: size=" + irs.size());
+        // //System.out.println("updated: size=" + irs.size());
 
     }
 

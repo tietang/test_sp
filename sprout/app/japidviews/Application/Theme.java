@@ -1,4 +1,3 @@
-//version: 0.9.37
 package japidviews.Application;
 import java.util.*;
 import java.io.*;
@@ -9,7 +8,6 @@ import static play.data.validation.Validation.*;
 import japidviews._layouts.*;
 import play.i18n.Messages;
 import play.data.validation.Validation;
-import static japidviews._javatags.Pic.*;
 import play.mvc.Scope.*;
 import models.*;
 import play.data.validation.Error;
@@ -17,7 +15,6 @@ import play.i18n.Lang;
 import japidviews._tags.*;
 import play.mvc.Http.*;
 import controllers.*;
-import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/Theme.html
 // Change to this file will be lost next time the template file is compiled.
@@ -26,11 +23,9 @@ import japidviews._javatags.*;
 public class Theme extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/Application/Theme.html";
-	 private void initHeaders() {
+	{
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
-	}
-	{
 	}
 
 // - add implicit fields with Play
@@ -48,17 +43,11 @@ public class Theme extends cn.bran.play.JapidTemplateBase
 
 
 	public Theme() {
-	super((StringBuilder)null);
-	initHeaders();
+		super(null);
 	}
 	public Theme(StringBuilder out) {
 		super(out);
-		initHeaders();
 	}
-	public Theme(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
-		super(caller);
-	}
-
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/ };
@@ -76,8 +65,9 @@ public class Theme extends cn.bran.play.JapidTemplateBase
 ////// end of named args stuff
 
 	public cn.bran.japid.template.RenderResult render() {
+		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/Theme.html
-		return getRenderResult();
+		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
 	public static cn.bran.japid.template.RenderResult apply() {
@@ -86,6 +76,7 @@ public class Theme extends cn.bran.play.JapidTemplateBase
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
+//------
 p("<!DOCTYPE html>\n" + 
 "<html lang=\"en\">\n" + 
 "<head>\n" + 
@@ -96,25 +87,28 @@ p("<!DOCTYPE html>\n" +
 		p(lookupStatic("/public/bootstrap/css/bootstrap.min.css"));// line 7, japidviews\Application\Theme.html
 		p("\">\n" + 
 "    <link rel=\"stylesheet\" media=\"screen\" href=\"");// line 7, japidviews\Application\Theme.html
-		p(lookupStatic("/public/demo/bootswatch.css"));// line 8, japidviews\Application\Theme.html
+		p(lookupStatic("/public/bootstrap/css/bootstrap.theme.css"));// line 8, japidviews\Application\Theme.html
 		p("\">\n" + 
-"    <script src=\"");// line 8, japidviews\Application\Theme.html
-		p(lookupStatic("/public/js/jquery-1.10.2.js"));// line 9, japidviews\Application\Theme.html
-		p("\" type=\"text/javascript\"></script>\n" + 
+"    <link rel=\"stylesheet\" media=\"screen\" href=\"");// line 8, japidviews\Application\Theme.html
+		p(lookupStatic("/public/demo/bootswatch.css"));// line 9, japidviews\Application\Theme.html
+		p("\">\n" + 
 "    <script src=\"");// line 9, japidviews\Application\Theme.html
-		p(lookupStatic("/public/js/jquery-migrate-1.2.1.js"));// line 10, japidviews\Application\Theme.html
+		p(lookupStatic("/public/js/jquery-1.10.2.js"));// line 10, japidviews\Application\Theme.html
 		p("\" type=\"text/javascript\"></script>\n" + 
 "    <script src=\"");// line 10, japidviews\Application\Theme.html
-		p(lookupStatic("/public/blueimp/md5.min.js"));// line 11, japidviews\Application\Theme.html
+		p(lookupStatic("/public/js/jquery-migrate-1.2.1.js"));// line 11, japidviews\Application\Theme.html
 		p("\" type=\"text/javascript\"></script>\n" + 
 "    <script src=\"");// line 11, japidviews\Application\Theme.html
-		p(lookupStatic("/public/js/jquery.form.js"));// line 12, japidviews\Application\Theme.html
+		p(lookupStatic("/public/blueimp/md5.min.js"));// line 12, japidviews\Application\Theme.html
 		p("\" type=\"text/javascript\"></script>\n" + 
 "    <script src=\"");// line 12, japidviews\Application\Theme.html
-		p(lookupStatic("/public/bootstrap/js/bootstrap.min.js"));// line 13, japidviews\Application\Theme.html
+		p(lookupStatic("/public/js/jquery.form.js"));// line 13, japidviews\Application\Theme.html
 		p("\" type=\"text/javascript\"></script>\n" + 
 "    <script src=\"");// line 13, japidviews\Application\Theme.html
-		p(lookupStatic("/public/js/jquery.smooth-scroll.js"));// line 14, japidviews\Application\Theme.html
+		p(lookupStatic("/public/bootstrap/js/bootstrap.min.js"));// line 14, japidviews\Application\Theme.html
+		p("\" type=\"text/javascript\"></script>\n" + 
+"    <script src=\"");// line 14, japidviews\Application\Theme.html
+		p(lookupStatic("/public/js/jquery.smooth-scroll.js"));// line 15, japidviews\Application\Theme.html
 		p("\"></script>\n" + 
 "    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->\n" + 
 "    <!--[if lt IE 9]>\n" + 
@@ -406,170 +400,425 @@ p("<!DOCTYPE html>\n" +
 "<!-- Buttons\n" + 
 "================================================== -->\n" + 
 "<section id=\"buttons\">\n" + 
-"    <div class=\"page-header\">\n" + 
-"        <h1>Buttons</h1>\n" + 
-"    </div>\n" + 
-"    <table class=\"table table-bordered table-striped\">\n" + 
-"        <thead>\n" + 
-"        <tr>\n" + 
-"            <th>Button</th>\n" + 
-"            <th>Large Button</th>\n" + 
-"            <th>Small Button</th>\n" + 
-"            <th>Disabled Button</th>\n" + 
-"            <th>Button with Icon</th>\n" + 
-"            <th>Split Button</th>\n" + 
-"        </tr>\n" + 
-"        </thead>\n" + 
-"        <tbody>\n" + 
-"        <tr>\n" + 
-"            <td><a class=\"btn\" href=\"#\">Default</a></td>\n" + 
-"            <td><a class=\"btn btn-large\" href=\"#\">Default</a></td>\n" + 
-"            <td><a class=\"btn btn-small\" href=\"#\">Default</a></td>\n" + 
-"            <td><a class=\"btn disabled\" href=\"#\">Default</a></td>\n" + 
-"            <td><a class=\"btn\" href=\"#\"><i class=\"icon-cog\"></i> Default</a></td>\n" + 
-"            <td>\n" + 
-"                <div class=\"btn-group\">\n" + 
-"                    <a class=\"btn\" href=\"#\">Default</a>\n" + 
-"                    <a class=\"btn dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
-"                    <ul class=\"dropdown-menu\">\n" + 
-"                        <li><a href=\"#\">Action</a></li>\n" + 
-"                        <li><a href=\"#\">Another action</a></li>\n" + 
-"                        <li><a href=\"#\">Something else here</a></li>\n" + 
-"                        <li class=\"divider\"></li>\n" + 
-"                        <li><a href=\"#\">Separated link</a></li>\n" + 
-"                    </ul>\n" + 
-"                </div>\n" + 
-"                <!-- /btn-group -->\n" + 
-"            </td>\n" + 
-"        </tr>\n" + 
-"        <tr>\n" + 
-"            <td><a class=\"btn btn-primary\" href=\"#\">Primary</a></td>\n" + 
-"            <td><a class=\"btn btn-primary btn-large\" href=\"#\">Primary</a></td>\n" + 
-"            <td><a class=\"btn btn-primary btn-small\" href=\"#\">Primary</a></td>\n" + 
-"            <td><a class=\"btn btn-primary disabled\" href=\"#\">Primary</a></td>\n" + 
-"            <td><a class=\"btn btn-primary\" href=\"#\"><i class=\"icon-shopping-cart icon-white\"></i> Primary</a></td>\n" + 
-"            <td>\n" + 
-"                <div class=\"btn-group\">\n" + 
-"                    <a class=\"btn btn-primary\" href=\"#\">Primary</a>\n" + 
-"                    <a class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
-"                    <ul class=\"dropdown-menu\">\n" + 
-"                        <li><a href=\"#\">Action</a></li>\n" + 
-"                        <li><a href=\"#\">Another action</a></li>\n" + 
-"                        <li><a href=\"#\">Something else here</a></li>\n" + 
-"                        <li class=\"divider\"></li>\n" + 
-"                        <li><a href=\"#\">Separated link</a></li>\n" + 
-"                    </ul>\n" + 
-"                </div>\n" + 
-"                <!-- /btn-group -->\n" + 
-"            </td>\n" + 
-"        </tr>\n" + 
-"        <tr>\n" + 
-"            <td><a class=\"btn btn-info\" href=\"#\">Info</a></td>\n" + 
-"            <td><a class=\"btn btn-info btn-large\" href=\"#\">Info</a></td>\n" + 
-"            <td><a class=\"btn btn-info btn-small\" href=\"#\">Info</a></td>\n" + 
-"            <td><a class=\"btn btn-info disabled\" href=\"#\">Info</a></td>\n" + 
-"            <td><a class=\"btn btn-info\" href=\"#\"><i class=\"icon-exclamation-sign icon-white\"></i> Info</a></td>\n" + 
-"            <td>\n" + 
-"                <div class=\"btn-group\">\n" + 
-"                    <a class=\"btn btn-info\" href=\"#\">Info</a>\n" + 
-"                    <a class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
-"                    <ul class=\"dropdown-menu\">\n" + 
-"                        <li><a href=\"#\">Action</a></li>\n" + 
-"                        <li><a href=\"#\">Another action</a></li>\n" + 
-"                        <li><a href=\"#\">Something else here</a></li>\n" + 
-"                        <li class=\"divider\"></li>\n" + 
-"                        <li><a href=\"#\">Separated link</a></li>\n" + 
-"                    </ul>\n" + 
-"                </div>\n" + 
-"                <!-- /btn-group -->\n" + 
-"            </td>\n" + 
-"        </tr>\n" + 
-"        <tr>\n" + 
-"            <td><a class=\"btn btn-success\" href=\"#\">Success</a></td>\n" + 
-"            <td><a class=\"btn btn-success btn-large\" href=\"#\">Success</a></td>\n" + 
-"            <td><a class=\"btn btn-success btn-small\" href=\"#\">Success</a></td>\n" + 
-"            <td><a class=\"btn btn-success disabled\" href=\"#\">Success</a></td>\n" + 
-"            <td><a class=\"btn btn-success\" href=\"#\"><i class=\"icon-ok icon-white\"></i> Success</a></td>\n" + 
-"            <td>\n" + 
-"                <div class=\"btn-group\">\n" + 
-"                    <a class=\"btn btn-success\" href=\"#\">Success</a>\n" + 
-"                    <a class=\"btn btn-success dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
-"                    <ul class=\"dropdown-menu\">\n" + 
-"                        <li><a href=\"#\">Action</a></li>\n" + 
-"                        <li><a href=\"#\">Another action</a></li>\n" + 
-"                        <li><a href=\"#\">Something else here</a></li>\n" + 
-"                        <li class=\"divider\"></li>\n" + 
-"                        <li><a href=\"#\">Separated link</a></li>\n" + 
-"                    </ul>\n" + 
-"                </div>\n" + 
-"                <!-- /btn-group -->\n" + 
-"            </td>\n" + 
-"        </tr>\n" + 
-"        <tr>\n" + 
-"            <td><a class=\"btn btn-warning\" href=\"#\">Warning</a></td>\n" + 
-"            <td><a class=\"btn btn-warning btn-large\" href=\"#\">Warning</a></td>\n" + 
-"            <td><a class=\"btn btn-warning btn-small\" href=\"#\">Warning</a></td>\n" + 
-"            <td><a class=\"btn btn-warning disabled\" href=\"#\">Warning</a></td>\n" + 
-"            <td><a class=\"btn btn-warning\" href=\"#\"><i class=\"icon-warning-sign icon-white\"></i> Warning</a></td>\n" + 
-"            <td>\n" + 
-"                <div class=\"btn-group\">\n" + 
-"                    <a class=\"btn btn-warning\" href=\"#\">Warning</a>\n" + 
-"                    <a class=\"btn btn-warning dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
-"                    <ul class=\"dropdown-menu\">\n" + 
-"                        <li><a href=\"#\">Action</a></li>\n" + 
-"                        <li><a href=\"#\">Another action</a></li>\n" + 
-"                        <li><a href=\"#\">Something else here</a></li>\n" + 
-"                        <li class=\"divider\"></li>\n" + 
-"                        <li><a href=\"#\">Separated link</a></li>\n" + 
-"                    </ul>\n" + 
-"                </div>\n" + 
-"                <!-- /btn-group -->\n" + 
-"            </td>\n" + 
-"        </tr>\n" + 
-"        <tr>\n" + 
-"            <td><a class=\"btn btn-danger\" href=\"#\">Danger</a></td>\n" + 
-"            <td><a class=\"btn btn-danger btn-large\" href=\"#\">Danger</a></td>\n" + 
-"            <td><a class=\"btn btn-danger btn-small\" href=\"#\">Danger</a></td>\n" + 
-"            <td><a class=\"btn btn-danger disabled\" href=\"#\">Danger</a></td>\n" + 
-"            <td><a class=\"btn btn-danger\" href=\"#\"><i class=\"icon-remove icon-white\"></i> Danger</a></td>\n" + 
-"            <td>\n" + 
-"                <div class=\"btn-group\">\n" + 
-"                    <a class=\"btn btn-danger\" href=\"#\">Danger</a>\n" + 
-"                    <a class=\"btn btn-danger dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
-"                    <ul class=\"dropdown-menu\">\n" + 
-"                        <li><a href=\"#\">Action</a></li>\n" + 
-"                        <li><a href=\"#\">Another action</a></li>\n" + 
-"                        <li><a href=\"#\">Something else here</a></li>\n" + 
-"                        <li class=\"divider\"></li>\n" + 
-"                        <li><a href=\"#\">Separated link</a></li>\n" + 
-"                    </ul>\n" + 
-"                </div>\n" + 
-"                <!-- /btn-group -->\n" + 
-"            </td>\n" + 
-"        </tr>\n" + 
-"        <tr>\n" + 
-"            <td><a class=\"btn btn-inverse\" href=\"#\">Inverse</a></td>\n" + 
-"            <td><a class=\"btn btn-inverse btn-large\" href=\"#\">Inverse</a></td>\n" + 
-"            <td><a class=\"btn btn-inverse btn-small\" href=\"#\">Inverse</a></td>\n" + 
-"            <td><a class=\"btn btn-inverse disabled\" href=\"#\">Inverse</a></td>\n" + 
-"            <td><a class=\"btn btn-inverse\" href=\"#\"><i class=\"icon-random icon-white\"></i> Inverse</a></td>\n" + 
-"            <td>\n" + 
-"                <div class=\"btn-group\">\n" + 
-"                    <a class=\"btn btn-inverse\" href=\"#\">Inverse</a>\n" + 
-"                    <a class=\"btn btn-inverse dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
-"                    <ul class=\"dropdown-menu\">\n" + 
-"                        <li><a href=\"#\">Action</a></li>\n" + 
-"                        <li><a href=\"#\">Another action</a></li>\n" + 
-"                        <li><a href=\"#\">Something else here</a></li>\n" + 
-"                        <li class=\"divider\"></li>\n" + 
-"                        <li><a href=\"#\">Separated link</a></li>\n" + 
-"                    </ul>\n" + 
-"                </div>\n" + 
-"                <!-- /btn-group -->\n" + 
-"            </td>\n" + 
-"        </tr>\n" + 
-"        </tbody>\n" + 
-"    </table>\n" + 
+"<div class=\"page-header\">\n" + 
+"    <h1>Buttons</h1>\n" + 
+"</div>\n" + 
+"<table class=\"table table-bordered table-striped\">\n" + 
+"<thead>\n" + 
+"<tr>\n" + 
+"    <th>Button</th>\n" + 
+"    <th>Large Button</th>\n" + 
+"    <th>Small Button</th>\n" + 
+"    <th>Disabled Button</th>\n" + 
+"    <th>Button with Icon</th>\n" + 
+"    <th>Split Button</th>\n" + 
+"</tr>\n" + 
+"</thead>\n" + 
+"<tbody>\n" + 
+"<tr>\n" + 
+"    <td><a class=\"btn\" href=\"#\">Default</a></td>\n" + 
+"    <td><a class=\"btn btn-large\" href=\"#\">Default</a></td>\n" + 
+"    <td><a class=\"btn btn-small\" href=\"#\">Default</a></td>\n" + 
+"    <td><a class=\"btn disabled\" href=\"#\">Default</a></td>\n" + 
+"    <td><a class=\"btn\" href=\"#\"><i class=\"icon-cog\"></i> Default</a></td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn\" href=\"#\">Default</a>\n" + 
+"            <a class=\"btn dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"<tr>\n" + 
+"    <td><a class=\"btn btn-primary\" href=\"#\">Primary</a></td>\n" + 
+"    <td><a class=\"btn btn-primary btn-large\" href=\"#\">Primary</a></td>\n" + 
+"    <td><a class=\"btn btn-primary btn-small\" href=\"#\">Primary</a></td>\n" + 
+"    <td><a class=\"btn btn-primary disabled\" href=\"#\">Primary</a></td>\n" + 
+"    <td><a class=\"btn btn-primary\" href=\"#\"><i class=\"icon-shopping-cart icon-white\"></i> Primary</a></td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn btn-primary\" href=\"#\">Primary</a>\n" + 
+"            <a class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"<tr>\n" + 
+"    <td><a class=\"btn btn-info\" href=\"#\">Info</a></td>\n" + 
+"    <td><a class=\"btn btn-info btn-large\" href=\"#\">Info</a></td>\n" + 
+"    <td><a class=\"btn btn-info btn-small\" href=\"#\">Info</a></td>\n" + 
+"    <td><a class=\"btn btn-info disabled\" href=\"#\">Info</a></td>\n" + 
+"    <td><a class=\"btn btn-info\" href=\"#\"><i class=\"icon-exclamation-sign icon-white\"></i> Info</a></td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn btn-info\" href=\"#\">Info</a>\n" + 
+"            <a class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"<tr>\n" + 
+"    <td><a class=\"btn btn-success\" href=\"#\">Success</a></td>\n" + 
+"    <td><a class=\"btn btn-success btn-large\" href=\"#\">Success</a></td>\n" + 
+"    <td><a class=\"btn btn-success btn-small\" href=\"#\">Success</a></td>\n" + 
+"    <td><a class=\"btn btn-success disabled\" href=\"#\">Success</a></td>\n" + 
+"    <td><a class=\"btn btn-success\" href=\"#\"><i class=\"icon-ok icon-white\"></i> Success</a></td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn btn-success\" href=\"#\">Success</a>\n" + 
+"            <a class=\"btn btn-success dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"<tr>\n" + 
+"    <td><a class=\"btn btn-warning\" href=\"#\">Warning</a></td>\n" + 
+"    <td><a class=\"btn btn-warning btn-large\" href=\"#\">Warning</a></td>\n" + 
+"    <td><a class=\"btn btn-warning btn-small\" href=\"#\">Warning</a></td>\n" + 
+"    <td><a class=\"btn btn-warning disabled\" href=\"#\">Warning</a></td>\n" + 
+"    <td><a class=\"btn btn-warning\" href=\"#\"><i class=\"icon-warning-sign icon-white\"></i> Warning</a></td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn btn-warning\" href=\"#\">Warning</a>\n" + 
+"            <a class=\"btn btn-warning dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"<tr>\n" + 
+"    <td><a class=\"btn btn-danger\" href=\"#\">Danger</a></td>\n" + 
+"    <td><a class=\"btn btn-danger btn-large\" href=\"#\">Danger</a></td>\n" + 
+"    <td><a class=\"btn btn-danger btn-small\" href=\"#\">Danger</a></td>\n" + 
+"    <td><a class=\"btn btn-danger disabled\" href=\"#\">Danger</a></td>\n" + 
+"    <td><a class=\"btn btn-danger\" href=\"#\"><i class=\"icon-remove icon-white\"></i> Danger</a></td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn btn-danger\" href=\"#\">Danger</a>\n" + 
+"            <a class=\"btn btn-danger dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"<tr>\n" + 
+"    <td><a class=\"btn btn-inverse\" href=\"#\">Inverse</a></td>\n" + 
+"    <td><a class=\"btn btn-inverse btn-large\" href=\"#\">Inverse</a></td>\n" + 
+"    <td><a class=\"btn btn-inverse btn-small\" href=\"#\">Inverse</a></td>\n" + 
+"    <td><a class=\"btn btn-inverse disabled\" href=\"#\">Inverse</a></td>\n" + 
+"    <td><a class=\"btn btn-inverse\" href=\"#\"><i class=\"icon-random icon-white\"></i> Inverse</a></td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn btn-inverse\" href=\"#\">Inverse</a>\n" + 
+"            <a class=\"btn btn-inverse dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"<tr>\n" + 
+"    <td><a class=\"btn flat-btn \" href=\"#\">flat btn</a></td>\n" + 
+"    <td><a class=\"btn flat-btn  btn-large\" href=\"#\">flat btn</a></td>\n" + 
+"    <td><a class=\"btn flat-btn  btn-small\" href=\"#\">flat btn</a></td>\n" + 
+"    <td><a class=\"btn flat-btn  disabled\" href=\"#\">flat btn</a></td>\n" + 
+"    <td><a class=\"btn flat-btn \" href=\"#\"><i class=\"icon-exclamation-sign\"></i> flat btn</a></td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn flat-btn \" href=\"#\">flat btn</a>\n" + 
+"            <a class=\"btn flat-btn  dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"<tr>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-blue\" href=\"#\">Blue</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-blue btn-large\" href=\"#\">Blue</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-blue btn-small\" href=\"#\">Blue</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-blue disabled\" href=\"#\">Blue</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-blue\" href=\"#\"><i class=\"icon-exclamation-sign icon-white\"></i> Blue</a></td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn flat-btn flat-btn-blue\" href=\"#\">Blue</a>\n" + 
+"            <a class=\"btn flat-btn flat-btn-blue dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"<tr>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-green\" href=\"#\">Green</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-green btn-large\" href=\"#\">Green</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-green btn-small\" href=\"#\">Green</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-green disabled\" href=\"#\">Green</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-green\" href=\"#\"><i class=\"icon-exclamation-sign icon-white\"></i> Green</a></td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn flat-btn flat-btn-green\" href=\"#\">Green</a>\n" + 
+"            <a class=\"btn flat-btn flat-btn-green dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"<tr>\n" + 
+"    <td>\n" + 
+"\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn flat-btn flat-btn-green  dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Green\n" + 
+"                <span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"\n" + 
+"    </td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn flat-btn flat-btn-green btn-large\" href=\"#\">Green</a>\n" + 
+"            <a class=\"btn flat-btn flat-btn-green btn-large dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"\n" + 
+"    </td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn flat-btn flat-btn-green btn-small\" href=\"#\">Green</a>\n" + 
+"            <a class=\"btn flat-btn flat-btn-green btn-small dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"    </td>\n" + 
+"    <td>\n" + 
+"\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn flat-btn flat-btn-green disabled\" href=\"#\">Green</a>\n" + 
+"            <a class=\"btn flat-btn flat-btn-green disabled dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"    </td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn flat-btn flat-btn-green btn-small\" href=\"#\">Green</a>\n" + 
+"            <a class=\"btn flat-btn flat-btn-green btn-small dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"    </td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn flat-btn flat-btn-green\" href=\"#\">Green</a>\n" + 
+"            <a class=\"btn flat-btn flat-btn-green dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"\n" + 
+"<tr>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-red\" href=\"#\">red</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-red btn-large\" href=\"#\">red</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-red btn-small\" href=\"#\">red</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-red disabled\" href=\"#\">red</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-red\" href=\"#\"><i class=\"icon-exclamation-sign icon-white\"></i> red</a></td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn flat-btn flat-btn-red\" href=\"#\">red</a>\n" + 
+"            <a class=\"btn flat-btn flat-btn-red dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"<tr>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-cyan\" href=\"#\">cyan</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-cyan btn-large\" href=\"#\">cyan</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-cyan btn-small\" href=\"#\">cyan</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-cyan disabled\" href=\"#\">cyan</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-cyan\" href=\"#\"><i class=\"icon-exclamation-sign icon-white\"></i> cyan</a></td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn flat-btn flat-btn-cyan\" href=\"#\">cyan</a>\n" + 
+"            <a class=\"btn flat-btn flat-btn-cyan dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"<tr>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-orange\" href=\"#\">orange</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-orange btn-large\" href=\"#\">orange</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-orange btn-small\" href=\"#\">orange</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-orange disabled\" href=\"#\">orange</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-orange\" href=\"#\"><i class=\"icon-exclamation-sign icon-white\"></i> orange</a>\n" + 
+"    </td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn flat-btn flat-btn-orange\" href=\"#\">orange</a>\n" + 
+"            <a class=\"btn flat-btn flat-btn-orange dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"<tr>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-black\" href=\"#\">black</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-black btn-large\" href=\"#\">black</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-black btn-small\" href=\"#\">black</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-black disabled\" href=\"#\">black</a></td>\n" + 
+"    <td><a class=\"btn flat-btn flat-btn-black\" href=\"#\"><i class=\"icon-exclamation-sign icon-white\"></i> black</a></td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn flat-btn flat-btn-black\" href=\"#\">black</a>\n" + 
+"            <a class=\"btn flat-btn flat-btn-black dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"<tr>\n" + 
+"    <td><a class=\"btn btn-link\" href=\"#\">link</a></td>\n" + 
+"    <td><a class=\"btn btn-link btn-large\" href=\"#\">link</a></td>\n" + 
+"    <td><a class=\"btn btn-link btn-small\" href=\"#\">link</a></td>\n" + 
+"    <td><a class=\"btn btn-link disabled\" href=\"#\">link</a></td>\n" + 
+"    <td><a class=\"btn btn-link\" href=\"#\"><i class=\"icon-exclamation-sign icon-white\"></i> link</a></td>\n" + 
+"    <td>\n" + 
+"        <div class=\"btn-group\">\n" + 
+"            <a class=\"btn btn-link\" href=\"#\">link</a>\n" + 
+"            <a class=\"btn btn-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"caret\"></span></a>\n" + 
+"            <ul class=\"dropdown-menu\">\n" + 
+"                <li><a href=\"#\">Action</a></li>\n" + 
+"                <li><a href=\"#\">Another action</a></li>\n" + 
+"                <li><a href=\"#\">Something else here</a></li>\n" + 
+"                <li class=\"divider\"></li>\n" + 
+"                <li><a href=\"#\">Separated link</a></li>\n" + 
+"            </ul>\n" + 
+"        </div>\n" + 
+"        <!-- /btn-group -->\n" + 
+"    </td>\n" + 
+"</tr>\n" + 
+"</tbody>\n" + 
+"</table>\n" + 
 "\n" + 
 "</section>\n" + 
 "\n" + 
@@ -1008,13 +1257,13 @@ p("<!DOCTYPE html>\n" +
 "<!-- Le javascript\n" + 
 "================================================== -->\n" + 
 "<!-- Placed at the end of the document so the pages load faster -->\n" + 
-"<script src=\"");// line 14, japidviews\Application\Theme.html
-		p(lookupStatic("/public/demo/bootswatch.js"));// line 907, japidviews\Application\Theme.html
+"<script src=\"");// line 15, japidviews\Application\Theme.html
+		p(lookupStatic("/public/demo/bootswatch.js"));// line 1163, japidviews\Application\Theme.html
 		p("\"></script>\n" + 
 "\n" + 
 "\n" + 
 "</body>\n" + 
-"</html>");// line 907, japidviews\Application\Theme.html
+"</html>");// line 1163, japidviews\Application\Theme.html
 		
 		endDoLayout(sourceTemplate);
 	}

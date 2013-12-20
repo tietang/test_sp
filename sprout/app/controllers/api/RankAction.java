@@ -65,7 +65,7 @@ public class RankAction extends Admin {
         byte category = MapUtils.getByteValue(as, "category");
         String photoNiceName = MapUtils.getString(as, "niceName");
         Integer photoIdUser = MapUtils.getInteger(as, "photoIdUser");
-        System.out.println(as);
+        //System.out.println(as);
         try {
             int iip = getIIP();
             int updated = photoService.unfavorite(id, photoIdUser, idUser, iip);

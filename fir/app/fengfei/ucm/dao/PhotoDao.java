@@ -202,7 +202,7 @@ public class PhotoDao {
             String sql = "SELECT  id_photo  FROM photo" + suffix + " WHERE id_photo=?";
             id = grower.selectOne(sql, new StringTransducer(), m.idPhoto);
         }
-        System.out.println("======: " + m.idPhoto);
+        //System.out.println("======: " + m.idPhoto);
         InsertResultSet<Long> u = null;
 
         if (id == null || "".equals(id)) {

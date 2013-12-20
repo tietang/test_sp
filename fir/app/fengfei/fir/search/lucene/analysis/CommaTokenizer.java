@@ -73,6 +73,6 @@ public final class CommaTokenizer extends CharTokenizer {
 
     public static void main(String[] args) {
 
-        System.out.println((int) Character.valueOf('，').charValue());
+        //System.out.println((int) Character.valueOf('，').charValue());
     }
 }

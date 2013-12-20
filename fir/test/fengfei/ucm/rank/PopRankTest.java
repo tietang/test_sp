@@ -48,15 +48,15 @@ public class PopRankTest {
 
         for (int i = 0; i <= 10; i++) {
             double score = Math.abs((double)r.nextInt(10000)/100);
-            // System.out.println(t);
+            // //System.out.println(t);
             rank.add(i, score);
         }
 
-        System.out.println(7 * 24 * 60);
-        System.out.println(rank.count());
-        System.out.println(rank.findWithScore(0, 10));
-        System.out.println(rank.findWithScore(0, 2));
-        System.out.println(rank.findWithScore(2, 2));
+        //System.out.println(7 * 24 * 60);
+        //System.out.println(rank.count());
+        //System.out.println(rank.findWithScore(0, 10));
+        //System.out.println(rank.findWithScore(0, 2));
+        //System.out.println(rank.findWithScore(2, 2));
 
     }
 }

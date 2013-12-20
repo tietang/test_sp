@@ -54,8 +54,8 @@ public class ProfileAPI extends Admin {
         Integer idUser = currentUserId();
         String jpgPath = Path.getHeadPhotoUploadPath(idUser);
         File jpegFile = new File(jpgPath);
-        System.out.println(jpgPath);
-        System.out.println(contents);
+        //System.out.println(jpgPath);
+        //System.out.println(contents);
         if (jpegFile.exists()) {
 
             try {
@@ -87,8 +87,8 @@ public class ProfileAPI extends Admin {
      * @param qqfile
      */
     public static void headUpload(File qqfile) {
-        System.out.println(qqfile);
-        System.out.println(params.allSimple());
+        //System.out.println(qqfile);
+        //System.out.println(params.allSimple());
         Done done = new Done(i18n("success"), Done.Status.Success);
         try {
             Integer idUser = currentUserId();

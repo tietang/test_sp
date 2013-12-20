@@ -29,7 +29,7 @@ public class PhilHarveyJpegExifReader implements JpegExifReader {
         String file = "C:/Users/wtt/Documents/GitHub/spruce/sprucy/upload/0/0/183g7u41h8bjbab0l40g/2.JPG";
         PhilHarveyJpegExifReader w = new PhilHarveyJpegExifReader();
         Map<String, String> exif = w.readExif(file);
-        System.out.println(exif);
+        //System.out.println(exif);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class PhilHarveyJpegExifReader implements JpegExifReader {
                 String name = line.substring(0, index).replaceAll(" ", "");
                 String value = line.substring(index + 1);
                 exif.put(name, value);
-                // System.out.println(name + "=" + value);
+                // //System.out.println(name + "=" + value);
 
             }
         } catch (IOException | InterruptedException | IM4JavaException e) {

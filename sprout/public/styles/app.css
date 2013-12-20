@@ -698,7 +698,6 @@ input.error {
     filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
-
 .vote_btn {
     min-height: 80px;
     max-height: 80px;
@@ -706,6 +705,8 @@ input.error {
     color: #ffffff;
     background-color: #039aea;
     border: none;
+    padding: 0px;
+    margin: 0px;
 }
 
 .vote_btn:hover,
@@ -713,7 +714,6 @@ input.error {
 .vote_btn:active,
 .vote_btn.active,
 .open .dropdown-toggle.vote_btn {
-    color: #ffffff;
     background-color: #02adea;
 }
 
@@ -724,10 +724,10 @@ input.error {
 }
 
 .vote_btn.disabled,
-.vote_btn[disabled]  {
+.vote_btn[disabled] {
+
     background-color: #a0a0a0;
 }
-
 
 .favorite_btn {
     min-height: 80px;
@@ -736,14 +736,15 @@ input.error {
     color: #ffffff;
     background-color: #ed4d63;
     border: none;
+    padding: 0px;
+    margin: 0px;
 }
 
 .favorite_btn:hover,
 .favorite_btn:focus,
 .favorite_btn:active,
 .favorite_btn.active {
-    color: #ffffff;
-    background-color: #EE5F5B;
+    background-color: #fd5d73;
 }
 
 .favorite_btn:active,
@@ -751,9 +752,8 @@ input.error {
     background-image: none;
 }
 
-
 .favorite_btn.disabled,
-.favorite_btn[disabled]  {
+.favorite_btn[disabled] {
     background-color: #808080;
 }
 

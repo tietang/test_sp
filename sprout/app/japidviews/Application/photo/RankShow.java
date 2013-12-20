@@ -1,4 +1,3 @@
-//version: 0.9.37
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -10,7 +9,6 @@ import static play.data.validation.Validation.*;
 import japidviews._layouts.*;
 import play.i18n.Messages;
 import play.data.validation.Validation;
-import static japidviews._javatags.Pic.*;
 import play.mvc.Scope.*;
 import models.*;
 import play.data.validation.Error;
@@ -18,7 +16,6 @@ import play.i18n.Lang;
 import japidviews._tags.*;
 import play.mvc.Http.*;
 import controllers.*;
-import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/RankShow.html
 // Change to this file will be lost next time the template file is compiled.
@@ -27,11 +24,9 @@ import japidviews._javatags.*;
 public class RankShow extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/Application/photo/RankShow.html";
-	 private void initHeaders() {
+	{
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
-	}
-	{
 	}
 
 // - add implicit fields with Play
@@ -49,17 +44,11 @@ public class RankShow extends cn.bran.play.JapidTemplateBase
 
 
 	public RankShow() {
-	super((StringBuilder)null);
-	initHeaders();
+		super(null);
 	}
 	public RankShow(StringBuilder out) {
 		super(out);
-		initHeaders();
 	}
-	public RankShow(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
-		super(caller);
-	}
-
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"rank",  };
@@ -79,8 +68,9 @@ public class RankShow extends cn.bran.play.JapidTemplateBase
 	private Rank rank; // line 3, japidviews/Application/photo/RankShow.html
 	public cn.bran.japid.template.RenderResult render(Rank rank) {
 		this.rank = rank;
+		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 3, japidviews/Application/photo/RankShow.html
-		return getRenderResult();
+		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(Rank rank) {
@@ -89,6 +79,7 @@ public class RankShow extends cn.bran.play.JapidTemplateBase
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
+//------
 ;// line 1, japidviews\Application\photo\RankShow.html
 
 p("\n" + 
@@ -103,42 +94,41 @@ p("\n" +
 "\n" + 
 "    </div>\n" + 
 "\n" + 
-"\n" + 
 "    <div class=\"column photo_stats_card border-left\">\n" + 
 "        <ul>\n" + 
 "\n" + 
 "            <li title=\"");// line 7, japidviews\Application\photo\RankShow.html
-		;p(getMessage("view.num"));// line 15, japidviews\Application\photo\RankShow.html
+		;p(getMessage("view.num"));// line 14, japidviews\Application\photo\RankShow.html
 		p("\">\n" + 
-"                <strong class=\"key\">");// line 15, japidviews\Application\photo\RankShow.html
-		try { p(rank.view); } catch (NullPointerException npe) {}// line 16, japidviews\Application\photo\RankShow.html
+"                <strong class=\"key\">");// line 14, japidviews\Application\photo\RankShow.html
+		try { p(rank.view); } catch (NullPointerException npe) {}// line 15, japidviews\Application\photo\RankShow.html
 		p("</strong>\n" + 
-"                <small class=\"value\">");// line 16, japidviews\Application\photo\RankShow.html
-		;p(getMessage("view"));// line 17, japidviews\Application\photo\RankShow.html
+"                <small class=\"value\">");// line 15, japidviews\Application\photo\RankShow.html
+		;p(getMessage("view"));// line 16, japidviews\Application\photo\RankShow.html
 		p("</small>\n" + 
 "            </li>\n" + 
 "\n" + 
-"            <li title=\"");// line 17, japidviews\Application\photo\RankShow.html
-		;p(getMessage("vote.num"));// line 20, japidviews\Application\photo\RankShow.html
+"            <li title=\"");// line 16, japidviews\Application\photo\RankShow.html
+		;p(getMessage("vote.num"));// line 19, japidviews\Application\photo\RankShow.html
 		p("\">\n" + 
 "                <strong\n" + 
-"                        class=\"key\">");// line 20, japidviews\Application\photo\RankShow.html
-		try { p(rank.vote); } catch (NullPointerException npe) {}// line 22, japidviews\Application\photo\RankShow.html
+"                        class=\"key\">");// line 19, japidviews\Application\photo\RankShow.html
+		try { p(rank.vote); } catch (NullPointerException npe) {}// line 21, japidviews\Application\photo\RankShow.html
 		p("</strong>\n" + 
-"                <small class=\"value\">");// line 22, japidviews\Application\photo\RankShow.html
-		;p(getMessage("view"));// line 23, japidviews\Application\photo\RankShow.html
+"                <small class=\"value\">");// line 21, japidviews\Application\photo\RankShow.html
+		;p(getMessage("view"));// line 22, japidviews\Application\photo\RankShow.html
 		p("</small>\n" + 
 "            </li>\n" + 
 "\n" + 
-"            <li title=\"");// line 23, japidviews\Application\photo\RankShow.html
-		;p(getMessage("favorite.num"));// line 26, japidviews\Application\photo\RankShow.html
+"            <li title=\"");// line 22, japidviews\Application\photo\RankShow.html
+		;p(getMessage("favorite.num"));// line 25, japidviews\Application\photo\RankShow.html
 		p("\">\n" + 
 "                <strong\n" + 
-"                        class=\"key\">");// line 26, japidviews\Application\photo\RankShow.html
-		try { p(rank.favorite); } catch (NullPointerException npe) {}// line 28, japidviews\Application\photo\RankShow.html
+"                        class=\"key\">");// line 25, japidviews\Application\photo\RankShow.html
+		try { p(rank.favorite); } catch (NullPointerException npe) {}// line 27, japidviews\Application\photo\RankShow.html
 		p("</strong>\n" + 
-"                <small class=\"value\">");// line 28, japidviews\Application\photo\RankShow.html
-		;p(getMessage("favorite"));// line 29, japidviews\Application\photo\RankShow.html
+"                <small class=\"value\">");// line 27, japidviews\Application\photo\RankShow.html
+		;p(getMessage("favorite"));// line 28, japidviews\Application\photo\RankShow.html
 		p("</small>\n" + 
 "            </li>\n" + 
 "\n" + 
@@ -148,22 +138,22 @@ p("\n" +
 "\n" + 
 "    <div class=\"column photo_stats_card border-left\">\n" + 
 "        <ul>\n" + 
-"            <li><strong class=\"photo_max_stats\">");// line 29, japidviews\Application\photo\RankShow.html
-		try { p(rank.sMaxScore); } catch (NullPointerException npe) {}// line 38, japidviews\Application\photo\RankShow.html
+"            <li><strong class=\"photo_max_stats\">");// line 28, japidviews\Application\photo\RankShow.html
+		try { p(rank.sMaxScore); } catch (NullPointerException npe) {}// line 37, japidviews\Application\photo\RankShow.html
 		p("</strong></li>\n" + 
 "            <li>\n" + 
-"                <small class=\"faded\">");// line 38, japidviews\Application\photo\RankShow.html
-		;p(getMessage("highest.pulse"));// line 40, japidviews\Application\photo\RankShow.html
+"                <small class=\"faded\">");// line 37, japidviews\Application\photo\RankShow.html
+		;p(getMessage("highest.pulse"));// line 39, japidviews\Application\photo\RankShow.html
 		p("</small>\n" + 
 "            </li>\n" + 
 "            <li>\n" + 
-"                <small class=\"faded key\">");// line 40, japidviews\Application\photo\RankShow.html
-		try { p(rank.sMaxAt); } catch (NullPointerException npe) {}// line 43, japidviews\Application\photo\RankShow.html
+"                <small class=\"faded key\">");// line 39, japidviews\Application\photo\RankShow.html
+		try { p(rank.sMaxAt); } catch (NullPointerException npe) {}// line 42, japidviews\Application\photo\RankShow.html
 		p("</small>\n" + 
 "            </li>\n" + 
 "        </ul>\n" + 
 "    </div>\n" + 
-"</div>");// line 43, japidviews\Application\photo\RankShow.html
+"</div>");// line 42, japidviews\Application\photo\RankShow.html
 		
 		endDoLayout(sourceTemplate);
 	}

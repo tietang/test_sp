@@ -8,6 +8,7 @@ import fengfei.ucm.repository.impl.SqlCommentRepository;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 import play.Logger;
+import play.classloading.ApplicationClassloader;
 import play.modules.router.Any;
 import play.mvc.With;
 
@@ -37,9 +38,8 @@ public class CommentAction extends Admin {
         int createAt = (int) (current / 1000);
         Timestamp createAtGmt = new Timestamp(current);
         int idUserReply = MapUtils.getIntValue(map, "idUserReply");
-
         try {
-            validation.maxSize(content, 128);
+            validation.maxSize("",content, 128);
             renderHasErrors();
             content = StringEscapeUtils.escapeHtml4(content);
 

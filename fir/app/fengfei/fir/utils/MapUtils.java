@@ -813,7 +813,7 @@ public class MapUtils {
      *            the exception to log
      */
     protected static void logInfo(final Exception ex) {
-        System.out.println("INFO: Exception: " + ex);
+        //System.out.println("INFO: Exception: " + ex);
     }
 
 }

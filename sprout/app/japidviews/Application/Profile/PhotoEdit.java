@@ -1,4 +1,3 @@
-//version: 0.9.37
 package japidviews.Application.profile;
 import java.util.*;
 import java.io.*;
@@ -11,7 +10,6 @@ import static play.data.validation.Validation.*;
 import japidviews._layouts.*;
 import play.i18n.Messages;
 import play.data.validation.Validation;
-import static japidviews._javatags.Pic.*;
 import play.mvc.Scope.*;
 import models.*;
 import play.data.validation.Error;
@@ -19,7 +17,6 @@ import play.i18n.Lang;
 import japidviews._tags.*;
 import play.mvc.Http.*;
 import controllers.*;
-import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/profile/PhotoEdit.html
 // Change to this file will be lost next time the template file is compiled.
@@ -28,11 +25,9 @@ import japidviews._javatags.*;
 public class PhotoEdit extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/profile/PhotoEdit.html";
-	 private void initHeaders() {
+	{
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
-	}
-	{
 	}
 
 // - add implicit fields with Play
@@ -50,17 +45,11 @@ public class PhotoEdit extends japidviews._layouts.Layout
 
 
 	public PhotoEdit() {
-	super((StringBuilder)null);
-	initHeaders();
+		super(null);
 	}
 	public PhotoEdit(StringBuilder out) {
 		super(out);
-		initHeaders();
 	}
-	public PhotoEdit(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
-		super(caller);
-	}
-
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"photo", "photoSets",  };
@@ -82,8 +71,9 @@ public class PhotoEdit extends japidviews._layouts.Layout
 	public cn.bran.japid.template.RenderResult render(Photo photo,List<PhotoSet> photoSets) {
 		this.photo = photo;
 		this.photoSets = photoSets;
+		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 6, japidviews/Application/profile/PhotoEdit.html
-		return getRenderResult();
+		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(Photo photo,List<PhotoSet> photoSets) {
@@ -92,6 +82,7 @@ public class PhotoEdit extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
+//------
 p("<pre style=\"display: none\">\n" + 
 "	\n");// line 1, japidviews\Application\profile\PhotoEdit.html
 
@@ -106,7 +97,7 @@ p("<pre style=\"display: none\">\n" +
 "				<table class=\"table table-striped  exif_table img_shadow exif\" id=\"content\" >\n" + 
 "					<tbody >\n" + 
 "						");// line 16, japidviews\Application\profile\PhotoEdit.html
-		new UploadForm(PhotoEdit.this).render(photo,photoSets); // line 26, japidviews\Application\profile\PhotoEdit.html// line 26, japidviews\Application\profile\PhotoEdit.html
+		final UploadForm _UploadForm1 = new UploadForm(getOut()); _UploadForm1.setActionRunners(getActionRunners()).setOut(getOut()); _UploadForm1.render(photo,photoSets); // line 26, japidviews\Application\profile\PhotoEdit.html// line 26, japidviews\Application\profile\PhotoEdit.html
 		p("\n" + 
 "\n" + 
 "						<tr>\n" + 

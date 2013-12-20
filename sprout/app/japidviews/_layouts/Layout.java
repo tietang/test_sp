@@ -1,4 +1,3 @@
-//version: 0.9.37
 package japidviews._layouts;
 import java.util.*;
 import java.io.*;
@@ -9,7 +8,6 @@ import static play.data.validation.Validation.*;
 import japidviews._layouts.*;
 import play.i18n.Messages;
 import play.data.validation.Validation;
-import static japidviews._javatags.Pic.*;
 import play.mvc.Scope.*;
 import models.*;
 import play.data.validation.Error;
@@ -17,7 +15,6 @@ import play.i18n.Lang;
 import japidviews._tags.*;
 import play.mvc.Http.*;
 import controllers.*;
-import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/_layouts/Layout.html
 // Change to this file will be lost next time the template file is compiled.
@@ -26,11 +23,9 @@ import japidviews._javatags.*;
 public abstract class Layout extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/_layouts/Layout.html";
-	 private void initHeaders() {
+	{
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
-	}
-	{
 	}
 
 // - add implicit fields with Play
@@ -48,20 +43,13 @@ public abstract class Layout extends cn.bran.play.JapidTemplateBase
 
 
 	public Layout() {
-	super((StringBuilder)null);
-	initHeaders();
+		super(null);
 	}
 	public Layout(StringBuilder out) {
 		super(out);
-		initHeaders();
 	}
-	public Layout(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
-		super(caller);
-	}
-
 	@Override public void layout() {
-		beginDoLayout(sourceTemplate);
-p("<!DOCTYPE html>\n");// line 1, japidviews\_layouts\Layout.html
+		beginDoLayout(sourceTemplate);		p("<!DOCTYPE html>\n");// line 1, japidviews\_layouts\Layout.html
 		p("\n" + 
 "<html lang=\"en\">\n" + 
 "<head>\n" + 
@@ -90,7 +78,7 @@ p("<!DOCTYPE html>\n");// line 1, japidviews\_layouts\Layout.html
 		p(lookupStatic("/public/bootstrap/css/bootstrap.min.css"));// line 13, japidviews\_layouts\Layout.html
 		p("\">\n" + 
 "    <link rel=\"stylesheet\" media=\"screen\" href=\"");// line 13, japidviews\_layouts\Layout.html
-		p(lookupStatic("/public/bootstrap/css/bootstrap-theme.css"));// line 14, japidviews\_layouts\Layout.html
+		p(lookupStatic("/public/bootstrap/css/bootstrap.theme.css"));// line 14, japidviews\_layouts\Layout.html
 		p("\">\n" + 
 "    <!--\n" + 
 "    <link rel=\"stylesheet\" media=\"screen\" 	href=\"");// line 14, japidviews\_layouts\Layout.html
@@ -271,9 +259,9 @@ p("<!DOCTYPE html>\n");// line 1, japidviews\_layouts\Layout.html
 "                    <ul class=\"nav pull-right\">\n" + 
 "                        <li>\n" + 
 "                            <div class=\"btn-group\">\n" + 
-"                                <a href=\"/signup\" class=\"btn btn3  btn3-green btn-small\"><i class=\"icon-arrow-up icon-white\"></i>&ensp;Signup</a>\n" + 
+"                                <a href=\"/signup\" class=\"btn btn-success \"><i class=\"icon-arrow-up icon-white\"></i>&ensp;Signup</a>\n" + 
 "\n" + 
-"                                <a class=\"   btn btn3  btn3-blue btn-small\" href=\"/login\"><i\n" + 
+"                                <a class=\"btn btn-info\" href=\"/login\"><i\n" + 
 "                                        class=\"icon-user icon-white\"></i>&ensp;Login</a>\n" + 
 "                            </div>\n" + 
 "                        </li>\n" + 
@@ -413,10 +401,7 @@ p("<!DOCTYPE html>\n");// line 1, japidviews\_layouts\Layout.html
 "</footer>\n" + 
 "</body>\n" + 
 "</html>");// line 225, japidviews\_layouts\Layout.html
-		
-		endDoLayout(sourceTemplate);
-	}
-
+				endDoLayout(sourceTemplate);	}
 	 protected void title() {};
 	 protected void keywords() {};
 	 protected void description() {};

@@ -36,11 +36,11 @@ public class WebUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println(getLastUrlWord("/"));
-        System.out.println(getLastUrlWord("3232131/"));
-        System.out.println(getLastUrlWord("/3232131/"));
-        System.out.println(getLastUrlWord("/43242/"));
-        System.out.println(getLastUrlWord("/43242/432423"));
-        System.out.println(getLastUrlWord("/43242/432423/"));
+        //System.out.println(getLastUrlWord("/"));
+        //System.out.println(getLastUrlWord("3232131/"));
+        //System.out.println(getLastUrlWord("/3232131/"));
+        //System.out.println(getLastUrlWord("/43242/"));
+        //System.out.println(getLastUrlWord("/43242/432423"));
+        //System.out.println(getLastUrlWord("/43242/432423/"));
     }
 }

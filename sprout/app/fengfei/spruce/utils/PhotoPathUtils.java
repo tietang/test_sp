@@ -36,7 +36,7 @@ public class PhotoPathUtils {
     }
 
     public static String getUserPhotoDownloadPath(Long idUser, int preview) {
-        System.out.println("getUserPhotoDownloadPath: " + idUser);
+        //System.out.println("getUserPhotoDownloadPath: " + idUser);
         if (idUser == null || idUser == 0) {
             return "/public/photo/head/m.jpg";
         }
@@ -47,7 +47,7 @@ public class PhotoPathUtils {
         String path = sb.toString();
         String jpgPath1 = Path.getHeadPhotoUploadPath(idUser, preview);
         File file = new File(jpgPath1);
-        System.out.println(file.getAbsolutePath());
+        //System.out.println(file.getAbsolutePath());
         if (!file.exists()) {
             return "/public/photo/head/m.jpg";
         }

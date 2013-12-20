@@ -127,7 +127,7 @@ public class YouShowAction extends Admin {
         }
         String path = "/to/";
         try {
-            System.out.println(user);
+            //System.out.println(user);
             Integer idUser = user.idUser;
             pageNum = pageNum <= 0 ? 1 : pageNum;
             int offset = (pageNum - 1) * TotalRowLimit;
@@ -228,7 +228,7 @@ public class YouShowAction extends Admin {
 
         try {
             String ip = request.remoteAddress;
-            System.out.println(id);
+            //System.out.println(id);
             Integer idUser = currentUserId();
             String username = currentNiceName();
             long idPhoto = Long.parseLong(id);

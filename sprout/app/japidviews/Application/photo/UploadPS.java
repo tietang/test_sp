@@ -1,4 +1,3 @@
-//version: 0.9.37
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -11,7 +10,6 @@ import static play.data.validation.Validation.*;
 import japidviews._layouts.*;
 import play.i18n.Messages;
 import play.data.validation.Validation;
-import static japidviews._javatags.Pic.*;
 import play.mvc.Scope.*;
 import models.*;
 import play.data.validation.Error;
@@ -19,7 +17,6 @@ import play.i18n.Lang;
 import japidviews._tags.*;
 import play.mvc.Http.*;
 import controllers.*;
-import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/UploadPS.html
 // Change to this file will be lost next time the template file is compiled.
@@ -28,11 +25,9 @@ import japidviews._javatags.*;
 public class UploadPS extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/photo/UploadPS.html";
-	 private void initHeaders() {
+	{
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
-	}
-	{
 	}
 
 // - add implicit fields with Play
@@ -50,17 +45,11 @@ public class UploadPS extends japidviews._layouts.Layout
 
 
 	public UploadPS() {
-	super((StringBuilder)null);
-	initHeaders();
+		super(null);
 	}
 	public UploadPS(StringBuilder out) {
 		super(out);
-		initHeaders();
 	}
-	public UploadPS(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
-		super(caller);
-	}
-
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"photoSets",  };
@@ -80,8 +69,9 @@ public class UploadPS extends japidviews._layouts.Layout
 	private List<PhotoSet> photoSets; // line 5, japidviews/Application/photo/UploadPS.html
 	public cn.bran.japid.template.RenderResult render(List<PhotoSet> photoSets) {
 		this.photoSets = photoSets;
+		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 5, japidviews/Application/photo/UploadPS.html
-		return getRenderResult();
+		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(List<PhotoSet> photoSets) {
@@ -90,12 +80,13 @@ public class UploadPS extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
+//------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\UploadPS.html
 
 p("\n" + 
 "</pre>\n");// line 5, japidviews\Application\photo\UploadPS.html
 		// line 7, japidviews\Application\photo\UploadPS.html
-new AddNav(UploadPS.this).render("ps"); // line 45, japidviews\Application\photo\UploadPS.html// line 45, japidviews\Application\photo\UploadPS.html
+final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActionRunners()).setOut(getOut()); _AddNav2.render("ps"); // line 45, japidviews\Application\photo\UploadPS.html// line 45, japidviews\Application\photo\UploadPS.html
 		p("\n" + 
 "<form id=\"photoUploadForm\" action=\"/upload/done\" method=\"post\" enctype=\"multipart/form-data\">\n" + 
 "    <div class=\"grid_row upload \">\n" + 
@@ -132,7 +123,7 @@ new AddNav(UploadPS.this).render("ps"); // line 45, japidviews\Application\photo
 "                    </thead>\n" + 
 "                    <tbody>\n" + 
 "                    ");// line 56, japidviews\Application\photo\UploadPS.html
-		new UploadForm(UploadPS.this).render(null,photoSets); // line 72, japidviews\Application\photo\UploadPS.html// line 72, japidviews\Application\photo\UploadPS.html
+		final UploadForm _UploadForm3 = new UploadForm(getOut()); _UploadForm3.setActionRunners(getActionRunners()).setOut(getOut()); _UploadForm3.render(null,photoSets); // line 72, japidviews\Application\photo\UploadPS.html// line 72, japidviews\Application\photo\UploadPS.html
 		p("\n" + 
 "\n" + 
 "                    <tr>\n" + 

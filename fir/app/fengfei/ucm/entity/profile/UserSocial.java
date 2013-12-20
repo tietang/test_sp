@@ -14,13 +14,13 @@ public class UserSocial {
 //        for (int i = 0; i < fields.length; i++) {
 //            String name = fields[i].getName();
 //            String type = fields[i].getType().getSimpleName();
-//            System.out.println(type + " " + name + " = rs.getString(\"" + name + "\");");
+//            //System.out.println(type + " " + name + " = rs.getString(\"" + name + "\");");
 //        }
 //        for (int i = 0; i < fields.length; i++) {
 //            String name = fields[i].getName();
 //            String type = fields[i].getType().getSimpleName();
-//            System.out.println(varName + "." + name + " = " + name + ";");
-//            System.out.println(varName + "." + name+",");
+//            //System.out.println(varName + "." + name + " = " + name + ";");
+//            //System.out.println(varName + "." + name+",");
 //        }
     }
 

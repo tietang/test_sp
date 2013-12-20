@@ -103,7 +103,7 @@ package fengfei.fir.service.impl;
 //
 //		for (File f : fs) {
 //			if (f.isFile() && "jpg".equalsIgnoreCase(FilenameUtils.getExtension(f.getName()))) {
-//				System.out.println("===========================" + f.getAbsolutePath());
+//				//System.out.println("===========================" + f.getAbsolutePath());
 //				Map<String, String> values = new HashMap<>();
 //				values.put(TiffConstants.EXIF_TAG_LENS.name, "New CI F560P");
 //				d.writeExif(f.getAbsolutePath(), values);
@@ -113,9 +113,9 @@ package fengfei.fir.service.impl;
 //		fs = files.listFiles();
 //		for (File f : fs) {
 //			if (f.isFile() && "jpg".equalsIgnoreCase(FilenameUtils.getExtension(f.getName()))) {
-//				System.out.println("===========================" + f.getAbsolutePath());
+//				//System.out.println("===========================" + f.getAbsolutePath());
 //				Map<String, String> exif = d.readExif(f);
-//				System.out.println(exif);
+//				//System.out.println(exif);
 //
 //			}
 //		}
@@ -137,7 +137,7 @@ package fengfei.fir.service.impl;
 //		IImageMetadata metadata = null;
 //		try {
 //			metadata = Imaging.getMetadata(file);
-//			System.out.println(metadata);
+//			//System.out.println(metadata);
 //			if (metadata == null) {
 //				return exif;
 //			}

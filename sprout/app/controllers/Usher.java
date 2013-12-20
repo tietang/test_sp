@@ -64,19 +64,19 @@ public class Usher extends Admin {
     public static void agileUpload(File Filedata) {
 
         List<Upload> uploadFiles = (List<Upload>) request.args.get("__UPLOADS");
-        System.out.println("pp: " + params.allSimple());
-        System.out.println("xx: " + request.args);
+        //System.out.println("pp: " + params.allSimple());
+        //System.out.println("xx: " + request.args);
 
         if (uploadFiles != null && uploadFiles.size() > 0) {
             for (Upload upload : uploadFiles) {
-                System.out.println("size: " + upload.getSize());
+                //System.out.println("size: " + upload.getSize());
                 if (upload.getSize() > 0) {
                     File file = upload.asFile();
                     File destFile = new File(UploadPath + upload.getFileName());
                     try {
                         FileUtils.moveFile(file, destFile);
-                        System.out.println(file.getAbsolutePath() + "  \n"
-                                                   + destFile.getAbsolutePath());
+                        //System.out.println(file.getAbsolutePath() + "  \n"
+                                                   //+ destFile.getAbsolutePath());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

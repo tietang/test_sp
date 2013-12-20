@@ -51,8 +51,8 @@ public class MainJmeterClasspathGenerator {
 		String depClassPath = generator.getDepClassPath();
 		String samplerClassPath = generator.getSamplerClassPath();
 
-		System.out.println("depClassPath: " + depClassPath);
-		System.out.println("samplerClassPath: " + samplerClassPath);
+		//System.out.println("depClassPath: " + depClassPath);
+		//System.out.println("samplerClassPath: " + samplerClassPath);
 
 		generator.modifyJmeterProperties();
 	}
@@ -78,16 +78,16 @@ public class MainJmeterClasspathGenerator {
 		this.samplerDir = samplerDir;
 		this.classPathSeparator = classPathSeparator;
 
-		System.out.println("work dir: " + workFile.getAbsolutePath());
+		//System.out.println("work dir: " + workFile.getAbsolutePath());
 	}
 
 	public void generate() {
 		if (!workFile.exists()) {
-			System.out.println("work dir not exists: " + workFile);
+			//System.out.println("work dir not exists: " + workFile);
 			return;
 		}
 		if (!workFile.isDirectory()) {
-			System.out.println("work dir is not a directory: "
+			//System.out.println("work dir is not a directory: "
 					+ workFile.getAbsolutePath());
 			return;
 		}
@@ -95,11 +95,11 @@ public class MainJmeterClasspathGenerator {
 		// dependency jar
 		File depFile = new File(FilenameUtils.concat(
 				workFile.getAbsolutePath(), depDir));
-		System.out.println("dep lib dir: " + depFile.getAbsolutePath());
+		//System.out.println("dep lib dir: " + depFile.getAbsolutePath());
 
 		String[] depJars = listJars(depFile);
 		if (depJars == null || depJars.length == 0) {
-			System.out.println("dep jar not found!");
+			//System.out.println("dep jar not found!");
 			return;
 		}
 
@@ -109,11 +109,11 @@ public class MainJmeterClasspathGenerator {
 		// sampler jar
 		File samplerFile = new File(FilenameUtils.concat(
 				workFile.getAbsolutePath(), samplerDir));
-		System.out.println("sampler lib dir: " + samplerFile.getAbsolutePath());
+		//System.out.println("sampler lib dir: " + samplerFile.getAbsolutePath());
 
 		String[] samplerJars = listJars(samplerFile);
 		if (samplerJars == null || samplerJars.length == 0) {
-			System.out.println("sampler jar not found!");
+			//System.out.println("sampler jar not found!");
 			return;
 		}
 
@@ -144,7 +144,7 @@ public class MainJmeterClasspathGenerator {
 		File propFile = new File(FilenameUtils.concat(
 				workFile.getAbsolutePath(), "jmeter/bin/user.properties"));
 		if (!propFile.exists()) {
-			System.out.println("user.properties not found: "
+			//System.out.println("user.properties not found: "
 					+ propFile.getAbsolutePath());
 			return;
 		}

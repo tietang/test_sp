@@ -1,4 +1,3 @@
-//version: 0.9.37
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -9,7 +8,6 @@ import static play.data.validation.Validation.*;
 import japidviews._layouts.*;
 import play.i18n.Messages;
 import play.data.validation.Validation;
-import static japidviews._javatags.Pic.*;
 import play.mvc.Scope.*;
 import models.*;
 import play.data.validation.Error;
@@ -17,7 +15,6 @@ import play.i18n.Lang;
 import japidviews._tags.*;
 import play.mvc.Http.*;
 import controllers.*;
-import japidviews._javatags.*;
 //
 // NOTE: This file was generated from: japidviews/Application/photo/Uploads.html
 // Change to this file will be lost next time the template file is compiled.
@@ -26,11 +23,9 @@ import japidviews._javatags.*;
 public class Uploads extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/Application/photo/Uploads.html";
-	 private void initHeaders() {
+	{
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
-	}
-	{
 	}
 
 // - add implicit fields with Play
@@ -48,17 +43,11 @@ public class Uploads extends cn.bran.play.JapidTemplateBase
 
 
 	public Uploads() {
-	super((StringBuilder)null);
-	initHeaders();
+		super(null);
 	}
 	public Uploads(StringBuilder out) {
 		super(out);
-		initHeaders();
 	}
-	public Uploads(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
-		super(caller);
-	}
-
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/ };
@@ -76,8 +65,9 @@ public class Uploads extends cn.bran.play.JapidTemplateBase
 ////// end of named args stuff
 
 	public cn.bran.japid.template.RenderResult render() {
+		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/photo/Uploads.html
-		return getRenderResult();
+		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
 	}
 
 	public static cn.bran.japid.template.RenderResult apply() {
@@ -86,6 +76,7 @@ public class Uploads extends cn.bran.play.JapidTemplateBase
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
+//------
 p("<!DOCTYPE HTML>\n" + 
 "<html>\n" + 
 "<head>\n" + 

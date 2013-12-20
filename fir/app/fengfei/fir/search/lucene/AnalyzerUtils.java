@@ -38,6 +38,6 @@ public class AnalyzerUtils {
     }
 
     public static void main(String[] args) throws Exception {
-        System.out.println(toCommaString("Lucene不是一个完整的全文索引应用，而是是一个用Java写的全文索引引擎工具包，它可以方便的嵌入到各种应用中实现针对应用的全文索引/检索功能。"));
+        //System.out.println(toCommaString("Lucene不是一个完整的全文索引应用，而是是一个用Java写的全文索引引擎工具包，它可以方便的嵌入到各种应用中实现针对应用的全文索引/检索功能。"));
     }
 }

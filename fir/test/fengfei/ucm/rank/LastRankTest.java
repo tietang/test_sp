@@ -48,15 +48,15 @@ public class LastRankTest {
         int cu = (int) (System.currentTimeMillis() / 1000 / 60) ;
         for (int i = 0; i <= 10; i++) {
             int t = Math.abs(cu - r.nextInt(10080));
-//System.out.println(t);
+////System.out.println(t);
             rank.add(i, t*60);
         }
 
-        System.out.println(7 * 24 * 60);
-        System.out.println(rank.count());
-        System.out.println(rank.findWithScore(0, 10));
-        System.out.println(rank.findWithScore(0, 2));
-        System.out.println(rank.findWithScore(2, 2));
+        //System.out.println(7 * 24 * 60);
+        //System.out.println(rank.count());
+        //System.out.println(rank.findWithScore(0, 10));
+        //System.out.println(rank.findWithScore(0, 2));
+        //System.out.println(rank.findWithScore(2, 2));
 
     }
 }

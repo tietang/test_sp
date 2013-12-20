@@ -45,7 +45,7 @@ public class Test2 {
 
         if (metadata instanceof JpegImageMetadata) {
             JpegImageMetadata jpegMetadata = (JpegImageMetadata) metadata;
-            System.out.println("\nFile: " + file.getPath());
+            //System.out.println("\nFile: " + file.getPath());
             printTagValue(jpegMetadata, TiffConstants.TIFF_TAG_XRESOLUTION);
             printTagValue(jpegMetadata, TiffConstants.TIFF_TAG_DATE_TIME);
             printTagValue(jpegMetadata, TiffConstants.EXIF_TAG_DATE_TIME_ORIGINAL);
@@ -63,34 +63,34 @@ public class Test2 {
                     if (null != gpsInfo) {
                         double longitude = gpsInfo.getLongitudeAsDegreesEast();
                         double latitude = gpsInfo.getLatitudeAsDegreesNorth();
-                        System.out.println("    " + "GPS Description: " + gpsInfo);
-                        System.out.println("    " + "GPS Longitude (Degrees East): " + longitude);
-                        System.out.println("    " + "GPS Latitude (Degrees North): " + latitude);
+                        //System.out.println("    " + "GPS Description: " + gpsInfo);
+                        //System.out.println("    " + "GPS Longitude (Degrees East): " + longitude);
+                        //System.out.println("    " + "GPS Latitude (Degrees North): " + latitude);
                     }
                 } catch (ImageReadException e) {
                     e.printStackTrace();
                 }
             }
 
-            System.out.println("EXIF items -");
+            //System.out.println("EXIF items -");
             ArrayList<?> items = jpegMetadata.getItems();
             for (int i = 0; i < items.size(); i++) {
                 Object item = items.get(i);
-                System.out.println(item.getClass());
-                System.out.println(((TiffImageMetadata.Item) item).getTiffField());
+                //System.out.println(item.getClass());
+                //System.out.println(((TiffImageMetadata.Item) item).getTiffField());
                 t = ((TiffImageMetadata.Item) item).getTiffField();
-                System.out.println("    " + "item: " + item);
+                //System.out.println("    " + "item: " + item);
             }
-            System.out.println();
+            //System.out.println();
         }
     }
 
     private static void printTagValue(JpegImageMetadata jpegMetadata, TagInfo tagInfo) {
         TiffField field = jpegMetadata.findEXIFValue(tagInfo);
         if (field == null) {
-            System.out.println(tagInfo.name + ": " + "Not Found.");
+            //System.out.println(tagInfo.name + ": " + "Not Found.");
         } else {
-            System.out.println(tagInfo.name + ": " + field.getValueDescription());
+            //System.out.println(tagInfo.name + ": " + field.getValueDescription());
         }
     }
 
@@ -142,7 +142,7 @@ public class Test2 {
             TiffOutputField imageHistoryPre = outputSet
                 .findField(TiffConstants.EXIF_TAG_XPCOMMENT);
             if (imageHistoryPre != null) {
-                System.out.println("REMOVE");
+                //System.out.println("REMOVE");
                 outputSet.removeField(TiffConstants.EXIF_TAG_XPCOMMENT);
             }
             // add field
@@ -199,7 +199,7 @@ public class Test2 {
 
         for (File f : fs) {
             if (f.isFile() && "jpg".equalsIgnoreCase(FilenameUtils.getExtension(f.getName()))) {
-                System.out.println("===========================" + f.getAbsolutePath());
+                //System.out.println("===========================" + f.getAbsolutePath());
                 readMetaData(f);
             }
         }

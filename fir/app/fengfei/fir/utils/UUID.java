@@ -15,21 +15,21 @@ public class UUID {
     public static void main(String[] args) {
         Base64 base64 = new Base64();
         byte[] bs = base64.encode(UUID.randomB36UUID().getBytes());
-        System.out.println(new String(bs));
-        System.out.println(UUID.randomB32UUID());
-        System.out.println(UUID.randomB36UUID());
-        System.out.println(UUID.randomUUID().toString());
-        System.out.println(UUID.randomUUID().toB32String());
-        System.out.println(UUID.randomUUID().toB24String());
-        System.out.println(UUID.randomUUID().toB28String());
-        System.out.println(java.util.UUID.randomUUID().toString());
+        //System.out.println(new String(bs));
+        //System.out.println(UUID.randomB32UUID());
+        //System.out.println(UUID.randomB36UUID());
+        //System.out.println(UUID.randomUUID().toString());
+        //System.out.println(UUID.randomUUID().toB32String());
+        //System.out.println(UUID.randomUUID().toB24String());
+        //System.out.println(UUID.randomUUID().toB28String());
+        //System.out.println(java.util.UUID.randomUUID().toString());
         int num = 1000000;
         Set<String> sets = new HashSet<>();
 
         for (int i = 0; i < num; i++) {
             sets.add(UUID.randomUUID().toB24String());
             if (i % 100000 == 0) {
-                System.out.println(i);
+                //System.out.println(i);
             }
         }
         System.out.printf("%d %d", sets.size(), num);

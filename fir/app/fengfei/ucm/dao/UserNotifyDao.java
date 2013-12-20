@@ -31,8 +31,8 @@ public class UserNotifyDao {
             }
         }
 
-        System.out.println("notify: "+v);
-        System.out.println("notify: "+notifies);
+        //System.out.println("notify: "+v);
+        //System.out.println("notify: "+notifies);
         int updated = 0;
         if (value == null) {
             updated = grower.update(String.format(InsertNotify, suffix), idUser, v);
@@ -65,11 +65,11 @@ public class UserNotifyDao {
     public static void main(String[] args) {
         long s = 0;
 
-        System.out.println(Long.toString(s = sy(23, s, 1), 2));
-        System.out.println(Long.toString(s = sy(3, s, 1), 2));
-        System.out.println(Long.toString(s = sy(3, s, 0), 2));
-        System.out.println(Long.toString(s = sy(4, s, 1), 2));
-        System.out.println(Long.toString(s = sy(5, s, 0), 2));
+        //System.out.println(Long.toString(s = sy(23, s, 1), 2));
+        //System.out.println(Long.toString(s = sy(3, s, 1), 2));
+        //System.out.println(Long.toString(s = sy(3, s, 0), 2));
+        //System.out.println(Long.toString(s = sy(4, s, 1), 2));
+        //System.out.println(Long.toString(s = sy(5, s, 0), 2));
 
     }
 }

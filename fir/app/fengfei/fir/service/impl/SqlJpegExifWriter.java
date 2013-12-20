@@ -64,8 +64,8 @@ public class SqlJpegExifWriter implements JpegExifWriter {
     }
 
     public Photo toPhotoModel(Map<String, String> exifs, Map<String, String> contents) {
-        // System.out.println(exifs);
-        // System.out.println(contents);
+        // //System.out.println(exifs);
+        // //System.out.println(contents);
         long idPhoto = MapUtils.getIntValue(contents, KeyIdPhoto);
         int idUser = MapUtils.getIntValue(contents, KeyIdUser);
         String title = MapUtils.getString(contents, "title", WebUtils.i18n("Untitled"));

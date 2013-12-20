@@ -151,7 +151,7 @@ public class PhotoManagerAction extends Admin {
 
             set.createAt = (int) (curr / 1000);
             set.updateAt = curr;
-            System.out.println(set);
+            //System.out.println(set);
             int updated = photoManage.saveSet(set);
 
             if (updated == 0) {
@@ -177,7 +177,7 @@ public class PhotoManagerAction extends Admin {
         try {
             Map<String, String> contents = params.allSimple();
             Long idSet = MapUtils.getLong(contents, "id", null);
-            System.out.println(idSet);
+            //System.out.println(idSet);
             if (idSet != null) {
                 int updated = photoManage.deleteSet(idSet, idUser);
             }
@@ -221,7 +221,7 @@ public class PhotoManagerAction extends Admin {
         Integer idUser = currentUserId();
         try {
             boolean updated = photoRepository.deleteOne(idPhoto, idUser);
-            System.out.println(updated);
+            //System.out.println(updated);
             renderDoneJSON(updated);
         } catch (Exception e) {
             renderErrorJSON();

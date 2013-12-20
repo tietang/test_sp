@@ -90,8 +90,8 @@ public class JMeterSummary {
     /**
      */
     public static void printUsage() {
-        System.out.println("Usage: " + JMeterSummary.class.getName() + " <JMeter Ouput File> [Millis Per Bucket]");
-        System.out.println("  (By default hits are grouped in "+DEFAULT_MILLIS_BUCKET+" millis/bucket.)");
+        //System.out.println("Usage: " + JMeterSummary.class.getName() + " <JMeter Ouput File> [Millis Per Bucket]");
+        //System.out.println("  (By default hits are grouped in "+DEFAULT_MILLIS_BUCKET+" millis/bucket.)");
     }
 
     /**
@@ -136,14 +136,14 @@ public class JMeterSummary {
         }
         
         if(totalAll.count == 0) {
-            System.out.println("No results found!");
+            //System.out.println("No results found!");
             return;
         }
         
-        System.out.println("All Urls:");
-        System.out.println(totalAll.toBasicString());
-        System.out.println(totalAll.toAdvancedString());
-        System.out.println("");
+        //System.out.println("All Urls:");
+        //System.out.println(totalAll.toBasicString());
+        //System.out.println(totalAll.toAdvancedString());
+        //System.out.println("");
         
         Iterator iter = totalUrlMap.entrySet().iterator();
         while(iter.hasNext()) {
@@ -152,9 +152,9 @@ public class JMeterSummary {
             String url = (String)entry.getKey();
             Totals totals = (Totals)entry.getValue();
             
-            System.out.println("URL: " + url);
-            System.out.println(totals.toBasicString());
-            System.out.println("");
+            //System.out.println("URL: " + url);
+            //System.out.println(totals.toBasicString());
+            //System.out.println("");
         }
     } // end [run()]
 

@@ -36,13 +36,13 @@ public class Kryor {
         photoRank.score = 83.32d;
 
         byte[] bs = write(photoRank);
-        System.out.println(bs.length);
+        //System.out.println(bs.length);
 
-        System.out.println(photoRank);
+        //System.out.println(photoRank);
         // ...
 
         PhotoRank rank = read(bs, PhotoRank.class);
-        System.out.println(rank);
+        //System.out.println(rank);
 
     }
 }

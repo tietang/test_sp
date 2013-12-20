@@ -36,13 +36,13 @@ public class MongoTest {
 
         doc.put("info", info);
         doc.put("_id", ObjectId.get());
-        System.out.println(doc);
+        //System.out.println(doc);
 
         WriteResult wr = coll.insert(doc);
 
-        System.out.println(wr);
+        //System.out.println(wr);
         DBObject myDoc = coll.findOne();
-        System.out.println(myDoc);
+        //System.out.println(myDoc);
 
         m.close();
 

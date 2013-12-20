@@ -1,5 +1,6 @@
 package fengfei.web.app.init;
 
+import cn.bran.japid.util.JapidFlags;
 import fengfei.forest.slice.utils.ResourcesUtils;
 import fengfei.spruce.cache.SimpleCache;
 import fengfei.spruce.utils.FollowServiceUtils;
@@ -27,6 +28,8 @@ public class AppInitPlugin extends PlayPlugin {
 
     @Override
     public void onApplicationStart() {
+        JapidFlags.setLogLevelDebug();
+        //System.out.println();
         initFollowService();
         AppConstants.PopularMinScore = 30;
         AppConstants.UpcomingMinScore = 20;

@@ -225,7 +225,7 @@ public class Path {
     public static void main(String[] args) {
         for (int i = 0; i < 12; i++) {
             FilePath path = randomPath(UPLOAD_PATH);
-            System.out.println(path);
+            //System.out.println(path);
 
         }
     }

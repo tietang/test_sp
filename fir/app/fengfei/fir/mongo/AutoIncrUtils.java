@@ -22,7 +22,7 @@ public class AutoIncrUtils {
         DBCollection coll = db.getCollection(AutoIncrCollName);
         BasicDBObject update = new BasicDBObject("$inc", new BasicDBObject(CounterName, 1));
         DBObject o = coll.findAndModify(new BasicDBObject("_id", name), update);
-        System.out.println(o);
+        //System.out.println(o);
         Object oid = o.get(CounterName);
         return (Integer) oid;
 
@@ -36,5 +36,6 @@ public class AutoIncrUtils {
         for (int i = 0; i < 10; i++) {
             System.out.println(next(db, name));
         }
+
     }
 }

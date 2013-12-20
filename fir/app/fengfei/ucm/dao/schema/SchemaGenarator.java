@@ -22,11 +22,11 @@ public class SchemaGenarator {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             connection = DriverManager.getConnection(url, uname, pwd);
             for (int i = 0; i < shardNum; i++) {
-                System.out.println("start create schema for shard: " + (i + 1));
-                System.out.println();
+                //System.out.println("start create schema for shard: " + (i + 1));
+                //System.out.println();
                 createSchema(connection, database, (i + 1) + "_following", true);
                 createSchema(connection, database, (i + 1) + "_followed", true);
-                System.out.println();
+                //System.out.println();
             }
         } catch (InstantiationException e) {
             e.printStackTrace();
@@ -55,17 +55,17 @@ public class SchemaGenarator {
 
         String metadataTable = "metadata_" + suffix;
         String relationTable = "rs_" + suffix;
-        System.out.println();
+        //System.out.println();
         if (isDropTable) {
             statement.execute("DROP TABLE IF EXISTS " + database + "." + metadataTable);
-            System.out.println("        drop table " + metadataTable);
+            //System.out.println("        drop table " + metadataTable);
             statement.execute("DROP TABLE IF EXISTS " + database + "." + relationTable);
-            System.out.println("        drop table " + relationTable);
+            //System.out.println("        drop table " + relationTable);
         }
         statement.executeUpdate(String.format(metadata, metadataTable));
-        System.out.println("        create table " + metadataTable);
+        //System.out.println("        create table " + metadataTable);
         statement.executeUpdate(String.format(relation, relationTable));
-        System.out.println("        create table " + relationTable);
+        //System.out.println("        create table " + relationTable);
 
     }
 

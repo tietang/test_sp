@@ -54,13 +54,13 @@ public class SpruceInit {
 				Class<?> clazz = field.getType();
 				String fieldName = field.getName();
 				String methodName = toGetName(fieldName, clazz);
-				// System.out.println(methodName);
+				// //System.out.println(methodName);
 				Method method = SpruceInit.class.getMethod(methodName,
 						new Class[] {});
 				Object value = method.invoke(null, new Object[] {});
 				field.setAccessible(true);
 				field.set(null, value);
-				// System.out.println(value);
+				// //System.out.println(value);
 			} catch (Exception e) {
 				logger.error("auto initialize error.", e);
 			}
