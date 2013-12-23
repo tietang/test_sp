@@ -509,7 +509,7 @@ input.error {
     height: 50px;
     text-align: center;
     vertical-align: middle;
-    background-image: url("/public/images/heart.gif");
+    background-image: url("/public/images/heart.png");
     background-position: 50% 35px;
     background-repeat: no-repeat;
 }
@@ -561,8 +561,8 @@ input.error {
 }
 
 .photo_max_stats {
-    padding: 11px;
-    font-size: 18px;
+    padding: 0px 11px;
+    font-size: 16px;
     text-align: center;
     vertical-align: middle;
 }
@@ -602,6 +602,8 @@ input.error {
     height: 280px;
 }
 
+
+
 .show .comment_error {
     border-color: red;
 }
@@ -627,6 +629,7 @@ input.error {
 .show_title {
     width: 100%;
     padding: 0px 0px;
+    margin-top: -5px;
 }
 
 .show_title .column {
@@ -701,7 +704,7 @@ input.error {
 .vote_btn {
     min-height: 80px;
     max-height: 80px;
-    width: 80px;
+    width: 60px;
     color: #ffffff;
     background-color: #039aea;
     border: none;
@@ -712,15 +715,9 @@ input.error {
 .vote_btn:hover,
 .vote_btn:focus,
 .vote_btn:active,
-.vote_btn.active,
-.open .dropdown-toggle.vote_btn {
+.vote_btn.active  {
     background-color: #02adea;
-}
-
-.vote_btn:active,
-.vote_btn.active,
-.open .dropdown-toggle.vote_btn {
-    background-image: none;
+     background-image: none;
 }
 
 .vote_btn.disabled,
@@ -732,7 +729,7 @@ input.error {
 .favorite_btn {
     min-height: 80px;
     max-height: 80px;
-    width: 60px;
+    width: 50px;
     color: #ffffff;
     background-color: #ed4d63;
     border: none;
@@ -745,10 +742,6 @@ input.error {
 .favorite_btn:active,
 .favorite_btn.active {
     background-color: #fd5d73;
-}
-
-.favorite_btn:active,
-.favorite_btn.active {
     background-image: none;
 }
 
@@ -758,7 +751,7 @@ input.error {
 }
 
 .show_title .vote_btn, .show_title .favorite_btn {
-    width: 60px;
+
     min-height: 80px;
     max-height: 80px;
 }
@@ -780,6 +773,40 @@ input.error {
     -webkit-border-radius: 0 4px 4px 0;
     -moz-border-radius: 0 4px 4px 0;
     border-radius: 0 4px 4px 0;
+}
+
+.show_title .favorite {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    font-weight: bold;
+    background-image: url("/public/images/favorite_heart.png");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.show_title .favorited {
+    background-image: url("/public/images/favorited_heart.png");
+    color: #e05555;
+    background-color: #808080;
+}
+
+
+.show_title .vote {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    font-weight: bold;
+    background-image: url("/public/images/vote.png");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.show_title .voted {
+    background-image: url("/public/images/voted.png");
+    background-color: #808080;
 }
 
 .show_title .follow_btn {
@@ -939,7 +966,7 @@ ul li a {
     margin-top: 0px;
 }
 
-.users .photo_preview  .caption .title {
+.users .photo_preview .caption .title {
     padding-top: 16px;
 }
 
@@ -950,25 +977,25 @@ ul li a {
 .users .camera {
 }
 
-.users .camera  ul {
+.users .camera ul {
     list-style: none;
     margin: 0px;
     padding: 10px;
 }
 
-.users .camera  ul li {
+.users .camera ul li {
     height: 20px;
     padding: 0px;
 }
 
-.users .camera  .key {
+.users .camera .key {
     color: #AAA;
     width: 50px;
     display: inline-block;
     overflow: hidden;
 }
 
-.users .camera  .value {
+.users .camera .value {
     padding: 0px 5px;
     padding-left: 12px;
     overflow: hidden;

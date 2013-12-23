@@ -27,6 +27,7 @@ function vote() {
     var niceName = $("#niceNameX").val();
     var photoIdUser = $("#photoIdUserX").val();
 
+
     if (isvote != "true") {
         $.post("/vote/" + id, {
             "category": category,
@@ -34,9 +35,10 @@ function vote() {
             "photoIdUser": photoIdUser
         }, function (data) {
             if (data.status == "Success") {
-                btn.removeClass("btn-success").addClass("disabled").text(i18n.Thank.vote);
+//                btn.removeClass("btn-success").addClass("disabled").text(i18n.Thank.vote);
+                btn.addClass("voted");
                 rankReShow(id);
-                btn.attr("isvote",true);
+                btn.attr("isvote", true);
             } else {
                 notify(data.msg, i18n.Server.error);
             }

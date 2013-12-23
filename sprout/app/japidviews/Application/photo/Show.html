@@ -17,7 +17,6 @@
 <script src="@{'/public/app/comment.js'}"></script>
 
 
-
 `
 <div class="show_title">
     <div class="grid_row ">
@@ -51,20 +50,21 @@
             </div>
 
 
+
             <div class="column_right  ">
                 <div class="btn-group rank">
                     <a id="vote_btn"
-                            class="btn flat-btn `if(isVote){`disabled`}` vote_btn"
-                            type="button"
-                            isvote="${isVote}" title="`if(isVote){`&{thank.vote}`}else{`&{like}`}`">
-                        <div class="icon-thumbs-up icon-white"></div>
-                        <div>`if(isVote){`&{vote.voted}`}else{`&{vote.like}`}`</div>
+                       class="btn flat-btn vote `if(isVote){`voted`}` vote_btn "
+                       type="button"
+                       isvote="${isVote}" title="`if(isVote){`&{thank.vote}`}else{`&{like}`}`">
 
+
+                        &nbsp;
                     </a>
                     <a id="favorite_btn" title="`if(isFavorite){`&{favorite.cancel}`}else{`&{favorite}`}`"
-                            class="btn flat-btn favorite `if(isFavorite){`favorited`}else{`unfavorited`}` ico_favorite favorite_btn
+                       class="btn flat-btn favorite `if(isFavorite){`favorited`}else{`unfavorited`}` favorite_btn
                 pull-right" type="button"
-                            isfavorite="${isFavorite}">&nbsp;
+                       isfavorite="${isFavorite}">&nbsp;
                     </a>
                 </div>
             </div>
@@ -237,5 +237,6 @@
 
         </div>
     </li>
+
 
 </script>
