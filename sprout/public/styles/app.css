@@ -509,9 +509,10 @@ input.error {
     height: 50px;
     text-align: center;
     vertical-align: middle;
-    background-image: url("/public/images/heart.png");
+    background-image: url("/public/images/pluse.png");
     background-position: 50% 35px;
     background-repeat: no-repeat;
+
 }
 
 .photo_stats {
@@ -673,15 +674,18 @@ input.error {
     color: #AAA;
 }
 
+
+
 .show_title .photo_score_stats {
-    font-size: 18px;
-    min-height: 60px;
+    font-size: 28px;
+    min-height: 40px;
     min-width: 70px;
+    padding: 10px 0px;
     padding-left: 0px;
     text-align: center;
-    vertical-align: middle;
-    background-image: url("/public/images/heart.gif");
-    background-position: 50% 90%;
+    vertical-align: text-bottom;
+    background-image: url("/public/images/pluse.png");
+    background-position: 50% 70%;
     background-repeat: no-repeat;
 }
 
