@@ -1,3 +1,4 @@
+//version: 0.9.37
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -25,9 +26,11 @@ import controllers.*;
 public class Upload extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/photo/Upload.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -45,11 +48,17 @@ public class Upload extends japidviews._layouts.Layout
 
 
 	public Upload() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public Upload(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public Upload(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"photoSets",  };
@@ -69,9 +78,8 @@ public class Upload extends japidviews._layouts.Layout
 	private List<PhotoSet> photoSets; // line 5, japidviews/Application/photo/Upload.html
 	public cn.bran.japid.template.RenderResult render(List<PhotoSet> photoSets) {
 		this.photoSets = photoSets;
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 5, japidviews/Application/photo/Upload.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(List<PhotoSet> photoSets) {
@@ -80,13 +88,12 @@ public class Upload extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Upload.html
 
 p("\n" + 
 "</pre>\n");// line 5, japidviews\Application\photo\Upload.html
 		// line 7, japidviews\Application\photo\Upload.html
-final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActionRunners()).setOut(getOut()); _AddNav2.render("upload"); // line 45, japidviews\Application\photo\Upload.html// line 45, japidviews\Application\photo\Upload.html
+new AddNav(Upload.this).render("upload"); // line 45, japidviews\Application\photo\Upload.html// line 45, japidviews\Application\photo\Upload.html
 		p("\n" + 
 "<form id=\"photoUploadForm\" action=\"/upload/done\" method=\"post\" enctype=\"multipart/form-data\">\n" + 
 "    <div class=\"grid_row upload \">\n" + 
@@ -123,7 +130,7 @@ final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActio
 "                    </thead>\n" + 
 "                    <tbody>\n" + 
 "                    ");// line 56, japidviews\Application\photo\Upload.html
-		final UploadForm _UploadForm3 = new UploadForm(getOut()); _UploadForm3.setActionRunners(getActionRunners()).setOut(getOut()); _UploadForm3.render(null,photoSets); // line 72, japidviews\Application\photo\Upload.html// line 72, japidviews\Application\photo\Upload.html
+		new UploadForm(Upload.this).render(null,photoSets); // line 72, japidviews\Application\photo\Upload.html// line 72, japidviews\Application\photo\Upload.html
 		p("\n" + 
 "\n" + 
 "                    <tr>\n" + 
@@ -154,7 +161,7 @@ final AddNav _AddNav2 = new AddNav(getOut()); _AddNav2.setActionRunners(getActio
 "                    ");// line 86, japidviews\Application\photo\Upload.html
 		Map map=new HashMap();map.put("catefory",fengfei.spruce.cache.SimpleCache.categories);// line 93, japidviews\Application\photo\Upload.html
 
-                    final CategorySelector _CategorySelector4 = new CategorySelector(getOut()); _CategorySelector4.setActionRunners(getActionRunners()).setOut(getOut()); _CategorySelector4.render(map,(byte) 0); // line 94, japidviews\Application\photo\Upload.html// line 94, japidviews\Application\photo\Upload.html
+                    new CategorySelector(Upload.this).render(map,(byte) 0); // line 94, japidviews\Application\photo\Upload.html// line 94, japidviews\Application\photo\Upload.html
 		p("\n" + 
 "                </div>\n" + 
 "            </div>\n" + 

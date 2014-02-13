@@ -1,3 +1,4 @@
+//version: 0.9.37
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -23,9 +24,11 @@ import controllers.*;
 public class UploadSwf extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/photo/UploadSwf.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -43,11 +46,17 @@ public class UploadSwf extends japidviews._layouts.Layout
 
 
 	public UploadSwf() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public UploadSwf(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public UploadSwf(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/ };
@@ -65,9 +74,8 @@ public class UploadSwf extends japidviews._layouts.Layout
 ////// end of named args stuff
 
 	public cn.bran.japid.template.RenderResult render() {
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 0, japidviews/Application/photo/UploadSwf.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply() {
@@ -76,7 +84,6 @@ public class UploadSwf extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 ;// line 1, japidviews\Application\photo\UploadSwf.html
 
 // line 2, japidviews\Application\photo\UploadSwf.html

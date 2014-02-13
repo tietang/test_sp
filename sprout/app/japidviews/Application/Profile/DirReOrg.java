@@ -1,3 +1,4 @@
+//version: 0.9.37
 package japidviews.Application.profile;
 import java.util.*;
 import java.io.*;
@@ -25,9 +26,11 @@ import controllers.*;
 public class DirReOrg extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/profile/DirReOrg.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -45,11 +48,17 @@ public class DirReOrg extends japidviews._layouts.Layout
 
 
 	public DirReOrg() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public DirReOrg(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public DirReOrg(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"photoSets",  };
@@ -69,9 +78,8 @@ public class DirReOrg extends japidviews._layouts.Layout
 	private List<PhotoSet> photoSets; // line 6, japidviews/Application/profile/DirReOrg.html
 	public cn.bran.japid.template.RenderResult render(List<PhotoSet> photoSets) {
 		this.photoSets = photoSets;
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 6, japidviews/Application/profile/DirReOrg.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(List<PhotoSet> photoSets) {
@@ -80,7 +88,6 @@ public class DirReOrg extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 p("<pre style=\"display: none\">\n" + 
 "	\n");// line 1, japidviews\Application\profile\DirReOrg.html
 

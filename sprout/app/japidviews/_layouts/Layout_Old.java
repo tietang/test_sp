@@ -1,3 +1,4 @@
+//version: 0.9.37
 package japidviews._layouts;
 import java.util.*;
 import java.io.*;
@@ -23,9 +24,11 @@ import controllers.*;
 public abstract class Layout_Old extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/_layouts/Layout_Old.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -43,13 +46,20 @@ public abstract class Layout_Old extends cn.bran.play.JapidTemplateBase
 
 
 	public Layout_Old() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public Layout_Old(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public Layout_Old(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 	@Override public void layout() {
-		beginDoLayout(sourceTemplate);		p("<!DOCTYPE html>\n" + 
+		beginDoLayout(sourceTemplate);
+p("<!DOCTYPE html>\n" + 
 "<html>\n" + 
 "<head>\n" + 
 "<meta charset=\"UTF-8\">\n" + 
@@ -176,7 +186,10 @@ public abstract class Layout_Old extends cn.bran.play.JapidTemplateBase
 "<div id=\"dialog\"></div>\n" + 
 "</body>\n" + 
 "</html>");// line 88, japidviews\_layouts\Layout_Old.html
-				endDoLayout(sourceTemplate);	}
+		
+		endDoLayout(sourceTemplate);
+	}
+
 	 protected void title() {};
 	 protected void css() {};
 

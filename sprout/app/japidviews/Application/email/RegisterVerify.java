@@ -1,3 +1,4 @@
+//version: 0.9.37
 package japidviews.Application.email;
 import java.util.*;
 import java.io.*;
@@ -23,9 +24,11 @@ import controllers.*;
 public class RegisterVerify extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/Application/email/RegisterVerify.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -43,11 +46,17 @@ public class RegisterVerify extends cn.bran.play.JapidTemplateBase
 
 
 	public RegisterVerify() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public RegisterVerify(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public RegisterVerify(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"name", "content",  };
@@ -69,9 +78,8 @@ public class RegisterVerify extends cn.bran.play.JapidTemplateBase
 	public cn.bran.japid.template.RenderResult render(String name,String content) {
 		this.name = name;
 		this.content = content;
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 3, japidviews/Application/email/RegisterVerify.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(String name,String content) {
@@ -80,7 +88,6 @@ public class RegisterVerify extends cn.bran.play.JapidTemplateBase
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 p("<!DOCTYPE html>\n");// line 1, japidviews\Application\email\RegisterVerify.html
 
 p("\n" + 

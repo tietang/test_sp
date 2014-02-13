@@ -1,3 +1,4 @@
+//version: 0.9.37
 package japidviews._layouts;
 import java.util.*;
 import java.io.*;
@@ -23,9 +24,11 @@ import controllers.*;
 public abstract class Layout3 extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/_layouts/Layout3.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -43,13 +46,20 @@ public abstract class Layout3 extends cn.bran.play.JapidTemplateBase
 
 
 	public Layout3() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public Layout3(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public Layout3(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 	@Override public void layout() {
-		beginDoLayout(sourceTemplate);		p("<!DOCTYPE html>\n" + 
+		beginDoLayout(sourceTemplate);
+p("<!DOCTYPE html>\n" + 
 "<html lang=\"en\">\n" + 
 "	<head>\n" + 
 "		<meta charset=\"UTF-8\">\n" + 
@@ -544,7 +554,10 @@ public abstract class Layout3 extends cn.bran.play.JapidTemplateBase
 "		</footer>\n" + 
 "	</body>\n" + 
 "</html>\n");// line 130, japidviews\_layouts\Layout3.html
-				endDoLayout(sourceTemplate);	}
+		
+		endDoLayout(sourceTemplate);
+	}
+
 	 protected void title() {};
 	 protected void header() {};
 	 protected void css() {};

@@ -1,0 +1,3 @@
+1: public
+2: friendliness
+3: private

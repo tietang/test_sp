@@ -17,6 +17,11 @@ msg.delete.success=Delete successfully.
 msg.delete.fail=Delete failed.
 msg.delete.error=An error occurred while deleting.
 
+#global
+public=Public
+friend=Friend
+private=Private
+
 # nav link
 home=Home
 photo=Photo

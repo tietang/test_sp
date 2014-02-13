@@ -166,6 +166,7 @@ public class PhotoManagerAction extends Admin {
 
         } catch (Exception e) {
             flash.error(i18n("dir.save.error"));
+            renderHasErrors();
             Logger.error(e, i18n("dir.save.error"));
         }
         allDirectory();

@@ -334,7 +334,10 @@ public class RankDao {
             // case Score:
             // updateSQL = UpdateScore;
             // break;
+            case UpdateScore:
+                userAffectionTotal = UpdateUserStatsAffectionTotal;
 
+                break;
             default:
                 return rank;
             // break;
@@ -345,8 +348,10 @@ public class RankDao {
 
         // 更新天访问数/投票数/收藏数/评论数
         Date day = new Date(System.currentTimeMillis());
-        String update = String.format(updateSQL, suffix);
-        int updated2 = grower.update(update, value, current, idPhoto, day);
+        if (updateSQL != null) {
+            String update = String.format(updateSQL, suffix);
+            int updated2 = grower.update(update, value, current, idPhoto, day);
+        }
         rank.updateAt = current;
         // 计算分数
         int[] lastRank = last30DaysRank(grower, suffix, idPhoto);
@@ -360,12 +365,17 @@ public class RankDao {
 
         // 更新总访问数/总投票数/总收藏数/总评论数
         if (type != AccessType.Score) {
-            String update1 = String.format(upTotal, suffix);
-            updated = grower.update(update1, score, current, value, idPhoto);
+            if (upTotal != null) {
+                String update1 = String.format(upTotal, suffix);
+                updated = grower.update(update1, score, current, value, idPhoto);
+            }
             rank.score = score;
             if (idUser != null && idUser > 0) {
-                String update2 = String.format(userTotal, suffix);
-                updated = grower.update(update2, current, value, idUser);
+                if (userTotal != null) {
+                    String update2 = String.format(userTotal, suffix);
+                    updated = grower.update(update2, current, value, idUser);
+                }
+
                 if (userAffectionTotal != null) {
                     String update3 = String.format(userAffectionTotal, suffix);
                     updated = grower.update(update3, current, value, idUser);

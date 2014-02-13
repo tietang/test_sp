@@ -1,3 +1,4 @@
+//version: 0.9.37
 package japidviews._layouts;
 import java.util.*;
 import java.io.*;
@@ -23,9 +24,11 @@ import controllers.*;
 public abstract class Layoutx extends cn.bran.play.JapidTemplateBase
 {
 	public static final String sourceTemplate = "japidviews/_layouts/Layoutx.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -43,13 +46,20 @@ public abstract class Layoutx extends cn.bran.play.JapidTemplateBase
 
 
 	public Layoutx() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public Layoutx(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public Layoutx(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 	@Override public void layout() {
-		beginDoLayout(sourceTemplate);		p("<!DOCTYPE html>\n");// line 1, japidviews\_layouts\Layoutx.html
+		beginDoLayout(sourceTemplate);
+p("<!DOCTYPE html>\n");// line 1, japidviews\_layouts\Layoutx.html
 		p("\n" + 
 "<html lang=\"en\">\n" + 
 "	<head>\n" + 
@@ -199,7 +209,10 @@ public abstract class Layoutx extends cn.bran.play.JapidTemplateBase
 "		</footer>\n" + 
 "	</body>\n" + 
 "</html>\n");// line 95, japidviews\_layouts\Layoutx.html
-				endDoLayout(sourceTemplate);	}
+		
+		endDoLayout(sourceTemplate);
+	}
+
 	 protected void title() {};
 	 protected void header() {};
 	 protected void css() {};

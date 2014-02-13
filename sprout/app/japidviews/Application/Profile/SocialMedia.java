@@ -1,3 +1,4 @@
+//version: 0.9.37
 package japidviews.Application.profile;
 import java.util.*;
 import java.io.*;
@@ -24,9 +25,11 @@ import controllers.*;
 public class SocialMedia extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/profile/SocialMedia.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -44,11 +47,17 @@ public class SocialMedia extends japidviews._layouts.Layout
 
 
 	public SocialMedia() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public SocialMedia(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public SocialMedia(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"m",  };
@@ -68,9 +77,8 @@ public class SocialMedia extends japidviews._layouts.Layout
 	private UserSocial m; // line 3, japidviews/Application/profile/SocialMedia.html
 	public cn.bran.japid.template.RenderResult render(UserSocial m) {
 		this.m = m;
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 3, japidviews/Application/profile/SocialMedia.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(UserSocial m) {
@@ -79,7 +87,6 @@ public class SocialMedia extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 ;// line 1, japidviews\Application\profile\SocialMedia.html
 
 p("\n" + 
@@ -89,7 +96,7 @@ p("\n" +
 "    <div class=\"col col_3 \">\n" + 
 "        <div class=\"sidebar-nav \">\n" + 
 "            ");// line 5, japidviews\Application\profile\SocialMedia.html
-		final SettingsMenu _SettingsMenu2 = new SettingsMenu(getOut()); _SettingsMenu2.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu2.render("SocialMedia"); // line 11, japidviews\Application\profile\SocialMedia.html// line 11, japidviews\Application\profile\SocialMedia.html
+		new SettingsMenu(SocialMedia.this).render("SocialMedia"); // line 11, japidviews\Application\profile\SocialMedia.html// line 11, japidviews\Application\profile\SocialMedia.html
 		p("\n" + 
 "        </div>\n" + 
 "    </div>\n" + 

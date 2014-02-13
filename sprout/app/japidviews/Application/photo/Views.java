@@ -1,3 +1,4 @@
+//version: 0.9.37
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -25,9 +26,11 @@ import controllers.*;
 public class Views extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/photo/Views.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -45,11 +48,17 @@ public class Views extends japidviews._layouts.Layout
 
 
 	public Views() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public Views(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public Views(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"pathTitle", "pagePath", "photos", "pageNum",  };
@@ -75,9 +84,8 @@ public class Views extends japidviews._layouts.Layout
 		this.pagePath = pagePath;
 		this.photos = photos;
 		this.pageNum = pageNum;
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 4, japidviews/Application/photo/Views.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(Map<String, String> pathTitle,String pagePath,List<? extends PhotoShow> photos,int pageNum) {
@@ -86,13 +94,12 @@ public class Views extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 ;// line 1, japidviews\Application\photo\Views.html
 
 // line 7, japidviews\Application\photo\Views.html
-final PhotoNav _PhotoNav3 = new PhotoNav(getOut()); _PhotoNav3.setActionRunners(getActionRunners()).setOut(getOut()); _PhotoNav3.render(pagePath,pathTitle); // line 11, japidviews\Application\photo\Views.html// line 11, japidviews\Application\photo\Views.html
+new PhotoNav(Views.this).render(pagePath,pathTitle); // line 11, japidviews\Application\photo\Views.html// line 11, japidviews\Application\photo\Views.html
 
-final PhotoView _PhotoView4 = new PhotoView(getOut()); _PhotoView4.setActionRunners(getActionRunners()).setOut(getOut()); _PhotoView4.render(pagePath,photos,pageNum); // line 12, japidviews\Application\photo\Views.html// line 12, japidviews\Application\photo\Views.html
+new PhotoView(Views.this).render(pagePath,photos,pageNum); // line 12, japidviews\Application\photo\Views.html// line 12, japidviews\Application\photo\Views.html
 		;// line 12, japidviews\Application\photo\Views.html
 		
 		endDoLayout(sourceTemplate);

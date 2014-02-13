@@ -1,3 +1,4 @@
+//version: 0.9.37
 package japidviews.Application;
 import java.util.*;
 import java.io.*;
@@ -24,9 +25,11 @@ import controllers.*;
 public class Signup extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/Signup.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -44,11 +47,17 @@ public class Signup extends japidviews._layouts.Layout
 
 
 	public Signup() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public Signup(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public Signup(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"up",  };
@@ -68,9 +77,8 @@ public class Signup extends japidviews._layouts.Layout
 	private UserPwd up; // line 3, japidviews/Application/Signup.html
 	public cn.bran.japid.template.RenderResult render(UserPwd up) {
 		this.up = up;
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 3, japidviews/Application/Signup.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(UserPwd up) {
@@ -79,7 +87,6 @@ public class Signup extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 ;// line 1, japidviews\Application\Signup.html
 
 // line 6, japidviews\Application\Signup.html

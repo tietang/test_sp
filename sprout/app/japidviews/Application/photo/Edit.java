@@ -1,3 +1,4 @@
+//version: 0.9.37
 package japidviews.Application.photo;
 import java.util.*;
 import java.io.*;
@@ -24,9 +25,11 @@ import controllers.*;
 public class Edit extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/photo/Edit.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -44,11 +47,17 @@ public class Edit extends japidviews._layouts.Layout
 
 
 	public Edit() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public Edit(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public Edit(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"photo", "rank", "exif",  };
@@ -72,9 +81,8 @@ public class Edit extends japidviews._layouts.Layout
 		this.photo = photo;
 		this.rank = rank;
 		this.exif = exif;
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 5, japidviews/Application/photo/Edit.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(Photo photo,Rank rank,Map exif) {
@@ -83,7 +91,6 @@ public class Edit extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 p("<pre style=\"display: none\">\n");// line 1, japidviews\Application\photo\Edit.html
  
 p("\n" + 
@@ -164,7 +171,7 @@ p("\n" +
 "        </div>\n" + 
 "        <div class=\"line6\"></div>\n" + 
 "        ");// line 80, japidviews\Application\photo\Edit.html
-		final RankShow _RankShow3 = new RankShow(getOut()); _RankShow3.setActionRunners(getActionRunners()).setOut(getOut()); _RankShow3.render(rank); // line 89, japidviews\Application\photo\Edit.html// line 89, japidviews\Application\photo\Edit.html
+		new RankShow(Edit.this).render(rank); // line 89, japidviews\Application\photo\Edit.html// line 89, japidviews\Application\photo\Edit.html
 		p("\n" + 
 "        <div class=\"line6\"></div>\n" + 
 "\n" + 

@@ -12,6 +12,7 @@ import java.util.List;
 
 public class Photo extends PhotoShow implements Serializable {
 
+
     private static final long serialVersionUID = 1L;
     //
     public static final byte Normal = 0;

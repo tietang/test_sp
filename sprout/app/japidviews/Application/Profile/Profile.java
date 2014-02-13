@@ -1,3 +1,4 @@
+//version: 0.9.37
 package japidviews.Application.profile;
 import java.util.*;
 import java.io.*;
@@ -24,9 +25,11 @@ import controllers.*;
 public class Profile extends japidviews._layouts.Layout
 {
 	public static final String sourceTemplate = "japidviews/Application/profile/Profile.html";
-	{
+	 private void initHeaders() {
 		putHeader("Content-Type", "text/html; charset=utf-8");
 		setContentType("text/html; charset=utf-8");
+	}
+	{
 	}
 
 // - add implicit fields with Play
@@ -44,11 +47,17 @@ public class Profile extends japidviews._layouts.Layout
 
 
 	public Profile() {
-		super(null);
+	super((StringBuilder)null);
+	initHeaders();
 	}
 	public Profile(StringBuilder out) {
 		super(out);
+		initHeaders();
 	}
+	public Profile(cn.bran.japid.template.JapidTemplateBaseWithoutPlay caller) {
+		super(caller);
+	}
+
 /* based on https://github.com/branaway/Japid/issues/12
  */
 	public static final String[] argNames = new String[] {/* args of the template*/"user",  };
@@ -68,9 +77,8 @@ public class Profile extends japidviews._layouts.Layout
 	private User user; // line 3, japidviews/Application/profile/Profile.html
 	public cn.bran.japid.template.RenderResult render(User user) {
 		this.user = user;
-		long __t = -1;
 		try {super.layout();} catch (RuntimeException __e) { super.handleException(__e);} // line 3, japidviews/Application/profile/Profile.html
-		return new cn.bran.japid.template.RenderResultPartial(getHeaders(), getOut(), __t, actionRunners, sourceTemplate);
+		return getRenderResult();
 	}
 
 	public static cn.bran.japid.template.RenderResult apply(User user) {
@@ -79,7 +87,6 @@ public class Profile extends japidviews._layouts.Layout
 
 	@Override protected void doLayout() {
 		beginDoLayout(sourceTemplate);
-//------
 ;// line 1, japidviews\Application\profile\Profile.html
 
 p("\n" + 
@@ -91,7 +98,7 @@ p("\n" +
 "    <div class=\"col col_3 \">\n" + 
 "        <div class=\"sidebar-nav \">\n" + 
 "            ");// line 36, japidviews\Application\profile\Profile.html
-		final SettingsMenu _SettingsMenu3 = new SettingsMenu(getOut()); _SettingsMenu3.setActionRunners(getActionRunners()).setOut(getOut()); _SettingsMenu3.render("Profile"); // line 42, japidviews\Application\profile\Profile.html// line 42, japidviews\Application\profile\Profile.html
+		new SettingsMenu(Profile.this).render("Profile"); // line 42, japidviews\Application\profile\Profile.html// line 42, japidviews\Application\profile\Profile.html
 		p("\n" + 
 "        </div>\n" + 
 "    </div>\n" + 
@@ -100,7 +107,7 @@ p("\n" +
 "        <div class=\"row-fluid well profile_right\">\n" + 
 "            <div class=\"span12  \">\n" + 
 "                ");// line 42, japidviews\Application\profile\Profile.html
-		final ErrorMessage _ErrorMessage4 = new ErrorMessage(getOut()); _ErrorMessage4.setActionRunners(getActionRunners()).setOut(getOut()); _ErrorMessage4.render(); // line 49, japidviews\Application\profile\Profile.html// line 49, japidviews\Application\profile\Profile.html
+		new ErrorMessage(Profile.this).render(); // line 49, japidviews\Application\profile\Profile.html// line 49, japidviews\Application\profile\Profile.html
 		p("\n" + 
 "\n" + 
 "                <form class=\"\" action=\"/settings/profile/done\" method=\"post\">\n" + 

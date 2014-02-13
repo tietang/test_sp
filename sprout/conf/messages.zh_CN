@@ -17,6 +17,11 @@ msg.delete.success=删除成功！
 msg.delete.fail=删除失败！
 msg.delete.error=删除时发生错误！
 
+#global
+public=所有人可见
+friend=朋友可见
+private=自己可见
+
 #page
 home=主页
 photo=照片

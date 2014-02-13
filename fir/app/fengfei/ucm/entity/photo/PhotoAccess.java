@@ -14,7 +14,7 @@ public class PhotoAccess extends PhotoShow{
      * 
      */
     public static enum AccessType {
-        View(1), Vote(2), Favorite(3), Comment(4), Score(5);
+        UpdateScore(0),View(1), Vote(2), Favorite(3), Comment(4), Score(5);
 
         private final int value;
         private static Map<Integer, AccessType> cache = new HashMap<Integer, AccessType>();

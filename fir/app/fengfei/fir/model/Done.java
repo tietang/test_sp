@@ -8,6 +8,7 @@ public class Done extends HashMap<String, Object> {
         Success, Fail, Error
     }
 
+
     private static final long serialVersionUID = 1L;
     final static String KeyMsg = "msg";
     final static String KeyStatus = "status";
