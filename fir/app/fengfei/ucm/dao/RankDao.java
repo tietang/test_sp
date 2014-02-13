@@ -375,11 +375,9 @@ public class RankDao {
                     String update2 = String.format(userTotal, suffix);
                     updated = grower.update(update2, current, value, idUser);
                 }
+                String update3 = String.format(userAffectionTotal, suffix);
+                updated = grower.update(update3, current, value, idUser);
 
-                if (userAffectionTotal != null) {
-                    String update3 = String.format(userAffectionTotal, suffix);
-                    updated = grower.update(update3, current, value, idUser);
-                }
             }
         }
 

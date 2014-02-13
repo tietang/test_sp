@@ -22,13 +22,13 @@ function rankReShow(id) {
 function vote() {
     var id = $("#id_photo").val();
     var btn = $(this);
-    var isvote = $(this).attr("isvote");
+    var isVote = $(this).attr("isVote");
     var category = $("#categoryx").val();
     var niceName = $("#niceNameX").val();
     var photoIdUser = $("#photoIdUserX").val();
 
 
-    if (isvote != "true") {
+    if (isVote != "true") {
         $.post("/vote/" + id, {
             "category": category,
             "niceName": niceName,

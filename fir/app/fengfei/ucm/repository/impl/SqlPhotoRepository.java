@@ -513,6 +513,8 @@ public class SqlPhotoRepository implements PhotoRepository {
 
     }
 
+
+
     @Override
     public boolean isFavorite(final long idPhoto, final Integer accessIdUser, final int iip)
             throws Exception {

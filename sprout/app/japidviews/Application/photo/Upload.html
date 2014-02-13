@@ -73,11 +73,11 @@
 
                     <tr>
                         <td>&{photo.note}</td>
-                        <td >
+                        <td>
                             <div class="checkbox ">
                                 <label for="status1">
                                     &{photo.status}
-                                    <input type="checkbox" name="status" id="status1"   checked value="1"/>
+                                    <input type="checkbox" name="status" id="status1" checked value="1"/>
                                 </label>
                             </div>
                         </td>
@@ -88,6 +88,15 @@
                         </td>
                     </tr>
                     </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="3">
+                            <div  class="progress_per progress progress-success progress-striped">
+                                <div class="bar"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
                 </table>
                 <div class="block">
                     `Map map=new HashMap();map.put("catefory",fengfei.spruce.cache.SimpleCache.categories);`

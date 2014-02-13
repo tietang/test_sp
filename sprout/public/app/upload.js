@@ -137,7 +137,7 @@ $(function () {
             }).bind('fileuploadprogress',function (e, data) {
             }).bind('fileuploadprogressall',function (e, data) {
                 var progress = parseInt(data.loaded / data.total * 100, 10);
-                $('#progress .bar').css('width', progress + '%');
+                $('.progress .bar').css('width', progress + '%');
             }).bind('fileuploaddone',function (e, data) {
                 // alert(data.result);
                 // $.each(data.result.files, function(index, file) {
